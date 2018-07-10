@@ -1,3 +1,4 @@
-# CS 340 Project 
+# Meal Wheel
+### CS 340 Project 
 ### for Oregon State University
 
