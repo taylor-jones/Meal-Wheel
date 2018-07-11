@@ -12,80 +12,112 @@
 import re
 
 
+""" 
+@name: dedup_file_list
+@description: Removes duplicate line items from a file (in place)
+    and sorts the lines alphabetically (ascending).
+@param: file - the file containing the lines to be deduped and sorted.
+@return: the sorted set of line items that was used to write to the file.
+"""
+def dedup_file_list(file):
+    file.seek(0)
+    lines = file.readlines()
+    
+    # Use the marker set to help track duplicate values (case-insensitive).
+    # If the lowercased version of a value isn't in the marker_set, add it to the 
+    # file_set. This removes any duplicates but still preserves the case of the original values.
+    marker = set()
+    file_set = set()
+
+    for line in lines:
+        line = line.strip() + '\n'
+        ll = line.lower()
+        if ll not in marker:
+            marker.add(ll)
+            file_set.add(line)
+
+    # sort the set alphabetically.
+    file_set = sorted(file_set)
+
+    # remove the existing contents of the file.
+    file.seek(0)
+    file.truncate()
+
+    # write the deduped list back to the file
+    for line in file_set:
+        file.write(line)
+    
+    return file_set
+
+
+
+""" 
+@name: lines_to_insert_statement
+@description: Uses the items in a set to generate an INSERT sql statement.
+@param lines: the lines used to create the INSERT statement.
+@param outputFile: the file to write the generated SQL.
+@param leadText: text to be placed in the INSERT statement before
+    the list of items (should be the INSERT INTO... part)
+"""
+def lines_to_insert_statement(lines, output_file, lead_text):
+    # write the lead text
+    output_file.write(lead_text)
+
+    # keep track of the last line
+    line = None
+    last_line = None
+
+    # Format each line in the set as SQL
+    for line in lines:
+        if not last_line == None:
+            last_line = last_line.strip().replace('\'', '\'\'')
+            last_line = '(\'' + last_line + '\'),\n'
+            output_file.write(last_line)
+        last_line = line
+
+    # exchange the comma on the last line for a semicolon
+    last_line = last_line.strip().replace('\'', '\'\'')
+    last_line = '(\'' + last_line + '\');'
+    output_file.write(last_line)
+    return
+
+
+
+
 # open the files
-inputFile = open("FOOD_DES.txt", "r")
-ingredientFile = open("ingredient_list.txt", "w")
-categoryFile = open("ingredient_categories.txt", "w+")
-categorySQL = open('../ingredient_categories.sql', 'w+')
+inputFile = open('FOOD_DES.txt', 'r')
+ingredientFile = open('ingredient_list.txt', 'w+')
+ingredientDML = open('../ingredient.sql', 'w+')
+categoryFile = open('ingredient_categories.txt', 'w+')
+categoryDML = open('../ingredient_categories.sql', 'w+')
 
 
-# 
+
 # Parse the ingredients and ingredient categories.
-# 
 for line in inputFile:
-    # parse into ingredients
     ingredient = re.sub("~\\d+(~\\^~(\\d+)~\\^~)|((~\\^~Y?).*?){2}.*", "", line)
-    ingredientFile.write(ingredient)
-
-    # further parse to grab the text before the first comma as the "ingredient category"
     category = re.sub("\\(.*?\\)|,.*", "", ingredient)
-    categoryFile.write(category)
+
+    # bypass any brand name items
+    brand_match = re.match('^(Mc)?([A-Z]+)\\b', ingredient)
+    if not brand_match:
+        ingredientFile.write(ingredient)
+        categoryFile.write(category)
 
 
-# 
-# Remove duplicate ingredient categories
-# 
-categoryFile.seek(0)
-lines = categoryFile.readlines()
+
+# Remove duplicate ingredients & ingredient_categories
+ingredient_set = dedup_file_list(ingredientFile)
+category_set = dedup_file_list(categoryFile)
 
 
-# Use the marker set to help track duplicate values (case-insensitive)
-# if the lowercased version of a value isn't in the marker set, add it
-# to the ingredient category set. This removes any duplicates but still
-# preserves the case of the original values.
-marker = set()
-category_set = set()
+# Generate the DDL for the ingredients and ingredient categories
+ingredient_lead = 'INSERT INTO `ingredient` (ingredient_name) VALUES\n'
+category_lead = 'INSERT INTO `ingredient_category` (ingredient_category_name) VALUES\n'
 
-for line in lines:
-    line = line.strip() + '\n'
-    ll = line.lower()
-    if ll not in marker:
-        marker.add(ll)
-        category_set.add(line)
+lines_to_insert_statement(ingredient_set,ingredientDML, ingredient_lead)
+lines_to_insert_statement(category_set,categoryDML, category_lead)
 
-
-# sort the category set alphabetically.
-category_set = sorted(category_set)
-
-# remove the existing contents of the category file.
-categoryFile.seek(0)
-categoryFile.truncate()
-
-
-#
-# Generate ingredient_category SQL INSERT statement. 
-#
-
-# Write the categories in sorted order as an insert statement into the sql file.
-categorySQL.write('INSERT INTO `ingredient_category` (ingredient_category_name) VALUES\n')
-
-# Format each line for SQL
-line = None
-last_line = None
-
-for line in category_set:
-    categoryFile.write(line)
-
-    if not last_line == None:
-        last_line = last_line.strip().replace('\'','\'\'')
-        last_line = '(\'' + last_line + '\'),\n'
-        categorySQL.write(last_line)
-    last_line = line
-
-# exchange the comma on the last line for a semicolon
-last_line = last_line.strip().replace('\'', '\'\'')
-last_line = '(\'' + last_line + '\');'
-categorySQL.write(last_line)
 
 
 
@@ -93,6 +125,7 @@ categorySQL.write(last_line)
 # close the files
 inputFile.close()
 ingredientFile.close()
+ingredientDML.close()
 categoryFile.close()
-categorySQL.close()
+categoryDML.close()
 
