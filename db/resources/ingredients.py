@@ -14,7 +14,7 @@ for line in inputFile:
     ingredientFile.write(ingredient)
 
     # further parse to grab the text before the first comma as the category
-    category = re.sub(",.*", "", ingredient)
+    category = re.sub("\\(.*?\\)|,.*", "", ingredient)
     categoryFile.write(category)
 
 
@@ -22,7 +22,28 @@ for line in inputFile:
 # Remove duplicate ingredient categories
 # 
 categoryFile.seek(0)
-category_set = sorted(set(categoryFile.readlines()))
+lines = categoryFile.readlines()
+
+
+# Use the marker set to help track duplicate values (case-insensitive)
+# if the lowercased version of a value isn't in the marker set, add it
+# to the ingredient category set. This removes any duplicates but still
+# preserves the case of the original values.
+marker = set()
+category_set = set()
+
+for line in lines:
+    line = line.strip() + '\n'
+    ll = line.lower()
+    if ll not in marker:
+        marker.add(ll)
+        category_set.add(line)
+
+
+# sort the category set alphabetically.
+category_set = sorted(category_set)
+
+# remove the existing contents of the category file.
 categoryFile.seek(0)
 categoryFile.truncate()
 

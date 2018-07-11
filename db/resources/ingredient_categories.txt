@@ -4,10 +4,9 @@ AUSTIN
 Abiyuch
 Acerola
 Acerola juice
-Acorn stew (Apache)
+Acorn stew
 Agave
 Agutuk
-Alcoholic Beverage
 Alcoholic beverage
 Alfalfa seeds
 Amaranth grain
@@ -24,7 +23,7 @@ Arrowroot flour
 Artichokes
 Artificial Blueberry Muffin Mix
 Arugula
-Ascidians (tunughnak) (Alaska Native)
+Ascidians
 Asparagus
 Avocados
 BARBARA DEE
@@ -39,7 +38,7 @@ Bacon bits
 Bagel
 Bagels
 Baking chocolate
-Balsam-pear (bitter gourd)
+Balsam-pear
 Bamboo shoots
 Bananas
 Barbecue loaf
@@ -72,7 +71,7 @@ Bologna
 Borage
 Boysenberries
 Bratwurst
-Braunschweiger (a liver sausage)
+Braunschweiger
 Bread
 Bread crumbs
 Bread sticks
@@ -82,7 +81,6 @@ Breakfast bar
 Breakfast bars
 Breakfast tart
 Broadbeans
-Broadbeans (fava beans)
 Broccoli
 Broccoli raab
 Brotwurst
@@ -134,7 +132,6 @@ CAMPBELL'S Microwavable Turkey Gravy
 CAMPBELL'S Mushroom Gravy
 CAMPBELL'S Red and White
 CAMPBELL'S Red and White - Microwaveable Bowls
-CAMPBELL'S Soup on the GO
 CAMPBELL'S Soup on the Go
 CAMPBELL'S Turkey Gravy
 CARL BUDDIG
@@ -196,12 +193,12 @@ Chicken pot pie
 Chicken roll
 Chicken spread
 Chicken tenders
-Chickpea flour (besan)
-Chickpeas (garbanzo beans
+Chickpea flour
+Chickpeas
 Chicory
 Chicory greens
 Chicory roots
-Chilchen (Red Berry Beverage) (Navajo)
+Chilchen
 Child formula
 Chili
 Chili con carne with beans
@@ -228,13 +225,13 @@ Cocktail mix
 Cocoa
 Cocoa mix
 Coffee
-Coffee and cocoa (mocha) powder
+Coffee and cocoa  powder
 Coffee substitute
 Coffeecake
 Collards
 Cookie
 Cookies
-Coriander (cilantro) leaves
+Coriander  leaves
 Corn
 Corn bran
 Corn dogs
@@ -242,14 +239,13 @@ Corn flour
 Corn grain
 Corn pudding
 Corn with red and green peppers
-Corned beef and potatoes in tortilla (Apache)
+Corned beef and potatoes in tortilla
 Corned beef loaf
 Cornmeal
 Cornsalad
 Cornstarch
 Couscous
 Cowpeas
-Cowpeas (blackeyes)
 Crabapples
 Cracker meal
 Crackers
@@ -285,7 +281,7 @@ Dairy drink mix
 Dandelion greens
 Danish pastry
 Dates
-Deer (venison)
+Deer
 Dessert topping
 Desserts
 Dill weed
@@ -315,7 +311,6 @@ Elderberries
 Elk
 Emu
 Endive
-Energy Drink
 Energy drink
 English muffins
 Entrees
@@ -328,8 +323,6 @@ FRANCO-AMERICAN Slow Roast Beef Gravy
 FRANCO-AMERICAN Slow Roast Chicken Gravy
 FRANCO-AMERICAN Slow Roast Turkey Gravy
 Falafel
-Fast Food
-Fast Foods
 Fast food
 Fast foods
 Fat
@@ -349,7 +342,7 @@ Focaccia
 Formulated bar
 Frankfurter
 French toast
-Frijoles rojos volteados (Refried beans
+Frijoles rojos volteados
 Frog legs
 Frostings
 Frozen novelties
@@ -376,7 +369,6 @@ GENERAL MILLS
 GEORGE WESTON BAKERIES
 GIRL SCOUTS
 Game meat
-Game meat 
 Garlic
 Garlic bread
 Gelatin desserts
@@ -427,7 +419,7 @@ Hibiscus tea
 Hominy
 Honey
 Honey roll sausage
-Horned melon (Kiwano)
+Horned melon
 Horseradish
 Huckleberries
 Hummus
@@ -444,7 +436,6 @@ Ice cream sandwich
 Ice creams
 Imitation cheese
 Incaparina
-Infant Formula
 Infant formula
 JACKSON'S
 Jackfruit
@@ -485,7 +476,7 @@ KRAFT VELVEETA LIGHT Reduced Fat Pasteurized Process Cheese Product
 KRAFT VELVEETA Pasteurized Process Cheese Spread
 Kale
 Kanpyo
-Keikitos (muffins)
+Keikitos
 Kielbasa
 Kiwifruit
 Knackwurst
@@ -514,11 +505,10 @@ Lard
 Lasagna
 Lasagna with meat & sauce
 Lasagna with meat sauce
-Lean Pockets
 Leavening agents
 Lebanon bologna
 Leeks
-Lemon grass (citronella)
+Lemon grass
 Lemon juice
 Lemon peel
 Lemonade
@@ -596,7 +586,6 @@ MOTHER'S
 MURRAY
 Macaroni
 Macaroni and Cheese
-Macaroni and cheese
 Macaroni and cheese dinner with dry sauce mix
 Macaroni and cheese loaf
 Macaroni or noodles with cheese
@@ -622,7 +611,7 @@ Mayonnaise dressing
 McDONALD'S
 McDONALD'S Bacon Ranch Salad with Crispy Chicken
 Meal supplement drink
-Meat drippings (lard
+Meat drippings
 Meat extender
 Meatballs
 Melon
@@ -659,12 +648,11 @@ Mustard spinach
 Mutton
 NABISCO
 Nance
-Naranjilla (lulo) pulp
+Naranjilla  pulp
 Natto
 Nectarines
 New Zealand spinach
 New england brand sausage
-New zealand spinach
 Noodles
 Nopales
 Nutritional supplement for people with diabetes
@@ -672,11 +660,11 @@ Nuts
 OLIVE GARDEN
 ON THE BORDER
 OSCAR MAYER
-OSCAR MAYER. Bologna (Wisconsin made ring)
+OSCAR MAYER. Bologna
 Oat bran
 Oat flour
 Oats
-Octopus (Alaska Native)
+Octopus
 Oheloberries
 Oil
 Okara
@@ -685,7 +673,7 @@ Olive loaf
 Olives
 Onion rings
 Onions
-Oopah (tunicate)
+Oopah
 Orange Pineapple Juice Blend
 Orange and apricot juice drink
 Orange breakfast drink
@@ -763,10 +751,9 @@ Pickle relish
 Pickles
 Picnic loaf
 Pie
-Pie Crust
 Pie crust
 Pie fillings
-Pigeon peas (red gram)
+Pigeon peas
 Pigeonpeas
 Piki bread
 Pimento
@@ -884,8 +871,7 @@ SILK Raspberry soy yogurt
 SILK Strawberry soy yogurt
 SILK Unsweetened
 SILK Vanilla
-SILK Vanilla soy yogurt (family size)
-SILK Vanilla soy yogurt (single serving size)
+SILK Vanilla soy yogurt
 SILK Very Vanilla
 SMART SOUP
 SPAGHETTIOS
@@ -894,7 +880,6 @@ SUNSHINE
 SUPPER BAKES MEAL KITS
 SWANSON
 SWANSON BROTH
-Salad Dressing
 Salad dressing
 Salami
 Salmon
@@ -924,8 +909,8 @@ Shortening
 Shortening bread
 Shortening cake mix
 Shortening confectionery
-Shortening frying (heavy duty)
-Shortening household soybean (hydrogenated) and palm
+Shortening frying
+Shortening household soybean  and palm
 Shortening industrial
 Side dishes
 Smelt
@@ -945,13 +930,11 @@ Soy protein concentrate
 Soy protein isolate
 Soy sauce
 Soy sauce made from hydrolyzed vegetable protein
-Soy sauce made from soy (tamari)
-Soy sauce made from soy and wheat (shoyu)
+Soy sauce made from soy
+Soy sauce made from soy and wheat
 Soybean
 Soybeans
 Soymilk
-Soymilk (All flavors)
-Soymilk (all flavors)
 Spaghetti
 Spaghetti with meat sauce
 Spanish rice mix
@@ -991,7 +974,6 @@ T.G.I. FRIDAY'S
 TACO BELL
 Taco shells
 Tamales
-Tamales (Navajo)
 Tamarind nectar
 Tamarinds
 Tangerine juice
@@ -1007,7 +989,6 @@ Tempeh
 Tennis Bread
 Thuringer
 Thyme
-Toaster Pastries
 Toaster pastries
 Toddler formula
 Tofu
@@ -1103,7 +1084,7 @@ WORTHINGTON Vegetable Skallops
 WORTHINGTON Vegetable Steaks
 WORTHINGTON Vegetarian Burger
 WORTHINGTON Veja-Links
-WORTHINGTON Wham (roll)
+WORTHINGTON Wham
 Waffle
 Waffles
 Walrus
@@ -1131,13 +1112,13 @@ Winged bean leaves
 Winged bean tuber
 Winged beans
 Wocas
-Wonton wrappers (includes egg roll wrappers)
+Wonton wrappers
 Yachtwurst
 Yam
-Yambean (jicama)
+Yambean
 Yardlong bean
 Yardlong beans
-Yautia (tannier)
+Yautia
 Yeast extract spread
 Yellow rice with seasoning
 Yogurt

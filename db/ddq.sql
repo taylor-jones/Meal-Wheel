@@ -28,6 +28,7 @@ DROP TABLE IF EXISTS `unit_of_measure`;
 DROP TABLE IF EXISTS `cuisine`;
 DROP TABLE IF EXISTS `dietary_restriction`;
 DROP TABLE IF EXISTS `ingredient`;
+DROP TABLE IF EXISTS `ingredient_category`;
 DROP TABLE IF EXISTS `user`;
 
 
@@ -48,6 +49,18 @@ CREATE TABLE `user` (
 
 
 --
+-- Table structure for table `ingredient_category`
+--
+
+CREATE TABLE `ingredient_category` (
+  `ingredient_category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `ingredient_category_name` varchar(100) NOT NULL,
+  PRIMARY KEY (`ingredient_category_id`),
+  UNIQUE KEY `ingredient_category_name` (`ingredient_category_name`)
+) ENGINE=InnoDB;
+
+
+--
 -- Table structure for table `ingredient`
 --
 
@@ -56,6 +69,7 @@ CREATE TABLE `ingredient` (
   `ingredient_name` varchar(35) NOT NULL,
   `ingredient_category_id` int(11) NOT NULL,
   PRIMARY KEY (`ingredient_id`),
+  FOREIGN KEY (`ingredient_category_id`) REFERENCES `ingredient_category`(`ingredient_category_id`) ON DELETE CASCADE,
   UNIQUE KEY `ingredient_name` (`ingredient_name`)
 ) ENGINE=InnoDB;
 
