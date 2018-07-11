@@ -1,6 +1,4 @@
-INSERT INTO
-  `ingredient_category` (ingredient_category_name)
-VALUES
+INSERT INTO `ingredient_category` (ingredient_category_name) VALUES
 ('APPLEBEE''S'),
 ('ARCHWAY Home Style Cookies'),
 ('AUSTIN'),
