@@ -1,12 +1,12 @@
 
 ##########################################################################################
 # This file does the following:
-#   1) Uses regex to parse FOOD_DES.txt into a list of ingredients (ingredient_list.txt)
-#   2) Uses regex to further parse the ingredients into ingredient categories, and then
-#       removes and duplicate categories from that list (ingredient_categories.txt)
+#   1) Parses FOOD_DES.txt into a list of ingredients (../ingredient_list.txt)
+#   2) Further parses the ingredients into ingredient categories, and then
+#       removes and duplicate categories from that list (../ingredient_categories.txt)
 #   3) Uses the list of unique ingredient categories to generate a formatted SQL insert
-#       statement which can be used to populate an ingredient_category table in the db
-#       (ingredient_category.sql)
+#       statement which can be used to populate an the ingredient and ingredient_category 
+#       tables in the db (../ingredient.sql ../ingredient_category.sql)
 ##########################################################################################
 
 import re
@@ -120,12 +120,9 @@ lines_to_insert_statement(category_set,categoryDML, category_lead)
 
 
 
-
-
 # close the files
 inputFile.close()
 ingredientFile.close()
 ingredientDML.close()
 categoryFile.close()
 categoryDML.close()
-
