@@ -6,7 +6,7 @@
 #       removes and duplicate categories from that list (../ingredient_categories.txt)
 #   3) Uses the list of unique ingredient categories to generate a formatted SQL insert
 #       statement which can be used to populate an the ingredient and ingredient_category 
-#       tables in the db (../ingredient.sql ../ingredient_category.sql)
+#       tables in the db (../ingredient.sql, ../ingredient_category.sql)
 ##########################################################################################
 
 import re
