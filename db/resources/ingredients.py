@@ -95,8 +95,11 @@ categoryDML = open('../ingredient_categories.sql', 'w+')
 
 # Parse the ingredients and ingredient categories.
 for line in inputFile:
-    ingredient = re.sub("~\\d+(~\\^~(\\d+)~\\^~)|((~\\^~Y?).*?){2}.*", "", line)
-    category = re.sub("\\(.*?\\)|,.*", "", ingredient)
+    ingredient = re.sub('~\\d+(~\\^~(\\d+)~\\^~)|((~\\^~Y?).*?){2}.*', '', line)
+    ingredient = re.sub(' +', ' ', ingredient) # remove multiple spaces
+
+    category = re.sub('\\(.*?\\)|,.*', '', ingredient)
+    category = re.sub(' +', ' ', category)  # remove multiple spaces
 
     # bypass any brand name items
     brand_match = re.match('^(Mc)?([A-Z]+)\\b', ingredient)

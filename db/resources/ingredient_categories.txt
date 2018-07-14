@@ -174,13 +174,13 @@ Cocktail mix
 Cocoa
 Cocoa mix
 Coffee
-Coffee and cocoa  powder
+Coffee and cocoa powder
 Coffee substitute
 Coffeecake
 Collards
 Cookie
 Cookies
-Coriander  leaves
+Coriander leaves
 Corn
 Corn bran
 Corn dogs
@@ -468,7 +468,7 @@ Mustard greens
 Mustard spinach
 Mutton
 Nance
-Naranjilla  pulp
+Naranjilla pulp
 Natto
 Nectarines
 New Zealand spinach
@@ -675,7 +675,7 @@ Shortening bread
 Shortening cake mix
 Shortening confectionery
 Shortening frying
-Shortening household soybean  and palm
+Shortening household soybean and palm
 Shortening industrial
 Side dishes
 Smelt
