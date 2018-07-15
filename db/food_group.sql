@@ -1,5 +1,5 @@
 INSERT INTO
-  `ingredient_group` (ingredient_group_id, ingredient_group_name)
+  `food_group` (food_group_id, food_group_name)
 VALUES
   (0100, 'Dairy & Egg Products'),
   (0200, 'Spices & Herbs'),
