@@ -57,9 +57,10 @@ def dedup_file_list(file):
 @param lines: the lines used to create the INSERT statement.
 @param outputFile: the file to write the generated SQL.
 @param leadText: text to be placed in the INSERT statement before
+@param optional delimiter if there are multiple columns in the statement.
     the list of items (should be the INSERT INTO... part)
 """
-def lines_to_insert_statement(lines, output_file, lead_text):
+def lines_to_insert_statement(lines, output_file, lead_text, delimiter='\t'):
     # write the lead text
     output_file.write(lead_text)
 
@@ -71,7 +72,20 @@ def lines_to_insert_statement(lines, output_file, lead_text):
     for line in lines:
         if not last_line == None:
             last_line = last_line.strip().replace('\'', '\'\'')
-            last_line = '(\'' + last_line + '\'),\n'
+            temp = '('
+
+            # Split the string on the delimiter and handle each column individually,
+            # Then, join the columns back together for the single insert line.
+            for col in last_line.split(delimiter):
+                if col.isnumeric() == False:
+                    temp = temp + '\'' + col + '\','
+                else:
+                    temp = temp + col + ','
+
+            temp = temp.rstrip(',')
+            temp = temp + '),\n'
+
+            last_line = temp
             output_file.write(last_line)
         last_line = line
 
@@ -80,6 +94,8 @@ def lines_to_insert_statement(lines, output_file, lead_text):
     last_line = '(\'' + last_line + '\');'
     output_file.write(last_line)
     return
+
+
 
 
 
@@ -95,6 +111,8 @@ categoryDML = open('../ingredient_categories.sql', 'w+')
 
 # Parse the ingredients and ingredient categories.
 for line in inputFile:
+    ingredient_group = re.sub('~\\d+(~\\^~)|((~\\^~).*?){2}.*', '', line)
+
     ingredient = re.sub('~\\d+(~\\^~(\\d+)~\\^~)|((~\\^~Y?).*?){2}.*', '', line)
     ingredient = re.sub(' +', ' ', ingredient) # remove multiple spaces
 
@@ -106,6 +124,9 @@ for line in inputFile:
     if not brand_match:
         ingredientFile.write(ingredient)
         categoryFile.write(category)
+        # categoryFile.write(category.strip() + '\t' + ingredient_group) 
+        # if we were going to add ingredient group. However, if we go this route, then we're running into the
+        # issue of duplicate ingredient_categories (since they still have a unique category, ingredient group combo)
 
 
 
