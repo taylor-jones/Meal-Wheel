@@ -11,7 +11,7 @@
 
 
 /************************************************
- * TABLE CREATION
+ * CREATE TABLES
  ***********************************************/
 
 /* The tables are dropped in the reverse order that they're created
@@ -217,7 +217,7 @@ CREATE TABLE user_significant_recipe (
  * INSERTS 
  ***********************************************/
 
--- Cuisine Types
+-- Cuisines
 INSERT INTO
   cuisine (cuisine_name)
 VALUES
