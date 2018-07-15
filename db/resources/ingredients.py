@@ -123,8 +123,8 @@ for line in inputFile:
     brand_match = re.match('^(Mc)?([A-Z]+)\\b', ingredient)
     if not brand_match:
         ingredientFile.write(ingredient)
-        categoryFile.write(category)
-        # categoryFile.write(category.strip() + '\t' + ingredient_group) 
+        # categoryFile.write(category)
+        categoryFile.write(category.strip() + '\t' + ingredient_group) 
         # if we were going to add ingredient group. However, if we go this route, then we're running into the
         # issue of duplicate ingredient_categories (since they still have a unique category, ingredient group combo)
 
