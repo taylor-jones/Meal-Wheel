@@ -1,0 +1,13 @@
+============================
+Still need to handle:
+============================
+
+- alcoholic beverages prefix
+- Campbell's (and probably some other existing brand names) (which seem to always be in all caps)
+- baby food ingredients have meal names in the ingredient names
+- "Candies" prefix
+- Some ingredients are just weird to read, like: "cake, yellow, dry mix, white"...
+
+
+
+* I wonder if we should just use the "ingredient_categories" as the actual ingredients. It seems like a much more concise list.

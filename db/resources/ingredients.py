@@ -87,7 +87,7 @@ def lines_to_insert_statement(lines, output_file, lead_text):
 # open the files
 inputFile = open('FOOD_DES.txt', 'r')
 ingredientFile = open('ingredient_list.txt', 'w+')
-ingredientDML = open('../ingredient.sql', 'w+')
+ingredientDML = open('../ingredients.sql', 'w+')
 categoryFile = open('ingredient_categories.txt', 'w+')
 categoryDML = open('../ingredient_categories.sql', 'w+')
 

@@ -66,10 +66,10 @@ CREATE TABLE `ingredient_category` (
 
 CREATE TABLE `ingredient` (
   `ingredient_id` int(11) NOT NULL AUTO_INCREMENT,
-  `ingredient_name` varchar(35) NOT NULL,
-  `ingredient_category_id` int(11) NOT NULL,
+  `ingredient_name` varchar(255) NOT NULL, -- was way too small
+  `ingredient_category_id` int(11),
   PRIMARY KEY (`ingredient_id`),
-  FOREIGN KEY (`ingredient_category_id`) REFERENCES `ingredient_category`(`ingredient_category_id`) ON DELETE CASCADE,
+  FOREIGN KEY (`ingredient_category_id`) REFERENCES ingredient_category(ingredient_category_id) ON UPDATE CASCADE ON DELETE SET NULL, -- if we allow ingredient category to be null
   UNIQUE KEY `ingredient_name` (`ingredient_name`)
 ) ENGINE=InnoDB;
 
@@ -143,8 +143,8 @@ CREATE TABLE `ingredient_dietary_restriction` (
   `ingredient_id` int(11) NOT NULL,
   `dietary_restriction_id` int(11) NOT NULL,
   PRIMARY KEY (`ingredient_id`, `dietary_restriction_id`),
-  FOREIGN KEY (`ingredient_id`) REFERENCES `ingredient`(`ingredient_id`) ON DELETE CASCADE,
-  FOREIGN KEY (`dietary_restriction_id`) REFERENCES `dietary_restriction`(`dietary_restriction_id`) ON DELETE CASCADE
+  FOREIGN KEY (`ingredient_id`) REFERENCES ingredient(ingredient_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (`dietary_restriction_id`) REFERENCES dietary_restriction(dietary_restriction_id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 
@@ -155,10 +155,9 @@ CREATE TABLE `ingredient_dietary_restriction` (
 CREATE TABLE `recipe` (
   `recipe_id` int(11) NOT NULL AUTO_INCREMENT,
   `recipe_name` varchar(100) NOT NULL,
-  `recipe_image` blob DEFAULT NULL,
-  `instructions` text DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `main_ingredient_id` int(11) NOT NULL,
+  `recipe_image` blob,
+  `instructions` text,
+  `user_id` int(11),
   `recipe_category_id` int(11) NOT NULL,
   `created_date` timestamp DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`recipe_id`),
@@ -175,12 +174,12 @@ CREATE TABLE `recipe` (
 CREATE TABLE `recipe_ingredient` (
   `recipe_id` int(11) NOT NULL,
   `ingredient_id` int(11) NOT NULL,
-  `amount` int NOT NULL,
-  `unit_of_measure_id` int(11) NOT NULL,
+  `amount` int NOT NULL DEFAULT 1, -- Default of 1?
+  `unit_of_measure_id` int(11) NOT NULL, -- I think we should consider allowing this to be null
   PRIMARY KEY (`recipe_id`, `ingredient_id`),
   FOREIGN KEY (`recipe_id`) REFERENCES recipe(recipe_id) ON UPDATE CASCADE ON DELETE CASCADE,
-  FOREIGN KEY (`ingredient_id`) REFERENCES `ingredient`(`ingredient_id`) ON DELETE CASCADE,
-  FOREIGN KEY (`unit_of_measure_id`) REFERENCES unit_of_measure(unit_of_measure_id) ON DELETE CASCADE
+  FOREIGN KEY (`ingredient_id`) REFERENCES ingredient(ingredient_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (`unit_of_measure_id`) REFERENCES unit_of_measure(unit_of_measure_id) ON UPDATE CASCADE ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 
