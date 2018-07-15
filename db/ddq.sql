@@ -29,6 +29,7 @@ DROP TABLE IF EXISTS cuisine;
 DROP TABLE IF EXISTS dietary_restriction;
 DROP TABLE IF EXISTS ingredient;
 DROP TABLE IF EXISTS ingredient_category;
+-- DROP TABLE IF EXISTS ingredient_group;
 DROP TABLE IF EXISTS user;
 
 
@@ -56,6 +57,16 @@ CREATE TABLE ingredient_category (
   ingredient_category_name varchar(100) NOT NULL,
   UNIQUE KEY ingredient_category_name (ingredient_category_name)
 ) ENGINE=InnoDB;
+
+
+--
+-- Table structure for ingredient_group
+--
+-- CREATE TABLE ingredient_group (
+--   ingredient_group_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--   ingredient_group_name varchar(100) NOT NULL,
+--   UNIQUE KEY ingredient_group_name (ingredient_group_name)
+-- ) ENGINE = InnoDB;
 
 
 --
