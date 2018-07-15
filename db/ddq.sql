@@ -39,11 +39,10 @@ DROP TABLE IF EXISTS user;
 --
 
 CREATE TABLE user (
-  user_id int(11) NOT NULL AUTO_INCREMENT,
+  user_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   user_name varchar(50) NOT NULL,
   user_email varchar(150) NOT NULL,
   user_password varchar(20) NOT NULL,
-  PRIMARY KEY (user_id),
   UNIQUE KEY user_email (user_email)
 ) ENGINE=InnoDB;
 
@@ -53,9 +52,8 @@ CREATE TABLE user (
 --
 
 CREATE TABLE ingredient_category (
-  ingredient_category_id int(11) NOT NULL AUTO_INCREMENT,
+  ingredient_category_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   ingredient_category_name varchar(100) NOT NULL,
-  PRIMARY KEY (ingredient_category_id),
   UNIQUE KEY ingredient_category_name (ingredient_category_name)
 ) ENGINE=InnoDB;
 
@@ -65,10 +63,9 @@ CREATE TABLE ingredient_category (
 --
 
 CREATE TABLE ingredient (
-  ingredient_id int(11) NOT NULL AUTO_INCREMENT,
+  ingredient_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   ingredient_name varchar(255) NOT NULL, -- was way too small
   ingredient_category_id int(11),
-  PRIMARY KEY (ingredient_id),
   FOREIGN KEY (ingredient_category_id) REFERENCES ingredient_category(ingredient_category_id) ON UPDATE CASCADE ON DELETE SET NULL, -- if we allow ingredient category to be null
   UNIQUE KEY ingredient_name (ingredient_name)
 ) ENGINE=InnoDB;
@@ -79,9 +76,8 @@ CREATE TABLE ingredient (
 --
 
 CREATE TABLE dietary_restriction (
-  dietary_restriction_id int(11) NOT NULL AUTO_INCREMENT,
+  dietary_restriction_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   dietary_restriction_name varchar(35) NOT NULL,
-  PRIMARY KEY (dietary_restriction_id),
   UNIQUE KEY dietary_restriction_name (dietary_restriction_name)
 ) ENGINE=InnoDB;
 
@@ -91,9 +87,8 @@ CREATE TABLE dietary_restriction (
 --
 
 CREATE TABLE cuisine (
-  cuisine_id int(11) NOT NULL AUTO_INCREMENT,
+  cuisine_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   cuisine_name varchar(35) NOT NULL,
-  PRIMARY KEY (cuisine_id),
   UNIQUE KEY cuisine_name (cuisine_name)
 ) ENGINE=InnoDB;
 
@@ -103,10 +98,9 @@ CREATE TABLE cuisine (
 --
 
 CREATE TABLE unit_of_measure (
-  unit_of_measure_id int(11) NOT NULL AUTO_INCREMENT,
+  unit_of_measure_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   unit_of_measure_name varchar(25) NOT NULL,
   unit_abbrev varchar(5) DEFAULT NULL,
-  PRIMARY KEY (unit_of_measure_id),
   UNIQUE KEY unit_of_measure_name (unit_of_measure_name)
 ) ENGINE=InnoDB;
 
@@ -116,9 +110,8 @@ CREATE TABLE unit_of_measure (
 --
 
 CREATE TABLE recipe_significance_type (
-  recipe_significance_type_id int(11) NOT NULL AUTO_INCREMENT,
+  recipe_significance_type_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   recipe_significance_type_name varchar(35) NOT NULL,
-  PRIMARY KEY (recipe_significance_type_id),
   UNIQUE KEY recipe_significance_type_name (recipe_significance_type_name)
 ) ENGINE=InnoDB;
 
@@ -128,9 +121,8 @@ CREATE TABLE recipe_significance_type (
 --
 
 CREATE TABLE recipe_category (
-  recipe_category_id int(11) NOT NULL AUTO_INCREMENT,
+  recipe_category_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   recipe_category_name varchar(35) NOT NULL,
-  PRIMARY KEY (recipe_category_id),
   UNIQUE KEY recipe_category_name (recipe_category_name)
 ) ENGINE=InnoDB;
 
@@ -153,14 +145,13 @@ CREATE TABLE ingredient_dietary_restriction (
 --
 
 CREATE TABLE recipe (
-  recipe_id int(11) NOT NULL AUTO_INCREMENT,
+  recipe_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   recipe_name varchar(100) NOT NULL,
   recipe_image blob,
   instructions text,
   user_id int(11),
   recipe_category_id int(11) NOT NULL,
   created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (recipe_id),
   FOREIGN KEY (user_id) REFERENCES user(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
   FOREIGN KEY (recipe_category_id) REFERENCES recipe_category(recipe_category_id) ON UPDATE CASCADE ON DELETE CASCADE,
   UNIQUE KEY recipe_name (recipe_name)
