@@ -9,6 +9,6 @@
 
 
 * I wonder if we should just use the "ingredient_categories" as the actual ingredients. It seems like a much more concise list.
-
+* As they are now, the ingredients are not normalized. 
 
 ** 'user' is on the list of keywords/reserved words. Maybe we should change the name of that table to something like app_user or something...
