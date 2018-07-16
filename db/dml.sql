@@ -138,6 +138,7 @@ ORDER BY ri.amount DESC;
 SELECT
   ri.recipe_id,
   r.recipe_name
+  -- TODO: include count of results
 FROM recipe_ingredient AS ri
 INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
 INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
@@ -174,7 +175,20 @@ SELECT
 FROM recipe_ingredient AS ri 
   INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
   INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
-WHERE ri.ingredient_id = [user_selected_recipe_id] -- TODO: handle multiple OR no specific ingredient
+WHERE ri.ingredient_id = [user_selected_ingredient_id]
+GROUP BY r.recipe_id 
+ORDER BY r.recipe_name;
+
+
+
+-- get all the recipes containing at least one of the ingredients in a list of ingredient ids
+SELECT 
+  ri.recipe_id, 
+  r.recipe_name 
+FROM recipe_ingredient AS ri 
+  INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
+  INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
+WHERE ri.ingredient_id IN ([user_selected_ingredient_id_list]) OR [user_selected_ingredient_id_list] IS NULL
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
 
@@ -189,6 +203,9 @@ FROM ingredient AS i
   INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
 WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- TODO: handle no specific restriction
 ORDER BY i.ingredient_name;
+
+
+-- get all restricted ingredients related to at least one of the dietary restrictions in a list of dietary restriction ids
 
 
 

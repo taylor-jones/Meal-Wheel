@@ -4,6 +4,17 @@
 	<title>Create Profile</title>
 </head>
 <body>
-
+	<form action="/" method="POST">
+		<fieldset>
+			<legend>Create new user profile</legend>
+			<label for="name">User Name: </label>
+			<input id="name" type="text" name="name" required>
+			<label for="email">Email: </label>
+			<input id="email" type="email" name="email">
+			<label for="pwrd">Password: </label>
+			<input id="pwrd" type="password" name="pwrd">
+			<input id="addUser" type="submit" name="addUser">
+		</fieldset>
+	</form>
 </body>
 </html>
