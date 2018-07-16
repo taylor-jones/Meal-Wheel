@@ -159,12 +159,20 @@ SELECT
   r.recipe_id,
   r.recipe_name
 FROM recipe AS r
-WHERE r.recipe_category_id = [user_selected_recipe_category_id] -- TODO: handle no specific category (main dish by default)
+WHERE r.recipe_category_id = [user_selected_recipe_category_id] OR [user_selected_recipe_category_id] IS NULL
 ORDER BY r.recipe_name;
 
 
+
 -- get all recipes matching a specified cuisine
--- TODO:
+SELECT 
+  rc.recipe_id, 
+  r.recipe_name 
+FROM recipe_cuisine AS rc
+  INNER JOIN recipe AS r ON rc.recipe_id = r.recipe_id 
+WHERE rc.cuisine_id = [user_selected_cuisine_id] OR [user_selected_cuisine_id] IS NULL
+GROUP BY r.recipe_id 
+ORDER BY r.recipe_name;
 
 
 
@@ -175,7 +183,7 @@ SELECT
 FROM recipe_ingredient AS ri 
   INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
   INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
-WHERE ri.ingredient_id = [user_selected_ingredient_id]
+WHERE ri.ingredient_id = [user_selected_ingredient_id] OR [user_selected_ingredient_id] IS NULL
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
 
@@ -201,11 +209,20 @@ SELECT
 FROM ingredient AS i 
   INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
   INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- TODO: handle no specific restriction
+WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id]
 ORDER BY i.ingredient_name;
 
 
+
 -- get all restricted ingredients related to at least one of the dietary restrictions in a list of dietary restriction ids
+SELECT 
+  i.ingredient_id, 
+  i.ingredient_name 
+FROM ingredient AS i 
+  INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
+  INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
+WHERE dr.dietary_restriction_id IN ([user_dietary_restriction_id_list]) OR [user_dietary_restriction_id_list] IS NULL
+ORDER BY i.ingredient_name;
 
 
 
@@ -219,7 +236,7 @@ WHERE ingredient_id NOT IN (
   FROM ingredient AS i 
     INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
     INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-  WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- TODO: handle no specific restriction
+  WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] OR [user_selected_dietary_restriction_id] IS NULL
   ORDER BY i.ingredient_name
 );
 
@@ -236,7 +253,7 @@ FROM recipe_ingredient AS ri
     FROM ingredient AS i 
       INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
       INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-    WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- TODO: handle no specific restriction
+    WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id]
   ) AS i ON ri.ingredient_id = i.ingredient_id 
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
