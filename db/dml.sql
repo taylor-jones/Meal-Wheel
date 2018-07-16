@@ -26,19 +26,24 @@
 -- SELECT
 -----------------------------------
 
--- get a list of all the recipes
+-- get a list of all the recipe names
+SELECT recipe_id, recipe_name FROM recipe ORDER BY recipe_name;
 
--- get a list of all the ingredients
+-- get a list of all the ingredient names
+SELECT ingredient_id, ingredient_name FROM ingredient ORDER BY ingredient_name;
 
--- get a list of all the food groups
+-- get a list of all the food group names
+SELECT food_group_id, food_group_name FROM food_group ORDER BY food_group_name;
 
--- get a list of all the dietary restrictions
+-- get a list of all the dietary restriction names
+SELECT dietary_restriction_id, dietary_restriction_name FROM dietary_restriction ORDER BY dietary_restriction_name;
 
--- get a list of all the units of measure
+-- get a list of all the unit of measure names
+SELECT unit_of_measure_id, unit_of_measure_name FROM unit_of_measure ORDER BY unit_of_measure_name;
 
--- get a list of all the cuisines
+-- get a list of all the cuisine names
 
--- get a list of all the recipe categories
+-- get a list of all the recipe category names
 
 
 
