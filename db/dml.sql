@@ -105,8 +105,6 @@ WHERE recipe_id = [user_selected_recipe_id];
 
 -- get all the recipe-cuisine data for a single recipe
 SELECT
-  r.recipe_id,
-  r.recipe_name,
   c.cuisine_id,
   c.cuisine_name
 FROM recipe AS r
@@ -117,9 +115,7 @@ WHERE r.recipe_id = [user_selected_recipe_id];
 
 -- get all the recipe-ingredient data for a single recipe
 SELECT 
-  ri.recipe_id, 
   ri.ingredient_id, 
-  r.recipe_name, 
   i.ingredient_name, 
   ri.amount, 
   u.unit_of_measure_name 
@@ -137,23 +133,15 @@ ORDER BY ri.amount DESC;
 ----- SELECT queries to retrieve search results
 --
 
--- get all recipes matching a specified text search (based on the recipe name)
-SELECT 
-  recipe_id, 
-  recipe_name
-FROM recipe
-WHERE recipe_name LIKE '%[user_search_input]%'
-ORDER BY recipe_name;
 
-
--- get all recipes matching a specified text search (based on the ingredient name)
+-- get all recipes matching a specified text search (based on the ingredient name OR recipe name)
 SELECT
   ri.recipe_id,
   r.recipe_name
 FROM recipe_ingredient AS ri
 INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
 INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
-WHERE ingredient_name LIKE '%[user_search_input]%'
+WHERE ingredient_name LIKE '%[user_search_input]%' OR recipe_name LIKE '%[user_search_input]%'
 GROUP BY r.recipe_id
 ORDER BY r.recipe_name;
 
@@ -170,8 +158,12 @@ SELECT
   r.recipe_id,
   r.recipe_name
 FROM recipe AS r
-WHERE r.recipe_category_id = [user_selected_recipe_category_id]
+WHERE r.recipe_category_id = [user_selected_recipe_category_id] -- TODO: handle no specific category (main dish by default)
 ORDER BY r.recipe_name;
+
+
+-- get all recipes matching a specified cuisine
+-- TODO:
 
 
 
@@ -182,7 +174,7 @@ SELECT
 FROM recipe_ingredient AS ri 
   INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
   INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
-WHERE ri.ingredient_id = [user_selected_recipe_id] 
+WHERE ri.ingredient_id = [user_selected_recipe_id] -- TODO: handle multiple OR no specific ingredient
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
 
@@ -195,7 +187,7 @@ SELECT
 FROM ingredient AS i 
   INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
   INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] 
+WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- TODO: handle no specific restriction
 ORDER BY i.ingredient_name;
 
 
@@ -210,7 +202,7 @@ WHERE ingredient_id NOT IN (
   FROM ingredient AS i 
     INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
     INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-  WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id]
+  WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- TODO: handle no specific restriction
   ORDER BY i.ingredient_name
 );
 
@@ -227,7 +219,7 @@ FROM recipe_ingredient AS ri
     FROM ingredient AS i 
       INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
       INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-    WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] 
+    WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- TODO: handle no specific restriction
   ) AS i ON ri.ingredient_id = i.ingredient_id 
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
@@ -330,29 +322,31 @@ ORDER BY r.recipe_name;
 -- *  INSERT
 -- ********************************
 
--- add a new ingredient
+-- add a new user
+
+-- add a new cuisine
+
+-- add a new dietary restriction
 
 -- add a new food group
 
 -- add a new food group-dietary restriction
 
--- add a new dietary restriction
-
--- add a new recipe-ingredient
+-- add a new ingredient
 
 -- add a new recipe
 
--- add a new unit of measure
+-- add a new recipe category
 
--- add a new user
+-- add a new recipe cuisine
 
--- add user-recipe significance
+-- add a new recipe-ingredient
 
 -- add a new recipe significance type
 
--- add a new recipe category
+-- add a new unit of measure
 
--- add a new cuisine
+-- add user-recipe significance
 
 
 
@@ -362,7 +356,13 @@ ORDER BY r.recipe_name;
 -- *  UPDATE
 -- ********************************
 
--- update a recipe's data based on submission of the 'Update Recipe' form
+-- update a recipe record based on submission of the 'Update Recipe' form
+
+-- update a recipe-cuisine record based on submission of the 'Update Recipe' form
+
+-- update a recipe-ingredient record based on submission of the 'Update Recipe' form
+
+
 
 -- update a user's data based on submission of the 'Update User' form
 
@@ -377,6 +377,10 @@ ORDER BY r.recipe_name;
 
 -- delete a recipe
 
--- delete a user
+-- delete a recipe-ingredient
+
+-- delete a recipe cuisine
+
+-- delete a user 
 
 -- delete a user's significant recipe

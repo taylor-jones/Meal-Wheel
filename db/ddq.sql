@@ -131,7 +131,7 @@ CREATE TABLE recipe (
   user_id int(11),
   recipe_category_id int(11) NOT NULL,
   created_date timestamp DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES app_user(user_id) ON UPDATE CASCADE ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES app_user(user_id) ON UPDATE CASCADE ON DELETE SET NULL,
   FOREIGN KEY (recipe_category_id) REFERENCES recipe_category(recipe_category_id) ON UPDATE CASCADE ON DELETE CASCADE,
   UNIQUE KEY recipe_name (recipe_name)
 ) ENGINE = InnoDB;
