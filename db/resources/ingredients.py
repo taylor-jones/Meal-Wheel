@@ -1,3 +1,8 @@
+# *** Warning *** : The result of running this file will yield results that do
+#   not match the current structure of the project.
+# It would need to be updated to match the current structure, but at this point,
+#  it's purpose has been served, so there's no real need to do so.
+
 
 ##########################################################################################
 # This file does the following:
@@ -8,6 +13,8 @@
 #       statement which can be used to populate an the ingredient and ingredient_category 
 #       tables in the db (../ingredient.sql, ../ingredient_category.sql)
 ##########################################################################################
+
+
 
 import re
 
