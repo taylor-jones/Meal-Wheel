@@ -110,25 +110,26 @@ SELECT
   c.cuisine_id,
   c.cuisine_name
 FROM recipe AS r
-INNER JOIN recipe_cuisine AS rc ON rc.recipe_id = r.recipe_id
-INNER JOIN cuisine AS c ON rc.cuisine_id = c.cuisine_id
+  INNER JOIN recipe_cuisine AS rc ON rc.recipe_id = r.recipe_id
+  INNER JOIN cuisine AS c ON rc.cuisine_id = c.cuisine_id
 WHERE r.recipe_id = [user_selected_recipe_id];
 
 
 -- get all the recipe-ingredient data for a single recipe
-SELECT
-  ri.recipe_id,
-  ri.ingredient_id,
-  r.recipe_name,
-  i.ingredient_name,
-  ri.amount,
-  u.unit_of_measure_name
-FROM recipe_ingredient AS ri
-INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
-INNER JOIN unit_of_measure AS u ON ri.unit_of_measure_id = u.unit_of_measure_id
-INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
-WHERE ri.recipe_id = [user_selected_recipe_id]
+SELECT 
+  ri.recipe_id, 
+  ri.ingredient_id, 
+  r.recipe_name, 
+  i.ingredient_name, 
+  ri.amount, 
+  u.unit_of_measure_name 
+FROM recipe_ingredient AS ri 
+  INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
+  INNER JOIN unit_of_measure AS u ON ri.unit_of_measure_id = u.unit_of_measure_id 
+  INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
+WHERE ri.recipe_id = [user_selected_recipe_id] 
 ORDER BY ri.amount DESC;
+
 
 
 
@@ -153,8 +154,10 @@ FROM recipe_ingredient AS ri
 INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
 INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
 WHERE ingredient_name LIKE '%[user_search_input]%'
-GROUP BY recipe_id
-ORDER BY recipe_name;
+GROUP BY r.recipe_id
+ORDER BY r.recipe_name;
+
+
 
 
 
@@ -162,47 +165,85 @@ ORDER BY recipe_name;
 ----- SELECT queries to retrieve filter results
 --
 
--- get all recipes containing a specified ingredient
-SELECT
-  ri.recipe_id,
-  r.recipe_name
-FROM recipe_ingredient AS ri
-INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
-INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
-WHERE ri.ingredient_id = [user_selected_recipe_id]
-GROUP BY recipe_id
-ORDER BY recipe_name;
+-- get all recipes containing a specified ingredient id
+SELECT 
+  ri.recipe_id, 
+  r.recipe_name 
+FROM recipe_ingredient AS ri 
+  INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
+  INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
+WHERE ri.ingredient_id = [user_selected_recipe_id] 
+GROUP BY r.recipe_id 
+ORDER BY r.recipe_name;
 
 
--- get all restricted ingredients for a specified dietary restriction
-SELECT
-  i.ingredient_id,
-  i.ingredient_name
-FROM ingredient AS i
-INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id
-INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id
-WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id];
+
+-- get all restricted ingredients for a specified dietary restriction id
+SELECT 
+  i.ingredient_id, 
+  i.ingredient_name 
+FROM ingredient AS i 
+  INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
+  INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
+WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] 
+ORDER BY i.ingredient_name;
 
 
--- get all restricted recipes for a specified dietary restriction
 
-
--- get all non-restricted ingredients for a specified dietary restriction
-SELECT
-  ingredient_id,
-  ingredient_name
-FROM ingredient
+-- get all non-restricted ingredients for a specified dietary restriction id
+SELECT 
+  ingredient_id, 
+  ingredient_name 
+FROM ingredient 
 WHERE ingredient_id NOT IN (
-  SELECT
-    i.ingredient_id
-  FROM ingredient AS i
-  INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id
-  INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id
+  SELECT i.ingredient_id 
+  FROM ingredient AS i 
+    INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
+    INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
   WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id]
+  ORDER BY i.ingredient_name
 );
 
 
+
+-- get all restricted recipes for a specified dietary restriction id
+SELECT 
+  ri.recipe_id, 
+  r.recipe_name 
+FROM recipe_ingredient AS ri 
+  INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
+  INNER JOIN (
+    SELECT i.ingredient_id 
+    FROM ingredient AS i 
+      INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
+      INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
+    WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] 
+  ) AS i ON ri.ingredient_id = i.ingredient_id 
+GROUP BY r.recipe_id 
+ORDER BY r.recipe_name;
+
+
+
 -- get all non-restricted recipes for a specified dietary restriction
+SELECT 
+  recipe_id, 
+  recipe_name 
+FROM recipe 
+WHERE recipe_id NOT IN (
+  SELECT ri.recipe_id 
+  FROM recipe_ingredient AS ri 
+    INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
+    INNER JOIN (
+      SELECT i.ingredient_id 
+      FROM ingredient AS i 
+        INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
+        INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
+      WHERE dr.dietary_restriction_id = 2
+    ) AS i ON ri.ingredient_id = i.ingredient_id 
+  GROUP BY r.recipe_id 
+  ORDER BY r.recipe_name
+);
+
 
 
 
