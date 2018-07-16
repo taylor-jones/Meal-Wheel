@@ -103,7 +103,7 @@ FROM recipe
 WHERE recipe_id = [user_selected_recipe_id];
 
 
--- get all the recipe-cuisine data for a single recipe
+-- get all the recipe-cuisines for a single recipe
 SELECT
   c.cuisine_id,
   c.cuisine_name
@@ -113,7 +113,7 @@ FROM recipe AS r
 WHERE r.recipe_id = [user_selected_recipe_id];
 
 
--- get all the recipe-ingredient data for a single recipe
+-- get all the recipe-ingredients for a single recipe
 SELECT 
   ri.ingredient_id, 
   i.ingredient_name, 
@@ -138,7 +138,6 @@ ORDER BY ri.amount DESC;
 SELECT
   ri.recipe_id,
   r.recipe_name
-  -- TODO: include count of results
 FROM recipe_ingredient AS ri
 INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
 INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
@@ -146,6 +145,17 @@ WHERE ingredient_name LIKE '%[user_search_input]%' OR recipe_name LIKE '%[user_s
 GROUP BY r.recipe_id
 ORDER BY r.recipe_name;
 
+
+-- get the total # of resulting ingredients & recipes from a text search
+SELECT 
+  COUNT(t.recipe_id) AS total_results 
+FROM (
+  SELECT ri.recipe_id 
+  FROM recipe_ingredient AS ri 
+    INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
+    INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
+  WHERE ingredient_name LIKE '%[user_search_input]%' OR recipe_name LIKE '%[user_search_input]%'
+  GROUP BY r.recipe_id) AS t
 
 
 
@@ -209,7 +219,7 @@ SELECT
 FROM ingredient AS i 
   INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
   INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id]
+WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all ingredients
 ORDER BY i.ingredient_name;
 
 
@@ -221,7 +231,7 @@ SELECT
 FROM ingredient AS i 
   INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
   INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-WHERE dr.dietary_restriction_id IN ([user_dietary_restriction_id_list]) OR [user_dietary_restriction_id_list] IS NULL
+WHERE dr.dietary_restriction_id IN ([user_dietary_restriction_id_list]) -- not using OR IS NULL here, so we don't restrict all ingredients
 ORDER BY i.ingredient_name;
 
 
@@ -236,7 +246,7 @@ WHERE ingredient_id NOT IN (
   FROM ingredient AS i 
     INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
     INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-  WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] OR [user_selected_dietary_restriction_id] IS NULL
+  WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all ingredients
   ORDER BY i.ingredient_name
 );
 
@@ -253,7 +263,7 @@ FROM recipe_ingredient AS ri
     FROM ingredient AS i 
       INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
       INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-    WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id]
+    WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all recipes
   ) AS i ON ri.ingredient_id = i.ingredient_id 
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
@@ -274,7 +284,7 @@ WHERE recipe_id NOT IN (
       FROM ingredient AS i 
         INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
         INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-      WHERE dr.dietary_restriction_id = 2
+      WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all recipes
     ) AS i ON ri.ingredient_id = i.ingredient_id 
   GROUP BY r.recipe_id 
   ORDER BY r.recipe_name
