@@ -39,11 +39,13 @@ SELECT food_group_id, food_group_name FROM food_group ORDER BY food_group_name;
 SELECT dietary_restriction_id, dietary_restriction_name FROM dietary_restriction ORDER BY dietary_restriction_name;
 
 -- get a list of all the unit of measure names
-SELECT unit_of_measure_id, unit_of_measure_name FROM unit_of_measure ORDER BY unit_of_measure_name;
+SELECT unit_id, unit_name FROM unit_of_measure ORDER BY unit_name;
 
 -- get a list of all the cuisine names
+SELECT cuisine_id, cuisine_name FROM cuisine ORDER BY cuisine_name;
 
 -- get a list of all the recipe category names
+SELECT recipe_category_id, recipe_category_name FROM recipe_category ORDER BY recipe_category_name;
 
 
 
