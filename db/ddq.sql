@@ -86,7 +86,7 @@ CREATE TABLE cuisine (
 CREATE TABLE unit_of_measure (
   unit_of_measure_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   unit_of_measure_name varchar(25) NOT NULL,
-  unit_abbrev varchar(5) DEFAULT NULL,
+  unit_of_measure_abbrev varchar(5) DEFAULT NULL,
   UNIQUE KEY unit_of_measure_name (unit_of_measure_name)
 ) ENGINE = InnoDB;
 
@@ -219,7 +219,7 @@ VALUES
 
   -- Unit of measure
 INSERT INTO
-  unit_of_measure (unit_of_measure_name, unit_abbrev)
+  unit_of_measure (unit_of_measure_name, unit_of_measure_abbrev)
 VALUES
   ('Cup', 'c'),
   ('TableSpoon', 'tbsp'),
@@ -1117,7 +1117,7 @@ VALUES
 
   -- Recipe Ingredient
 INSERT INTO
-  recipe_ingredient (recipe_id,ingredient_id,amount,unit_of_measure_id)
+  recipe_ingredient (recipe_id, ingredient_id, amount, unit_of_measure_id)
 VALUES
   (1, 27, 3, 5),
   (1, 361, 1, NULL),
