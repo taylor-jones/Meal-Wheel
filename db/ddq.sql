@@ -4,9 +4,10 @@
 * Andrew Soback
 * Taylor Jones
 */
+
+
 -- USE cs340_jonest6;
 -- USE cs340_sobacka;
-
 
 
 /************************************************
@@ -31,7 +32,7 @@ DROP TABLE IF EXISTS app_user;
 
 
 --
--- Table structure for user
+-- Table structure for app_user
 --
 CREATE TABLE app_user (
   user_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -175,8 +176,9 @@ CREATE TABLE user_significant_recipe (
 
 
 
+
 /************************************************
-* INSERTS
+* SAMPLE DATA
 ***********************************************/
 
 -- Cuisines
@@ -219,19 +221,24 @@ VALUES
 INSERT INTO
   unit_of_measure (unit_of_measure_name, unit_abbrev)
 VALUES
-  ('Cup', 'C'),
+  ('Cup', 'c'),
   ('TableSpoon', 'tbsp'),
   ('Teaspoon', 'tsp'),
   ('Ounce', 'oz'),
   ('Slice', 'Slice'),
   ('Pint', 'pt'),
   ('Quart', 'qt'),
-  ('Milliliter', 'ml'),
-  ('Pound', 'pound'),
+  ('Milliliter', 'mL'),
+  ('Pound', 'lb'),
   ('Gallon', 'gal'),
   ('Drop', 'drop'),
   ('Pinch', 'pinch'),
-  ('Dash', 'dash');
+  ('Dash', 'dash'),
+  ('Liter', 'L'),
+  ('Milligram', 'mg'),
+  ('Gram', 'g'),
+  ('Kilogram', 'kg'),
+  ('Fluid Ounce', 'fl oz');
   
 
   -- Recipe Significance Type
@@ -247,7 +254,8 @@ INSERT INTO
   `app_user` (user_name, user_email, user_password)
 VALUES
   ('Andrew Soback','sobacka@oregonstate.edu','12345'),
-  ('Taylor Jones','jonest6@oregonstate.edu','12345');
+  ('Taylor Jones','jonest6@oregonstate.edu','12345'),
+  ('user', 'user@example.com', '12345');
   
 
   -- Food Groups
@@ -280,6 +288,7 @@ VALUES
   (3500, 'American Indian/Alaska Native Foods'),
   (3600, 'Restaurant Foods');
   
+
   -- Ingredients
 INSERT INTO
   `ingredient` (ingredient_name, food_group_id)
@@ -1132,4 +1141,5 @@ VALUES
 INSERT INTO
   user_significant_recipe(user_id, recipe_id, recipe_significance_type_id)
 VALUES
-  (1, 1, 1);
+  (1, 1, 1),
+  (2, 1, 2);
