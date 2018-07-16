@@ -50,9 +50,28 @@ SELECT recipe_category_id, recipe_category_name FROM recipe_category ORDER BY re
 
 
 
--- get all the data for a single recipe
+-- get all the recipe data for a single recipe
 
--- get all recipes matching a specified text search.
+-- get all the recipe-ingredient data for a single recipe
+SELECT
+  ri.recipe_id,
+  ri.ingredient_id,
+  r.recipe_name,
+  i.ingredient_name,
+  ri.amount,
+  u.unit_of_measure_name
+FROM
+  recipe_ingredient AS ri
+  INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+  INNER JOIN unit_of_measure AS u ON ri.unit_of_measure_id = u.unit_of_measure_id
+  INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
+WHERE
+  ri.recipe_id = [user_selected_recipe_id]
+ORDER BY
+  ri.amount DESC;
+
+
+-- get all recipes matching a specified text search
 
 -- get all restricted ingredients for a specified dietary restriction
 
