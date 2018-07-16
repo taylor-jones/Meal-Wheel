@@ -18,36 +18,102 @@
 -- It should be possible to add things to all relationships.
 -------------------------------------------------------------------
 
+-- ********************************
+-- *  SELECT
+-- ********************************
 
------------------------------------
--- SELECT
------------------------------------
+
+--
+----- Basic SELECT queries to populate lists.
+--
 
 -- get a list of all the recipe names
-SELECT recipe_id, recipe_name FROM recipe ORDER BY recipe_name;
+SELECT 
+  recipe_id, 
+  recipe_name 
+FROM recipe 
+ORDER BY recipe_name;
+
 
 -- get a list of all the ingredient names
-SELECT ingredient_id, ingredient_name FROM ingredient ORDER BY ingredient_name;
+SELECT 
+  ingredient_id, 
+  ingredient_name 
+FROM ingredient 
+ORDER BY ingredient_name;
+
 
 -- get a list of all the food group names
-SELECT food_group_id, food_group_name FROM food_group ORDER BY food_group_name;
+SELECT 
+  food_group_id,
+  food_group_name 
+FROM food_group 
+ORDER BY food_group_name;  
+
 
 -- get a list of all the dietary restriction names
-SELECT dietary_restriction_id, dietary_restriction_name FROM dietary_restriction ORDER BY dietary_restriction_name;
+SELECT 
+  dietary_restriction_id, 
+  dietary_restriction_name 
+FROM dietary_restriction 
+ORDER BY dietary_restriction_name;
+
 
 -- get a list of all the unit of measure names
-SELECT unit_id, unit_name FROM unit_of_measure ORDER BY unit_name;
+SELECT 
+  unit_id, 
+  unit_name 
+FROM unit_of_measure 
+ORDER BY unit_name;
+
 
 -- get a list of all the cuisine names
-SELECT cuisine_id, cuisine_name FROM cuisine ORDER BY cuisine_name;
+SELECT 
+  cuisine_id, 
+  cuisine_name 
+FROM cuisine 
+ORDER BY cuisine_name;
+
 
 -- get a list of all the recipe category names
-SELECT recipe_category_id, recipe_category_name FROM recipe_category ORDER BY recipe_category_name;
+SELECT 
+  recipe_category_id, 
+  recipe_category_name 
+FROM recipe_category 
+ORDER BY recipe_category_name;
 
 
 
+
+--
+----- SELECT queries to retrieve data for individual recipes.
+--
 
 -- get all the recipe data for a single recipe
+SELECT 
+  recipe_id, 
+  recipe_name, 
+  recipe_image, 
+  recipe_instructions, 
+  recipe_description, 
+  user_id, 
+  recipe_category_id, 
+  created_date
+FROM recipe
+WHERE recipe_id = [user_selected_recipe_id];
+
+
+-- get all the recipe-cuisine data for a single recipe
+SELECT
+  r.recipe_id,
+  r.recipe_name,
+  c.cuisine_id,
+  c.cuisine_name
+FROM recipe AS r
+INNER JOIN recipe_cuisine AS rc ON rc.recipe_id = r.recipe_id
+INNER JOIN cuisine AS c ON rc.cuisine_id = c.cuisine_id
+WHERE r.recipe_id = [user_selected_recipe_id];
+
 
 -- get all the recipe-ingredient data for a single recipe
 SELECT
@@ -57,18 +123,32 @@ SELECT
   i.ingredient_name,
   ri.amount,
   u.unit_of_measure_name
-FROM
-  recipe_ingredient AS ri
-  INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
-  INNER JOIN unit_of_measure AS u ON ri.unit_of_measure_id = u.unit_of_measure_id
-  INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
-WHERE
-  ri.recipe_id = [user_selected_recipe_id]
-ORDER BY
-  ri.amount DESC;
+FROM recipe_ingredient AS ri
+INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+INNER JOIN unit_of_measure AS u ON ri.unit_of_measure_id = u.unit_of_measure_id
+INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
+WHERE ri.recipe_id = [user_selected_recipe_id]
+ORDER BY ri.amount DESC;
 
 
--- get all recipes matching a specified text search
+
+--
+----- SELECT queries to retrieve search results
+--
+
+-- get all recipes matching a specified text search (based on the recipe name)
+SELECT 
+  recipe_id, 
+  recipe_name
+FROM recipe
+WHERE recipe_name LIKE '%[user_search_input]%';
+
+
+
+
+--
+----- SELECT queries to retrieve filter results
+--
 
 -- get all restricted ingredients for a specified dietary restriction
 
@@ -81,12 +161,22 @@ ORDER BY
 
 
 
+--
+----- SELECT queries to retrieve user-related recipes
+--
 
 -- get all 'liked' recipes for a single user
 
 -- get all 'disliked' recipes for a single user
 
 -- get all created recipes for a single user
+
+
+
+
+--
+----- SELECT queries to get the 'random' recipe
+--
 
 -- get a 'random' recipe based on the user's significant recipes and the user options on the 'Recipe Options' form
 
@@ -95,9 +185,9 @@ ORDER BY
 
 
 
------------------------------------
--- INSERT
------------------------------------
+-- ********************************
+-- *  INSERT
+-- ********************************
 
 -- add a new ingredient
 
@@ -127,9 +217,9 @@ ORDER BY
 
 
 
------------------------------------
--- UPDATE
------------------------------------
+-- ********************************
+-- *  UPDATE
+-- ********************************
 
 -- update a recipe's data based on submission of the 'Update Recipe' form
 
@@ -140,9 +230,9 @@ ORDER BY
 
 
 
------------------------------------
--- DELETE
------------------------------------
+-- ********************************
+-- *  DELETE
+-- ********************************
 
 -- delete a recipe
 
