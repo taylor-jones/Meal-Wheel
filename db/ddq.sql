@@ -255,7 +255,7 @@ INSERT INTO
 VALUES
   ('Andrew Soback','sobacka@oregonstate.edu','12345'),
   ('Taylor Jones','jonest6@oregonstate.edu','12345'),
-  ('user', 'user@example.com', '12345');
+  ('user', 'user@example.com', 'password');
   
 
   -- Food Groups
