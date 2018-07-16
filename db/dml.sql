@@ -165,6 +165,16 @@ ORDER BY r.recipe_name;
 ----- SELECT queries to retrieve filter results
 --
 
+-- get all recipes in a specified recipe_category
+SELECT
+  r.recipe_id,
+  r.recipe_name
+FROM recipe AS r
+WHERE r.recipe_category_id = [user_selected_recipe_category_id]
+ORDER BY r.recipe_name;
+
+
+
 -- get all recipes containing a specified ingredient id
 SELECT 
   ri.recipe_id, 
@@ -300,6 +310,17 @@ ORDER BY r.recipe_name;
 
 -- get a 'random' recipe based on the user's significant recipes and the user options on the 'Recipe Options' form
 
+/* I think this one is more complicated than the rest. It's going to have to look at multiple factors to
+   determine the list of appropriate recipes, like:
+   - (if user is signed in), 'liked' or 'disliked' recipes
+   - all the recipe options from the UI (i think we need to nail down which options we'll have):
+      - recipe category
+      - dietary restrictions
+      - required ingredients
+      - are there others???
+   
+   Then, it's going to need to take the resulting recipe list above and pick a random item from that list.
+*/
 
 
 
