@@ -141,8 +141,20 @@ SELECT
   recipe_id, 
   recipe_name
 FROM recipe
-WHERE recipe_name LIKE '%[user_search_input]%';
+WHERE recipe_name LIKE '%[user_search_input]%'
+ORDER BY recipe_name;
 
+
+-- get all recipes matching a specified text search (based on the ingredient name)
+SELECT
+  ri.recipe_id,
+  r.recipe_name
+FROM recipe_ingredient AS ri
+INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
+WHERE ingredient_name LIKE '%[user_search_input]%'
+GROUP BY recipe_id
+ORDER BY recipe_name;
 
 
 
@@ -150,11 +162,45 @@ WHERE recipe_name LIKE '%[user_search_input]%';
 ----- SELECT queries to retrieve filter results
 --
 
+-- get all recipes containing a specified ingredient
+SELECT
+  ri.recipe_id,
+  r.recipe_name
+FROM recipe_ingredient AS ri
+INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
+WHERE ri.ingredient_id = [user_selected_recipe_id]
+GROUP BY recipe_id
+ORDER BY recipe_name;
+
+
 -- get all restricted ingredients for a specified dietary restriction
+SELECT
+  i.ingredient_id,
+  i.ingredient_name
+FROM ingredient AS i
+INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id
+INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id
+WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id];
+
 
 -- get all restricted recipes for a specified dietary restriction
 
+
 -- get all non-restricted ingredients for a specified dietary restriction
+SELECT
+  ingredient_id,
+  ingredient_name
+FROM ingredient
+WHERE ingredient_id NOT IN (
+  SELECT
+    i.ingredient_id
+  FROM ingredient AS i
+  INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id
+  INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id
+  WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id]
+);
+
 
 -- get all non-restricted recipes for a specified dietary restriction
 
