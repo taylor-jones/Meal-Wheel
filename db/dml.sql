@@ -100,7 +100,7 @@ SELECT
   recipe_category_id, 
   created_date
 FROM recipe
-WHERE recipe_id = [user_selected_recipe_id];
+WHERE recipe_id = [selected_recipe_id];
 
 
 -- get all the recipe-cuisines for a single recipe
@@ -110,7 +110,7 @@ SELECT
 FROM recipe AS r
   INNER JOIN recipe_cuisine AS rc ON rc.recipe_id = r.recipe_id
   INNER JOIN cuisine AS c ON rc.cuisine_id = c.cuisine_id
-WHERE r.recipe_id = [user_selected_recipe_id];
+WHERE r.recipe_id = [selected_recipe_id];
 
 
 -- get all the recipe-ingredients for a single recipe
@@ -123,7 +123,7 @@ FROM recipe_ingredient AS ri
   INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
   INNER JOIN unit_of_measure AS u ON ri.unit_of_measure_id = u.unit_of_measure_id 
   INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
-WHERE ri.recipe_id = [user_selected_recipe_id] 
+WHERE ri.recipe_id = [selected_recipe_id] 
 ORDER BY ri.amount DESC;
 
 
@@ -141,7 +141,7 @@ SELECT
 FROM recipe_ingredient AS ri
 INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
 INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
-WHERE ingredient_name LIKE '%[user_search_input]%' OR recipe_name LIKE '%[user_search_input]%'
+WHERE ingredient_name LIKE '%[search_input]%' OR recipe_name LIKE '%[search_input]%'
 GROUP BY r.recipe_id
 ORDER BY r.recipe_name;
 
@@ -154,7 +154,7 @@ FROM (
   FROM recipe_ingredient AS ri 
     INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
     INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
-  WHERE ingredient_name LIKE '%[user_search_input]%' OR recipe_name LIKE '%[user_search_input]%'
+  WHERE ingredient_name LIKE '%[search_input]%' OR recipe_name LIKE '%[search_input]%'
   GROUP BY r.recipe_id) AS t
 
 
@@ -169,7 +169,7 @@ SELECT
   r.recipe_id,
   r.recipe_name
 FROM recipe AS r
-WHERE r.recipe_category_id = [user_selected_recipe_category_id] OR [user_selected_recipe_category_id] IS NULL
+WHERE r.recipe_category_id = [selected_recipe_category_id] OR [selected_recipe_category_id] IS NULL
 ORDER BY r.recipe_name;
 
 
@@ -180,7 +180,7 @@ SELECT
   r.recipe_name 
 FROM recipe_cuisine AS rc
   INNER JOIN recipe AS r ON rc.recipe_id = r.recipe_id 
-WHERE rc.cuisine_id = [user_selected_cuisine_id] OR [user_selected_cuisine_id] IS NULL
+WHERE rc.cuisine_id = [selected_cuisine_id] OR [selected_cuisine_id] IS NULL
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
 
@@ -193,7 +193,7 @@ SELECT
 FROM recipe_ingredient AS ri 
   INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
   INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
-WHERE ri.ingredient_id = [user_selected_ingredient_id] OR [user_selected_ingredient_id] IS NULL
+WHERE ri.ingredient_id = [selected_ingredient_id] OR [selected_ingredient_id] IS NULL
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
 
@@ -206,7 +206,7 @@ SELECT
 FROM recipe_ingredient AS ri 
   INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
   INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
-WHERE ri.ingredient_id IN ([user_selected_ingredient_id_list]) OR [user_selected_ingredient_id_list] IS NULL
+WHERE ri.ingredient_id IN ([selected_ingredient_id_list]) OR [selected_ingredient_id_list] IS NULL
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
 
@@ -219,7 +219,7 @@ SELECT
 FROM ingredient AS i 
   INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
   INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all ingredients
+WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all ingredients
 ORDER BY i.ingredient_name;
 
 
@@ -231,7 +231,7 @@ SELECT
 FROM ingredient AS i 
   INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
   INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-WHERE dr.dietary_restriction_id IN ([user_dietary_restriction_id_list]) -- not using OR IS NULL here, so we don't restrict all ingredients
+WHERE dr.dietary_restriction_id IN ([dietary_restriction_id_list]) -- not using OR IS NULL here, so we don't restrict all ingredients
 ORDER BY i.ingredient_name;
 
 
@@ -246,7 +246,7 @@ WHERE ingredient_id NOT IN (
   FROM ingredient AS i 
     INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
     INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-  WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all ingredients
+  WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all ingredients
   ORDER BY i.ingredient_name
 );
 
@@ -263,7 +263,7 @@ FROM recipe_ingredient AS ri
     FROM ingredient AS i 
       INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
       INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-    WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all recipes
+    WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all recipes
   ) AS i ON ri.ingredient_id = i.ingredient_id 
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
@@ -284,7 +284,7 @@ WHERE recipe_id NOT IN (
       FROM ingredient AS i 
         INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
         INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-      WHERE dr.dietary_restriction_id = [user_selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all recipes
+      WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all recipes
     ) AS i ON ri.ingredient_id = i.ingredient_id 
   GROUP BY r.recipe_id 
   ORDER BY r.recipe_name
@@ -485,6 +485,12 @@ WHERE user_id = [logged_in_user_id]
 AND recipe_id = [selected_recipe_id];
 
 
+-- update a recipe to remove the 'owner', making it a community recipe
+UPDATE recipe SET
+  user_id = NULL
+WHERE recipe_id = [selected_recipe_id];
+
+
 
 
 
@@ -493,11 +499,28 @@ AND recipe_id = [selected_recipe_id];
 -- ********************************
 
 -- delete a recipe
+DELETE FROM recipe 
+WHERE recipe_id = [selected_recipe_id];
+
 
 -- delete a recipe-ingredient
+DELETE FROM recipe_ingredient 
+WHERE recipe_id = [selected_recipe_id]
+AND ingredient_id = [selected_ingredient_id];
+
 
 -- delete a recipe cuisine
+DELETE FROM recipe_cuisine 
+WHERE recipe_id = [selected_recipe_id]
+AND cuisine_id = [selected_cuisine_id];
+
 
 -- delete a user 
+DELETE FROM app_user
+WHERE user_id = [logged_in_user_id];
+
 
 -- delete a user's significant recipe
+DELETE FROM user_significant_recipe
+WHERE user_id = [logged_in_user_id] 
+AND recipe_id = [selected_recipe_id];
