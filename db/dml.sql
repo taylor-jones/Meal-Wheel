@@ -253,10 +253,43 @@ WHERE recipe_id NOT IN (
 --
 
 -- get all 'liked' recipes for a single user
+SELECT
+  r.recipe_id,
+  r.recipe_name
+FROM recipe AS r
+  INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
+  INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
+WHERE sr.recipe_significance_type_id = 1
+ORDER BY r.recipe_name;
+
 
 -- get all 'disliked' recipes for a single user
+SELECT
+  r.recipe_id,
+  r.recipe_name
+FROM recipe AS r
+  INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
+  INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
+WHERE sr.recipe_significance_type_id = 2
+ORDER BY r.recipe_name;
+
 
 -- get all created recipes for a single user
+SELECT
+  r.recipe_id,
+  r.recipe_name
+FROM recipe AS r
+WHERE r.user_id = [logged_in_user_id]
+ORDER BY r.recipe_name;
+
+
+-- get all recipes not owned by any user
+SELECT
+  r.recipe_id,
+  r.recipe_name
+FROM recipe AS r
+WHERE r.user_id IS NULL
+ORDER BY r.recipe_name;
 
 
 
