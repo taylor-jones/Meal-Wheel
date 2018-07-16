@@ -12,8 +12,8 @@
 
   <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
       <a class="navbar-brand" href="#">Meal Wheel</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,23 +28,43 @@
           <li class="nav-item">
             <a class="nav-link" href="browse.html">Browse</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="newRecipe.html">Add a new recipe</a>
+          </li>
         </ul>
       </div>
-      
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="newUser.html">New User?</a>
+          </li>
+        </ul>
+      </div>
     </nav>
-
 
     <!-- Main Container -->
     <div class="main">
       <div class="container">
         <div class="row justify-content-center align-items-center">
           <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4">
-            content
 
             <!-- Main Centered Image -->
-
-            <!-- Spin wheel button -->
+            <div>...Image goes here...</div>
+            <!-- Spin wheel -->
+            <form action="/" method="post">
+              <select name="recipe_cuisine" id="recipe_cuisine">
+                <option value="any">Cuisines</option>
+              </select>
+              <select name="recipe_category" id="recipe_category">
+                <option value="entree">Entree</option>
+              </select>
+              <input type="submit" value="Spin the Wheel!">
+            </form>
             <!-- Space to put a recipe -->
+            <div id="recipeDisplay">recipe goes here</div>
 
           </div>
         </div>
