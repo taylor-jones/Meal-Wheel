@@ -19,7 +19,7 @@
 -------------------------------------------------------------------
 
 -- ********************************
--- *  SELECT
+-- *  SELECTS
 -- ********************************
 
 
@@ -363,56 +363,68 @@ ORDER BY r.recipe_name;
 
 
 -- ********************************
--- *  INSERT
+-- *  INSERTS
 -- ********************************
 
 -- add a new user
 INSERT INTO app_user (user_name, user_email, user_password)
 VALUES ([user_name_input], [user_email_input], [user_password_input]);
 
+
 -- add a new cuisine
 INSERT INTO cuisine (cuisine_name)
 VALUES [cuisine_input];
+
 
 -- add a new dietary restriction
 INSERT INTO dietary_restriction (dietary_restriction_name)
 VALUES [dietary_restriction_input];
 
+
 -- add a new food group
 INSERT INTO food_group (food_group_name)
 VALUES [food_group_input];
+
 
 -- add a new food group-dietary restriction
 INSERT INTO food_group_dietary_restriction(food_group_id, dietary_restriction_id)
 VALUES ([food_group_id_input], [dietary_restriction_id_input]);
 
+
 -- add a new ingredient
 INSERT INTO ingredient (ingredient_name, food_group_id)
 VALUES ([ingredient_name_input], [food_group_id_input]);
+
 
 -- add a new recipe
 INSERT INTO recipe (recipe_name, recipe_image, recipe_instructions, recipe_description, user_id, recipe_category_id)
 VALUES ([recipe_name_input], [recipe_image_input], [recipe_instructions_input], [recipe_description_input], [user_id_input], [recipe_category_input]);
 
+
 -- add a new recipe category
 INSERT INTO recipe_category (recipe_category_name)
 VALUES [recipe_category_input];
+
 
 -- add a new recipe cuisine
 INSERT INTO recipe_cuisine(recipe_id, cuisine_id)
 VALUES ([recipe_id_input], [cuisine_id_input]);
 
+
 -- add a new recipe-ingredient
 INSERT INTO recipe_ingredient(recipe_id, ingredient_id, amount, unit_of_measure_id)
 VALUES ([recipe_id_input], [ingredient_id_input]);
+
 
 -- add a new recipe significance type
 INSERT INTO recipe_significance_type (recipe_significance_type_name)
 VALUES [recipe_significance_type_input];
 
+
 -- add a new unit of measure
 INSERT INTO unit_of_measure (unit_of_measure_name, unit_of_measure_abbrev)
 VALUES ([unit_of_measure_name_input], [unit_of_measure_abbrev_input]);
+
 
 -- add user-recipe significance
 INSERT INTO user_significant_recipe (user_id, recipe_id, recipe_significance_type_id)
@@ -421,21 +433,57 @@ VALUES ([user_id_input], [recipe_id_input], [recipe_significant_type_id_input]);
 
 
 
+
+
 -- ********************************
--- *  UPDATE
+-- *  UPDATES
 -- ********************************
 
 -- update a recipe record based on submission of the 'Update Recipe' form
+UPDATE recipe SET
+  recipe_name = [recipe_name_input],
+  recipe_image = [recipe_image_input],
+  recipe_instructions = [recipe_instructions_input],
+  recipe_description = [recipe_description_input],
+  user_id = [user_id_input],
+  recipe_category_id = [recipe_category_input]
+WHERE recipe_id = [recipe_id_from_update_form];
+
 
 -- update a recipe-cuisine record based on submission of the 'Update Recipe' form
+UPDATE recipe_cuisine SET
+  recipe_id = [recipe_id_input],
+  cuisine_id = [cuisine_id_input]
+WHERE recipe_id = [recipe_id_from_update_form] 
+AND cuisine_id = [cuisine_id_from_update_form];
+
 
 -- update a recipe-ingredient record based on submission of the 'Update Recipe' form
-
+UPDATE recipe_ingredient SET
+  recipe_id = [recipe_id_input],
+  ingredient_id = [ingredient_id_input],
+  amount = [amount_input],
+  unit_of_measure_id = [unit_of_measure_id_input]
+WHERE recipe_id = [recipe_id_from_update_form] 
+AND ingredient_id = [ingredient_id_from_update_form];
 
 
 -- update a user's data based on submission of the 'Update User' form
+UPDATE app_user SET
+  user_name = [user_name_input],
+  user_email = [user_email_input],
+  user_password = [user_password_input]
+WHERE user_id = [user_id_from_update_form];
 
--- update a user's significant recipe
+
+-- update a user significant recipe record.
+UPDATE user_significant_recipe SET
+  user_id = [user_id_input],
+  recipe_id = [recipe_id_input],
+  recipe_significance_type_id = [recipe_significance_type_id_input]
+WHERE user_id = [logged_in_user_id] 
+AND recipe_id = [selected_recipe_id];
+
 
 
 
