@@ -86,6 +86,23 @@ ORDER BY recipe_category_name;
 
 
 --
+----- SELECT queries to retrieve record totals.
+--
+
+-- get the total # of recipes in the database.
+SELECT COUNT(recipe_id) AS total_recipes FROM recipe;
+
+-- get the total # of ingredients in the database.
+SELECT COUNT(ingredient_id) AS total_ingredients FROM ingredient;
+
+-- get the total # of users in the database.
+SELECT COUNT(user_id) AS total_users FROM app_user;
+
+
+
+
+
+--
 ----- SELECT queries to retrieve data for individual recipes.
 --
 
@@ -148,7 +165,7 @@ ORDER BY r.recipe_name;
 
 -- get the total # of resulting ingredients & recipes from a text search (based on the ingredient name OR recipe name)
 SELECT 
-  COUNT(t.recipe_id) AS total_results 
+  COUNT(t.recipe_id) AS total_results
 FROM (
   SELECT ri.recipe_id 
   FROM recipe_ingredient AS ri 
@@ -317,16 +334,14 @@ ORDER BY r.recipe_name;
 SELECT 
   COUNT(recipe_id) AS total_liked_recipes
 FROM user_significant_recipe
-WHERE recipe_significance_type_id = 1
-AND user_id = [logged_in_user_id];
+WHERE recipe_significance_type_id = 1 AND user_id = [logged_in_user_id];
 
 
 -- get the total # of 'disliked' recipes for a specified user
 SELECT 
   COUNT(recipe_id) AS total_liked_recipes
 FROM user_significant_recipe
-WHERE recipe_significance_type_id = 2
-AND user_id = [logged_in_user_id];
+WHERE recipe_significance_type_id = 2 AND user_id = [logged_in_user_id];
 
 
 -- get all created recipes for a single user
@@ -505,8 +520,10 @@ WHERE recipe_id = [selected_recipe_id];
 
 
 
+
+
 -- ********************************
--- *  DELETE
+-- *  DELETES
 -- ********************************
 
 -- delete a recipe
