@@ -1,0 +1,24 @@
+{
+  "name": "meal_wheel",
+  "version": "1.0.0",
+  "description": "web app to help users find and share recipes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/taylor-jones/Meal-Wheel.git"
+  },
+  "author": "Andrew Soback, Taylor Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taylor-jones/Meal-Wheel/issues"
+  },
+  "homepage": "https://github.com/taylor-jones/Meal-Wheel#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}

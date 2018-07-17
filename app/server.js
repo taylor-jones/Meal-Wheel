@@ -7,15 +7,17 @@
 var express = require("express");
 var app = express();
 
-app.set('port', 31000);
-//app.use(express.static('public'));
+app.set('port', 31001);
+app.use("public", express.static('public'));
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 
 app.get('/',function(req,res,next){
-    res.redirect('public/index.html');
+    res.render('index.html');
 });
 
 app.post('/', function(req, res){
- res.redirect('public/index.html');
+ res.redirect('index.html');
 });
 
 app.listen(app.get('port'), function(){
