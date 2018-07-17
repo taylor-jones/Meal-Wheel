@@ -27,7 +27,7 @@
 ----- Basic SELECT queries to populate lists.
 --
 
--- get a list of all the recipe names
+-- get a list of all the recipes
 SELECT 
   recipe_id, 
   recipe_name 
@@ -35,7 +35,7 @@ FROM recipe
 ORDER BY recipe_name;
 
 
--- get a list of all the ingredient names
+-- get a list of all the ingredients
 SELECT 
   ingredient_id, 
   ingredient_name 
@@ -43,7 +43,7 @@ FROM ingredient
 ORDER BY ingredient_name;
 
 
--- get a list of all the food group names
+-- get a list of all the food groups
 SELECT 
   food_group_id,
   food_group_name 
@@ -51,7 +51,7 @@ FROM food_group
 ORDER BY food_group_name;  
 
 
--- get a list of all the dietary restriction names
+-- get a list of all the dietary restrictions
 SELECT 
   dietary_restriction_id, 
   dietary_restriction_name 
@@ -59,7 +59,7 @@ FROM dietary_restriction
 ORDER BY dietary_restriction_name;
 
 
--- get a list of all the unit of measure names
+-- get a list of all the units of measure
 SELECT 
   unit_of_measure_id, 
   unit_of_measure_name 
@@ -67,7 +67,7 @@ FROM unit_of_measure
 ORDER BY unit_of_measure_name;
 
 
--- get a list of all the cuisine names
+-- get a list of all the cuisines
 SELECT 
   cuisine_id, 
   cuisine_name 
@@ -75,7 +75,7 @@ FROM cuisine
 ORDER BY cuisine_name;
 
 
--- get a list of all the recipe category names
+-- get a list of all the recipe categories
 SELECT 
   recipe_category_id, 
   recipe_category_name 
