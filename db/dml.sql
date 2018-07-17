@@ -247,18 +247,7 @@ SELECT
 FROM ingredient AS i 
   INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
   INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all ingredients
-ORDER BY i.ingredient_name;
-
-
--- get all restricted ingredients that are part of at least one of the dietary restrictions in a list of dietary restriction ids
-SELECT 
-  i.ingredient_id, 
-  i.ingredient_name 
-FROM ingredient AS i 
-  INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
-  INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-WHERE dr.dietary_restriction_id IN ([dietary_restriction_id_list]) -- not using OR IS NULL here, so we don't restrict all ingredients
+WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id]
 ORDER BY i.ingredient_name;
 
 
@@ -272,9 +261,34 @@ WHERE ingredient_id NOT IN (
   FROM ingredient AS i 
     INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
     INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
-  WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all ingredients
-  ORDER BY i.ingredient_name
-);
+  WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id]
+) ORDER BY ingredient_name;
+
+
+-- get all restricted ingredients that are part of at least one of the dietary restrictions in a list of dietary restriction ids
+SELECT 
+  i.ingredient_id, 
+  i.ingredient_name 
+FROM ingredient AS i 
+  INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
+  INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
+WHERE dr.dietary_restriction_id IN ([dietary_restriction_id_list])
+ORDER BY i.ingredient_name;
+
+
+-- get all inredients that are NOT part of a list of any specified dietary restriction ids
+SELECT
+  ingredient_id,
+  ingredient_name
+FROM ingredient
+WHERE ingredient_id NOT IN (
+  SELECT i.ingredient_id
+  FROM ingredient AS i 
+    INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
+    INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
+  WHERE dr.dietary_restriction_id IN ([dietary_restriction_id_list])
+) ORDER BY ingredient_name;
+
 
 
 -- get all restricted recipes for a specified dietary restriction id
@@ -294,7 +308,7 @@ GROUP BY r.recipe_id
 ORDER BY r.recipe_name;
 
 
--- get all non-restricted recipes for a specified dietary restriction
+-- get all non-restricted recipes for a specified dietary restriction id
 SELECT 
   recipe_id, 
   recipe_name 
@@ -309,6 +323,44 @@ WHERE recipe_id NOT IN (
         INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
         INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
       WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id] -- not using OR IS NULL here, so we don't restrict all recipes
+    ) AS i ON ri.ingredient_id = i.ingredient_id 
+  GROUP BY r.recipe_id 
+  ORDER BY r.recipe_name
+);
+
+
+-- get all restrictred recipes based on a list of specified dietary restriction ids
+SELECT 
+  ri.recipe_id, 
+  r.recipe_name 
+FROM recipe_ingredient AS ri 
+  INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
+  INNER JOIN (
+    SELECT i.ingredient_id 
+    FROM ingredient AS i 
+      INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
+      INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
+    WHERE dr.dietary_restriction_id IN ([dietary_restriction_id_list])
+  ) AS i ON ri.ingredient_id = i.ingredient_id 
+GROUP BY r.recipe_id 
+ORDER BY r.recipe_name;
+
+
+-- get all non-restricted recipes based on a list of specified dietary restriction ids
+SELECT 
+  recipe_id, 
+  recipe_name 
+FROM recipe 
+WHERE recipe_id NOT IN (
+  SELECT ri.recipe_id 
+  FROM recipe_ingredient AS ri 
+    INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
+    INNER JOIN (
+      SELECT i.ingredient_id 
+      FROM ingredient AS i 
+        INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id 
+        INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
+      WHERE dr.dietary_restriction_id IN ([dietary_restriction_id_list])
     ) AS i ON ri.ingredient_id = i.ingredient_id 
   GROUP BY r.recipe_id 
   ORDER BY r.recipe_name
@@ -395,6 +447,12 @@ ORDER BY r.recipe_name;
       - are there others???
    
    Then, it's going to need to take the resulting recipe list above and pick a random item from that list.
+
+
+
+
+
+  WHERE NOT IN user's disliked recipes
 */
 
 
