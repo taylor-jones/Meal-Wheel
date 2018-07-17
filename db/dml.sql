@@ -479,14 +479,14 @@ WHERE
     FROM recipe_ingredient AS ri
       INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
       INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
-    WHERE ri.ingredient_id IN (@ingredients) OR @ingredients IS NULL
+    WHERE ri.ingredient_id IN ([required_ingredient_id_list]) OR [required_ingredient_id_list] IS NULL
   ) 
   
   -- make sure it fits the specified recipe category (if provided)
   AND recipe_id IN (
     SELECT r.recipe_id
     FROM recipe AS r
-    WHERE r.recipe_category_id = @category_id OR @category_id IS NULL
+    WHERE r.recipe_category_id = [required_category_id] OR [required_category_id] IS NULL
   ) 
 
   -- make sure it's NOT restricted BY ANY dietary restrictions (IF provided).
@@ -502,7 +502,7 @@ WHERE
             FROM ingredient AS i
               INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id
               INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id
-            WHERE dr.dietary_restriction_id IN (@diet_id)
+            WHERE dr.dietary_restriction_id IN ([dietary_requirement_id_list])
           ) AS i ON ri.ingredient_id = i.ingredient_id
       )
   ) 
@@ -512,7 +512,7 @@ WHERE
     SELECT rc.recipe_id
     FROM recipe_cuisine AS rc
       INNER JOIN recipe AS r ON rc.recipe_id = r.recipe_id
-    WHERE rc.cuisine_id IN (@cuisine_id) OR @cuisine_id IS NULL
+    WHERE rc.cuisine_id IN ([required_cuisine_id_list]) OR [required_cuisine_id_list] IS NULL
   ) 
 
   -- make sure its not 'disliked' by a signed in user (if user is signed in)
@@ -520,7 +520,7 @@ WHERE
     SELECT r.recipe_id
     FROM recipe AS r
       INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
-      INNER JOIN app_user AS u ON u.user_id = @user_id
+      INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
     WHERE sr.recipe_significance_type_id = 2
   )
 
