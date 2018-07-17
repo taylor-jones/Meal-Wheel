@@ -148,13 +148,9 @@ ORDER BY ri.amount DESC;
 
 
 
-
-
-
 --
 ----- SELECT queries to retrieve search results
 --
-
 
 -- get all recipes matching a specified text search (based on the ingredient name OR recipe name)
 SELECT
@@ -184,11 +180,12 @@ FROM (
 
 
 
+
 --
 ----- SELECT queries to retrieve filter results
 --
 
--- get all recipes that have a specified recipe_category
+-- get all recipes that have a specified recipe_category id
 SELECT
   r.recipe_id,
   r.recipe_name
@@ -197,13 +194,24 @@ WHERE r.recipe_category_id = [selected_recipe_category_id] OR [selected_recipe_c
 ORDER BY r.recipe_name;
 
 
--- get all recipes that have a specified cuisine
+-- get all recipes that have a specified cuisine id
 SELECT 
   rc.recipe_id, 
   r.recipe_name 
 FROM recipe_cuisine AS rc
   INNER JOIN recipe AS r ON rc.recipe_id = r.recipe_id 
 WHERE rc.cuisine_id = [selected_cuisine_id] OR [selected_cuisine_id] IS NULL
+GROUP BY r.recipe_id 
+ORDER BY r.recipe_name;
+
+
+-- get all recipes that match at least one of the cuisines in a list of recipe cuisine ids
+SELECT 
+  rc.recipe_id, 
+  r.recipe_name 
+FROM recipe_cuisine AS rc
+  INNER JOIN recipe AS r ON rc.recipe_id = r.recipe_id 
+WHERE rc.cuisine_id IN ([selected_cuisine_id]) OR [selected_cuisine_id] IS NULL
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
 
@@ -395,6 +403,21 @@ WHERE sr.recipe_significance_type_id = 2
 ORDER BY r.recipe_name;
 
 
+-- get all recipes not 'disliked' by a specified user
+SELECT
+  recipe_id,
+  recipe_name
+FROM recipe
+WHERE recipe_id NOT IN (
+  SELECT r.recipe_id
+  FROM recipe AS r
+    INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
+    INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
+  WHERE sr.recipe_significance_type_id = 2
+) ORDER BY recipe_name;
+
+
+
 -- get the total # of 'liked' recipes for a specified user
 SELECT 
   COUNT(recipe_id) AS total_liked_recipes
@@ -435,25 +458,88 @@ ORDER BY r.recipe_name;
 ----- SELECT queries to get the 'random' recipe
 --
 
--- get a 'random' recipe based on the user's significant recipes and the user options on the 'Recipe Options' form
 
-/* I think this one is more complicated than the rest. It's going to have to look at multiple factors to
-   determine the list of appropriate recipes, like:
-   - (if user is signed in), 'liked' or 'disliked' recipes
-   - all the recipe options from the UI (i think we need to nail down which options we'll have):
-      - recipe category
-      - dietary restrictions
-      - required ingredients
-      - are there others???
+/*  get a 'random' recipe based on the following:
+    - any specified required ingredients
+    - any specified recipe category
+    - any specified dietary restrictions
+    - any specified recipe cuisines
+    - any 'disliked' recipes as specified by the signed in user
    
-   Then, it's going to need to take the resulting recipe list above and pick a random item from that list.
+   Then, order the results randomly and only get the top record returned,
+    which should simulate a 'random' return.
 
-
-
-
-
-  WHERE NOT IN user's disliked recipes
+  This query will be used to process the Meal Wheel 'Spin', taking into
+    account all allowable options for the returned recipe.
 */
+
+SELECT
+  recipe_id, 
+  recipe_name, 
+  recipe_image, 
+  recipe_instructions, 
+  recipe_description, 
+  user_id, 
+  recipe_category_id,
+  (SELECT COUNT(ri.recipe_id) FROM recipe_ingredient AS ri WHERE ri.recipe_id = recipe_id) AS total_ingredients
+FROM recipe
+WHERE
+
+  -- make sure it fits any specified ingredients (if provided).
+  recipe_id IN (
+    SELECT ri.recipe_id
+    FROM recipe_ingredient AS ri
+      INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+      INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
+    WHERE ri.ingredient_id IN (@ingredients) OR @ingredients IS NULL
+  ) 
+  
+  -- make sure it fits the specified recipe category (if provided)
+  AND recipe_id IN (
+    SELECT r.recipe_id
+    FROM recipe AS r
+    WHERE r.recipe_category_id = @category_id OR @category_id IS NULL
+  ) 
+
+  -- make sure it's NOT restricted BY ANY dietary restrictions (IF provided).
+  AND recipe_id IN (
+    SELECT recipe_id
+    FROM recipe
+    WHERE recipe_id NOT IN (
+      SELECT ri.recipe_id
+        FROM recipe_ingredient AS ri
+          INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+          INNER JOIN (
+            SELECT i.ingredient_id
+            FROM ingredient AS i
+              INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id
+              INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id
+            WHERE dr.dietary_restriction_id IN (@diet_id)
+          ) AS i ON ri.ingredient_id = i.ingredient_id
+      )
+  ) 
+
+  -- make sure it fits any recipe cuisines (if provided)
+  AND recipe_id IN (
+    SELECT rc.recipe_id
+    FROM recipe_cuisine AS rc
+      INNER JOIN recipe AS r ON rc.recipe_id = r.recipe_id
+    WHERE rc.cuisine_id IN (@cuisine_id) OR @cuisine_id IS NULL
+  ) 
+
+  -- make sure its not 'disliked' by a signed in user (if user is signed in)
+  AND recipe_id NOT IN (
+    SELECT r.recipe_id
+    FROM recipe AS r
+      INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
+      INNER JOIN app_user AS u ON u.user_id = @user_id
+    WHERE sr.recipe_significance_type_id = 2
+  )
+
+
+GROUP BY recipe_id
+ORDER BY RAND()
+LIMIT 1;
 
 
 
