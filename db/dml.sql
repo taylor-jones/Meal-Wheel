@@ -106,18 +106,19 @@ SELECT COUNT(user_id) AS total_users FROM app_user;
 ----- SELECT queries to retrieve data for individual recipes.
 --
 
--- get all the recipe data for a single recipe
+-- get the recipe data for a single recipe
 SELECT 
-  recipe_id, 
-  recipe_name, 
-  recipe_image, 
-  recipe_instructions, 
-  recipe_description, 
-  user_id, 
-  recipe_category_id, 
-  created_date
-FROM recipe
-WHERE recipe_id = [selected_recipe_id];
+  r.recipe_id, 
+  r.recipe_name, 
+  r.recipe_image, 
+  r.recipe_instructions, 
+  r.recipe_description, 
+  r.user_id, 
+  r.recipe_category_id,
+  (SELECT COUNT(ri.recipe_id) FROM recipe_ingredient AS ri WHERE ri.recipe_id = r.recipe_id) AS total_ingredients,
+  r.created_date
+FROM recipe AS r
+WHERE r.recipe_id = [selected_recipe_id];
 
 
 -- get all the recipe-cuisines for a single recipe
@@ -142,6 +143,10 @@ FROM recipe_ingredient AS ri
   INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
 WHERE ri.recipe_id = [selected_recipe_id] 
 ORDER BY ri.amount DESC;
+
+
+
+
 
 
 
@@ -215,7 +220,8 @@ GROUP BY r.recipe_id
 ORDER BY r.recipe_name;
 
 
--- get all the recipes that have at least one of the ingredients in a list of ingredient ids
+-- get all the recipes that have at least one of the ingredients in a list of ingredient ids,
+--    unless no ingredients are specified, then return all recipes.
 SELECT 
   ri.recipe_id, 
   r.recipe_name 
@@ -226,6 +232,13 @@ WHERE ri.ingredient_id IN ([selected_ingredient_id_list]) OR [selected_ingredien
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
 
+
+
+
+
+-- 
+----- SELECT queries involving ingredients/recipes with dietary restrictions
+--
 
 -- get all restricted ingredients for a specified dietary restriction id
 SELECT 
