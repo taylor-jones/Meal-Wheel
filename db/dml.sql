@@ -139,14 +139,14 @@ SELECT
   ri.recipe_id,
   r.recipe_name
 FROM recipe_ingredient AS ri
-INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
-INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
-WHERE ingredient_name LIKE '%[search_input]%' OR recipe_name LIKE '%[search_input]%'
+  INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+  INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
+WHERE ingredient_name LIKE CONCAT('%', [search_input], '%') OR recipe_name LIKE CONCAT('%', [search_input], '%')
 GROUP BY r.recipe_id
 ORDER BY r.recipe_name;
 
 
--- get the total # of resulting ingredients & recipes from a text search
+-- get the total # of resulting ingredients & recipes from a text search (based on the ingredient name OR recipe name)
 SELECT 
   COUNT(t.recipe_id) AS total_results 
 FROM (
@@ -154,8 +154,9 @@ FROM (
   FROM recipe_ingredient AS ri 
     INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
     INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
-  WHERE ingredient_name LIKE '%[search_input]%' OR recipe_name LIKE '%[search_input]%'
+  WHERE ingredient_name LIKE CONCAT('%', [search_input], '%') OR recipe_name LIKE CONCAT('%', [search_input], '%')
   GROUP BY r.recipe_id) AS t
+
 
 
 
@@ -289,7 +290,6 @@ WHERE recipe_id NOT IN (
   GROUP BY r.recipe_id 
   ORDER BY r.recipe_name
 );
-
 
 
 
