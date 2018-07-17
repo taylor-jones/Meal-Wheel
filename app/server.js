@@ -8,7 +8,7 @@ var express = require("express");
 var app = express();
 
 app.set('port', 31001);
-app.use("public", express.static('public'));
+//app.use("public", express.static('public'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
