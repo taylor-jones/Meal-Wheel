@@ -40,88 +40,55 @@
 			</li>
 			</ul>
 		</div>
-		</nav>
+	</nav>
 
 
     <!-- Main Container -->
     <div class="main">
       
-           <div class="container-fluid">
+        <div class="container-fluid">
            		
-           			<div class="row">
+   			<div class="row">   	
+   				<div class="col-lg-12 col-sm-4 text-center"><h1>Browse Recipes</h1></div>
+   			</div>
+   			
+   			<div class="d-flex p-1 flex-row-reverse">
+   				<form>
+          			<select name="recipe_cuisine" id="recipe_cuisine">
+	                	<option value="any">Cuisines</option>
+	                	<option value="american">American</option>
+	              	</select>
+	              	<select name="recipe_category" id="recipe_category">
+	                	<option value="entree">Entree</option>
+	                	<option value="beverage">Beverage</option>
+	                	<option value="snack">Snack</option>
+	              	</select>      
+	              	<input type="submit" value="Filter">
+  				</form>
+   			</div>
+        </div>          			 				
 
-           	
-           			<div class="col-lg-12 col-sm-4 text-center"><h1>Browse Recipes</h1></div>
-           		
-           			
-
-           			</div>
-
-   
-
-           			
-           			<div class="d-flex p-1 flex-row-reverse">
-           				<form>
-	              			<select name="recipe_cuisine" id="recipe_cuisine">
-			                	<option value="any">Cuisines</option>
-			                	<option value="american">American</option>
-			              	</select>
-			              	<select name="recipe_category" id="recipe_category">
-			                	<option value="entree">Entree</option>
-			                	<option value="beverage">Beverage</option>
-			                	<option value="snack">Snack</option>
-			              	</select>      
-			              	<input type="submit" value="Filter">
-		  				</form>
-
-           			</div>
-           			
-   						
-
-
-           			</div>
-           			
-
-           			</div>
-           				
-           				
-							
-           					
-           			
-           	
-           		
-
-
-				<div class="row">
-		  			<div class="col-md-4 col-sm-6">
-		    			<a href="#" class="thumbnail">
-		    				<!-- Photo by Jimi Filipovski on Unsplash -->
-		      				<img src="draftPictures/blt.jpg"  title="BLT"  height="200px">
-		   				</a>
-		  			</div>
-		  			<div class="col-md-4 col-sm-6">
-		    			<a href="#" class="thumbnail">
-		    				<!-- Photo by yvonne lee harijanto on Unsplash -->
-		      				<img src="draftPictures/stirfry.jpg" title="Beef and Broccoli"  height="200px">
-		   				</a>
-		  			</div>
-		  			<div class="col-md-4 col-sm-6">
-		    			<a href="#" class="thumbnail">
-		    				<!--Photo by Yuanbin Du on Unsplash -->
-		      				<img src="draftPictures/marg.jpg" title="Margarita" height="200px" >
-		   				</a>
-		  			</div>
-		  		</div>
-
-			 </div>
-
+		<div class="row">
+  			<div class="col-md-4 col-sm-6">
+    			<a href="#" class="thumbnail">
+    				<!-- Photo by Jimi Filipovski on Unsplash -->
+      				<img src="draftPictures/blt.jpg"  title="BLT"  height="200px">
+   				</a>
+  			</div>
+  			<div class="col-md-4 col-sm-6">
+    			<a href="#" class="thumbnail">
+    				<!-- Photo by yvonne lee harijanto on Unsplash -->
+      				<img src="draftPictures/stirfry.jpg" title="Beef and Broccoli"  height="200px">
+   				</a>
+  			</div>
+  			<div class="col-md-4 col-sm-6">
+    			<a href="#" class="thumbnail">
+    				<!--Photo by Yuanbin Du on Unsplash -->
+      				<img src="draftPictures/marg.jpg" title="Margarita" height="200px" >
+   				</a>
+  			</div>
+  		</div>
     </div>
-
-
-
-
-	
-	  
 
 	<!-- JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

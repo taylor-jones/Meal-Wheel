@@ -6,3 +6,10 @@
   margin-top: 150px;
 }
 
+/*Photo by Katherine Chase on Unsplash*/
+body{
+	/*background-image: URL("draftPictures/ice.jpg");*/
+	background-image: URL("draftPictures/cuttingboard.jpg");
+	/*background-color: #edebe8;*/
+	background-size: 100%;
+}
