@@ -1,10 +1,12 @@
+var looper;
+var degrees = 0;
 document.getElementById("wheelImg").addEventListener('click', function(){
-	rotateAnimation("wheelImg", 10, 0)
+	degrees = 0;
+	rotateAnimation("wheelImg", 30, 0);
 });
 
 //help from http://www.developphp.com/video/JavaScript/Transform-Rotate-Image-Spin-Smooth-Animation-Tutorial
-var looper;
-var degrees = 0;
+
 function rotateAnimation(el,speed, count){
 	var elem = document.getElementById("wheelImg");
 	if(navigator.userAgent.match("Chrome")){
