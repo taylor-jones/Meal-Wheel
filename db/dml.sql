@@ -5,23 +5,11 @@
 * Taylor Jones
 */
 
--- Your submission should contain ALL the queries required to implement ALL the
--- functionalities listed in the Project Specs.
 
--- It should be possible to add entries to every table individually.
--- Every table should be used in at least one select query.
--- Your website needs to have the ability to search using text or filter using a dynamically populated list of properties to filter on.This search / filter functionality should be present for at least one entity.
-
--- You need to include one delete function in your website, for any of the entities.
--- You need to include one update function in your website, for any of the entities.
--- It should be possible to add and remove things from at least one many - to - many relationship.
--- It should be possible to add things to all relationships.
--------------------------------------------------------------------
 
 -- ********************************
 -- *  SELECTS
 -- ********************************
-
 
 --
 ----- Basic SELECT queries to populate lists.
