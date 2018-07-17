@@ -43,31 +43,54 @@
 	</nav>
 
 
-	<form action="/" method="POST">
-		<fieldset>
-			<legend>Submit a recipe</legend>
-			<label for="recipe_name">Recipe Name: </label>
-			<input id="recipe_name" type="text" name="recipe_name" required>
-			<label for="recipe_image">Upload an image... </label>
-			<input type="file" name="recipe_image" id="recipe_image" accept="image/*">
-			<label for="recipe_instructions">Method: </label>
-			<input id="recipe_instructions" type="text" name="recipe_instructions" required>
-			<div id="list_ingredients">Ingredients:
-				<input id="ingredient_1" type="text" name="ingredient_1">
-				<input id="amount" type="number">
-				<select name="unit_of_measure">
-					<option value="cup">Cups</option>
+
+ <!-- Main Container -->
+    <div class="main">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4">
+
+          <form action="/" method="POST">
+			<fieldset>
+				<legend>Submit a recipe</legend>
+				<label for="recipe_name">Recipe Name: </label>
+				<input id="recipe_name" type="text" name="recipe_name" required>
+				<br>
+				<label for="recipe_image">Upload an image... </label>
+				<input type="file" name="recipe_image" id="recipe_image" accept="image/*">
+				<br>
+				<label for="recipe_instructions">Method: </label>
+				<input id="recipe_instructions" type="text" name="recipe_instructions" required>
+				<br>
+				<div id="list_ingredients">Ingredients:
+					<input id="ingredient_1" type="text" name="ingredient_1">
+					<input id="amount" type="number" style="width: 80px">
+					<select name="unit_of_measure">
+						<option value="cup">Cups</option>
+					</select>
+				</div>
+				<br>
+				<select id="recipe_category" name="recipe_category">
+					<option value="entree">Entree</option>
+					<option value="beverage">Beverage</option>
+               		<option value="snack">Snack</option>
 				</select>
-			</div>
-			<select id="recipe_category" name="recipe_category">
-				<option value="entree">Entree</option>
-			</select>
-			<select id="recipe_cuisine" name="recipe_cuisine">
-				<option value="entree">American</option>
-			</select>
-			<input id="addRecipe" type="submit" name="addRecipe">
-		</fieldset>
-	</form>
+				<select id="recipe_cuisine" name="recipe_cuisine">
+					<option value="american">American</option>
+					<option value="thai">Thai</option>
+					
+				</select>
+				<br><br>
+				<input id="addRecipe" type="submit" name="addRecipe">
+			</fieldset>
+		</form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+	
 
 
 	<!-- JavaScript -->
