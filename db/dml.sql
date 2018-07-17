@@ -155,7 +155,8 @@ FROM (
     INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
     INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
   WHERE ingredient_name LIKE CONCAT('%', [search_input], '%') OR recipe_name LIKE CONCAT('%', [search_input], '%')
-  GROUP BY r.recipe_id) AS t
+  GROUP BY r.recipe_id
+) AS t
 
 
 
