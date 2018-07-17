@@ -32,12 +32,15 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="navbar-nav ml-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="login.html">Login</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="newUser.html">New User?</a>
-			</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="login.html">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="newUser.html">New User?</a>
+				</li>
+				<li class="nav-item">
+	        	    <a class="nav-link" href="userProfile.html">View Profile</a>
+	         	</li>
 			</ul>
 		</div>
 	</nav>
@@ -66,29 +69,45 @@
 	              	<input type="submit" value="Filter">
   				</form>
    			</div>
+
+   			<div class="d-flex p-1 flex-row-reverse">
+   				<form>
+          			<input type="text" name=browseSearch">
+	              	<input type="submit" value="Search">
+  				</form>
+   			</div>
+
         </div>          			 				
 
-		<div class="row">
+		<div class="row picRow">
   			<div class="col-md-4 col-sm-6">
     			<a href="#" class="thumbnail">
     				<!-- Photo by Jimi Filipovski on Unsplash -->
-      				<img src="draftPictures/blt.jpg"  title="BLT"  height="200px">
+      				<img class="boxshadow" src="draftPictures/blt.jpg"  title="BLT"  height="200px">
    				</a>
   			</div>
   			<div class="col-md-4 col-sm-6">
     			<a href="#" class="thumbnail">
     				<!-- Photo by yvonne lee harijanto on Unsplash -->
-      				<img src="draftPictures/stirfry.jpg" title="Beef and Broccoli"  height="200px">
+      				<img class="boxshadow" src="draftPictures/stirfry.jpg" title="Beef and Broccoli"  height="200px">
    				</a>
   			</div>
   			<div class="col-md-4 col-sm-6">
     			<a href="#" class="thumbnail">
     				<!--Photo by Yuanbin Du on Unsplash -->
-      				<img src="draftPictures/marg.jpg" title="Margarita" height="200px" >
+      				<img class="boxshadow" src="draftPictures/marg.jpg" title="Margarita" height="200px" >
    				</a>
   			</div>
   		</div>
     </div>
+
+
+<footer class="page-footer font-small blue footer">
+  <div class="text-right">Andrew Soback, Taylor Jones, CS340
+    <a href="admin.html">Admin Control Link</a>
+  </div>
+</footer>
+
 
 	<!-- JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
