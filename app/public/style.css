@@ -1,0 +1,35 @@
+.pink {
+  /*background-color: pink;*/
+}
+
+.main {
+  margin-top: 150px;
+}
+
+/*Photo by Katherine Chase on Unsplash*/
+body{
+	/*background-image: URL("draftPictures/ice.jpg");*/
+	background-image: URL("draftPictures/cuttingboard.jpg");
+	/*background-color: #edebe8;*/
+	background-size: 100%;
+}
+
+.picRow{
+	padding-left: 20px;
+}
+
+.boxshadow{
+	border: 3px white solid;
+	box-shadow: 10px 10px 5px rgba(22, 22, 22, .4);
+}
+
+h1{
+	text-shadow: 2px 2px 2px rgba(22, 22, 22, .4);
+}
+
+.footer{
+	position:fixed;
+	bottom:0;
+	text-align: right;
+	right:0;
+}
