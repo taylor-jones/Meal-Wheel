@@ -9,11 +9,16 @@ var app = express();
 
 app.set('port', 31001);
 //app.use("public", express.static('public'));
+<<<<<<< HEAD
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
+=======
+//app.set('view engine', 'ejs');
+//app.engine('html', require('ejs').renderFile);
+>>>>>>> d1de5513bf0d16ffdac74c38ede9e1fe009d9c07
 
-app.get('/',function(req,res,next){
-    res.render('index.html');
+app.get('/', function(req, res){
+  res.redirect('/index.html');
 });
 
 app.post('/', function(req, res){
