@@ -166,7 +166,7 @@ FROM (
 ----- SELECT queries to retrieve filter results
 --
 
--- get all recipes in a specified recipe_category
+-- get all recipes that have a specified recipe_category
 SELECT
   r.recipe_id,
   r.recipe_name
@@ -175,8 +175,7 @@ WHERE r.recipe_category_id = [selected_recipe_category_id] OR [selected_recipe_c
 ORDER BY r.recipe_name;
 
 
-
--- get all recipes matching a specified cuisine
+-- get all recipes that have a specified cuisine
 SELECT 
   rc.recipe_id, 
   r.recipe_name 
@@ -187,8 +186,7 @@ GROUP BY r.recipe_id
 ORDER BY r.recipe_name;
 
 
-
--- get all recipes containing a specified ingredient id
+-- get all recipes that have a specified ingredient id
 SELECT 
   ri.recipe_id, 
   r.recipe_name 
@@ -200,8 +198,7 @@ GROUP BY r.recipe_id
 ORDER BY r.recipe_name;
 
 
-
--- get all the recipes containing at least one of the ingredients in a list of ingredient ids
+-- get all the recipes that have at least one of the ingredients in a list of ingredient ids
 SELECT 
   ri.recipe_id, 
   r.recipe_name 
@@ -211,7 +208,6 @@ FROM recipe_ingredient AS ri
 WHERE ri.ingredient_id IN ([selected_ingredient_id_list]) OR [selected_ingredient_id_list] IS NULL
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
-
 
 
 -- get all restricted ingredients for a specified dietary restriction id
@@ -225,8 +221,7 @@ WHERE dr.dietary_restriction_id = [selected_dietary_restriction_id] -- not using
 ORDER BY i.ingredient_name;
 
 
-
--- get all restricted ingredients related to at least one of the dietary restrictions in a list of dietary restriction ids
+-- get all restricted ingredients that are part of at least one of the dietary restrictions in a list of dietary restriction ids
 SELECT 
   i.ingredient_id, 
   i.ingredient_name 
@@ -235,7 +230,6 @@ FROM ingredient AS i
   INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id 
 WHERE dr.dietary_restriction_id IN ([dietary_restriction_id_list]) -- not using OR IS NULL here, so we don't restrict all ingredients
 ORDER BY i.ingredient_name;
-
 
 
 -- get all non-restricted ingredients for a specified dietary restriction id
@@ -253,7 +247,6 @@ WHERE ingredient_id NOT IN (
 );
 
 
-
 -- get all restricted recipes for a specified dietary restriction id
 SELECT 
   ri.recipe_id, 
@@ -269,7 +262,6 @@ FROM recipe_ingredient AS ri
   ) AS i ON ri.ingredient_id = i.ingredient_id 
 GROUP BY r.recipe_id 
 ORDER BY r.recipe_name;
-
 
 
 -- get all non-restricted recipes for a specified dietary restriction
@@ -321,6 +313,22 @@ WHERE sr.recipe_significance_type_id = 2
 ORDER BY r.recipe_name;
 
 
+-- get the total # of 'liked' recipes for a specified user
+SELECT 
+  COUNT(recipe_id) AS total_liked_recipes
+FROM user_significant_recipe
+WHERE recipe_significance_type_id = 1
+AND user_id = [logged_in_user_id];
+
+
+-- get the total # of 'disliked' recipes for a specified user
+SELECT 
+  COUNT(recipe_id) AS total_liked_recipes
+FROM user_significant_recipe
+WHERE recipe_significance_type_id = 2
+AND user_id = [logged_in_user_id];
+
+
 -- get all created recipes for a single user
 SELECT
   r.recipe_id,
@@ -337,6 +345,8 @@ SELECT
 FROM recipe AS r
 WHERE r.user_id IS NULL
 ORDER BY r.recipe_name;
+
+
 
 
 
