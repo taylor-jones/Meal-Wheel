@@ -36,7 +36,7 @@ DROP TABLE IF EXISTS app_user;
 --
 CREATE TABLE app_user (
   user_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  user_name varchar(50) NOT NULL,
+  user_name varchar(150) NOT NULL,
   user_email varchar(150) NOT NULL,
   user_password varchar(20) NOT NULL,
   UNIQUE KEY user_email (user_email)
@@ -47,7 +47,7 @@ CREATE TABLE app_user (
 --
 CREATE TABLE food_group(
   food_group_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  food_group_name varchar(100) NOT NULL,
+  food_group_name varchar(50) NOT NULL,
   UNIQUE KEY food_group_name (food_group_name)
 ) ENGINE = InnoDB;
 
@@ -86,7 +86,7 @@ CREATE TABLE cuisine (
 CREATE TABLE unit_of_measure (
   unit_of_measure_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   unit_of_measure_name varchar(25) NOT NULL,
-  unit_of_measure_abbrev varchar(5) DEFAULT NULL,
+  unit_of_measure_abbrev varchar(5),
   UNIQUE KEY unit_of_measure_name (unit_of_measure_name)
 ) ENGINE = InnoDB;
 
@@ -95,7 +95,7 @@ CREATE TABLE unit_of_measure (
 --
 CREATE TABLE recipe_significance_type (
   recipe_significance_type_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  recipe_significance_type_name varchar(35) NOT NULL,
+  recipe_significance_type_name varchar(15) NOT NULL,
   UNIQUE KEY recipe_significance_type_name (recipe_significance_type_name)
 ) ENGINE = InnoDB;
 
