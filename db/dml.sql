@@ -376,8 +376,13 @@ SELECT
 FROM recipe AS r
   INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
   INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
-WHERE sr.recipe_significance_type_id = 1
+WHERE sr.recipe_significance_type_id = (
+    SELECT recipe_significance_type_id 
+    FROM recipe_significance_type 
+    WHERE recipe_significance_type_name="liked"
+  )
 ORDER BY r.recipe_name;
+
 
 
 -- get all 'disliked' recipes for a single user
@@ -387,7 +392,11 @@ SELECT
 FROM recipe AS r
   INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
   INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
-WHERE sr.recipe_significance_type_id = 2
+WHERE sr.recipe_significance_type_id = (
+    SELECT recipe_significance_type_id 
+    FROM recipe_significance_type 
+    WHERE recipe_significance_type_name="disliked"
+  )
 ORDER BY r.recipe_name;
 
 
@@ -401,7 +410,11 @@ WHERE recipe_id NOT IN (
   FROM recipe AS r
     INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
     INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
-  WHERE sr.recipe_significance_type_id = 2
+  WHERE sr.recipe_significance_type_id = (
+    SELECT recipe_significance_type_id 
+    FROM recipe_significance_type 
+    WHERE recipe_significance_type_name="disliked"
+  )
 ) ORDER BY recipe_name;
 
 
@@ -410,14 +423,24 @@ WHERE recipe_id NOT IN (
 SELECT 
   COUNT(recipe_id) AS total_liked_recipes
 FROM user_significant_recipe
-WHERE recipe_significance_type_id = 1 AND user_id = [logged_in_user_id];
+WHERE recipe_significance_type_id = (
+    SELECT recipe_significance_type_id 
+    FROM recipe_significance_type 
+    WHERE recipe_significance_type_name="liked"
+  )
+AND user_id = [logged_in_user_id];
 
 
 -- get the total # of 'disliked' recipes for a specified user
 SELECT 
-  COUNT(recipe_id) AS total_liked_recipes
+  COUNT(recipe_id) AS total_disliked_recipes
 FROM user_significant_recipe
-WHERE recipe_significance_type_id = 2 AND user_id = [logged_in_user_id];
+WHERE recipe_significance_type_id = (
+    SELECT recipe_significance_type_id 
+    FROM recipe_significance_type 
+    WHERE recipe_significance_type_name="disliked"
+  )
+AND user_id = [logged_in_user_id];
 
 
 -- get all created recipes for a single user
@@ -521,7 +544,11 @@ WHERE
     FROM recipe AS r
       INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
       INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
-    WHERE sr.recipe_significance_type_id = 2
+    WHERE sr.recipe_significance_type_id = (
+      SELECT recipe_significance_type_id 
+      FROM recipe_significance_type 
+      WHERE recipe_significance_type_name="disliked"
+    )
   )
 
 
