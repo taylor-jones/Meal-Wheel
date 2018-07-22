@@ -141,14 +141,13 @@ ORDER BY ri.amount DESC;
 --
 
 -- get all recipes matching a specified text search (based on the ingredient name OR recipe name)
-SELECT
+SELECT DISTINCT
   ri.recipe_id,
   r.recipe_name
 FROM recipe_ingredient AS ri
   INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
   INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
 WHERE ingredient_name LIKE CONCAT('%', [search_input], '%') OR recipe_name LIKE CONCAT('%', [search_input], '%')
-GROUP BY r.recipe_id
 ORDER BY r.recipe_name;
 
 
@@ -156,13 +155,12 @@ ORDER BY r.recipe_name;
 SELECT 
   COUNT(t.recipe_id) AS total_results
 FROM (
-  SELECT ri.recipe_id 
+  SELECT DISTINCT ri.recipe_id 
   FROM recipe_ingredient AS ri 
     INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id 
     INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id 
   WHERE ingredient_name LIKE CONCAT('%', [search_input], '%') OR recipe_name LIKE CONCAT('%', [search_input], '%')
-  GROUP BY r.recipe_id
-) AS t
+) AS t;
 
 
 
