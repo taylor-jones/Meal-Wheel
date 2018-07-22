@@ -367,6 +367,19 @@ WHERE recipe_id NOT IN (
 ----- SELECT queries to retrieve user-related recipes
 --
 
+-- get the 10 most-liked recipes
+SELECT
+  r.recipe_id,
+  r.recipe_name,
+  COUNT(sr.recipe_id) AS likes
+FROM user_significant_recipe AS sr
+  INNER JOIN recipe AS r ON sr.recipe_id = r.recipe_id
+WHERE sr.recipe_significance_type_id = 1
+GROUP BY sr.recipe_id
+ORDER BY likes
+LIMIT 10;
+
+
 -- get all 'liked' recipes for a single user
 SELECT
   r.recipe_id,
