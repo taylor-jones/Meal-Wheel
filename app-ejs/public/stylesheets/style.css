@@ -5,6 +5,9 @@ html {
 
 body {
   margin-bottom: 60px;
+  background: URL("../images/cuttingboard.jpg") no-repeat 0px 30px;
+  background-size: 100%;
+  background-attachment: fixed;
 }
 
 

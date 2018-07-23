@@ -6,7 +6,6 @@ document.getElementById("wheelImg").addEventListener('click', function(){
 });
 
 //help from http://www.developphp.com/video/JavaScript/Transform-Rotate-Image-Spin-Smooth-Animation-Tutorial
-
 function rotateAnimation(el,speed, count){
 	var elem = document.getElementById("wheelImg");
 	if(navigator.userAgent.match("Chrome")){
