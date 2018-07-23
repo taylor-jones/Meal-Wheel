@@ -1,16 +1,31 @@
 [{
     "recipe_id": 1,
     "recipe_name": "BLT",
-    "recipe_description": "Bacon, Lettuce, and Tomato Sandwich"
+    "recipe_image_url": null,
+    "recipe_instructions": null,
+    "recipe_description": "Bacon, Lettuce, and Tomato Sandwich",
+    "user_id": 1,
+    "recipe_category_id": 1,
+    "created_date": "2018-07-23 13:11:45"
   },
   {
     "recipe_id": 2,
     "recipe_name": "Beef and Broccoli",
-    "recipe_description": "”Traditional” Asian Dish"
+    "recipe_image_url": null,
+    "recipe_instructions": null,
+    "recipe_description": "”Traditional” Asian Dish",
+    "user_id": 1,
+    "recipe_category_id": 1,
+    "created_date": "2018-07-23 13:11:45"
   },
   {
     "recipe_id": 3,
     "recipe_name": "Watermelon Pitcher Margaritas",
-    "recipe_description": "Delicious Margaritas designed to serve 5-6"
+    "recipe_image_url": null,
+    "recipe_instructions": null,
+    "recipe_description": "Delicious Margaritas designed to serve 5-6",
+    "user_id": 2,
+    "recipe_category_id": 3,
+    "created_date": "2018-07-23 13:11:45"
   }
 ]
