@@ -1,7 +1,7 @@
 [{
     "recipe_id": 1,
     "recipe_name": "BLT",
-    "recipe_image_url": null,
+    "recipe_image_url": "http://i.imgur.com/DU2r9pP.jpg",
     "recipe_instructions": null,
     "recipe_description": "Bacon, Lettuce, and Tomato Sandwich",
     "user_id": 1,
@@ -11,7 +11,7 @@
   {
     "recipe_id": 2,
     "recipe_name": "Beef and Broccoli",
-    "recipe_image_url": "https://i.imgur.com/f9ENAF9.jpg",
+    "recipe_image_url": "http://i.imgur.com/f9ENAF9.jpg",
     "recipe_instructions": null,
     "recipe_description": "”Traditional” Asian Dish",
     "user_id": 1,
@@ -21,7 +21,7 @@
   {
     "recipe_id": 3,
     "recipe_name": "Watermelon Pitcher Margaritas",
-    "recipe_image_url": "https://i.imgur.com/edH3zxw.jpg",
+    "recipe_image_url": "http://i.imgur.com/edH3zxw.jpg",
     "recipe_instructions": null,
     "recipe_description": "Delicious Margaritas designed to serve 5-6",
     "user_id": 2,
