@@ -68,8 +68,14 @@
         <div class="browse-content">
           <div class="row">
             <% for (let i = 0; i < recipes.length; i++) { %>
-              <div class="card">
-                <!-- TODO: add a card for each recipe -->
+              <div class="col-sm-6 col-md-4">
+                <div class="card mb-5">
+                  <img class="card-img-top" src="./images/recipe-placeholder.png">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= recipes[i].recipe_name %></h5>
+                    <p class="card-text"><%= recipes[i].recipe_description %></p>
+                  </div>
+                </div>
               </div>
             <% } %>
           </div>
