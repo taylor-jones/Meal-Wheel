@@ -11,6 +11,8 @@ router.get('/', (req, res, next) => {
   });
 });
 
+
+/* GET an individual recipe page. */
 router.get('/:id', (req, res, next) => {
   let recipe;
 

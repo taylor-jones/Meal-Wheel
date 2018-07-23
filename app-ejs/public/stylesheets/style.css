@@ -147,9 +147,24 @@ footer > .container {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.main {
-  /*margin-top: 150px;*/
-}
+
+/*
+ * Images
+ */
+  .img-slate {
+    padding: 0;
+  }
+
+ .jumbotron .img-fluid {
+   width: 100%;
+   max-height: 350px;
+   object-fit: cover;
+ }
+
+
+/*
+ *
+ */
 
 h1{
   text-shadow: 2px 2px 2px rgba(22, 22, 22, .4);
