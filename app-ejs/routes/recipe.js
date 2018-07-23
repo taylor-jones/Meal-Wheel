@@ -12,10 +12,18 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
+  let recipe;
+
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].recipe_id === Number(req.params.id)) {
+      recipe = data[i];
+    }
+  }
+
   res.render('singleRecipe', {
-    page: data[req.params.id].recipe_name,
+    page: recipe.recipe_name,
     menuId: 'recipe',
-    data: data[req.params.id],
+    data: recipe,
   });
 });
 
