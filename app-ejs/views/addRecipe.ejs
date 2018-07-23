@@ -3,10 +3,11 @@
   <% include partials/head %>
 
   <body>
-    <% include partials/navbar %>
-
+    <p>see me</p>
+	<% include partials/navbar %>
+	CAn you see this
     <div class="container-fluid text-center">
-        <h1 class="display-4"><%= page %></h1>
+     <!--   <h1 class="display-4"><%= page %></h1> -->
     </div>
 
 
@@ -46,22 +47,22 @@
 					<input id="ingredient_1" type="text" name="ingredient_1">
 					<input id="amount" type="number" style="width: 80px">
 					<select name="unit_of_measure">
-						<% for ( let i = 0; i < units.length; i++ ) {
+				<!--		<% for ( let i = 0; i < units.length; i++ ) {
 			               <option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
-			            %>
+			            %> -->
 					</select>
 				</div>
 				
 				<div class="form-group row">
 					<select name="recipe_category">
-						<% for ( let i = 0; i < cuisines.length; i++ ) {
+					<!--	<% for ( let i = 0; i < cuisines.length; i++ ) {
 			               <option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
-			            %>
+			            %>  -->
 					</select>
 					<select name="recipe_cuisine">
-						<% for ( let i = 0; i < categories.length; i++ ) {
+					<!--	<% for ( let i = 0; i < categories.length; i++ ) {
 			               <option value="<%= categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name %></option>
-			            %>
+			            %>  -->
 					</select>
 				</div>
 
