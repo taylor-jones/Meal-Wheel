@@ -139,6 +139,14 @@ footer > .container {
 
 
 /*
+ * Cards
+ */
+ .card-text {
+   font-size: 0.85rem;
+ }
+
+
+/*
  * Utilities
  */
 
