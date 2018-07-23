@@ -98,7 +98,7 @@ SELECT COUNT(user_id) AS total_users FROM app_user;
 SELECT 
   r.recipe_id, 
   r.recipe_name, 
-  r.recipe_image, 
+  r.recipe_image_url, 
   r.recipe_instructions, 
   r.recipe_description, 
   r.user_id, 
@@ -498,7 +498,7 @@ ORDER BY r.recipe_name;
 SELECT
   recipe_id, 
   recipe_name, 
-  recipe_image, 
+  recipe_image_url, 
   recipe_instructions, 
   recipe_description, 
   user_id, 
@@ -606,8 +606,8 @@ VALUES ([ingredient_name_input], [food_group_id_input]);
 
 
 -- add a new recipe
-INSERT INTO recipe (recipe_name, recipe_image, recipe_instructions, recipe_description, user_id, recipe_category_id)
-VALUES ([recipe_name_input], [recipe_image_input], [recipe_instructions_input], [recipe_description_input], [user_id_input], [recipe_category_input]);
+INSERT INTO recipe (recipe_name, recipe_image_url, recipe_instructions, recipe_description, user_id, recipe_category_id)
+VALUES ([recipe_name_input], [recipe_image_url_input], [recipe_instructions_input], [recipe_description_input], [user_id_input], [recipe_category_input]);
 
 
 -- add a new recipe category
@@ -651,7 +651,7 @@ VALUES ([user_id_input], [recipe_id_input], [recipe_significant_type_id_input]);
 -- update a recipe record based on submission of the 'Update Recipe' form
 UPDATE recipe SET
   recipe_name = [recipe_name_input],
-  recipe_image = [recipe_image_input],
+  recipe_image_url = [recipe_image_url_input],
   recipe_instructions = [recipe_instructions_input],
   recipe_description = [recipe_description_input],
   user_id = [user_id_input],

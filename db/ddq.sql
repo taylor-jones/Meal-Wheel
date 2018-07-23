@@ -125,7 +125,7 @@ CREATE TABLE food_group_dietary_restriction (
 CREATE TABLE recipe (
   recipe_id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   recipe_name varchar(255) NOT NULL,
-  recipe_image blob,
+  recipe_image_url varchar(255),
   recipe_instructions text,
   recipe_description text,
   user_id int(11),
