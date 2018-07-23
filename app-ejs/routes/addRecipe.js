@@ -12,7 +12,7 @@ console.log(units);
 /* GET add recipe page. */
 router.get('/', (req, res, next) => {
   res.render('addRecipe', {
-    page: 'Add Recipe',
+    page: 'Sumbit a new Recipe',
     menuId: 'addRecipe',
     cuisines: cuisines,
     categories: categories,
