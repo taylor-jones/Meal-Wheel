@@ -1,0 +1,3891 @@
+[{
+      "ingredient_id": 4,
+      "ingredient_name": "Acorn stew",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 5,
+      "ingredient_name": "Agave",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 6,
+      "ingredient_name": "Agutuk",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 23,
+      "ingredient_name": "Ascidians",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 42,
+      "ingredient_name": "Bear",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 76,
+      "ingredient_name": "Buffalo",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 94,
+      "ingredient_name": "Caribou",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 103,
+      "ingredient_name": "Cattail",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 138,
+      "ingredient_name": "Chilchen",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 143,
+      "ingredient_name": "Chiton",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 151,
+      "ingredient_name": "Chokecherries",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 159,
+      "ingredient_name": "Cloudberries",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 160,
+      "ingredient_name": "Cockles",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 179,
+      "ingredient_name": "Corned beef and potatoes in tortilla",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 214,
+      "ingredient_name": "Deer",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 236,
+      "ingredient_name": "Elk",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 275,
+      "ingredient_name": "Frybread",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 306,
+      "ingredient_name": "Hazelnuts",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 315,
+      "ingredient_name": "Huckleberries",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 388,
+      "ingredient_name": "Mashu roots",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 395,
+      "ingredient_name": "Melon",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 410,
+      "ingredient_name": "Moose",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 418,
+      "ingredient_name": "Mush",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 423,
+      "ingredient_name": "Mutton",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 436,
+      "ingredient_name": "Octopus",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 444,
+      "ingredient_name": "Oopah",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 457,
+      "ingredient_name": "Owl",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 505,
+      "ingredient_name": "Piki bread",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 511,
+      "ingredient_name": "Pinon Nuts",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 537,
+      "ingredient_name": "Prairie Turnips",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 581,
+      "ingredient_name": "Rose Hips",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 593,
+      "ingredient_name": "Salmonberries",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 604,
+      "ingredient_name": "Sea cucumber",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 605,
+      "ingredient_name": "Sea lion",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 606,
+      "ingredient_name": "Seal",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 619,
+      "ingredient_name": "Smelt",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 625,
+      "ingredient_name": "Sourdock",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 647,
+      "ingredient_name": "Squirrel",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 648,
+      "ingredient_name": "Steelhead trout",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 649,
+      "ingredient_name": "Stinging Nettles",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 666,
+      "ingredient_name": "Tamales",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 679,
+      "ingredient_name": "Tennis Bread",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 695,
+      "ingredient_name": "Tortilla",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 745,
+      "ingredient_name": "Walrus",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 752,
+      "ingredient_name": "Whale",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 762,
+      "ingredient_name": "Willow",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 765,
+      "ingredient_name": "Wocas",
+      "food_group_name": "American Indian/Alaska Native Foods"
+    },
+    {
+      "ingredient_id": 26,
+      "ingredient_name": "Baby food",
+      "food_group_name": "Baby Foods"
+    },
+    {
+      "ingredient_id": 139,
+      "ingredient_name": "Child formula",
+      "food_group_name": "Baby Foods"
+    },
+    {
+      "ingredient_id": 255,
+      "ingredient_name": "Fluid replacement",
+      "food_group_name": "Baby Foods"
+    },
+    {
+      "ingredient_id": 327,
+      "ingredient_name": "Infant formula",
+      "food_group_name": "Baby Foods"
+    },
+    {
+      "ingredient_id": 683,
+      "ingredient_name": "Toddler formula",
+      "food_group_name": "Baby Foods"
+    },
+    {
+      "ingredient_id": 21,
+      "ingredient_name": "Artificial Blueberry Muffin Mix",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 30,
+      "ingredient_name": "Bagel",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 52,
+      "ingredient_name": "Biscuits",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 64,
+      "ingredient_name": "Bread",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 65,
+      "ingredient_name": "Bread crumbs",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 66,
+      "ingredient_name": "Bread sticks",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 67,
+      "ingredient_name": "Bread stuffing",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 69,
+      "ingredient_name": "Breakfast tart",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 85,
+      "ingredient_name": "Cake mix",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 119,
+      "ingredient_name": "Cheesecake commercially prepared",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 120,
+      "ingredient_name": "Cheesecake prepared from mix",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 155,
+      "ingredient_name": "Cinnamon buns",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 167,
+      "ingredient_name": "Coffeecake",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 169,
+      "ingredient_name": "Cookie",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 170,
+      "ingredient_name": "Cookies",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 187,
+      "ingredient_name": "Cracker meal",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 188,
+      "ingredient_name": "Crackers",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 198,
+      "ingredient_name": "Cream puff",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 199,
+      "ingredient_name": "Cream puff shell",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 203,
+      "ingredient_name": "Croissants",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 204,
+      "ingredient_name": "Croutons",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 212,
+      "ingredient_name": "Danish pastry",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 217,
+      "ingredient_name": "Doughnuts",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 239,
+      "ingredient_name": "English muffins",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 256,
+      "ingredient_name": "Focaccia",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 259,
+      "ingredient_name": "French toast",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 279,
+      "ingredient_name": "Garlic bread",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 317,
+      "ingredient_name": "Hush puppies",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 338,
+      "ingredient_name": "Keikitos",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 351,
+      "ingredient_name": "Leavening agents",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 415,
+      "ingredient_name": "Muffin",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 458,
+      "ingredient_name": "Pan Dulce",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 459,
+      "ingredient_name": "Pancakes",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 460,
+      "ingredient_name": "Pancakes plain",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 473,
+      "ingredient_name": "Pastry",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 496,
+      "ingredient_name": "Phyllo dough",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 501,
+      "ingredient_name": "Pie",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 502,
+      "ingredient_name": "Pie crust",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 523,
+      "ingredient_name": "Popovers",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 545,
+      "ingredient_name": "Puff pastry",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 580,
+      "ingredient_name": "Rolls",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 652,
+      "ingredient_name": "Strudel",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 660,
+      "ingredient_name": "Sweet rolls",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 665,
+      "ingredient_name": "Taco shells",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 682,
+      "ingredient_name": "Toaster pastries",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 697,
+      "ingredient_name": "Tortillas",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 698,
+      "ingredient_name": "Tostada shells",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 743,
+      "ingredient_name": "Waffle",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 744,
+      "ingredient_name": "Waffles",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 766,
+      "ingredient_name": "Wonton wrappers",
+      "food_group_name": "Baked Products"
+    },
+    {
+      "ingredient_id": 43,
+      "ingredient_name": "Beef",
+      "food_group_name": "Beef Products"
+    },
+    {
+      "ingredient_id": 7,
+      "ingredient_name": "Alcoholic beverage",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 45,
+      "ingredient_name": "Beef broth and tomato juice",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 92,
+      "ingredient_name": "Carbonated beverage",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 97,
+      "ingredient_name": "Carob-flavor beverage mix",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 146,
+      "ingredient_name": "Chocolate syrup",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 147,
+      "ingredient_name": "Chocolate-flavor beverage mix",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 148,
+      "ingredient_name": "Chocolate-flavor beverage mix for milk",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 149,
+      "ingredient_name": "Chocolate-flavored drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 156,
+      "ingredient_name": "Citrus fruit juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 157,
+      "ingredient_name": "Clam and tomato juice",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 161,
+      "ingredient_name": "Cocktail mix",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 163,
+      "ingredient_name": "Cocoa mix",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 164,
+      "ingredient_name": "Coffee",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 165,
+      "ingredient_name": "Coffee and cocoa powder",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 166,
+      "ingredient_name": "Coffee substitute",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 191,
+      "ingredient_name": "Cranberry juice cocktail",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 193,
+      "ingredient_name": "Cranberry-apple juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 194,
+      "ingredient_name": "Cranberry-apricot juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 195,
+      "ingredient_name": "Cranberry-grape juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 210,
+      "ingredient_name": "Dairy drink mix",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 232,
+      "ingredient_name": "Eggnog-flavor mix",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 267,
+      "ingredient_name": "Fruit flavored drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 268,
+      "ingredient_name": "Fruit flavored drink containing less than 3% fruit juice",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 269,
+      "ingredient_name": "Fruit juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 270,
+      "ingredient_name": "Fruit punch drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 271,
+      "ingredient_name": "Fruit punch juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 272,
+      "ingredient_name": "Fruit punch-flavor drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 274,
+      "ingredient_name": "Fruit-flavored drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 288,
+      "ingredient_name": "Grape drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 309,
+      "ingredient_name": "Hibiscus tea",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 357,
+      "ingredient_name": "Lemonade",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 358,
+      "ingredient_name": "Lemonade-flavor drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 365,
+      "ingredient_name": "Limeade",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 379,
+      "ingredient_name": "Malt beverage",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 380,
+      "ingredient_name": "Malted drink mix",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 390,
+      "ingredient_name": "Meal supplement drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 407,
+      "ingredient_name": "Mixed vegetable and fruit juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 446,
+      "ingredient_name": "Orange and apricot juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 447,
+      "ingredient_name": "Orange breakfast drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 448,
+      "ingredient_name": "Orange drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 450,
+      "ingredient_name": "Orange juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 452,
+      "ingredient_name": "Orange-flavor drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 508,
+      "ingredient_name": "Pineapple and grapefruit juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 509,
+      "ingredient_name": "Pineapple and orange juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 564,
+      "ingredient_name": "Ready-to-drink reduced fat milk beverage",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 576,
+      "ingredient_name": "Rice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 612,
+      "ingredient_name": "Shake",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 651,
+      "ingredient_name": "Strawberry-flavor beverage mix",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 676,
+      "ingredient_name": "Tea",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 723,
+      "ingredient_name": "V8 SPLASH Juice Drinks",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 724,
+      "ingredient_name": "V8 SPLASH Smoothies",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 725,
+      "ingredient_name": "V8 V. FUSION Juices",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 728,
+      "ingredient_name": "Vegetable and fruit juice drink",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 747,
+      "ingredient_name": "Water",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 760,
+      "ingredient_name": "Whiskey sour mix",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 763,
+      "ingredient_name": "Wine",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 776,
+      "ingredient_name": "Tequila",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 777,
+      "ingredient_name": "Orange Liqueur",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 778,
+      "ingredient_name": "Simple Syrup",
+      "food_group_name": "Beverages"
+    },
+    {
+      "ingredient_id": 109,
+      "ingredient_name": "Cereals",
+      "food_group_name": "Breakfast Cereals"
+    },
+    {
+      "ingredient_id": 326,
+      "ingredient_name": "Incaparina",
+      "food_group_name": "Breakfast Cereals"
+    },
+    {
+      "ingredient_id": 9,
+      "ingredient_name": "Amaranth grain",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 19,
+      "ingredient_name": "Arrowroot flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 36,
+      "ingredient_name": "Barley",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 37,
+      "ingredient_name": "Barley flour or meal",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 38,
+      "ingredient_name": "Barley malt flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 73,
+      "ingredient_name": "Buckwheat",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 74,
+      "ingredient_name": "Buckwheat flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 75,
+      "ingredient_name": "Buckwheat groats",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 77,
+      "ingredient_name": "Bulgur",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 173,
+      "ingredient_name": "Corn bran",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 175,
+      "ingredient_name": "Corn flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 176,
+      "ingredient_name": "Corn grain",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 181,
+      "ingredient_name": "Cornmeal",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 183,
+      "ingredient_name": "Cornstarch",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 184,
+      "ingredient_name": "Couscous",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 310,
+      "ingredient_name": "Hominy",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 377,
+      "ingredient_name": "Macaroni",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 404,
+      "ingredient_name": "Millet",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 405,
+      "ingredient_name": "Millet flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 430,
+      "ingredient_name": "Noodles",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 433,
+      "ingredient_name": "Oat bran",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 434,
+      "ingredient_name": "Oat flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 435,
+      "ingredient_name": "Oats",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 469,
+      "ingredient_name": "Pasta",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 556,
+      "ingredient_name": "Quinoa",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 570,
+      "ingredient_name": "Rice",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 574,
+      "ingredient_name": "Rice bran",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 577,
+      "ingredient_name": "Rice flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 578,
+      "ingredient_name": "Rice noodles",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 588,
+      "ingredient_name": "Rye flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 589,
+      "ingredient_name": "Rye grain",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 610,
+      "ingredient_name": "Semolina",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 621,
+      "ingredient_name": "Sorghum flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 622,
+      "ingredient_name": "Sorghum grain",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 637,
+      "ingredient_name": "Spaghetti",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 640,
+      "ingredient_name": "Spelt",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 671,
+      "ingredient_name": "Tapioca",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 677,
+      "ingredient_name": "Teff",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 701,
+      "ingredient_name": "Triticale",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 702,
+      "ingredient_name": "Triticale flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 740,
+      "ingredient_name": "Vital wheat gluten",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 753,
+      "ingredient_name": "Wheat",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 754,
+      "ingredient_name": "Wheat bran",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 755,
+      "ingredient_name": "Wheat flour",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 756,
+      "ingredient_name": "Wheat germ",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 761,
+      "ingredient_name": "Wild rice",
+      "food_group_name": "Cereal Grains and Pasta"
+    },
+    {
+      "ingredient_id": 81,
+      "ingredient_name": "Butter oil",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 112,
+      "ingredient_name": "Cheese",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 113,
+      "ingredient_name": "Cheese food",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 114,
+      "ingredient_name": "Cheese product",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 116,
+      "ingredient_name": "Cheese sauce",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 117,
+      "ingredient_name": "Cheese spread",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 118,
+      "ingredient_name": "Cheese substitute",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 197,
+      "ingredient_name": "Cream",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 200,
+      "ingredient_name": "Cream substitute",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 209,
+      "ingredient_name": "Dairy",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 222,
+      "ingredient_name": "Dulce de Leche",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 226,
+      "ingredient_name": "Egg",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 227,
+      "ingredient_name": "Egg Mix",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 230,
+      "ingredient_name": "Egg substitute",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 231,
+      "ingredient_name": "Eggnog",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 234,
+      "ingredient_name": "Eggs",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 244,
+      "ingredient_name": "Fat free ice cream",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 320,
+      "ingredient_name": "Ice cream",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 321,
+      "ingredient_name": "Ice cream bar",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 322,
+      "ingredient_name": "Ice cream cone",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 323,
+      "ingredient_name": "Ice cream cookie sandwich",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 324,
+      "ingredient_name": "Ice cream sandwich",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 325,
+      "ingredient_name": "Imitation cheese",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 398,
+      "ingredient_name": "Milk",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 401,
+      "ingredient_name": "Milk dessert bar",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 402,
+      "ingredient_name": "Milk shakes",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 403,
+      "ingredient_name": "Milk substitutes",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 464,
+      "ingredient_name": "Parmesan cheese topping",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 540,
+      "ingredient_name": "Protein supplement",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 554,
+      "ingredient_name": "Queso cotija",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 565,
+      "ingredient_name": "Reddi Wip Fat Free Whipped Topping",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 623,
+      "ingredient_name": "Sour cream",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 624,
+      "ingredient_name": "Sour dressing",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 757,
+      "ingredient_name": "Whey",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 758,
+      "ingredient_name": "Whipped cream substitute",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 759,
+      "ingredient_name": "Whipped topping",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 774,
+      "ingredient_name": "Yogurt",
+      "food_group_name": "Dairy & Egg Products"
+    },
+    {
+      "ingredient_id": 362,
+      "ingredient_name": "Light Ice Cream",
+      "food_group_name": "Fast Foods"
+    },
+    {
+      "ingredient_id": 513,
+      "ingredient_name": "Pizza",
+      "food_group_name": "Fast Foods"
+    },
+    {
+      "ingredient_id": 602,
+      "ingredient_name": "School Lunch Pizza",
+      "food_group_name": "Fast Foods"
+    },
+    {
+      "ingredient_id": 699,
+      "ingredient_name": "Tostada with guacamole",
+      "food_group_name": "Fast Foods"
+    },
+    {
+      "ingredient_id": 775,
+      "ingredient_name": "Yogurt parfait",
+      "food_group_name": "Fast Foods"
+    },
+    {
+      "ingredient_id": 11,
+      "ingredient_name": "Animal fat",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 80,
+      "ingredient_name": "Butter",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 82,
+      "ingredient_name": "Butter replacement",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 201,
+      "ingredient_name": "Creamy dressing",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 243,
+      "ingredient_name": "Fat",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 252,
+      "ingredient_name": "Fish oil",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 347,
+      "ingredient_name": "Lard",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 385,
+      "ingredient_name": "Margarine",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 386,
+      "ingredient_name": "Margarine Spread",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 389,
+      "ingredient_name": "Mayonnaise",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 391,
+      "ingredient_name": "Meat drippings",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 437,
+      "ingredient_name": "Oil",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 590,
+      "ingredient_name": "Salad dressing",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 615,
+      "ingredient_name": "Shortening",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 616,
+      "ingredient_name": "Shortening bread",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 617,
+      "ingredient_name": "Shortening cake mix",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 618,
+      "ingredient_name": "Shortening confectionery",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 730,
+      "ingredient_name": "Vegetable oil",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 731,
+      "ingredient_name": "Vegetable oil-butter spread",
+      "food_group_name": "Fats & Oils"
+    },
+    {
+      "ingredient_id": 205,
+      "ingredient_name": "Crustaceans",
+      "food_group_name": "Finfish & Shellfish Products"
+    },
+    {
+      "ingredient_id": 250,
+      "ingredient_name": "Fish",
+      "food_group_name": "Finfish & Shellfish Products"
+    },
+    {
+      "ingredient_id": 261,
+      "ingredient_name": "Frog legs",
+      "food_group_name": "Finfish & Shellfish Products"
+    },
+    {
+      "ingredient_id": 331,
+      "ingredient_name": "Jellyfish",
+      "food_group_name": "Finfish & Shellfish Products"
+    },
+    {
+      "ingredient_id": 409,
+      "ingredient_name": "Mollusks",
+      "food_group_name": "Finfish & Shellfish Products"
+    },
+    {
+      "ingredient_id": 592,
+      "ingredient_name": "Salmon",
+      "food_group_name": "Finfish & Shellfish Products"
+    },
+    {
+      "ingredient_id": 722,
+      "ingredient_name": "Turtle",
+      "food_group_name": "Finfish & Shellfish Products"
+    },
+    {
+      "ingredient_id": 1,
+      "ingredient_name": "Abiyuch",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 2,
+      "ingredient_name": "Acerola",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 3,
+      "ingredient_name": "Acerola juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 12,
+      "ingredient_name": "Apple juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 13,
+      "ingredient_name": "Apples",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 14,
+      "ingredient_name": "Applesauce",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 15,
+      "ingredient_name": "Apricot nectar",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 16,
+      "ingredient_name": "Apricots",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 25,
+      "ingredient_name": "Avocados",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 34,
+      "ingredient_name": "Bananas",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 54,
+      "ingredient_name": "Blackberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 55,
+      "ingredient_name": "Blackberry juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 57,
+      "ingredient_name": "Blueberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 61,
+      "ingredient_name": "Boysenberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 68,
+      "ingredient_name": "Breadfruit",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 88,
+      "ingredient_name": "Candied fruit",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 91,
+      "ingredient_name": "Carambola",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 95,
+      "ingredient_name": "Carissa",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 122,
+      "ingredient_name": "Cherimoya",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 123,
+      "ingredient_name": "Cherries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 158,
+      "ingredient_name": "Clementines",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 186,
+      "ingredient_name": "Crabapples",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 189,
+      "ingredient_name": "Cranberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 190,
+      "ingredient_name": "Cranberry juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 192,
+      "ingredient_name": "Cranberry sauce",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 196,
+      "ingredient_name": "Cranberry-orange relish",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 207,
+      "ingredient_name": "Currants",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 208,
+      "ingredient_name": "Custard-apple",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 213,
+      "ingredient_name": "Dates",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 223,
+      "ingredient_name": "Durian",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 235,
+      "ingredient_name": "Elderberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 245,
+      "ingredient_name": "Feijoa",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 248,
+      "ingredient_name": "Figs",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 266,
+      "ingredient_name": "Fruit cocktail",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 273,
+      "ingredient_name": "Fruit salad",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 285,
+      "ingredient_name": "Gooseberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 289,
+      "ingredient_name": "Grape juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 291,
+      "ingredient_name": "Grapefruit",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 292,
+      "ingredient_name": "Grapefruit juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 293,
+      "ingredient_name": "Grapes",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 296,
+      "ingredient_name": "Ground Cherries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 297,
+      "ingredient_name": "Guanabana nectar",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 298,
+      "ingredient_name": "Guava nectar",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 299,
+      "ingredient_name": "Guava sauce",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 300,
+      "ingredient_name": "Guavas",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 313,
+      "ingredient_name": "Horned melon",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 328,
+      "ingredient_name": "Jackfruit",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 330,
+      "ingredient_name": "Java-plum",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 332,
+      "ingredient_name": "Juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 333,
+      "ingredient_name": "Juice Smoothie",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 334,
+      "ingredient_name": "Jujube",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 340,
+      "ingredient_name": "Kiwifruit",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 343,
+      "ingredient_name": "Kumquats",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 355,
+      "ingredient_name": "Lemon juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 356,
+      "ingredient_name": "Lemon peel",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 359,
+      "ingredient_name": "Lemons",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 364,
+      "ingredient_name": "Lime juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 366,
+      "ingredient_name": "Limes",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 367,
+      "ingredient_name": "Litchis",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 371,
+      "ingredient_name": "Loganberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 372,
+      "ingredient_name": "Longans",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 373,
+      "ingredient_name": "Loquats",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 381,
+      "ingredient_name": "Mango nectar",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 382,
+      "ingredient_name": "Mangos",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 383,
+      "ingredient_name": "Mangosteen",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 384,
+      "ingredient_name": "Maraschino cherries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 396,
+      "ingredient_name": "Melon balls",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 397,
+      "ingredient_name": "Melons",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 416,
+      "ingredient_name": "Mulberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 424,
+      "ingredient_name": "Nance",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 425,
+      "ingredient_name": "Naranjilla pulp",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 427,
+      "ingredient_name": "Nectarines",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 441,
+      "ingredient_name": "Olives",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 445,
+      "ingredient_name": "Orange Pineapple Juice Blend",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 449,
+      "ingredient_name": "Orange juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 451,
+      "ingredient_name": "Orange peel",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 453,
+      "ingredient_name": "Orange-grapefruit juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 454,
+      "ingredient_name": "Oranges",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 462,
+      "ingredient_name": "Papaya",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 463,
+      "ingredient_name": "Papaya nectar",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 467,
+      "ingredient_name": "Passion-fruit",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 468,
+      "ingredient_name": "Passion-fruit juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 476,
+      "ingredient_name": "Peach nectar",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 477,
+      "ingredient_name": "Peaches",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 482,
+      "ingredient_name": "Pear nectar",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 483,
+      "ingredient_name": "Pears",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 494,
+      "ingredient_name": "Persimmons",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 507,
+      "ingredient_name": "Pineapple",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 510,
+      "ingredient_name": "Pineapple juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 512,
+      "ingredient_name": "Pitanga",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 515,
+      "ingredient_name": "Plantains",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 516,
+      "ingredient_name": "Plums",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 520,
+      "ingredient_name": "Pomegranate juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 521,
+      "ingredient_name": "Pomegranates",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 539,
+      "ingredient_name": "Prickly pears",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 541,
+      "ingredient_name": "Prune juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 542,
+      "ingredient_name": "Prune puree",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 543,
+      "ingredient_name": "Prunes",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 547,
+      "ingredient_name": "Pummelo",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 555,
+      "ingredient_name": "Quinces",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 560,
+      "ingredient_name": "Raisins",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 561,
+      "ingredient_name": "Rambutan",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 562,
+      "ingredient_name": "Raspberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 569,
+      "ingredient_name": "Rhubarb",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 582,
+      "ingredient_name": "Rose-apples",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 583,
+      "ingredient_name": "Roselle",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 585,
+      "ingredient_name": "Rowal",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 596,
+      "ingredient_name": "Sapodilla",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 597,
+      "ingredient_name": "Sapote",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 626,
+      "ingredient_name": "Soursop",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 650,
+      "ingredient_name": "Strawberries",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 655,
+      "ingredient_name": "Sugar-apples",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 667,
+      "ingredient_name": "Tamarind nectar",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 668,
+      "ingredient_name": "Tamarinds",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 669,
+      "ingredient_name": "Tangerine juice",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 670,
+      "ingredient_name": "Tangerines",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 750,
+      "ingredient_name": "Watermelon",
+      "food_group_name": "Fruits & Fruit Juices"
+    },
+    {
+      "ingredient_id": 53,
+      "ingredient_name": "Bison",
+      "food_group_name": "Lamb, Veal, and Game Products"
+    },
+    {
+      "ingredient_id": 277,
+      "ingredient_name": "Game meat",
+      "food_group_name": "Lamb, Veal, and Game Products"
+    },
+    {
+      "ingredient_id": 283,
+      "ingredient_name": "Goat",
+      "food_group_name": "Lamb, Veal, and Game Products"
+    },
+    {
+      "ingredient_id": 344,
+      "ingredient_name": "Lamb",
+      "food_group_name": "Lamb, Veal, and Game Products"
+    },
+    {
+      "ingredient_id": 727,
+      "ingredient_name": "Veal",
+      "food_group_name": "Lamb, Veal, and Game Products"
+    },
+    {
+      "ingredient_id": 29,
+      "ingredient_name": "Bacon bits",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 40,
+      "ingredient_name": "Bean beverage",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 41,
+      "ingredient_name": "Beans",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 96,
+      "ingredient_name": "Carob flour",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 133,
+      "ingredient_name": "Chickpea flour",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 134,
+      "ingredient_name": "Chickpeas",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 185,
+      "ingredient_name": "Cowpeas",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 242,
+      "ingredient_name": "Falafel",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 253,
+      "ingredient_name": "Fish sticks",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 260,
+      "ingredient_name": "Frijoles rojos volteados",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 316,
+      "ingredient_name": "Hummus",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 318,
+      "ingredient_name": "Hyacinth beans",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 360,
+      "ingredient_name": "Lentils",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 363,
+      "ingredient_name": "Lima beans",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 375,
+      "ingredient_name": "Lupins",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 392,
+      "ingredient_name": "Meat extender",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 394,
+      "ingredient_name": "Meatless Meatballs",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 406,
+      "ingredient_name": "Miso",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 412,
+      "ingredient_name": "Mothbeans",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 417,
+      "ingredient_name": "Mung beans",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 426,
+      "ingredient_name": "Natto",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 438,
+      "ingredient_name": "Okara",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 461,
+      "ingredient_name": "Papad",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 478,
+      "ingredient_name": "Peanut butter",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 479,
+      "ingredient_name": "Peanut flour",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 480,
+      "ingredient_name": "Peanut spread",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 481,
+      "ingredient_name": "Peanuts",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 566,
+      "ingredient_name": "Refried beans",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 601,
+      "ingredient_name": "Tofu Veggie Sausage",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 627,
+      "ingredient_name": "Soy flour",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 628,
+      "ingredient_name": "Soy meal",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 629,
+      "ingredient_name": "Soy protein concentrate",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 630,
+      "ingredient_name": "Soy protein isolate",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 631,
+      "ingredient_name": "Soy sauce",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 632,
+      "ingredient_name": "Soy sauce made from hydrolyzed vegetable protein",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 633,
+      "ingredient_name": "Soy sauce made from soy",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 634,
+      "ingredient_name": "Soy sauce made from soy and wheat",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 635,
+      "ingredient_name": "Soybean",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 636,
+      "ingredient_name": "Soymilk",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 678,
+      "ingredient_name": "Tempeh",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 684,
+      "ingredient_name": "Tofu",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 685,
+      "ingredient_name": "Tofu yogurt",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 733,
+      "ingredient_name": "Vegetarian fillets",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 734,
+      "ingredient_name": "Vegetarian meatloaf or patties",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 735,
+      "ingredient_name": "Vegetarian stew",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 736,
+      "ingredient_name": "Veggie burgers or soyburgers",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 737,
+      "ingredient_name": "Vermicelli",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 741,
+      "ingredient_name": "Nasoya",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 742,
+      "ingredient_name": "Nasoya Sprouted",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 764,
+      "ingredient_name": "Winged beans",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 770,
+      "ingredient_name": "Yardlong beans",
+      "food_group_name": "Legumes & Legume Products"
+    },
+    {
+      "ingredient_id": 44,
+      "ingredient_name": "Beef Pot Pie",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 46,
+      "ingredient_name": "Beef macaroni with tomato sauce",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 48,
+      "ingredient_name": "Beef stew",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 79,
+      "ingredient_name": "Burrito",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 129,
+      "ingredient_name": "Chicken pot pie",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 132,
+      "ingredient_name": "Chicken tenders",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 140,
+      "ingredient_name": "Chili",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 141,
+      "ingredient_name": "Chili con carne with beans",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 142,
+      "ingredient_name": "Chili with beans",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 174,
+      "ingredient_name": "Corn dogs",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 229,
+      "ingredient_name": "Egg rolls",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 348,
+      "ingredient_name": "Lasagna",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 349,
+      "ingredient_name": "Lasagna with meat sauce",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 350,
+      "ingredient_name": "Lean Pockets",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 470,
+      "ingredient_name": "Pasta mix",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 471,
+      "ingredient_name": "Pasta with tomato sauce",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 514,
+      "ingredient_name": "Pizza rolls",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 546,
+      "ingredient_name": "Pulled pork in barbecue sauce",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 563,
+      "ingredient_name": "Ravioli",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 572,
+      "ingredient_name": "Rice and vermicelli mix",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 573,
+      "ingredient_name": "Rice bowl with chicken",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 638,
+      "ingredient_name": "Spanish rice mix",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 672,
+      "ingredient_name": "Taquitos",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 694,
+      "ingredient_name": "Tortellini",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 705,
+      "ingredient_name": "Turkey Pot Pie",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 721,
+      "ingredient_name": "Turnover",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 773,
+      "ingredient_name": "Yellow rice with seasoning",
+      "food_group_name": "Meals, Entrees, & Side Dishes"
+    },
+    {
+      "ingredient_id": 432,
+      "ingredient_name": "Nuts",
+      "food_group_name": "Nut & Seed Products"
+    },
+    {
+      "ingredient_id": 609,
+      "ingredient_name": "Seeds",
+      "food_group_name": "Nut & Seed Products"
+    },
+    {
+      "ingredient_id": 27,
+      "ingredient_name": "Bacon",
+      "food_group_name": "Pork Products"
+    },
+    {
+      "ingredient_id": 87,
+      "ingredient_name": "Canadian bacon",
+      "food_group_name": "Pork Products"
+    },
+    {
+      "ingredient_id": 524,
+      "ingredient_name": "Pork",
+      "food_group_name": "Pork Products"
+    },
+    {
+      "ingredient_id": 527,
+      "ingredient_name": "Pork loin",
+      "food_group_name": "Pork Products"
+    },
+    {
+      "ingredient_id": 86,
+      "ingredient_name": "Canada Goose",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 125,
+      "ingredient_name": "Chicken",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 127,
+      "ingredient_name": "Chicken breast tenders",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 128,
+      "ingredient_name": "Chicken patty",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 218,
+      "ingredient_name": "Dove",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 221,
+      "ingredient_name": "Duck",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 237,
+      "ingredient_name": "Emu",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 284,
+      "ingredient_name": "Goose",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 295,
+      "ingredient_name": "Ground turkey",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 301,
+      "ingredient_name": "Guinea hen",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 455,
+      "ingredient_name": "Ostrich",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 475,
+      "ingredient_name": "Pate de foie gras",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 495,
+      "ingredient_name": "Pheasant",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 553,
+      "ingredient_name": "Quail",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 586,
+      "ingredient_name": "Ruffed Grouse",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 645,
+      "ingredient_name": "Squab",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 703,
+      "ingredient_name": "Turkey",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 706,
+      "ingredient_name": "Turkey and gravy",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 709,
+      "ingredient_name": "Turkey breast",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 711,
+      "ingredient_name": "Turkey from whole",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 713,
+      "ingredient_name": "Turkey patties",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 714,
+      "ingredient_name": "Turkey roast",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 717,
+      "ingredient_name": "Turkey sticks",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 718,
+      "ingredient_name": "Turkey thigh",
+      "food_group_name": "Poultry Products"
+    },
+    {
+      "ingredient_id": 568,
+      "ingredient_name": "Restaurant",
+      "food_group_name": "Restaurant Foods"
+    },
+    {
+      "ingredient_id": 28,
+      "ingredient_name": "Bacon and beef sticks",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 35,
+      "ingredient_name": "Barbecue loaf",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 47,
+      "ingredient_name": "Beef sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 49,
+      "ingredient_name": "Beerwurst",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 56,
+      "ingredient_name": "Blood sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 58,
+      "ingredient_name": "Bockwurst",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 59,
+      "ingredient_name": "Bologna",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 62,
+      "ingredient_name": "Bratwurst",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 63,
+      "ingredient_name": "Braunschweiger",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 121,
+      "ingredient_name": "Cheesefurter",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 126,
+      "ingredient_name": "Chicken breast",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 130,
+      "ingredient_name": "Chicken roll",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 131,
+      "ingredient_name": "Chicken spread",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 152,
+      "ingredient_name": "Chorizo",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 180,
+      "ingredient_name": "Corned beef loaf",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 224,
+      "ingredient_name": "Dutch brand loaf",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 258,
+      "ingredient_name": "Frankfurter",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 303,
+      "ingredient_name": "Ham",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 304,
+      "ingredient_name": "Ham and cheese spread",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 305,
+      "ingredient_name": "Ham salad spread",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 307,
+      "ingredient_name": "Headcheese",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 312,
+      "ingredient_name": "Honey roll sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 339,
+      "ingredient_name": "Kielbasa",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 341,
+      "ingredient_name": "Knackwurst",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 352,
+      "ingredient_name": "Lebanon bologna",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 368,
+      "ingredient_name": "Liver cheese",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 369,
+      "ingredient_name": "Liver sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 370,
+      "ingredient_name": "Liverwurst spread",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 376,
+      "ingredient_name": "Luxury loaf",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 393,
+      "ingredient_name": "Meatballs",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 411,
+      "ingredient_name": "Mortadella",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 413,
+      "ingredient_name": "Mother's loaf",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 429,
+      "ingredient_name": "New england brand sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 440,
+      "ingredient_name": "Olive loaf",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 456,
+      "ingredient_name": "Oven-roasted chicken breast roll",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 472,
+      "ingredient_name": "Pastrami",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 474,
+      "ingredient_name": "Pate",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 490,
+      "ingredient_name": "Peppered loaf",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 492,
+      "ingredient_name": "Pepperoni",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 497,
+      "ingredient_name": "Pickle and pimiento loaf",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 500,
+      "ingredient_name": "Picnic loaf",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 519,
+      "ingredient_name": "Polish sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 525,
+      "ingredient_name": "Pork and beef sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 526,
+      "ingredient_name": "Pork and turkey sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 528,
+      "ingredient_name": "Pork sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 529,
+      "ingredient_name": "Pork sausage rice links",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 579,
+      "ingredient_name": "Roast beef",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 591,
+      "ingredient_name": "Salami",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 600,
+      "ingredient_name": "Sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 603,
+      "ingredient_name": "Scrapple",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 620,
+      "ingredient_name": "Smoked link sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 663,
+      "ingredient_name": "Swisswurst",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 680,
+      "ingredient_name": "Thuringer",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 704,
+      "ingredient_name": "Turkey Lunch Meat",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 707,
+      "ingredient_name": "Turkey and pork sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 708,
+      "ingredient_name": "Turkey bacon",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 710,
+      "ingredient_name": "Turkey breast Lunch Meat",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 712,
+      "ingredient_name": "Turkey ham",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 715,
+      "ingredient_name": "Turkey roll",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 716,
+      "ingredient_name": "Turkey sausage",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 767,
+      "ingredient_name": "Yachtwurst",
+      "food_group_name": "Sausages & Luncheon Meats"
+    },
+    {
+      "ingredient_id": 115,
+      "ingredient_name": "Cheese puffs and twists",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 257,
+      "ingredient_name": "Formulated bar",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 287,
+      "ingredient_name": "Granola bar",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 399,
+      "ingredient_name": "Milk and cereal bar",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 522,
+      "ingredient_name": "Popcorn",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 530,
+      "ingredient_name": "Potato chips",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 538,
+      "ingredient_name": "Pretzels",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 571,
+      "ingredient_name": "Rice and Wheat cereal bar",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 575,
+      "ingredient_name": "Rice cake",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 696,
+      "ingredient_name": "Tortilla chips",
+      "food_group_name": "Snacks"
+    },
+    {
+      "ingredient_id": 216,
+      "ingredient_name": "Dip",
+      "food_group_name": "Soups, Sauces, & Gravies"
+    },
+    {
+      "ingredient_id": 251,
+      "ingredient_name": "Fish broth",
+      "food_group_name": "Soups, Sauces, & Gravies"
+    },
+    {
+      "ingredient_id": 294,
+      "ingredient_name": "Gravy",
+      "food_group_name": "Soups, Sauces, & Gravies"
+    },
+    {
+      "ingredient_id": 535,
+      "ingredient_name": "Potato soup",
+      "food_group_name": "Soups, Sauces, & Gravies"
+    },
+    {
+      "ingredient_id": 598,
+      "ingredient_name": "Sauce",
+      "food_group_name": "Soups, Sauces, & Gravies"
+    },
+    {
+      "ingredient_id": 644,
+      "ingredient_name": "Split pea soup",
+      "food_group_name": "Soups, Sauces, & Gravies"
+    },
+    {
+      "ingredient_id": 39,
+      "ingredient_name": "Basil",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 90,
+      "ingredient_name": "Capers",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 215,
+      "ingredient_name": "Dill weed",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 314,
+      "ingredient_name": "Horseradish",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 420,
+      "ingredient_name": "Mustard",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 491,
+      "ingredient_name": "Peppermint",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 584,
+      "ingredient_name": "Rosemary",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 595,
+      "ingredient_name": "Salt",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 607,
+      "ingredient_name": "Seasoning mix",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 639,
+      "ingredient_name": "Spearmint",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 641,
+      "ingredient_name": "Spices",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 681,
+      "ingredient_name": "Thyme",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 726,
+      "ingredient_name": "Vanilla extract",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 738,
+      "ingredient_name": "Vinegar",
+      "food_group_name": "Spices & Herbs"
+    },
+    {
+      "ingredient_id": 31,
+      "ingredient_name": "Baking chocolate",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 89,
+      "ingredient_name": "Candies",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 124,
+      "ingredient_name": "Chewing gum",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 145,
+      "ingredient_name": "Chocolate",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 150,
+      "ingredient_name": "Chocolate-flavored hazelnut spread",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 162,
+      "ingredient_name": "Cocoa",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 228,
+      "ingredient_name": "Egg custards",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 254,
+      "ingredient_name": "Flan",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 262,
+      "ingredient_name": "Frostings",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 263,
+      "ingredient_name": "Frozen novelties",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 264,
+      "ingredient_name": "Frozen yogurts",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 265,
+      "ingredient_name": "Fruit butters",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 280,
+      "ingredient_name": "Gelatin desserts",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 281,
+      "ingredient_name": "Gelatins",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 302,
+      "ingredient_name": "Gums",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 311,
+      "ingredient_name": "Honey",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 329,
+      "ingredient_name": "Jams and preserves",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 387,
+      "ingredient_name": "Marmalade",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 400,
+      "ingredient_name": "Milk dessert",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 408,
+      "ingredient_name": "Molasses",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 487,
+      "ingredient_name": "Pectin",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 503,
+      "ingredient_name": "Pie fillings",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 544,
+      "ingredient_name": "Pudding",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 567,
+      "ingredient_name": "Rennin",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 614,
+      "ingredient_name": "Sherbet",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 654,
+      "ingredient_name": "Sugar",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 661,
+      "ingredient_name": "Sweetener",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 662,
+      "ingredient_name": "Sweeteners",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 664,
+      "ingredient_name": "Maple Syrup",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 693,
+      "ingredient_name": "Toppings",
+      "food_group_name": "Sweets"
+    },
+    {
+      "ingredient_id": 8,
+      "ingredient_name": "Alfalfa seeds",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 10,
+      "ingredient_name": "Amaranth leaves",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 17,
+      "ingredient_name": "Arrowhead",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 18,
+      "ingredient_name": "Arrowroot",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 20,
+      "ingredient_name": "Artichokes",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 22,
+      "ingredient_name": "Arugula",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 24,
+      "ingredient_name": "Asparagus",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 32,
+      "ingredient_name": "Balsam-pear",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 33,
+      "ingredient_name": "Bamboo shoots",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 50,
+      "ingredient_name": "Beet greens",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 51,
+      "ingredient_name": "Beets",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 60,
+      "ingredient_name": "Borage",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 70,
+      "ingredient_name": "Broccoli",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 71,
+      "ingredient_name": "Broccoli raab",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 72,
+      "ingredient_name": "Brussels sprouts",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 78,
+      "ingredient_name": "Burdock root",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 83,
+      "ingredient_name": "Butterbur",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 84,
+      "ingredient_name": "Cabbage",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 93,
+      "ingredient_name": "Cardoon",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 98,
+      "ingredient_name": "Carrot",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 99,
+      "ingredient_name": "Carrot juice",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 100,
+      "ingredient_name": "Carrots",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 101,
+      "ingredient_name": "Cassava",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 102,
+      "ingredient_name": "Catsup",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 104,
+      "ingredient_name": "Cauliflower",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 105,
+      "ingredient_name": "Celeriac",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 106,
+      "ingredient_name": "Celery",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 107,
+      "ingredient_name": "Celery flakes",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 108,
+      "ingredient_name": "Celtuce",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 110,
+      "ingredient_name": "Chard",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 111,
+      "ingredient_name": "Chayote",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 135,
+      "ingredient_name": "Chicory",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 136,
+      "ingredient_name": "Chicory greens",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 137,
+      "ingredient_name": "Chicory roots",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 144,
+      "ingredient_name": "Chives",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 153,
+      "ingredient_name": "Chrysanthemum",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 154,
+      "ingredient_name": "Chrysanthemum leaves",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 168,
+      "ingredient_name": "Collards",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 171,
+      "ingredient_name": "Coriander leaves",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 172,
+      "ingredient_name": "Corn",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 177,
+      "ingredient_name": "Corn pudding",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 178,
+      "ingredient_name": "Corn with red and green peppers",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 182,
+      "ingredient_name": "Corn Salad",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 202,
+      "ingredient_name": "Cress",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 206,
+      "ingredient_name": "Cucumber",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 211,
+      "ingredient_name": "Dandelion greens",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 219,
+      "ingredient_name": "Drumstick leaves",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 220,
+      "ingredient_name": "Drumstick pods",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 225,
+      "ingredient_name": "Edamame",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 233,
+      "ingredient_name": "Eggplant",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 238,
+      "ingredient_name": "Endive",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 240,
+      "ingredient_name": "Epazote",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 241,
+      "ingredient_name": "Eppaw",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 246,
+      "ingredient_name": "Fennel",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 247,
+      "ingredient_name": "Fiddlehead ferns",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 249,
+      "ingredient_name": "Fireweed",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 276,
+      "ingredient_name": "Fungi",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 278,
+      "ingredient_name": "Garlic",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 282,
+      "ingredient_name": "Ginger root",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 286,
+      "ingredient_name": "Gourd",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 290,
+      "ingredient_name": "Grape leaves",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 308,
+      "ingredient_name": "Hearts of palm",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 319,
+      "ingredient_name": "Hyacinth-beans",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 335,
+      "ingredient_name": "Jute",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 336,
+      "ingredient_name": "Kale",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 337,
+      "ingredient_name": "Kanpyo",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 342,
+      "ingredient_name": "Kohlrabi",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 345,
+      "ingredient_name": "Lambs quarters",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 346,
+      "ingredient_name": "Lambsquarters",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 353,
+      "ingredient_name": "Leeks",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 354,
+      "ingredient_name": "Lemon grass",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 361,
+      "ingredient_name": "Lettuce",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 374,
+      "ingredient_name": "Lotus root",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 378,
+      "ingredient_name": "Malabar spinach",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 414,
+      "ingredient_name": "Mountain yam",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 419,
+      "ingredient_name": "Mushrooms",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 421,
+      "ingredient_name": "Mustard greens",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 422,
+      "ingredient_name": "Mustard spinach",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 428,
+      "ingredient_name": "New Zealand spinach",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 431,
+      "ingredient_name": "Nopales",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 439,
+      "ingredient_name": "Okra",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 442,
+      "ingredient_name": "Onion rings",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 443,
+      "ingredient_name": "Onions",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 465,
+      "ingredient_name": "Parsley",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 466,
+      "ingredient_name": "Parsnips",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 484,
+      "ingredient_name": "Peas",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 485,
+      "ingredient_name": "Peas and carrots",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 486,
+      "ingredient_name": "Peas and onions",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 488,
+      "ingredient_name": "Pepeao",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 489,
+      "ingredient_name": "Pepper",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 493,
+      "ingredient_name": "Peppers",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 498,
+      "ingredient_name": "Pickle relish",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 499,
+      "ingredient_name": "Pickles",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 504,
+      "ingredient_name": "Pigeonpeas",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 506,
+      "ingredient_name": "Pimento",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 517,
+      "ingredient_name": "Poi",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 518,
+      "ingredient_name": "Pokeberry shoots",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 531,
+      "ingredient_name": "Potato flour",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 532,
+      "ingredient_name": "Potato pancakes",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 533,
+      "ingredient_name": "Potato puffs",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 534,
+      "ingredient_name": "Potato salad",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 536,
+      "ingredient_name": "Potato",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 548,
+      "ingredient_name": "Pumpkin",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 549,
+      "ingredient_name": "Pumpkin flowers",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 550,
+      "ingredient_name": "Pumpkin leaves",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 551,
+      "ingredient_name": "Pumpkin pie mix",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 552,
+      "ingredient_name": "Purslane",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 557,
+      "ingredient_name": "Radicchio",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 558,
+      "ingredient_name": "Radish seeds",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 559,
+      "ingredient_name": "Radishes",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 587,
+      "ingredient_name": "Rutabagas",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 594,
+      "ingredient_name": "Salsify",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 599,
+      "ingredient_name": "Sauerkraut",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 608,
+      "ingredient_name": "Seaweed",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 611,
+      "ingredient_name": "Sesbania flower",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 613,
+      "ingredient_name": "Shallots",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 642,
+      "ingredient_name": "Spinach",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 643,
+      "ingredient_name": "Spinach souffle",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 646,
+      "ingredient_name": "Squash",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 653,
+      "ingredient_name": "Succotash",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 656,
+      "ingredient_name": "Swamp cabbage",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 657,
+      "ingredient_name": "Sweet Potato puffs",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 658,
+      "ingredient_name": "Sweet potato",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 659,
+      "ingredient_name": "Sweet potato leaves",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 673,
+      "ingredient_name": "Taro",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 674,
+      "ingredient_name": "Taro leaves",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 675,
+      "ingredient_name": "Taro shoots",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 686,
+      "ingredient_name": "Tomatillos",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 687,
+      "ingredient_name": "Tomato and vegetable juice",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 688,
+      "ingredient_name": "Tomato juice",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 689,
+      "ingredient_name": "Tomato powder",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 690,
+      "ingredient_name": "Tomato products",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 691,
+      "ingredient_name": "Tomato sauce",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 692,
+      "ingredient_name": "Tomato",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 700,
+      "ingredient_name": "Tree fern",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 719,
+      "ingredient_name": "Turnip greens",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 720,
+      "ingredient_name": "Turnips",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 729,
+      "ingredient_name": "Vegetable juice cocktail",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 732,
+      "ingredient_name": "Vegetables",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 739,
+      "ingredient_name": "Vine spinach",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 746,
+      "ingredient_name": "Wasabi",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 748,
+      "ingredient_name": "Waterchestnuts",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 749,
+      "ingredient_name": "Watercress",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 751,
+      "ingredient_name": "Waxgourd",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 768,
+      "ingredient_name": "Yam",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 769,
+      "ingredient_name": "Yambean",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 771,
+      "ingredient_name": "Yautia",
+      "food_group_name": "Vegetables & Vegetable Products"
+    },
+    {
+      "ingredient_id": 772,
+      "ingredient_name": "Yeast extract spread",
+      "food_group_name": "Vegetables & Vegetable Products"
+    }
+  ]

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include partials/head %>
+
+  <body>
+    <% include partials/navbar %>
+
+    <div class="container text-center">
+        <h1 class="display-4"><%= page %></h1>
+
+        <div class="browse-options mt-5 mb-5">
+          <!-- Search -->
+          <div class="row justify-content-center align-items-center">
+            <div class="col-lg-8">
+              <div class="form-group">
+                <input type="text" class="form-control" name="search" id="search" placeholder="Search...">
+              </div>
+            </div>
+          </div>
+
+          <!-- Filter -->
+          <div class="row justify-content-center align-items-center">
+            <div class="col-lg-8">
+
+              <div class="row">
+                <!-- Recipe Category -->
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <select class="form-control" name="recipe-category" id="recipe-category">
+                      <% for ( let i = 0; i < categories.length; i++ ) {
+                        var selected = ( categories[i].recipe_category_name == "Main Course" ) ? "selected" : "";
+                        %><option value="<%=categories[i].recipe_category_id %>" <%=selected %>><%= categories[i].recipe_category_name %></option>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Recipe Cuisine -->
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <select class="form-control" name="recipe-cuisine" id="recipe-cuisine">
+                      <option value="null" selected>Cuisine</option>
+                      <% for (let i = 0; i < cuisines.length; i++) { %>
+                        <option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Dietary Restrictions -->
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <select class="form-control" name="dietary-restriction" id="dietary-restriction">
+                      <option value="null" selected>Deitary Restriction</option>
+                      <% for (let i = 0; i < diets.length; i++) { %>
+                        <option value="<%= diets[i].dietary_restriction_id %>"><%= diets[i].dietary_restriction_name %></option>
+                      <% } %>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="browse-content">
+
+        </div>
+
+
+    </div>
+
+    <% include partials/footer %>
+    <% include partials/script %>
+  </body>
+</html>

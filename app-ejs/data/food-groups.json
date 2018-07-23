@@ -1,0 +1,101 @@
+[{
+    "food_group_id": 3500,
+    "food_group_name": "American Indian/Alaska Native Foods"
+  },
+  {
+    "food_group_id": 300,
+    "food_group_name": "Baby Foods"
+  },
+  {
+    "food_group_id": 1800,
+    "food_group_name": "Baked Products"
+  },
+  {
+    "food_group_id": 1300,
+    "food_group_name": "Beef Products"
+  },
+  {
+    "food_group_id": 1400,
+    "food_group_name": "Beverages"
+  },
+  {
+    "food_group_id": 800,
+    "food_group_name": "Breakfast Cereals"
+  },
+  {
+    "food_group_id": 2000,
+    "food_group_name": "Cereal Grains and Pasta"
+  },
+  {
+    "food_group_id": 100,
+    "food_group_name": "Dairy & Egg Products"
+  },
+  {
+    "food_group_id": 2100,
+    "food_group_name": "Fast Foods"
+  },
+  {
+    "food_group_id": 400,
+    "food_group_name": "Fats & Oils"
+  },
+  {
+    "food_group_id": 1500,
+    "food_group_name": "Finfish & Shellfish Products"
+  },
+  {
+    "food_group_id": 900,
+    "food_group_name": "Fruits & Fruit Juices"
+  },
+  {
+    "food_group_id": 1700,
+    "food_group_name": "Lamb, Veal, and Game Products"
+  },
+  {
+    "food_group_id": 1600,
+    "food_group_name": "Legumes & Legume Products"
+  },
+  {
+    "food_group_id": 2200,
+    "food_group_name": "Meals, Entrees, & Side Dishes"
+  },
+  {
+    "food_group_id": 1200,
+    "food_group_name": "Nut & Seed Products"
+  },
+  {
+    "food_group_id": 1000,
+    "food_group_name": "Pork Products"
+  },
+  {
+    "food_group_id": 500,
+    "food_group_name": "Poultry Products"
+  },
+  {
+    "food_group_id": 3600,
+    "food_group_name": "Restaurant Foods"
+  },
+  {
+    "food_group_id": 700,
+    "food_group_name": "Sausages & Luncheon Meats"
+  },
+  {
+    "food_group_id": 2500,
+    "food_group_name": "Snacks"
+  },
+  {
+    "food_group_id": 600,
+    "food_group_name": "Soups, Sauces, & Gravies"
+  },
+  {
+    "food_group_id": 200,
+    "food_group_name": "Spices & Herbs"
+  },
+  {
+    "food_group_id": 1900,
+    "food_group_name": "Sweets"
+  },
+  {
+    "food_group_id": 1100,
+    "food_group_name": "Vegetables & Vegetable Products"
+  }
+]
