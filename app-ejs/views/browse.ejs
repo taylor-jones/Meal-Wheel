@@ -74,8 +74,9 @@
             %>
             <div class="col-sm-6 col-md-4">
                 <div class="card mb-5">
-
-                  <img class="card-img-top" src="<%= image %>">
+                  <a href="/recipes/?id=<%= recipes[i].recipe_id %>">
+                    <img class="card-img-top" src="<%= image %>">
+                  </a>
                   <div class="card-body">
                     <h5 class="card-title"><%= recipes[i].recipe_name %></h5>
                     <p class="card-text"><%= recipes[i].recipe_description %></p>
