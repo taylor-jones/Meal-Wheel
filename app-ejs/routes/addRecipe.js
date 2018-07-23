@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
     menuId: 'addRecipe',
     cuisines: cuisines,
     categories: categories,
-    units: units
+    units: units,
   });
 });
 
