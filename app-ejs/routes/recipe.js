@@ -11,4 +11,12 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.get('/:id', (req, res, next) => {
+  res.render('singleRecipe', {
+    page: data[req.params.id].recipe_name,
+    menuId: 'recipe',
+    data: data[req.params.id],
+  });
+});
+
 module.exports = router;
