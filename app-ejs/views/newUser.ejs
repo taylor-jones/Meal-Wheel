@@ -5,15 +5,17 @@
   <body>
     <% include partials/navbar %>
 
+    <div class="container-fluid text-center">
+        <h1 class="display-4"><%= page %></h1>
+    </div>
+
      <!-- Main Container -->
     <div class="main">
       <div class="container">
         <div class="row justify-content-center align-items-center">
           <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4">
-           <h1><%= page %></h1>
            <form action="/" method="POST">
 				<fieldset>
-					
 					<div class="form-group row">
 						<label class="col-sm-4 col-form-label" for="name">User Name: </label>
 						<input class="col-sm-8" id="name" type="text" name="name" required>
@@ -27,7 +29,7 @@
 						<input class="col-sm-8" id="pwrd" type="password" name="pwrd">
 					</div>
 					<div class="form-group row">
-						<div class="col-sm-4">
+						<div class="col-sm-6">
 							<input class="form-control" id="addUser" type="submit" name="addUser" value="Create Account">
 						</div>
 					</div>
