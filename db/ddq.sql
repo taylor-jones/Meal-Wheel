@@ -1093,15 +1093,22 @@ VALUES
   (1500, 2),
   (1700, 2),
   (1200, 3);
-  
+
 
   -- Recipe
 INSERT INTO
-  recipe (recipe_name,recipe_description,recipe_instructions,user_id,recipe_category_id)
+  recipe (
+    recipe_name,
+    recipe_description,
+    recipe_instructions,
+    recipe_category_id,
+    recipe_image_url,
+    user_id
+  )
 VALUES
-  ('BLT','Bacon, Lettuce, and Tomato Sandwich',NULL,1,1),
-  ('Beef and Broccoli','”Traditional” Asian Dish',NULL,1,1),
-  ('Watermelon Pitcher Margaritas','Delicious Margaritas designed to serve 5-6',NULL,2,3);
+  ('BLT','Bacon, Lettuce, and Tomato Sandwich', NULL, 1, 'http://i.imgur.com/DU2r9pP.jpg', 1),
+  ('Beef and Broccoli','”Traditional” Asian Dish', NULL, 1, 'http://i.imgur.com/f9ENAF9.jpg', 1),
+  ('Watermelon Pitcher Margaritas','Delicious Margaritas designed to serve 5-6', NULL, 2, 'http://i.imgur.com/edH3zxw.jpg', 3);
   
 
   -- Recipe Cuisine
