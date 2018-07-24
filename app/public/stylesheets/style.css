@@ -5,11 +5,13 @@ html {
 
 body {
   margin-bottom: 60px;
-  background: URL("../images/cuttingboard.jpg") no-repeat 0px 30px;
-  background-size: 100%;
-  background-attachment: fixed;
 }
 
+body:not(.admin) {
+  background: URL("../images/cuttingboard.jpg") no-repeat 0px 30px;
+  background-size: cover;
+  background-attachment: fixed;
+}
 
 body:not(.admin) > [class^="container"] {
   padding: 60px 15px 0;
@@ -43,22 +45,12 @@ a {
   width: 100%; /* Set the fixed height of the footer here */
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
-  background-color: #f5f5f5;
 }
 
 footer > .container {
   padding-right: 15px;
   padding-left: 15px;;
 }
-
-
-/*
- * Wheel Image
- */
- #wheel {
-   width: 100%;
-   max-width: 400px;
- }
 
 
 /*
@@ -158,6 +150,10 @@ footer > .container {
   border-bottom: 1px solid #e5e5e5;
 }
 
+.grayscale {
+  filter: grayscale(20%);
+}
+
 
 /*
  * Images
@@ -172,9 +168,14 @@ footer > .container {
    object-fit: cover;
  }
 
+ #wheel {
+   width: 100%;
+   max-width: 400px;
+ }
+
 
 /*
- *
+ * Typography
  */
 
 h1{
