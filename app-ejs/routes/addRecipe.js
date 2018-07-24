@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 		mysql.pool.query('SELECT recipe_category_id, recipe_category_name FROM recipe_category', function(err, rows, fields){
 			const categories = rows;
 			mysql.pool.query('SELECT unit_of_measure_id, unit_of_measure_name FROM unit_of_measure', function(err, rows, fields){
-				const diets = rows;
+				const units = rows;
 				res.render('addRecipe', {
 				    page: 'Sumbit a new Recipe',
 				    menuId: 'addRecipe',
