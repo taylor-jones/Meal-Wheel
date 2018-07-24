@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include partials/head %>
+
+  <body>
+	<% include partials/navbar %>
+    <div class="container-fluid text-center">
+       <h1 class="display-4"><%= page %></h1>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main">
+      <div class="container">
+        <div class="row justify-content-center align-items-center">
+          <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4">
+
+						<form action="/" method="POST">
+							<fieldset>
+								<!-- Both URL and file inputs are here, but we may only use URL, so the other is commented out for now. -->
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label" for="recipe_name">Recipe Name: </label>
+									<input class="col-sm-8" id="recipe_name" type="text" name="recipe_name" required>
+								</div>
+								<!--
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label" for="recipe_image">Upload an image... </label>
+									<input type="file" name="recipe_image" id="recipe_image" accept="image/*">
+								</div> 
+								-->
+
+								<!-- Placeholder or value? -->
+								<div class="form-group row">
+											<label class="col-sm-4 col-form-label" for="recipe_url">Enter a URL:</label>
+											<input class="col-sm-8" type="url" name="recipe_url" id="recipe_url" value="https://" pattern="https://.*" size="20"/>
+								</div>
+
+								<div class="form-group row">
+									<label class="col-sm-4 col-form-label" for="recipe_instructions">Method: </label>
+									<textarea class="form-control col-sm-8" rows="5" id="recipe_instructions" name="recipe_instructions" required></textarea>
+								</div>
+
+								<label>List Ingredients: </label>	
+								<br>
+								<div class="form-group row" id="list_ingredients">	
+									<input class="col-sm-5" id="ingredient_1" type="text" name="ingredient_1" style="margin:2px">
+									<input class="col-sm-2" id="amount" value="1" type="number" style="margin:2px">
+									<select class="col-sm-3" name="unit_of_measure" style="margin:2px">
+										<% for ( let i = 0; i < units.length; i++ ) { %>
+											<option class="justify-content-center" value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
+											<% } %>
+										</select> 
+									<button class="col-sm-1" style="margin:2px" value="addIngredient">+</button>
+								</div>
+									
+								<div class="form-group row">
+									<div class="col-sm-6">
+										<label>Choose a cuisine</label>
+										<select name="recipe_category">
+											<% for ( let i = 0; i < cuisines.length; i++ ) { 
+											var selected = ( cuisines[i].cuisine_name == "American" ) ? "selected" : "";%>
+												<option value="<%= cuisines[i].cuisine_id %>" <%=selected %>><%= cuisines[i].cuisine_name %></option>
+											<% } %>
+										</select>
+									</div>
+									
+									<div class="col-sm-6">
+										<label>Choose a category</label>
+										<select name="recipe_cuisine">
+											<% for ( let i = 0; i < categories.length; i++ ) { 
+											var selected = ( categories[i].recipe_category_name == "Main Course" ) ? "selected" : "";%>
+												<option value="<%= categories[i].recipe_category_id %>"<%=selected %>><%= categories[i].recipe_category_name %></option>
+											<% } %> 
+										</select>	
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-sm-6">
+										<input class="form-control" id="addRecipe" type="submit" name="addRecipe" value="Submit Recipe">
+									</div>
+								</div>
+							</fieldset>
+						</form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <% include partials/footer %>
+    <% include partials/script %>
+  </body>
+</html>

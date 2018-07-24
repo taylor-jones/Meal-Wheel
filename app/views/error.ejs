@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include partials/head %>
+
+  <body>
+    <% include partials/navbar %>
+
+    <div class="container-fluid text-center">
+      <h1><%= message %></h1>
+      <h2><%= error.status %></h2>
+      <pre><%= error.stack %></pre>
+    </div>
+
+    <% include partials/footer %>
+    <% include partials/script %>
+  </body>
+</html>
