@@ -11,11 +11,9 @@
           <div class="col-lg-10 col-xl-8">
             <div class="card no-border card-rounded-top mb-5">
               <div class="jumbotron rounded img-slate">
-                <!-- <div class="col-xs-12 px-0"> -->
-                  <% var placeholder = "/images/recipe-placeholder.png";
-                            var image = ( data.recipe_image_url == null ) ? placeholder : data.recipe_image_url; %>
-                    <img class="img-fluid" src="<%= image %>" alt="">
-                <!-- </div> -->
+                  <% const placeholder = "/images/recipe-placeholder.png";
+                     const image = ( data.recipe_image_url == null ) ? placeholder : data.recipe_image_url; %>
+                <img class="img-fluid" src="<%= image %>" alt="">
               </div>
 
               <div class="card-body">
