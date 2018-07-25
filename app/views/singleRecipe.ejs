@@ -5,25 +5,41 @@
     <body class="bg-cover bg-cover-faded">
       <% include partials/navbar %>
 
-        <div class="container text-center align-items-center">
-          <h1 class="display-4">
-            <%= page %>
-          </h1>
+      <div class="container text-center align-items-center">
+        <h1 class="display-4"><%= page %></h1>
 
-          
-            <div class="jumbotron rounded img-slate">
-              <div class="col-xs-12 px-0">
-                <% var placeholder = "/images/recipe-placeholder.png";
-                          var image = ( data.recipe_image_url == null ) ? placeholder : data.recipe_image_url; %>
-                  <img class="img-fluid" src="<%= image %>" alt="">
-              </div>
+        <div class="card no-border card-rounded-top">
+          <div class="jumbotron rounded img-slate">
+            <div class="col-xs-12 px-0">
+              <% var placeholder = "/images/recipe-placeholder.png";
+                        var image = ( data.recipe_image_url == null ) ? placeholder : data.recipe_image_url; %>
+                <img class="img-fluid" src="<%= image %>" alt="">
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-title"><%= data.recipe_description %></div>
+
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a class="nav-link" data-target="#ingredients" data-toggle="tab">Ingredients</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-target="#instructions" data-toggle="tab">Instructions</a>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              
             </div>
 
+          </div>
         </div>
+      </div>
 
 
 
-          <% include partials/footer %>
-            <% include partials/script %>
+      <% include partials/footer %>
+      <% include partials/script %>
     </body>
 </html>

@@ -172,6 +172,12 @@ body.admin {
    font-size: 0.85rem;
  }
 
+ .card-rounded-top {
+   border-radius: 2px 2px 0 0;
+   overflow: hidden;
+ }
+
+
 
 /*
  * Utilities
@@ -185,9 +191,10 @@ body.admin {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.grayscale {
-  filter: grayscale(20%);
+.no-border {
+  border: none;
 }
+
 
 
 /*
