@@ -5,34 +5,46 @@
     <body class="bg-cover bg-cover-faded">
       <% include partials/navbar %>
 
-      <div class="container text-center align-items-center">
-        <h1 class="display-4"><%= page %></h1>
+      <div class="container align-items-center mb-5">
+        
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-10 col-xl-8">
+            <div class="card no-border card-rounded-top mb-5">
+              <div class="jumbotron rounded img-slate">
+                <!-- <div class="col-xs-12 px-0"> -->
+                  <% var placeholder = "/images/recipe-placeholder.png";
+                            var image = ( data.recipe_image_url == null ) ? placeholder : data.recipe_image_url; %>
+                    <img class="img-fluid" src="<%= image %>" alt="">
+                <!-- </div> -->
+              </div>
 
-        <div class="card no-border card-rounded-top">
-          <div class="jumbotron rounded img-slate">
-            <div class="col-xs-12 px-0">
-              <% var placeholder = "/images/recipe-placeholder.png";
-                        var image = ( data.recipe_image_url == null ) ? placeholder : data.recipe_image_url; %>
-                <img class="img-fluid" src="<%= image %>" alt="">
+              <div class="card-body">
+                <div class="card-title"><h4><%= page %></h4></div>
+                <div class="card-subtitle"><%= data.recipe_description %></div>
+
+                <ul class="nav nav-tabs mt-4">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-target="#ingredients" data-toggle="tab">Ingredients</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-target="#instructions" data-toggle="tab">Instructions</a>
+                  </li>
+                </ul>
+
+                <div class="tab-content pt-4">
+                  <div class="tab-pane active" id="ingredients">
+                      <!-- list the recipe ingredients -->
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, provident corporis labore sequi, neque aut error debitis veniam iusto doloribus eum quae omnis eos, magnam vero corrupti iure ipsam nisi!</p>
+                  </div>
+                  
+                  <div class="tab-pane" id="instructions">
+                      <!-- list the recipe instructions -->
+                      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia maxime accusamus optio architecto accusantium! Laudantium cupiditate inventore ad. Explicabo beatae distinctio unde necessitatibus recusandae itaque possimus maxime pariatur laboriosam esse?</p>
+                  </div>
+                </div>
+
+              </div>
             </div>
-          </div>
-
-          <div class="card-body">
-            <div class="card-title"><%= data.recipe_description %></div>
-
-            <ul class="nav nav-tabs">
-              <li class="nav-item">
-                <a class="nav-link" data-target="#ingredients" data-toggle="tab">Ingredients</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-target="#instructions" data-toggle="tab">Instructions</a>
-              </li>
-            </ul>
-
-            <div class="tab-content">
-              
-            </div>
-
           </div>
         </div>
       </div>
