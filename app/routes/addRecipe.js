@@ -8,7 +8,7 @@ const units = require('../data/units-of-measure.json');
 /* GET add recipe page. */
 router.get('/', (req, res, next) => {
   res.render('addRecipe', {
-    page: 'Sumbit a new Recipe',
+    page: 'Submit a new Recipe',
     menuId: 'addRecipe',
     cuisines: cuisines,
     categories: categories,
