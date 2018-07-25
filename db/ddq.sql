@@ -1106,8 +1106,8 @@ INSERT INTO
     user_id
   )
 VALUES
-  ('BLT','Bacon, Lettuce, and Tomato Sandwich', NULL, 1, 'http://i.imgur.com/DU2r9pP.jpg', 1),
-  ('Beef and Broccoli','”Traditional” Asian Dish', NULL, 1, 'http://i.imgur.com/f9ENAF9.jpg', 1),
+  ('BLT','Bacon, lettuce, and tomato sandwich', NULL, 1, 'http://i.imgur.com/DU2r9pP.jpg', 1),
+  ('Beef and Broccoli','Simple delicious stirfry', NULL, 1, 'http://i.imgur.com/f9ENAF9.jpg', 1),
   ('Watermelon Pitcher Margaritas','Delicious Margaritas designed to serve 5-6', NULL, 2, 'http://i.imgur.com/edH3zxw.jpg', 3);
   
 
