@@ -18,14 +18,6 @@ body:not(.admin) > [class^="container"] {
 }
 
 
-body.admin {
-  padding: 30px 15px 0;
-}
-
-.sidebar {
-  font-size: .875rem;
-}
-
 
 a {
   color: #00B7FF;
@@ -53,6 +45,31 @@ footer > .container {
 }
 
 
+
+/*
+ * Admin
+ */
+
+body.admin {
+  padding: 30px 0;
+}
+
+.admin>[class^="container"] {
+  padding: 0 5vw;
+}
+
+
+.admin table {
+  font-size: .875rem;
+}
+
+@media (min-width: 1200px) {
+  .admin table {
+    font-size: 1rem;
+  }
+}
+
+
 /*
  * Sidebar
  */
@@ -69,9 +86,9 @@ footer > .container {
   bottom: 0;
   left: 0;
   z-index: 100;
-  /* Behind the navbar */
   padding: 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  font-size: .875rem;
 }
 
 .sidebar-sticky {
@@ -83,10 +100,7 @@ footer > .container {
   padding-top: .5rem;
   overflow-x: hidden;
   overflow-y: auto;
-  /* Scrollable contents if viewport is shorter than content. */
 }
-
-
 
 .sidebar .nav-link {
   font-weight: 500;
