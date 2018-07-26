@@ -1,13 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const data = require('../data/cuisines.json');
 
-/* GET browse page. */
+const Cuisines = require('../controllers/Cuisine');
+
+/* GET cuisine admin list page. */
 router.get('/', (req, res, next) => {
-  res.render('cuisine', {
-    page: 'Cuisines',
-    menuId: 'cuisine',
-    data: data,
+  Cuisines.getAll((err, cuisines) => {
+    res.render('cuisine', {
+      page: 'Cuisines',
+      menuId: 'cuisine',
+      data: cuisines,
+    });
   });
 });
 
