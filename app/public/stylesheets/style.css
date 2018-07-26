@@ -168,6 +168,11 @@ body.admin {
 /*
  * Cards
  */
+
+ .card-body {
+   padding: 2rem;
+ }
+
  .card-text {
    font-size: 0.85rem;
  }
@@ -222,4 +227,9 @@ body.admin {
 
 h1{
   text-shadow: 2px 2px 2px rgba(22, 22, 22, .4);
+}
+
+p.keep-spacing {
+  /* font-size: .85rem; */
+  white-space: pre-wrap;
 }

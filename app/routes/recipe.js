@@ -19,17 +19,15 @@ router.get('/', (req, res, next) => {
 /* GET an individual recipe page. */
 router.get('/:id', (req, res, next) => {
   Recipes.getById(req.params.id, (err, recipe) => {
-    console.log(recipe);
-
-    res.render('singleRecipe', {
-      page: recipe.recipe_name,
-      menuId: 'recipe',
-      recipe: recipe[0],
-      ingredients: [],
+    Recipes.getIngredientsByRecipeId(req.params.id, (err, ingredients) => {
+      res.render('singleRecipe', {
+        page: recipe.recipe_name,
+        menuId: 'recipe',
+        recipe: recipe[0],
+        ingredients: ingredients,
+      });
     });
   });
-
-
 });
 
 module.exports = router;

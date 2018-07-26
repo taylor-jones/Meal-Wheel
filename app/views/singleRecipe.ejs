@@ -37,14 +37,14 @@
                       <!-- list the recipe ingredients -->
                       <ul class="recipe-ingredients">
                         <% for (let i = 0; i < ingredients.length; i++) { %>
-                          <li><%= ingredients[i].ingredient_name %></li>
+                          <li><%= ingredients[i].amount %> <%= ingredients[i].unit_of_measure_name %> <%= ingredients[i].ingredient_name %></li>
                         <% } %>
                       </ul>
                     </div>
 
                     <div class="tab-pane" id="instructions">
                       <!-- list the recipe instructions -->
-                      <p><%= recipe.instructions %></p>
+                      <p class="keep-spacing"><%= recipe.recipe_instructions %></p>
                     </div>
                   </div>
 
@@ -55,8 +55,7 @@
         </div>
 
 
-
         <% include partials/footer %>
-          <% include partials/script %>
+        <% include partials/script %>
     </body>
 </html>

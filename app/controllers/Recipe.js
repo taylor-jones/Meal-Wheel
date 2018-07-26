@@ -41,3 +41,26 @@ exports.getById = (id, callback) => {
     }
   });
 };
+
+
+exports.getIngredientsByRecipeId = (id, callback) => {
+  db.get().query(`
+  SELECT
+    ri.ingredient_id,
+      i.ingredient_name,
+      ri.amount,
+      u.unit_of_measure_name
+    FROM recipe_ingredient AS ri
+      INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+      INNER JOIN unit_of_measure AS u ON ri.unit_of_measure_id = u.unit_of_measure_id
+      INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id
+    WHERE ri.recipe_id = ?
+    ORDER BY ri.amount DESC;
+  `, id, (err, rows) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, rows);
+    }
+  });
+};
