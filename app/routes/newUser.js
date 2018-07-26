@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+
 /* GET new user page. */
 router.get('/', (req, res, next) => {
   res.render('newUser', {
-    page: 'New User',
+    page: 'Sign Up',
     menuId: 'newUser',
   });
 });

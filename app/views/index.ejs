@@ -23,7 +23,7 @@
                 <div class="form-group text-left">
                   <select class="form-control"name="recipe-category" id="recipe-category">
                     <% for ( let i = 0; i < categories.length; i++ ) {
-                      var selected = ( categories[i].recipe_category_name == "Main Course" ) ? "selected" : "";
+                      const selected = ( categories[i].recipe_category_name == "Main Course" ) ? "selected" : "";
                       %><option value="<%=categories[i].recipe_category_id %>" <%=selected %>><%= categories[i].recipe_category_name %></option>
                     <% } %>
                   </select>

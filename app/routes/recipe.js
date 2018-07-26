@@ -1,32 +1,35 @@
 const express = require('express');
 const router = express.Router();
-const data = require('../data/recipes.json');
 
-/* GET browse page. */
+const Recipes = require('../controllers/Recipe');
+
+
+/* GET recipe admin page. */
 router.get('/', (req, res, next) => {
-  res.render('recipe', {
-    page: 'Recipes',
-    menuId: 'recipes',
-    data: data,
+  Recipes.getAll((err, recipes) => {
+    res.render('recipe', {
+      page: 'Recipes',
+      menuId: 'recipes',
+      data: recipes,
+    });
   });
 });
 
 
 /* GET an individual recipe page. */
 router.get('/:id', (req, res, next) => {
-  let recipe;
+  Recipes.getById(req.params.id, (err, recipe) => {
+    console.log(recipe);
 
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].recipe_id === Number(req.params.id)) {
-      recipe = data[i];
-    }
-  }
-
-  res.render('singleRecipe', {
-    page: recipe.recipe_name,
-    menuId: 'recipe',
-    data: recipe,
+    res.render('singleRecipe', {
+      page: recipe.recipe_name,
+      menuId: 'recipe',
+      recipe: recipe[0],
+      ingredients: [],
+    });
   });
+
+
 });
 
 module.exports = router;
