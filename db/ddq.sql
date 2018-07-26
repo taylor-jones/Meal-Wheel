@@ -221,24 +221,24 @@ VALUES
 INSERT INTO
   unit_of_measure (unit_of_measure_name, unit_of_measure_abbrev)
 VALUES
-  ('Cup', 'c'),
-  ('TableSpoon', 'tbsp'),
-  ('Teaspoon', 'tsp'),
-  ('Ounce', 'oz'),
-  ('Slice', 'Slice'),
-  ('Pint', 'pt'),
-  ('Quart', 'qt'),
-  ('Milliliter', 'mL'),
-  ('Pound', 'lb'),
-  ('Gallon', 'gal'),
-  ('Drop', 'drop'),
-  ('Pinch', 'pinch'),
-  ('Dash', 'dash'),
-  ('Liter', 'L'),
-  ('Milligram', 'mg'),
-  ('Gram', 'g'),
-  ('Kilogram', 'kg'),
-  ('Fluid Ounce', 'fl oz');
+  ('cup', 'c'),
+  ('tablespoon', 'tbsp'),
+  ('teaspoon', 'tsp'),
+  ('ounce', 'oz'),
+  ('slice', 'slice'),
+  ('pint', 'pt'),
+  ('quart', 'qt'),
+  ('milliliter', 'mL'),
+  ('pound', 'lb'),
+  ('gallon', 'gal'),
+  ('drop', 'drop'),
+  ('pinch', 'pinch'),
+  ('dash', 'dash'),
+  ('liter', 'L'),
+  ('milligram', 'mg'),
+  ('gram', 'g'),
+  ('kilogram', 'kg'),
+  ('fluid Ounce', 'fl oz');
   
 
   -- Recipe Significance Type
@@ -1106,9 +1106,13 @@ INSERT INTO
     user_id
   )
 VALUES
-  ('BLT','Bacon, lettuce, and tomato sandwich', NULL, 1, 'http://i.imgur.com/DU2r9pP.jpg', 1),
-  ('Beef and Broccoli','Simple delicious stirfry', NULL, 1, 'http://i.imgur.com/f9ENAF9.jpg', 1),
-  ('Watermelon Pitcher Margaritas','Delicious Margaritas designed to serve 5-6', NULL, 2, 'http://i.imgur.com/edH3zxw.jpg', 3);
+  ('BLT','Bacon, lettuce, and tomato sandwich', 
+    'Cook bacon until crispy, then drain on paper towels.\n\nToast the 8 slices of bread.\n\nSpread 1 tablespoon mayo on each slice of toasted bread. (More or less, to taste).\n\nAdd 1 slice of lettuce to 4 pieces of mayo-spreaded toast.\n\nAdd 2 slices of tomato on top of lettuce.\n\nArrange 3 slices of bacon evenly on top of tomato. (Break bacon slices in half to fit, if needed.).\n\nAdd 1 slice of lettuce on top of bacon.\n\nPut the remaining 4 pieces of mayo-spreaded toast on top to finish the sandwiches.\n\nEnjoy!', 
+    1, 'http://i.imgur.com/DU2r9pP.jpg', 1),
+  ('Beef and Broccoli','Simple delicious stirfry', 
+    'Whisk together the oyster sauce, sesame oil, sherry, soy sauce, sugar, and cornstarch in a bowl, and stir until the sugar has dissolved. Place the steak pieces into a shallow bowl, pour the oyster sauce mixture over the meat, stir to coat well, and marinate for at least 30 minutes in refrigerator.\n\nHeat vegetable oil in a wok or large skillet over medium-high heat, and stir in the ginger and garlic. Let them sizzle in the hot oil for about 1 minute to flavor the oil, then remove and discard. Stir in the broccoli, and toss and stir in the hot oil until bright green and almost tender, 5 to 7 minutes. Remove the broccoli from the wok, and set aside.\n\nPour a little more oil into the wok, if needed, and stir and toss the beef with the marinade until the sauce forms a glaze on the beef, and the meat is no longer pink, about 5 minutes. Return the cooked broccoli to the wok, and stir until the meat and broccoli are heated through, about 3 minutes.', 1, 'http://i.imgur.com/f9ENAF9.jpg', 1),
+  ('Watermelon Pitcher Margaritas','Delicious Margaritas designed to serve 5-6', 
+    'Bring 1/2 cup sugar, water, and orange zest in a small saucepan to boil, stirring constantly. Simmer until sugar is dissolved, about 3 minutes. Remove simple syrup from heat and allow to cool completely.\n\nPlace watermelon in a blender or food processor. Pulse until pureed.\n\nStir watermelon puree into a large pitcher with simple syrup, tequila, and lime juice.\n\nPlace a small amount of salt or sugar into a saucer. Rub edge of margarita glasses with a lime wedge to moisten. Lightly dip the rim of the glass into the saucer to rim the glass; tap off excess salt or sugar.\n\nFill rimmed glasses with crushed ice; pour margarita mixture into glasses and garnish with lime wedges to serve.', 2, 'http://i.imgur.com/edH3zxw.jpg', 3);
   
 
   -- Recipe Cuisine
