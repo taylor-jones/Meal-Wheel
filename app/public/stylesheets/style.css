@@ -215,11 +215,13 @@ body.admin {
    object-fit: cover;
  }
 
- #wheel {
-   width: 100%;
+ #wheelImg {
+   width: 50vw;
+   min-width: 200px;
    max-width: 400px;
  }
 
+ 
 
 /*
  * Typography

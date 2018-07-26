@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
-// const pluralize = require('pluralize');
 
 const addRecipeRouter = require('./routes/addRecipe');
 const adminRouter = require('./routes/admin');
@@ -31,9 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -42,7 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 /*
  * Helper Functions
  */
-app.locals.pluralize = require('pluralize');
 
 
 /*
