@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-// const data = require('../data/ingredients.json');
 
 const Ingredients = require('../controllers/Ingredient');
 

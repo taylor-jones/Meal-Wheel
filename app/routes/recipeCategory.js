@@ -1,15 +1,26 @@
 const express = require('express');
 const router = express.Router();
 // const data = require('../data/recipe-categories.json');
-const data = require('../controllers/RecipeCategory');
+const RecipeCategories = require('../controllers/RecipeCategory');
 
-/* GET browse page. */
+/* GET recipe category admin page. */
 router.get('/', (req, res, next) => {
-  res.render('recipeCategory', {
-    page: 'Recipe Categories',
-    menuId: 'recipe-categories',
-    data: data.getAll(),
+  RecipeCategories.getAll((err, recipeCategories) => {
+    res.render('recipeCategory', {
+      page: 'Recipe Categories',
+      menuId: 'recipe-category',
+      data: recipeCategories,
+    });
   });
 });
+
+
+// router.get('/', (req, res, next) => {
+//   res.render('recipeCategory', {
+//     page: 'Recipe Categories',
+//     menuId: 'recipe-categories',
+//     data: data.getAll(),
+//   });
+// });
 
 module.exports = router;
