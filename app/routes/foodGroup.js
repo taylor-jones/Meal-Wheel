@@ -1,14 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const data = require('../data/food-groups.json');
 
-/* GET browse page. */
+const FoodGroups = require('../controllers/FoodGroup');
+
+/* GET food group admin page. */
 router.get('/', (req, res, next) => {
-  res.render('foodGroup', {
-    page: 'Food Groups',
-    menuId: 'food-groups',
-    data: data,
+  FoodGroups.getAll((err, foodGroups) => {
+    res.render('foodGroup', {
+      page: 'Food Groups',
+      menuId: 'food-groups',
+      data: foodGroups,
+    });
   });
 });
+
 
 module.exports = router;
