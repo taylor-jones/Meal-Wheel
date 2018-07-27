@@ -39,6 +39,9 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   const randomRecipe = Math.floor(Math.random() * 3) + 1;
+  // const randomRecipe = 0; // for testing a non-match
+  
+  // console.log(req.body);
 
   Recipes.getById(randomRecipe, (err, recipe) => {
     Recipes.getIngredientsByRecipeId(randomRecipe, (err, ingredients) => {

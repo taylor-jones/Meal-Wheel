@@ -41,7 +41,18 @@ $(function() {
   const spinButton = document.querySelector('#spinWheel');
   const display = document.querySelector('#recipeDisplay');
 
+  const category = document.querySelector('#category');
+  const cuisine = document.querySelector('#cuisine');
+  const diet = document.querySelector('#diet');
+
+
+  /**
+   * Event Handlers
+   */
+
   spinButton.addEventListener('click', function(e) {
+    rotateAnimation('wheelImg', 8, 0); // only splins the first time??
+
     const req = new XMLHttpRequest();
 
     req.open('POST', '/', true);
@@ -54,7 +65,9 @@ $(function() {
     });
 
     const context = {
-      'foo': 'bar',
+      category: sanitize(category.value),
+      cuisine: sanitize(cuisine.value),
+      diet: sanitize(diet.value),
     };
 
     req.send(JSON.stringify(context));
@@ -62,12 +75,51 @@ $(function() {
   });
 
 
-  function displayRecipe(recipe) {
-    const placeholder = '/images/recipe-placeholder.png';
-    const image = (recipe.recipe_image_url == null) ? placeholder : recipe.recipe_image_url;
 
-    display.innerHTML =
-      `<div class="row align-items-center justify-content-center">
+  /**
+   * Functions
+   */
+
+  function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
+
+  /**
+   * Converts a value to its appropriate value type.
+   */
+  function sanitize(value) {
+    if (value === 'null' || undefined) {
+      return null;
+    } else if (isNumeric(value)) {
+      return parseInt(value);
+    }
+    return value;
+  }
+
+
+  /**
+   * Renders the recipe in the html
+   */
+  function displayRecipe(recipe) {
+    if (recipe === undefined) {
+      display.innerHTML = `
+			<div class="row align-items-center justify-content-center text-center">
+				<div class="col-sm-8 col-md-6 col-lg-4">
+					<div class="card mb-5">
+						<div class="card-body">
+							<h5 class="card-title">No Matching Recipe</h5>
+							<p class="card-text">Try chaging some parameters and spin aagin!</p>
+						</div>
+					</div>
+				</div>
+			</div>`;
+    } else {
+      const placeholder = '/images/recipe-placeholder.png';
+      const image = (recipe.recipe_image_url == null) ? placeholder : recipe.recipe_image_url;
+
+      display.innerHTML =
+        `<div class="row align-items-center justify-content-center">
 				<div class="col-sm-8 col-md-6 col-lg-4">
 					<div class="card mb-5">
 						<a href="/recipes/${recipe.recipe_id}">
@@ -80,7 +132,6 @@ $(function() {
 					</div>
 				</div>
 			</div>`;
+    }
   }
-
-
 });
