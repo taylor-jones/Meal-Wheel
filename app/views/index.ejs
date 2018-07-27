@@ -17,7 +17,8 @@
             <div class="col-sm-8 col-md-6 col-lg-4">
 
               <!-- Recipe Wheel Form -->
-              <form action="/" method="POST" class="mb-5">
+              <!-- <form action="/" method="POST" class="mb-5"> -->
+              <form action="" class="mb-5">
 
                 <!-- Recipe Category -->
                 <div class="form-group text-left">
@@ -58,28 +59,7 @@
 
 
           <!-- Space to put a recipe -->
-          <div id="recipeDisplay">
-            <%if (locals.recipe) { %>
-                
-              <div class="row align-items-center justify-content-center">
-                  <% const placeholder = "/images/recipe-placeholder.png";
-                    const image = (recipe.recipe_image_url == null ) ? placeholder : recipe.recipe_image_url; %>
-                  <div class="col-sm-8 col-md-6 col-lg-4">
-                    <div class="card mb-5">
-                      <a href="/recipes/<%= recipe.recipe_id %>">
-                        <img class="card-img-top" src="<%= image %>">
-                      </a>
-                      <div class="card-body">
-                        <h5 class="card-title"><%= recipe.recipe_name %></h5>
-                        <p class="card-text"><%= recipe.recipe_description %></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>       
-
-            <% } %> <!-- end if-->
-          </div>
-
+          <div id="recipeDisplay"></div>
         </div><!-- container-->
 
         <% include partials/footer %>

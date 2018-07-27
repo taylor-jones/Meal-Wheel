@@ -35,32 +35,16 @@ router.get('/', (req, res, next) => {
  *    3 recipes in the db right now.
  * 
  * 2) It's not taking into account any of the search parameters yet.
- * 
- * 3) Is this even how we want to handle getting a random recipe?
- *    It seems like it would be nicer to have the post request w/
- *      some AJAX and update the recipeDisplay based on the response,
- *      so we wouldn't have to do a page refresh.
  */
 
 router.post('/', (req, res, next) => {
   const randomRecipe = Math.floor(Math.random() * 3) + 1;
 
-  Categories.getAll((err, categories) => {
-    Cuisines.getAll((err, cuisines) => {
-      Diets.getAll((err, diets) => {
-        Recipes.getById(randomRecipe, (err, recipe) => {
-          Recipes.getIngredientsByRecipeId(randomRecipe, (err, ingredients) => {
-            res.render('index', {
-              page: 'Home',
-              menuId: 'home',
-              cuisines: cuisines,
-              categories: categories,
-              diets: diets,
-              recipe: recipe[0],
-              ingredients: ingredients,
-            });
-          });
-        });
+  Recipes.getById(randomRecipe, (err, recipe) => {
+    Recipes.getIngredientsByRecipeId(randomRecipe, (err, ingredients) => {
+      res.send({
+        recipe: recipe[0],
+        ingredients: ingredients,
       });
     });
   });
