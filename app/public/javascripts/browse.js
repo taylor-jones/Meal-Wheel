@@ -34,7 +34,6 @@ $(function() {
    * Functions
    */
 
-
   /* Displays only the recipes that have an id in an array of recipes,
     unless [matches] is falsy, then it shows all recipes. */
   function updateRecipeVisibility(matches) {
