@@ -2,50 +2,87 @@
 <html lang="en">
   <% include partials/head %>
 
-  <body class="bg-cover bg-cover-faded">
-    <% include partials/navbar %>
+    <body class="text-center bg-cover bg-cover-faded">
+      <% include partials/navbar %>
 
-    <div class="container-fluid text-center">
-        <h1 class="display-4"><%= page %></h1>
-    </div>
 
-     <!-- Main Container -->
-    <div class="main">
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4">
-           <form action="/" method="POST">
-				<fieldset>
-					<div class="form-group row">
-						<label class="col-sm-4 col-form-label" for="name">User Name: </label>
-						<input class="col-sm-8" id="name" type="text" name="name" required>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-4 col-form-label" for="email">Email:   </label>
-						<input class="col-sm-8" id="email" type="email" name="email">
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-4 col-form-label" for="pwrd">Password: </label>
-						<input class="col-sm-8" id="pwrd" type="password" name="pwrd">
-					</div>
-					<div class="form-group row">
-						<div class="col-sm-6">
-							<input class="form-control" id="addUser" type="submit" name="addUser" value="Create Account">
-						</div>
-					</div>
-				</fieldset>
-			</form>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xs-10 col-sm-8 col-md-6 col-lg-4">
+              <h1 class="display-4"><%= page %></h1>
 
+              <form action="/" method="POST">
+                <fieldset>
+                  <div class="form-group">
+                    <div class="form-group">
+                      <label for="name" class="sr-only">User Name</label>
+                      <input type="text" id="name" class="form-control" placeholder="User Name" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="email" class="sr-only">Email address</label>
+                      <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="password" class="sr-only">Password</label>
+                      <input type="password" id="password" class="form-control" placeholder="Password" required>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block" id="login" type="submit">Create Account</button>
+                  </div>
+
+                </fieldset>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <% include partials/footer %>
-		<% include partials/script %>
-		
-		<script>
-			$('.nav-new-user').addClass('active');
-		</script>
-  </body>
+
+        <!-- <div class="container-fluid text-center">
+          <h1 class="display-4">
+            <%= page %>
+          </h1>
+        </div>
+
+        <div class="main">
+          <div class="container">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4">
+                <form action="/" method="POST">
+                  <fieldset>
+                    <div class="form-group row">
+                      <label class="col-sm-4 col-form-label" for="name">User Name: </label>
+                      <input class="col-sm-8" id="name" type="text" name="name" required>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-4 col-form-label" for="email">Email:   </label>
+                      <input class="col-sm-8" id="email" type="email" name="email">
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-4 col-form-label" for="pwrd">Password: </label>
+                      <input class="col-sm-8" id="pwrd" type="password" name="pwrd">
+                    </div>
+                    <div class="form-group row">
+                      <div class="col-sm-6">
+                        <input class="form-control" id="addUser" type="submit" name="addUser" value="Create Account">
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+			<% include partials/footer %>
+			<% include partials/script %>
+
+			<script>
+				$('.nav-new-user').addClass('active');
+			</script>
+	</body>
 </html>
