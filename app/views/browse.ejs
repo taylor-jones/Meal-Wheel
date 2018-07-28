@@ -29,7 +29,7 @@
                       <select class="form-control" name="recipe-category" id="recipe-category">
                         <option value="null" selected>Category</option>
                       <% for ( let i = 0; i < categories.length; i++ ) { %>
-                        <option value="<%=categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name%></option>
+                        <option value="<%=categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name %></option>
                       <% } %>
                     </select>
                     </div>
@@ -72,7 +72,7 @@
               var placeholder = "/images/recipe-placeholder.png";
               var image = ( recipes[i].recipe_image_url == null ) ? placeholder : recipes[i].recipe_image_url;
               %>
-                <div class="col-sm-6 col-md-4">
+                <div class="col-sm-6 col-md-4 recipe-item" id="recipe-<%= recipes[i].recipe_id %>">
                   <div class="card mb-5">
                     <a href="/recipes/<%= recipes[i].recipe_id %>">
                       <img class="card-img-top" src="<%= image %>">
@@ -91,9 +91,15 @@
 
         <% include partials/footer %>
         <% include partials/script %>
+        
+        <!-- <% const recipeList = recipes %> -->
 
         <script>
           $('.nav-browse').addClass('active');
+          // make the recipes list available to the js file below
+           const recipeList = <%- JSON.stringify(recipes) %>;
         </script>
+
+        <script src="/javascripts/browse.js"></script>
     </body>
 </html>
