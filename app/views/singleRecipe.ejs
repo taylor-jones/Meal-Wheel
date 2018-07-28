@@ -33,8 +33,8 @@
                     <div class="tab-pane active" id="ingredients">
                       <!-- list the recipe ingredients -->
                       <ul class="recipe-ingredients">
-                        <% for (let i = 0; i < ingredients.length; i++) { %>
-                          <li><%= ingredients[i].amount %> <%= ingredients[i].unit_of_measure_name %> <%= ingredients[i].ingredient_name %></li>
+                        <% for (let i = 0; i < recipe.ingredients.length; i++) { %>
+                          <li><%= recipe.ingredients[i].amount %> <%= recipe.ingredients[i].unit_of_measure_name %> <%= recipe.ingredients[i].ingredient_name %></li>
                         <% } %>
                       </ul>
                     </div>

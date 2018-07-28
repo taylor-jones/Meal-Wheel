@@ -10,6 +10,7 @@
     "max-len": ["warn", {
       "code": 100
     }],
+    "guard-for-in": "off",
     "new-cap": "off",
     "no-console": "off",
     "no-multiple-empty-lines": ["warn", {"max": 4, "maxBOF": 1, "maxEOF": 1}],
