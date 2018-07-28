@@ -2,98 +2,98 @@
 <html lang="en">
   <% include partials/head %>
 
-  <body class="bg-cover bg-cover-faded">
-    <% include partials/navbar %>
+    <body class="bg-cover bg-cover-faded">
+      <% include partials/navbar %>
 
-    <div class="container text-center">
-        <h1 class="display-4"><%= page %></h1>
+        <div class="container text-center">
+          <h1 class="display-4"><%= page %></h1>
 
-        <div class="browse-options mt-5 mb-5">
-          <!-- Search -->
-          <div class="row justify-content-center align-items-center">
-            <div class="col-lg-8">
-              <div class="form-group">
-                <input type="text" class="form-control" name="search" id="search" placeholder="Search...">
+          <div class="browse-options mt-5 mb-5">
+            <!-- Search -->
+            <div class="row justify-content-center align-items-center">
+              <div class="col-lg-8">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="search" id="search" placeholder="Search...">
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Filter -->
-          <div class="row justify-content-center align-items-center">
-            <div class="col-lg-8">
+            <!-- Filter -->
+            <div class="row justify-content-center align-items-center">
+              <div class="col-lg-8">
 
-              <div class="row">
-                <!-- Recipe Category -->
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <select class="form-control" name="recipe-category" id="recipe-category">
+                <div class="row">
+                  <!-- Recipe Category -->
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <select class="form-control" name="recipe-category" id="recipe-category">
                       <% for ( let i = 0; i < categories.length; i++ ) {
-                        var selected = ( categories[i].recipe_category_name == "Main Course" ) ? "selected" : "";
-                        %><option value="<%=categories[i].recipe_category_id %>" <%=selected %>><%= categories[i].recipe_category_name %></option>
+                        var selected = ( categories[i].recipe_category_name == "Main Course" ) ? "selected" : ""; %>
+                        <option value="<%=categories[i].recipe_category_id %>" <%=selected %>><%= categories[i].recipe_category_name%></option>
                       <% } %>
                     </select>
+                    </div>
                   </div>
-                </div>
 
-                <!-- Recipe Cuisine -->
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <select class="form-control" name="recipe-cuisine" id="recipe-cuisine">
+                  <!-- Recipe Cuisine -->
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <select class="form-control" name="recipe-cuisine" id="recipe-cuisine">
                       <option value="null" selected>Cuisine</option>
                       <% for (let i = 0; i < cuisines.length; i++) { %>
                         <option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
                       <% } %>
                     </select>
+                    </div>
                   </div>
-                </div>
 
-                <!-- Dietary Restrictions -->
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <select class="form-control" name="dietary-restriction" id="dietary-restriction">
+                  <!-- Dietary Restrictions -->
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <select class="form-control" name="dietary-restriction" id="dietary-restriction">
                       <option value="null" selected>Dietary Restriction</option>
                       <% for (let i = 0; i < diets.length; i++) { %>
                         <option value="<%= diets[i].dietary_restriction_id %>"><%= diets[i].dietary_restriction_name %></option>
                       <% } %>
                     </select>
+                    </div>
                   </div>
-                </div>
 
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
 
-        <!-- Browse Recipes -->
-        <div class="browse-content">
-          <div class="row">
-            <% for ( let i = 0; i < recipes.length; i++ ) {
+          <!-- Browse Recipes -->
+          <div class="browse-content">
+            <div class="row">
+              <% for ( let i = 0; i < recipes.length; i++ ) {
               var placeholder = "/images/recipe-placeholder.png";
               var image = ( recipes[i].recipe_image_url == null ) ? placeholder : recipes[i].recipe_image_url;
-            %>
-            <div class="col-sm-6 col-md-4">
-                <div class="card mb-5">
-                  <a href="/recipes/<%= recipes[i].recipe_id %>">
-                    <img class="card-img-top" src="<%= image %>">
-                  </a>
-                  <div class="card-body">
-                    <h5 class="card-title"><%= recipes[i].recipe_name %></h5>
-                    <p class="card-text"><%= recipes[i].recipe_description %></p>
+              %>
+                <div class="col-sm-6 col-md-4">
+                  <div class="card mb-5">
+                    <a href="/recipes/<%= recipes[i].recipe_id %>">
+                      <img class="card-img-top" src="<%= image %>">
+                    </a>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= recipes[i].recipe_name %></h5>
+                      <p class="card-text"><%= recipes[i].recipe_description %></p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <% } %>
+              <% } %>
+            </div>
           </div>
-        </div>
 
-    </div>
+        </div><!-- /container -->
 
-    <% include partials/footer %>
-    <% include partials/script %>
+        <% include partials/footer %>
+        <% include partials/script %>
 
-    <script>
-      $('.nav-browse').addClass('active');
-    </script>
-  </body>
+        <script>
+          $('.nav-browse').addClass('active');
+        </script>
+    </body>
 </html>
