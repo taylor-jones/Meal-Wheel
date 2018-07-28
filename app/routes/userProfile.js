@@ -7,17 +7,24 @@ const router = express.Router();
   - If not, GET the login page.
 . */
 router.get('/', (req, res, next) => {
+  let context = {};
+
   if (req.session.name) {
-    res.render('userProfile', {
+    context = {
+      view: 'userProfile',
       page: 'User Profile',
       menuId: 'userProfile',
-    });
+    };
+
   } else {
-    res.render('login', {
+    context = {
+      view: 'login',
       page: 'Login',
       menuId: 'login',
-    });
+    };
   }
+
+  res.render(context.view, context);
 });
 
 module.exports = router;

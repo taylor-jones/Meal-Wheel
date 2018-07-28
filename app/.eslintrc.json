@@ -1,0 +1,21 @@
+{
+  "extends": ["eslint:recommended", "google"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jquery": true
+  },
+  "rules": {
+    "max-len": ["warn", {
+      "code": 100
+    }],
+    "new-cap": "off",
+    "no-console": "off",
+    "no-multiple-empty-lines": ["warn", {"max": 4, "maxBOF": 1, "maxEOF": 1}],
+    "no-unused-vars": "warn",
+    "object-curly-spacing": ["error", "always", {"arraysInObjects": false}],
+    "padded-blocks": "off",
+    "require-jsdoc": "off"
+  }
+}
