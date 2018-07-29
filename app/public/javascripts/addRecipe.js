@@ -32,6 +32,7 @@ $(function() {
   });
 
 
+
   $ingredientName.change(function() {
     const curr = $ingredientName.typeahead('getActive');
 
@@ -50,5 +51,44 @@ $(function() {
   });
 
 
+
+  // adds a new recipe ingredient row
+  $('#add-ingredient-row').click(function() {
+    const newRow = `
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <input type="text" name="ingredient_name" class="form-control" id="ingredient-name" required>
+      </div>
+
+      <div class="form-group col-sm-6 col-md-2">
+        <input type="number" name="amount" class="form-control" value="1" required min="1">
+      </div>
+      
+      <div class="form-group col-sm-6 col-md-4">
+        <select class="form-control" name="unit_of_measure_id">
+          <option value="null" selected>n/a</option>
+          <% for ( let i = 0; i < units.length; i++ ) { %>
+            <option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
+          <% } %>
+        </select> 
+      </div>
+    </div>`;
+
+    $('#recipe-ingredients').append(newRow);
+  });
+
+
+
+  /**
+   * Validates the ingredients to make sure that:
+   *  - there's at least one ingredient.
+   *  - each ingredient has an ingredient name
+   */
+
+
+
+   /**
+    * Creates a new ingredient with the name
+    */
 
 });

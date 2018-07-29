@@ -58,7 +58,7 @@
 								</div>
 							</div>
 
-							<div class="form-group" id="recipe-ingredients">
+							<div class="form-group form-group-close" id="recipe-ingredients">
 								<div class="form-row">
 									<div class="form-group col-md-6">
 										<label for="ingredient_name">Ingredient</label>
@@ -81,12 +81,53 @@
 									</div>
 								</div>
 
-								<div class="form-row justify-content-end">
-									<button class="btn btn-sm btn-link">
-										<span id="add-ingredient"><i class="fas fa-plus"></i></span>
-										<span class="ml-1">Add Ingredient</span>
-									</button>
+
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<input type="text" name="ingredient_name" class="form-control" id="ingredient-name" required>
+									</div>
+
+									<div class="form-group col-sm-6 col-md-2">
+										<input type="number" name="amount" class="form-control" value="1" required min="1">
+									</div>
+									
+									<div class="form-group col-sm-6 col-md-4">
+										<select class="form-control" name="unit_of_measure_id">
+											<option value="null" selected>n/a</option>
+											<% for ( let i = 0; i < units.length; i++ ) { %>
+												<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
+											<% } %>
+										</select> 
+									</div>
 								</div>
+
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<input type="text" name="ingredient_name" class="form-control" id="ingredient-name" required>
+									</div>
+
+									<div class="form-group col-sm-6 col-md-2">
+										<input type="number" name="amount" class="form-control" value="1" required min="1">
+									</div>
+									
+									<div class="form-group col-sm-6 col-md-4">
+										<select class="form-control" name="unit_of_measure_id">
+											<option value="null" selected>n/a</option>
+											<% for ( let i = 0; i < units.length; i++ ) { %>
+												<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
+											<% } %>
+										</select> 
+									</div>
+								</div>
+
+							</div>
+
+
+							<div class="form-row justify-content-end">
+								<button type="button" class="btn btn-sm btn-secondary" id="add-ingredient-row">
+									<span><i class="fas fa-plus"></i></span>
+									<span class="ml-1">Add Ingredient</span>
+								</button>
 							</div>
 								
 							<div class="form-group mt-4">

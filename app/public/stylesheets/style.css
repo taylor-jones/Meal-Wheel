@@ -164,6 +164,10 @@ body.admin {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
 
+.form-group-close .form-group {
+  margin-bottom: 0.25rem;
+}
+
 
 /*
  * Cards
