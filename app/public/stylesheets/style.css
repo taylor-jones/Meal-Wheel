@@ -171,7 +171,7 @@ body.admin {
 
  .card-body {
    padding: 2rem;
-   padding-bottom: 3rem;
+   padding-bottom: 2.5rem;
  }
 
  .card-text {
@@ -197,6 +197,12 @@ body.admin {
 
  .card-thumbs i.selected {
    color: #007bff;
+ }
+
+ .card-single .card-thumbs {
+   font-size: 1.25rem;
+    bottom: auto;
+    right: 1.5rem;
  }
 
  .bg-cover-faded .card {

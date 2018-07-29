@@ -82,10 +82,11 @@
                       <p class="card-text"><%= recipes[i].recipe_description %></p>
                     </div>
 
-                      <div class="card-thumbs text-right">
-                        <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
-                        <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
-                      </div>
+                    <!-- TODO: Only show this when user is logged in -->
+                    <div class="card-thumbs text-right">
+                      <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
+                      <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
+                    </div>
                   </div>
                 </div>
               <% } %>
@@ -106,5 +107,6 @@
         </script>
 
         <script src="/javascripts/browse.js"></script>
+        <script src="/javascripts/recipeCards.js"></script>
     </body>
 </html>

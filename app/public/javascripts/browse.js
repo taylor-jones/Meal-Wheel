@@ -10,9 +10,6 @@ $(function() {
   const $diet = $('#dietary-restriction');
   const $search = $('#search');
 
-  const $recipeLike = $('.recipe-like');
-  const $recipeDislike = $('.recipe-dislike');
-
 
   /**
    * Event Handlers
@@ -28,17 +25,6 @@ $(function() {
 
   $diet.change(() => {
     updateRecipeDisplay();
-  });
-
-
-  $recipeLike.click(function() {
-    $(this).siblings().removeClass('selected');
-    $(this).toggleClass('selected');
-  });
-
-  $recipeDislike.click(function() {
-    $(this).siblings().removeClass('selected');
-    $(this).toggleClass('selected');
   });
 
 
@@ -134,13 +120,5 @@ $(function() {
     }
     return value;
   }
-
-
-
-  /**
-   * Functions -- Like/Dislike
-   */
-
-
 
 });

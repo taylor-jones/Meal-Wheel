@@ -120,15 +120,19 @@ $(function() {
       const image = (recipe.recipe_image_url == null) ? placeholder : recipe.recipe_image_url;
 
       display.innerHTML =
-        `<div class="row align-items-center justify-content-center">
+        `<div class="row align-items-center justify-content-center text-center">
 				<div class="col-sm-8 col-md-6 col-lg-4">
 					<div class="card mb-5">
 						<a href="/recipes/${recipe.recipe_id}">
 							<img class="card-img-top" src="${image}">
 						</a>
-						<div class="card-body">
+            <div class="card-body">
 							<h5 class="card-title">${recipe.recipe_name}</h5>
-							<p class="card-text">${recipe.recipe_description}</p>
+              <p class="card-text">${recipe.recipe_description}</p>
+              <span class="card-thumbs text-right">
+                <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
+                <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
+              </span>
 						</div>
 					</div>
 				</div>
