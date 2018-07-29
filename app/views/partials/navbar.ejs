@@ -20,23 +20,17 @@
       </ul>
     </div>
 
-    <!-- There are commented out EJS statements that will change the navbar view
-      based on session data. We can leave them commented out for now, while we're devleoping
-      but once we get the session stuff implemented, it might be cool to include them. -->
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
-        <!-- <% if (locals.session.name) { %> -->
         <li class="nav-item nav-new-user">
           <a class="nav-link" href="/newUser">New User</a>
         </li>
         <li class="nav-item nav-profile">
           <a class="nav-link" href="/userProfile">View Profile</a>
         </li>
-        <!-- <% } else { %> -->
           <li class="nav-item nav-login">
             <a class="nav-link" href="/login">Login</a>
           </li>
-        <!-- <% } %> -->
       </ul>
     </div>
   </nav>
