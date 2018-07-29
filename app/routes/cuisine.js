@@ -16,10 +16,15 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  Cuisines.getCount((err, rows) => {
-    const c_count = rows;
-    res.send({ cuisineCount: c_count });
-  }); 
+	if (req.body.taskId == 'getCount'){
+		Cuisines.getCount((err, rows) => {
+	    	const c_count = rows;
+	    	res.send({ cuisineCount: c_count });
+  		}); 
+	}
+	else if(req.body.taskId == 'delete'){
+		console.log("delete button test successful.");
+	}
 });
 
 module.exports = router;
