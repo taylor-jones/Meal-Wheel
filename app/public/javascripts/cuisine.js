@@ -8,7 +8,7 @@ function pageLoad(){
     req.addEventListener('load', function() {
       if (req.status >= 200 && req.status < 400) {
         const res = JSON.parse(req.responseText);
-        bindButtons(res.cuisineCount);
+        bindButtons(res);
       }
     });
     var context = '{"taskId": "getCount"}';
@@ -16,11 +16,12 @@ function pageLoad(){
 
 }
 
-function bindButtons(count){
-	console.log(count);
-	for(var i = 1; i <= count; i++){
-		var id = 'delete_' + i;
+function bindButtons(rows){
+	var n = rows.length;
+	for(var i = 0; i < n; i++){
+		var id = 'delete_' + rows[i].cuisine_id;
 		var delete_button = document.getElementById(id);
+		const cid = rows[i].cuisine_id;
 		delete_button.addEventListener('click', function(event){
 			const req = new XMLHttpRequest();
 		    req.open('POST', '/cuisines', true);
@@ -32,9 +33,9 @@ function bindButtons(count){
 		        //Here we will need to delete the table element as well
 		      }
 		    });
-		    var context = '{"taskId": "delete"}';
+		    var context = '{"taskId": "delete", "deleteId":' + cid + '}';
 		    req.send(context);
+
 		});
 	}
-
 };

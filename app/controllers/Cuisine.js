@@ -28,3 +28,11 @@ exports.getCount = (callback) => {
       }
   });
 };
+
+exports.deleteById = (id, callback) => {
+  db.get().query('DELETE FROM cuisine WHERE cuisine_id = ?', id, (err) => {
+    if (err) {
+      callback(err);
+    }
+  });
+};
