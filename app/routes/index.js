@@ -44,11 +44,8 @@ router.post('/', (req, res, next) => {
   // console.log(req.body);
 
   Recipes.getById(randomRecipe, (err, recipe) => {
-    Recipes.getIngredientsByRecipeId(randomRecipe, (err, ingredients) => {
-      res.send({
-        recipe: recipe[0],
-        ingredients: ingredients,
-      });
+    res.send({
+      recipe: recipe[0],
     });
   });
 });
