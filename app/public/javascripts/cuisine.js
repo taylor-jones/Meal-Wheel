@@ -29,7 +29,7 @@ function bindButtons(rows){
 		    req.addEventListener('load', function() {
 		      if (req.status >= 200 && req.status < 400) {
 		        const res = JSON.parse(req.responseText);
-		        //console.log(res);
+		        console.log(res);
 		        //Here we will need to delete the table element as well
 		      }
 		    });

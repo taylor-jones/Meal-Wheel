@@ -24,8 +24,10 @@ router.post('/', (req, res, next) => {
 	else if(req.body.taskId == 'delete'){
 		console.log("delete button test successful. Cuisine id:");
 		console.log(req.body.deleteId);
-		Cuisines.deleteById(req.body.deleteId);
-		
+		var dId = req.body.deleteId;
+		Cuisines.deleteById((err, dId, resp) =>{
+			res.send(JSON.stringify(resp));
+		});
 	}
 });
 
