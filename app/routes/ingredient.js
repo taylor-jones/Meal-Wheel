@@ -1,13 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const data = require('../data/ingredients.json');
 
-/* GET browse page. */
+const Ingredients = require('../controllers/Ingredient');
+
+/* GET ingredient admin page. */
 router.get('/', (req, res, next) => {
-  res.render('ingredient', {
-    page: 'Ingredients',
-    menuId: 'ingredients',
-    data: data,
+  Ingredients.getAll((err, ingredients) => {
+    res.render('ingredient', {
+      page: 'Ingredients',
+      menuId: 'ingredients',
+      data: ingredients,
+    });
   });
 });
 

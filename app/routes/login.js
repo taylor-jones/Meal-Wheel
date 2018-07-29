@@ -9,4 +9,16 @@ router.get('/', (req, res, next) => {
   });
 });
 
+
+/* process user login */
+router.post('/', (req, res, next) => {
+  /* TODO: determine if login credentials are valid.
+    If so, ...
+      redirect to ... home page? user profile?
+      OR maybe show a toast indicating successful login?
+
+    If not, maybe show a toast showing unsuccessfil login attempt?
+  */
+});
+
 module.exports = router;

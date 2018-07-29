@@ -1,14 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const data = require('../data/recipe-categories.json');
 
-/* GET browse page. */
+const RecipeCategories = require('../controllers/RecipeCategory');
+
+/* GET recipe category admin page. */
 router.get('/', (req, res, next) => {
-  res.render('recipeCategory', {
-    page: 'Recipe Categories',
-    menuId: 'recipe-categories',
-    data: data,
+  RecipeCategories.getAll((err, recipeCategories) => {
+    res.render('recipeCategory', {
+      page: 'Recipe Categories',
+      menuId: 'recipe-category',
+      data: recipeCategories,
+    });
   });
 });
+
 
 module.exports = router;

@@ -136,6 +136,7 @@ ORDER BY ri.amount DESC;
 
 
 
+
 --
 ----- SELECT queries to retrieve search results
 --
@@ -359,6 +360,31 @@ WHERE recipe_id NOT IN (
   GROUP BY r.recipe_id 
   ORDER BY r.recipe_name
 );
+
+
+-- get all dietary restrictions that exclude a specified recipe id
+SELECT
+  d.dietary_restriction_id,
+  d.dietary_restriction_name
+FROM dietary_restriction AS d
+  INNER JOIN food_group_dietary_restriction AS fd ON d.dietary_restriction_id = fd.dietary_restriction_id
+  INNER JOIN ingredient AS i ON i.food_group_id = fd.food_group_id
+WHERE i.ingredient_id IN (
+  SELECT ri.ingredient_id FROM recipe_ingredient AS ri
+  WHERE ri.recipe_id = [recipe_id]
+)
+GROUP BY d.dietary_restriction_id;
+
+
+-- get all dietary restrictions that excluse a specified ingredient id
+SELECT
+  d.dietary_restriction_id,
+  d.dietary_restriction_name
+FROM dietary_restriction AS d
+  INNER JOIN food_group_dietary_restriction AS fd ON d.dietary_restriction_id = fd.dietary_restriction_id
+  INNER JOIN ingredient AS i ON i.food_group_id = fd.food_group_id
+WHERE i.ingredient_id = [ingredient_id]
+GROUP BY d.dietary_restriction_id;
 
 
 
