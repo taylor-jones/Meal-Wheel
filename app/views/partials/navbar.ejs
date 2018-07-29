@@ -22,15 +22,17 @@
 
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
+        <% if (locals.session == undefined || !locals.session.name) { %>
         <li class="nav-item nav-new-user">
           <a class="nav-link" href="/newUser">New User</a>
         </li>
+        <li class="nav-item nav-login">
+            <a class="nav-link" href="/login">Login</a>
+        </li> <% } else { %>
         <li class="nav-item nav-profile">
           <a class="nav-link" href="/userProfile">View Profile</a>
         </li>
-          <li class="nav-item nav-login">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
+          <% } %>
       </ul>
     </div>
   </nav>
