@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', pageLoad);
 function pageLoad(){
 	//get the count of cuisines
 	const req = new XMLHttpRequest();
-    req.open('POST', '/', true);
+    req.open('POST', '/cuisines', true);
     req.setRequestHeader('Content-Type', 'application/json');
     req.addEventListener('load', function() {
       if (req.status >= 200 && req.status < 400) {

@@ -18,7 +18,7 @@ exports.getById = (id, callback) => {
   });
 };
 
-exports.getCount = (id, callback) => {
+exports.getCount = (callback) => {
   db.get().query(
     `SELECT COUNT(cuisine_id) AS total_cuisines FROM cuisine;`, (err, rows) => {
       if (err) return callback(err, 0); //only in case it does not work, still can use the first 3 recipes
