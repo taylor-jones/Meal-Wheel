@@ -1,8 +1,2 @@
-$(function() {
-
-  // uses functions in admin.js
-  $('.btn-delete').click(function() {
-    window.deleteRecord(this, window.requestRoute);
-  });
-
-});
+// the necessary 'delete' functionality is in admin.js,
+//  so that it can be used by many (hopefully any) of the admin pages.

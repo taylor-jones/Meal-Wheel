@@ -48,11 +48,9 @@
 
       <script>
         window.requestRoute = <%- JSON.stringify(page).toLowerCase().replace(' ', '-'); %>;
-        window.cuisineList = <%- JSON.stringify(data) %>;
         $('#nav-cuisines').addClass('active');
       </script>
 
       <script src="./javascripts/admin.js"></script>
-      <script src="./javascripts/cuisine.js"></script>
     </body>
 </html>
