@@ -25,9 +25,7 @@ router.post('/', (req, res, next) => {
 		console.log("delete button test successful. Cuisine id:");
 		console.log(req.body.deleteId);
 		var dId = req.body.deleteId;
-		Cuisines.deleteById((err, dId, resp) =>{
-			res.send(JSON.stringify(resp));
-		});
+		Cuisines.deleteById(dId);
 	}
 });
 

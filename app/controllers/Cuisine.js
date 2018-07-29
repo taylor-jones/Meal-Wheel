@@ -29,13 +29,8 @@ exports.getCount = (callback) => {
   });
 };
 
-exports.deleteById = (id, callback) => {
+exports.deleteById = (id) => {
   db.get().query('DELETE FROM cuisine WHERE cuisine_id = ?', id, (err) => {
-    if (err) {
-      callback(false);
-    }
-    else {
-      callback(true);
-    }
+    if (err) console.log(err);
   });
 };
