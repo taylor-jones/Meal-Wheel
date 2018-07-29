@@ -12,13 +12,12 @@
     <!-- Main Container -->
       <div class="container">
         <div class="row justify-content-center align-items-center">
-          <div class="col-sm-10 col-md-8 col-lg-6 col-xl-4">
+          <div class="col-xs-10 col-sm-10 col-md-8 col-xl-6">
 						<form action="/" method="POST">
-<<<<<<< HEAD
 							
 							<div class="form-group">
 								<label for="recipe_name">Recipe Name</label>
-								<input type="text" name="recipe_name" id="recipe-name" class="form-control">
+								<input type="text" name="recipe_name" id="recipe-name" class="form-control" required>
 							</div>
 
 							<div class="form-group">
@@ -33,77 +32,61 @@
 
 							<div class="form-group">
 								<label for="recipe_image_url">Image URL</label>
-								<input type="url" class="form-control" name="recipe_image_url" id="recipe-image-url" value="https://" pattern="https://.*">
+								<input type="url" class="form-control" name="recipe_image_url" id="recipe-image-url" pattern="https://.*">
 							</div>
 
-							<div class="form-group">
-								<label for="recipe_category_id">Category</label>
-								<select class="form-control" name="recipe_category_id" id="recipe-category">
-									<option value="null" selected>---  Choose a Category  --</option>
-									<% for ( let i = 0; i < categories.length; i++ ) { %>
-										<option value="<%=categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name %></option>
-									<% } %>
-								</select>							
-							</div>
 
-							<div class="form-group">
-								<label for="cuisine_id">Cuisine</label>
-								<select class="form-control" name="cuisine_id" id="recipe-cuisine">
-									<option value="null" selected>--  Choose a Cuisine  --</option>
-									<% for (let i = 0; i < cuisines.length; i++) { %>
-										<option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
-									<% } %>
-								</select>
-							</div>
-
-							<div class="form-row" id="recipe-ingredients">
-								<div class="form-group col-md-8">
-									<label for="ingredient_name">Ingredient</label>
-									<input type="text" name="ingredient_name" class="form-control typeahead">
-
-								</div>
-
-								<div class="form-group col-sm-4 col-md-2">
-									<label for="amount">Amount</label>
-									<input type="number" name="amount" class="form-control">
-								</div>
-								
-								<div class="form-group col-sm-8 col-md-2">
-									<label for="unit_of_measure_id">Unit</label>
-									<select class="form-control" name="unit_of_measure_id">
-										<% for ( let i = 0; i < units.length; i++ ) { %>
-											<option class="justify-content-center" value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
+							<div class="form-row">
+								<div class="form-group col-sm-6">
+									<label for="recipe_category_id">Category</label>
+									<select required class="form-control" name="recipe_category_id" id="recipe-category">
+										<option value="" selected disabled hidden>---  Choose a Category  --</option>
+										<% for ( let i = 0; i < categories.length; i++ ) { %>
+											<option value="<%=categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name %></option>
 										<% } %>
-									</select> 
+									</select>							
+								</div>
+
+								<div class="form-group col-sm-6">
+									<label for="cuisine_id">Cuisine</label>
+									<select class="form-control" name="cuisine_id" id="recipe-cuisine" required>
+										<option value="" selected disabled hidden>--  Choose a Cuisine  --</option>
+										<% for (let i = 0; i < cuisines.length; i++) { %>
+											<option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
+										<% } %>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group" id="recipe-ingredients">
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="ingredient_name">Ingredient</label>
+										<input type="text" name="ingredient_name" class="form-control typeahead">
+									</div>
+
+									<div class="form-group col-sm-6 col-md-2">
+										<label for="amount">Amount</label>
+										<input type="number" name="amount" class="form-control" value="1">
+									</div>
+									
+									<div class="form-group col-sm-6 col-md-4">
+										<label for="unit_of_measure_id">Unit</label>
+										<select class="form-control" name="unit_of_measure_id">
+											<option value="null" selected>n/a</option>
+											<% for ( let i = 0; i < units.length; i++ ) { %>
+												<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
+											<% } %>
+										</select> 
+									</div>
 								</div>
 							</div>
 								
-							<div class="form-group">
+							<div class="form-group mt-4">
 								<input type="submit" value="Submit Recipe" id="submit-recipe" class="btn btn-lg btn-block btn-primary">
 							</div>
 
-							<fieldset>
-							
-
-								<label>List Ingredients: </label>	
-								<br>
-								<div class="form-group row" id="list_ingredients">	
-									<input class="col-sm-5" id="ingredient_1" type="text" name="ingredient_1" style="margin:2px">
-									<input class="col-sm-2" id="amount" value="1" type="number" style="margin:2px">
-									
-									<select class="col-sm-3" name="unit_of_measure" style="margin:2px">
-										<% for ( let i = 0; i < units.length; i++ ) { %>
-											<option class="justify-content-center" value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
-										<% } %>
-									</select> 
-									<button class="col-sm-1" style="margin:2px" value="addIngredient">+</button>
-								</div>
-									
-
-
-							</fieldset>
 						</form>
-
           </div>
         </div>
       </div>
@@ -114,7 +97,10 @@
 		<script src="/javascripts/utility/bootstrap3-typeahead.min.js"></script>
 
 		<script>
+			const ingredientList = <%- JSON.stringify(ingredients) %>;
 			$('.nav-add-recipe').addClass('active');
 		</script>
+
+		<script src="/javascripts/addRecipe.js"></script>
   </body>
 </html>
