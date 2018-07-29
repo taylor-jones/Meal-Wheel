@@ -27,10 +27,10 @@ body {
   right: 0;
   bottom: 0;
   background: inherit;
-  -webkit-filter: grayscale(.8);
-  -webkit-filter: grayscale(80%);
-  -moz-filter: grayscale(80%);
-  filter: grayscale(80%);
+  -webkit-filter: saturate(.6) brightness(120%) blur(3px);
+  -webkit-filter: saturate(.6) brightness(120%) blur(3px);
+  -moz-filter: saturate(.6) brightness(120%) blur(3px);
+  filter: saturate(.6) brightness(120%) blur(3px);
   z-index: -100;
 }
 
