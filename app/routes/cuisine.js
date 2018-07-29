@@ -15,4 +15,11 @@ router.get('/', (req, res, next) => {
   });
 });
 
+router.post('cuisines', (req, res, next) => {
+  Cuisines.getCount((err, rows) => {
+    const c_count = rows;
+    res.send({ cuisineCount: c_count });
+  }); 
+});
+
 module.exports = router;
