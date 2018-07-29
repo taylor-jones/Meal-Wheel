@@ -29,7 +29,7 @@ router.get('/', (req, res, next) => {
   res.render('userProfile', {
     view: 'userProfile',
     page: 'User Profile',
-    menuId: 'userProfile',
+    menuId: 'nav-profile',
     session: req.session,
   });
 });
