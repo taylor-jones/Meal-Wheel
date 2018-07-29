@@ -10,6 +10,9 @@ $(function() {
   const $diet = $('#dietary-restriction');
   const $search = $('#search');
 
+  const $recipeLike = $('.recipe-like');
+  const $recipeDislike = $('.recipe-dislike');
+
 
   /**
    * Event Handlers
@@ -30,7 +33,7 @@ $(function() {
 
   
   /**
-   * Functions
+   * Functions -- Filters
    */
 
   function getCategoryFilter() {
@@ -121,5 +124,13 @@ $(function() {
     }
     return value;
   }
+
+
+
+  /**
+   * Functions -- Like/Dislike
+   */
+
+   
 
 });

@@ -171,6 +171,7 @@ body.admin {
 
  .card-body {
    padding: 2rem;
+   padding-bottom: 3rem;
  }
 
  .card-text {
@@ -180,6 +181,22 @@ body.admin {
  .card-rounded-top {
    border-radius: 2px 2px 0 0;
    overflow: hidden;
+ }
+
+ .card-thumbs {
+   position: absolute;
+   bottom: 0.5rem;
+   right: 0.5rem;
+ }
+
+ .card-thumbs i {
+   color: #ddd;
+   margin: 0.25rem;
+   cursor: pointer;
+ }
+
+ .card-thumbs i.selected {
+   color: #007bff;
  }
 
  .bg-cover-faded .card {

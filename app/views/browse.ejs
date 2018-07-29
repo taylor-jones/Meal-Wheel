@@ -81,6 +81,11 @@
                       <h5 class="card-title"><%= recipes[i].recipe_name %></h5>
                       <p class="card-text"><%= recipes[i].recipe_description %></p>
                     </div>
+
+                      <div class="card-thumbs text-right">
+                        <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
+                        <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
+                      </div>
                   </div>
                 </div>
               <% } %>
