@@ -51,7 +51,8 @@ $(function() {
    */
 
   spinButton.addEventListener('click', function(e) {
-    rotateAnimation('wheelImg', 8, 0); // only splins the first time??
+  	degrees = 0;
+    rotateAnimation('wheelImg', 8, 0);
 
     const req = new XMLHttpRequest();
 
