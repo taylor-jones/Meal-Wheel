@@ -31,7 +31,17 @@ $(function() {
   });
 
 
-  
+  $recipeLike.click(function() {
+    $(this).siblings().removeClass('selected');
+    $(this).toggleClass('selected');
+  });
+
+  $recipeDislike.click(function() {
+    $(this).siblings().removeClass('selected');
+    $(this).toggleClass('selected');
+  });
+
+
   /**
    * Functions -- Filters
    */
@@ -131,6 +141,6 @@ $(function() {
    * Functions -- Like/Dislike
    */
 
-   
+
 
 });
