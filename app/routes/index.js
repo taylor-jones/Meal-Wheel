@@ -39,14 +39,17 @@ router.get('/', (req, res, next) => {
  */
 
 router.post('/', (req, res, next) => {
-  const randomRecipe = Math.floor(Math.random() * 3) + 1;
-  // const randomRecipe = 0;    // for testing when no matching recipe can be found
+  Recipes.getCount((err, rows) => {
+    const r_count = rows;
+    const randomRecipe = Math.floor(Math.random() * (r_count) + 1);
+    // const randomRecipe = 0;    // for testing when no matching recipe can be found
 
-  // console.log(req.body);
+    // console.log(req.body);
 
-  Recipes.getById(randomRecipe, (err, recipe) => {
-    res.send({ recipe: recipe[0] });
-  });
+    Recipes.getById(randomRecipe, (err, recipe) => {
+      res.send({ recipe: recipe[0] });
+    });
+  }); 
 });
 
 
