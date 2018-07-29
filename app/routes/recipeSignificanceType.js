@@ -10,6 +10,7 @@ router.get('/', (req, res, next) => {
       page: 'Recipe Significance Types',
       menuId: 'recipe-significance-type',
       data: recipeSignificanceTypes,
+      session: req.session,
     });
   });
 });

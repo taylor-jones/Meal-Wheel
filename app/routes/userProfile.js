@@ -30,6 +30,7 @@ router.get('/', (req, res, next) => {
     view: 'userProfile',
     page: 'User Profile',
     menuId: 'userProfile',
+    session: req.session,
   });
 });
 

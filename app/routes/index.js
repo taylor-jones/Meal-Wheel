@@ -15,6 +15,7 @@ router.get('/', (req, res, next) => {
         res.render('index', {
           page: 'Home',
           menuId: 'home',
+          session: req.session,
           cuisines: cuisines,
           categories: categories,
           diets: diets,
@@ -44,9 +45,7 @@ router.post('/', (req, res, next) => {
   // console.log(req.body);
 
   Recipes.getById(randomRecipe, (err, recipe) => {
-    res.send({
-      recipe: recipe[0],
-    });
+    res.send({ recipe: recipe[0] });
   });
 });
 

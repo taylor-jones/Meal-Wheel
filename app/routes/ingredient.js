@@ -10,6 +10,7 @@ router.get('/', (req, res, next) => {
       page: 'Ingredients',
       menuId: 'ingredients',
       data: ingredients,
+      session: req.session,
     });
   });
 });

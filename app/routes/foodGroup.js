@@ -10,6 +10,7 @@ router.get('/', (req, res, next) => {
       page: 'Food Groups',
       menuId: 'food-groups',
       data: foodGroups,
+      session: req.session,
     });
   });
 });

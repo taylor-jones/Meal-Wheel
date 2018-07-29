@@ -11,6 +11,7 @@ router.get('/', (req, res, next) => {
       page: 'Recipes',
       menuId: 'recipes',
       data: recipes,
+      session: req.session,
     });
   });
 });

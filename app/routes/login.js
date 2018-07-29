@@ -6,6 +6,7 @@ router.get('/', (req, res, next) => {
   res.render('login', {
     page: 'Login',
     menuId: 'login',
+    session: req.session,
   });
 });
 

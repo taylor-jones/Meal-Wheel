@@ -6,7 +6,8 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   res.render('newUser', {
     page: 'Sign Up',
-    menuId: 'newUser',
+    menuId: 'newUser', 
+    session: req.session,
   });
 });
 

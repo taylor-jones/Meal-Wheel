@@ -11,6 +11,7 @@ router.get('/', (req, res, next) => {
       page: 'Units of Measure',
       menuId: 'unit-of-measure',
       data: unitsOfMeasure,
+      session: req.session,
     });
   });
 });

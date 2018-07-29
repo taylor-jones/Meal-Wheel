@@ -10,6 +10,7 @@ router.get('/', (req, res, next) => {
       page: 'Dietary Restrictions',
       menuId: 'diets',
       data: diets,
+      session: req.session,
     });
   });
 });

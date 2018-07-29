@@ -17,6 +17,7 @@ router.get('/', (req, res, next) => {
           cuisines: cuisines,
           categories: categories,
           units: units,
+          session: req.session,
         });
       });
     });

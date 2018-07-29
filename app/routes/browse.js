@@ -20,6 +20,7 @@ router.get('/', (req, res, next) => {
             categories: categories,
             diets: diets,
             recipes: recipes,
+            session: req.session,
           });
         });
       });
