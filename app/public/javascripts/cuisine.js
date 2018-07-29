@@ -1,20 +1,29 @@
-document.addEventListener('DOMContentLoaded', pageLoad);
+$(function() {
+	var rows = cuisineList;
+	bindButtons();		
 
-function pageLoad(){
-	//get the count of cuisines
-	const req = new XMLHttpRequest();
-    req.open('POST', '/cuisines', true);
-    req.setRequestHeader('Content-Type', 'application/json');
-    req.addEventListener('load', function() {
-      if (req.status >= 200 && req.status < 400) {
-        const res = JSON.parse(req.responseText);
-        bindButtons(res);
-      }
-    });
-    var context = '{"taskId": "getCount"}';
-    req.send(context);
 
-}
+
+
+//document.addEventListener('DOMContentLoaded', bindButtons);
+
+// function pageLoad(){
+// 	//get the count of cuisines
+// 	const req = new XMLHttpRequest();
+//     req.open('POST', '/cuisines', true);
+//     req.setRequestHeader('Content-Type', 'application/json');
+//     req.addEventListener('load', function() {
+//       if (req.status >= 200 && req.status < 400) {
+//         const res = JSON.parse(req.responseText);
+//         bindButtons(res);
+//       }
+//     });
+//     var context = '{"taskId": "getCount"}';
+//     req.send(context);
+
+// }
+
+
 
 function bindButtons(rows){
 	var n = rows.length;
@@ -39,3 +48,6 @@ function bindButtons(rows){
 		});
 	}
 };
+
+
+});

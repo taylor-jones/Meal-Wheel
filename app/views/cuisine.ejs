@@ -30,7 +30,7 @@
                     <td><input type="text" id='<%= "name_" + data[i].cuisine_id %>' value='<%= data[i].cuisine_name %>'></td>
                     <td class="text-right">
                         <button type="button" class="btn btn-primary btn-sm" id='<%= "edit_" + data[i].cuisine_id %>'>Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm" id='<%= "delete_" + data[i].cuisine_id %>'>Delete</button>
+                        <button type="button" class="btn btn-danger btn-sm btn-delete" id='<%= "delete_" + data[i].cuisine_id %>'>Delete</button>
                     </td>
                   </tr>
                 <% } %>
@@ -46,8 +46,10 @@
       <% include partials/script %>
 
       <script>
+        const cuisineList = <% - JSON.stringify(cuisines) %>;
         $('#nav-cuisines').addClass('active');
       </script>
+
       <script src="./javascripts/cuisine.js"></script>
     </body>
 </html>

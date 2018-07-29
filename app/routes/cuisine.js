@@ -18,15 +18,19 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
 	if (req.body.taskId == 'getCount'){
 		Cuisines.getAll((err, cuisines) => {
-	    	res.send(JSON.stringify(cuisines));
-  		}); 
-	}
-	else if(req.body.taskId == 'delete'){
-		console.log("delete button test successful. Cuisine id:");
-		console.log(req.body.deleteId);
-		var dId = req.body.deleteId;
-		Cuisines.deleteById(dId);
+	    res.send(JSON.stringify(cuisines));
+  	}); 
 	}
 });
+
+router.delete('/', (req, res, next) => {
+	Cuisines.deleteById((err, result) => {
+		if (!err) {
+			console.log('record deleted');
+			this.get('/', (req, res, next));
+		}
+	});
+});
+
 
 module.exports = router;
