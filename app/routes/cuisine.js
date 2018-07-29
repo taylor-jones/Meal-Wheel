@@ -16,20 +16,19 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-	if (req.body.taskId == 'getCount'){
-		Cuisines.getAll((err, cuisines) => {
-	    res.send(JSON.stringify(cuisines));
-  	}); 
-	}
+  if (req.body.taskId == 'getCount') {
+    Cuisines.getAll((err, cuisines) => {
+      res.send(JSON.stringify(cuisines));
+    });
+  }
 });
 
-router.delete('/', (req, res, next) => {
-	Cuisines.deleteById((err, result) => {
-		if (!err) {
-			console.log('record deleted');
-			this.get('/', (req, res, next));
-		}
-	});
+
+
+router.delete('/:id', (req, res, next) => {
+  Cuisines.deleteById(req.params.id, (err, result) => {
+    res.send(err || result);
+  });
 });
 
 

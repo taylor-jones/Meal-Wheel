@@ -23,17 +23,18 @@
                     <th></th>
                   </tr>
                 </thead>
+
                 <tbody>
-                <% for (let i = 0; i < data.length; i++) { %>
+                  <% for (let i = 0; i < data.length; i++) { %>
                   <tr>
                     <td><%= data[i].cuisine_id %></td>
                     <td><input type="text" id='<%= "name_" + data[i].cuisine_id %>' value='<%= data[i].cuisine_name %>'></td>
                     <td class="text-right">
-                        <button type="button" class="btn btn-primary btn-sm" id='<%= "edit_" + data[i].cuisine_id %>'>Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm btn-delete" id='<%= "delete_" + data[i].cuisine_id %>'>Delete</button>
+                      <button type="button" class="btn btn-primary btn-sm" id="<%= 'edit_' + data[i].cuisine_id %>">Edit</button>
+                      <button type="button" class="btn btn-danger btn-sm btn-delete" id="<%= 'delete_' + data[i].cuisine_id %>">Delete</button>
                     </td>
                   </tr>
-                <% } %>
+                  <% } %>
                 </tbody>
               </table>
             </div>
@@ -46,10 +47,12 @@
       <% include partials/script %>
 
       <script>
-        const cuisineList = <%- JSON.stringify(cuisines) %>;
+        window.requestRoute = <%- JSON.stringify(page).toLowerCase().replace(' ', '-'); %>;
+        window.cuisineList = <%- JSON.stringify(data) %>;
         $('#nav-cuisines').addClass('active');
       </script>
 
+      <script src="./javascripts/admin.js"></script>
       <script src="./javascripts/cuisine.js"></script>
     </body>
 </html>

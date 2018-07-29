@@ -19,8 +19,8 @@ exports.getById = (id, callback) => {
 };
 
 exports.deleteById = (id, callback) => {
-  db.get().query('DELETE FROM cuisine WHERE cuisine_id = ?', id, (err) => {
+  db.get().query('DELETE FROM cuisine WHERE cuisine_id = ?', id, (err, rows) => {
     if (err) return callback(err, null);
-    callback(null, true);
+    callback(null, rows);
   });
 };
