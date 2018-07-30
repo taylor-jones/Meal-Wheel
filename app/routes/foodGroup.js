@@ -16,4 +16,25 @@ router.get('/', (req, res, next) => {
 });
 
 
+router.post('/', (req, res, next) => {
+  FoodGroups.addNew(req.body, (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
+router.delete('/:id', (req, res, next) => {
+  FoodGroups.deleteById(req.params.id, (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
+router.put('/:id', (req, res, next) => {
+  FoodGroups.updateById(req.params.id, req.body.food_group_name, (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
 module.exports = router;
