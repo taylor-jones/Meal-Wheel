@@ -169,6 +169,36 @@ body.admin {
 }
 
 
+
+/*
+ * Tables
+ */
+
+.table {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.table input.form-control {
+  width: auto;
+}
+
+.table input.form-control:not(:active) {
+  border:none;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+.table th {
+  padding-left: 1.5rem;
+}
+
+td.record-actions {
+  position: absolute;
+  right: 1.5rem;
+}
+
+
+
 /*
  * Cards
  */
