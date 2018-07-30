@@ -3,6 +3,8 @@ const router = express.Router();
 
 /* GET login page. */
 router.get('/', (req, res, next) => {
+  console.log(req.session);
+
   res.render('login', {
     page: 'Login',
     menuId: 'login',

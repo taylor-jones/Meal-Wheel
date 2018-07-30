@@ -5,75 +5,75 @@
     <body class="bg-cover">
       <% include partials/navbar %>
 
-        <div class="container">
-          <div class="row justify-content-center align-items-center text-center">
-            <div class="col-xs-12">
-              <!-- Main Centered Image -->
-              <div class="mb-3"><img id="wheelImg" src="/images/carrotwheel.png"></div>
-            </div>
-          </div> 
-
-          <div class="row justify-content-center align-items-center">
-            <div class="col-sm-8 col-md-6 col-lg-4">
-
-              <!-- Recipe Wheel Form -->
-              <!-- <form action="/" method="POST" class="mb-5"> -->
-              <form action="" class="mb-5">
-
-                <!-- Recipe Ingredients -->
-                <!-- <div class="form-group text-left">
-                  <input type="text" name="ingredients" id="ingredients" class="form-control" placeholder="Required Ingredients...">
-                </div> -->
-
-                <!-- Recipe Category -->
-                <div class="form-group text-left">
-                  <select class="form-control"name="category" id="category">
-                    <% for ( let i = 0; i < categories.length; i++ ) {
-                      const selected = ( categories[i].recipe_category_name == "Main Course" ) ? "selected" : "";
-                      %><option value="<%=categories[i].recipe_category_id %>" <%=selected %>><%= categories[i].recipe_category_name %></option>
-                    <% } %>
-                  </select>
-                </div>
-
-                <!-- Recipe Cuisine -->
-                <div class="form-group">
-                  <select class="form-control" name="cuisine" id="cuisine">
-                    <option value="null" selected>Cuisine</option>
-                    <% for (let i = 0; i < cuisines.length; i++) { %>
-                      <option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
-                    <% } %>
-                  </select>
-                </div>
-
-                <!-- Dietary Restrictions -->
-                <div class="form-group">
-                  <select class="form-control" name="diet" id="diet">
-                    <option value="null" selected>Deitary Restriction</option>
-                    <% for (let i = 0; i < diets.length; i++) { %>
-                      <option value="<%= diets[i].dietary_restriction_id %>"><%= diets[i].dietary_restriction_name %></option>
-                    <% } %>
-                  </select>
-                </div>
-
-                <!-- Spin the Wheel   See public/javascripts/home.js for button event listener -->
-                <button id="spinWheel" class="btn btn-primary btn-block btn-lg" type="submit" value="Spin the Wheel!">Spin the Wheel!</button>
-              </form>
-              
-            </div>
+      <div class="container">
+        <div class="row justify-content-center align-items-center text-center">
+          <div class="col-xs-12">
+            <!-- Main Centered Image -->
+            <div class="mb-3"><img id="wheelImg" src="/images/carrotwheel.png"></div>
           </div>
+        </div>
+
+        <div class="row justify-content-center align-items-center">
+          <div class="col-sm-8 col-md-6 col-lg-4">
+
+            <!-- Recipe Wheel Form -->
+            <form class="mb-5">
+
+              <!-- Recipe Ingredients -->
+              <!-- <div class="form-group text-left">
+                <input type="text" name="ingredients" id="ingredients" class="form-control" placeholder="Required Ingredients...">
+              </div> -->
+
+              <!-- Recipe Category -->
+              <div class="form-group text-left">
+                <select class="form-control" name="category" id="category">
+                  <option value="null">Category</option>
+                  <% for ( let i = 0; i < categories.length; i++ ) {
+                    const selected = ( categories[i].recipe_category_name == "Main Course" ) ? "selected" : ""; %>
+                    <option value="<%=categories[i].recipe_category_id %>" <%=selected %>><%= categories[i].recipe_category_name %></option>
+                  <% } %>
+                </select>
+              </div>
+
+              <!-- Recipe Cuisine -->
+              <div class="form-group">
+                <select class="form-control" name="cuisine" id="cuisine">
+                  <option value="null" selected>Cuisine</option>
+                  <% for (let i = 0; i < cuisines.length; i++) { %>
+                    <option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
+                  <% } %>
+                </select>
+              </div>
+
+              <!-- Dietary Restrictions -->
+              <div class="form-group">
+                <select class="form-control" name="diet" id="diet">
+                  <option value="null" selected>Deitary Restriction</option>
+                  <% for (let i = 0; i < diets.length; i++) { %>
+                    <option value="<%= diets[i].dietary_restriction_id %>"><%= diets[i].dietary_restriction_name %></option>
+                  <% } %>
+                </select>
+              </div>
+
+              <!-- Spin the Wheel   See public/javascripts/home.js for button event listener -->
+              <button id="spinWheel" class="btn btn-primary btn-block btn-lg" type="submit" value="Spin the Wheel!">Spin the Wheel!</button>
+            </form>
+          </div>
+        </div>
 
 
-          <!-- Space to put a recipe -->
-          <div id="recipeDisplay"></div>
-        </div><!-- container-->
+        <!-- Space to put a recipe -->
+        <div id="recipeDisplay"></div>
+      </div>
 
-        <% include partials/footer %>
-        <% include partials/script %>
-        <script src="/javascripts/home.js"></script>
-        <script src="/javascripts/recipeCards.js"></script>
 
-        <script>
-          $('.nav-home').addClass('active');
-        </script>
+      <% include partials/footer %>
+      <% include partials/script %>
+      <script src="/javascripts/home.js"></script>
+      <script src="/javascripts/recipeCards.js"></script>
+
+      <script>
+        $('.nav-home').addClass('active');
+      </script>
     </body>
 </html>

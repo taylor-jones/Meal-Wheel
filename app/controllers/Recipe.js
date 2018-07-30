@@ -151,8 +151,14 @@ exports.getCuisines = (id, callback) => {
   });
 };
 
-/* Returns 1 single recipe from 3 filters(category, cuisine, and dietary restriction).*/
-exports.getByFilter = (category, cuisine, diet, callback) => {
+
+/* Returns 1 single recipe from 4 filters:
+    - category
+    - cuisine
+    - dietary restriction
+    - user (filters out disliked) .
+*/
+exports.getByFilter = (context, callback) => {
   db.get().query(`
   SELECT
     recipe_id, 
@@ -163,43 +169,60 @@ exports.getByFilter = (category, cuisine, diet, callback) => {
     user_id, 
     recipe_category_id
   FROM recipe
-  WHERE
-    recipe_id IN (
-      SELECT r.recipe_id
-      FROM recipe AS r
-      WHERE r.recipe_category_id = ? OR ? IS NULL
-    ) 
 
-  AND 
-    recipe_id IN (
+  WHERE recipe_id IN (
+    SELECT r.recipe_id
+    FROM recipe AS r
+    WHERE r.recipe_category_id = ? OR ? IS NULL
+  ) 
+
+  AND recipe_id IN (
     SELECT rc.recipe_id
     FROM recipe_cuisine AS rc
       INNER JOIN recipe AS r ON rc.recipe_id = r.recipe_id
     WHERE rc.cuisine_id = ? OR ? IS NULL
   ) 
 
-  AND 
-    recipe_id IN (
-      SELECT recipe_id
-      FROM recipe
-      WHERE recipe_id NOT IN (
-        SELECT ri.recipe_id
-          FROM recipe_ingredient AS ri
-            INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
-            INNER JOIN (
-              SELECT i.ingredient_id
-              FROM ingredient AS i
-                INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id
-                INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id
-              WHERE dr.dietary_restriction_id = ?
-            ) AS i ON ri.ingredient_id = i.ingredient_id
+  AND recipe_id IN (
+    SELECT recipe_id
+    FROM recipe
+    WHERE recipe_id NOT IN (
+      SELECT ri.recipe_id
+      FROM recipe_ingredient AS ri
+        INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+        INNER JOIN (
+          SELECT i.ingredient_id FROM ingredient AS i
+            INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id =  fd.food_group_id
+            INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id
+          WHERE dr.dietary_restriction_id = ?
+        ) AS i ON ri.ingredient_id = i.ingredient_id
       ) OR ? IS NULL
-    ) 
+    )
+
+    AND recipe_id NOT IN (
+      SELECT r.recipe_id
+      FROM recipe AS r
+        INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
+        INNER JOIN app_user AS u ON u.user_id = ?
+      WHERE sr.recipe_significance_type_id = (
+        SELECT recipe_significance_type_id 
+        FROM recipe_significance_type 
+        WHERE recipe_significance_type_name = 'disliked'
+      )
+    )
 
   GROUP BY recipe_id
   ORDER BY RAND()
   LIMIT 1;
-  `, [category, category, cuisine, cuisine, diet, diet], (err, rows) => {
+  `, [
+      context.category,
+      context.category,
+      context.cuisine,
+      context.cuisine,
+      context.diet,
+      context.diet,
+      context.user,
+    ], (err, rows) => {
     if (err) return callback(err, null);
     else {
       callback(null, rows);

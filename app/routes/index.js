@@ -26,27 +26,27 @@ router.get('/', (req, res, next) => {
 });
 
 
-/* 
-Spin wheel to get a single recipe based on filters. 
+/*
+Spin wheel to get a single recipe based on filters.
 See spinButton event listener function in public/javascripts/home.js
 */
 router.post('/', (req, res, next) => {
-  const category = req.body.category;
-  const cuisine = req.body.cuisine;
-  const diet = req.body.diet;
+  const context = {
+    category: req.body.category,
+    cuisine: req.body.cuisine,
+    diet: req.body.diet,
+    user: 0,
+  };
 
-  //controllers/recipe.js
-  Recipes.getByFilter(category, cuisine, diet, (err, recipe) => {
-    if (!recipe){
-      //null response if no recipe is found
-      res.send(null);
-    }
-    else{
-      res.send({
-        recipe: recipe[0],
-      });
-    }
-    
+  // if user exists, it will be passed to the filter
+  //  function to exclude any 'disliked' recipes.
+  if (req.session.user) {
+    context.user = req.session.user.user_id;
+  }
+
+  Recipes.getByFilter(context, (err, recipe) => {
+    // home.js handles it whether null or not.
+    res.send({ recipe: recipe[0] });
   });
 });
 
