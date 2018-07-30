@@ -30,8 +30,6 @@ function rotateAnimation(el, speed, count) {
   degrees++;
 }
 
-
-
 $(function() {
   /**
    * Cache DOM
@@ -44,8 +42,6 @@ $(function() {
   const cuisine = document.querySelector('#cuisine');
   const diet = document.querySelector('#diet');
 
-
-
   /**
    * Random recipe button click event handler
    */
@@ -56,6 +52,7 @@ $(function() {
 
     const req = new XMLHttpRequest();
 
+    //See routes/index.js for POST code
     req.open('POST', '/', true);
     req.setRequestHeader('Content-Type', 'application/json');
     req.addEventListener('load', function() {

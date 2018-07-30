@@ -151,7 +151,7 @@ exports.getCuisines = (id, callback) => {
   });
 };
 
-
+/* Returns 1 single recipe from 3 filters(category, cuisine, and dietary restriction).*/
 exports.getByFilter = (category, cuisine, diet, callback) => {
   db.get().query(`
   SELECT
