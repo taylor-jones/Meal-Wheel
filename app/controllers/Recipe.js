@@ -1,15 +1,15 @@
 const db = require('../bin/dbcon');
 
-exports.getCount = (callback) => {
-  db.get().query(
-    `SELECT COUNT(recipe_id) AS total_recipes FROM recipe;`, (err, rows) => {
-      if (err) return callback(err, 3); //only in case it does not work, still can use the first 3 recipes
-      else{
-        var recipe_count = rows[0].total_recipes;
-        callback(null, recipe_count);
-      }
-  });
-}
+// exports.getCount = (callback) => {
+//   db.get().query(
+//     `SELECT COUNT(recipe_id) AS total_recipes FROM recipe;`, (err, rows) => {
+//       if (err) return callback(err, 3); //only in case it does not work, still can use the first 3 recipes
+//       else{
+//         var recipe_count = rows[0].total_recipes;
+//         callback(null, recipe_count);
+//       }
+//   });
+// }
 
 exports.getAll = (callback) => {
   db.get().query(`

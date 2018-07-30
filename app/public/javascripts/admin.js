@@ -54,6 +54,7 @@ $(function() {
 
     editRecord($newRow.find('.btn-edit'), window.requestRoute);
   }
+  
 
 
   /**
@@ -116,6 +117,7 @@ $(function() {
   }
 
 
+
 /**
  * @description gathers the input values associated with the record and then calls
  *  either a POST (if it's a new record) or a PUT (if it's an existing record).
@@ -149,8 +151,9 @@ $(function() {
     // get all the select values from the row.
     $row.find('select').each(function() {
       const $el = $(this);
-      params[$el.attr('name')] = $el.attr('value');
+      params[$el.attr('name')] = $el.val();
     });
+
 
     // pass the determined action to the specified route.
     req.open(action, `/${route}/${recordId}`, true);
@@ -166,6 +169,7 @@ $(function() {
 
     req.send(JSON.stringify(params));
   }
+
 
 
   /**
@@ -191,6 +195,7 @@ $(function() {
     // update the row to be in a non-edit state.
     setViewMode($row, false);
   }
+
 
 
   /**

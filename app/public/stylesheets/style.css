@@ -178,9 +178,11 @@ tr .form-control {
   width: calc(100% - 1rem);
 }
 
-td:nth-last-child(2) input {
+td:nth-last-child(2) input,
+td:nth-last-child(2) select {
   width: calc(100% - 6rem);
 }
+
 
 tr .form-control:not(:active) {
   border:none;
