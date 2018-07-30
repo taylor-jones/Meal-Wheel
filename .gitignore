@@ -1,9 +1,3 @@
-node_modules/
-app/bin/dbcon.js
-bin/dbcon.js
-app/bin/www
-**/bin/www
-
 # Created by https://www.gitignore.io/api/macos,windows,visualstudio,visualstudiocode
 
 ### macOS ###
@@ -90,7 +84,7 @@ $RECYCLE.BIN/
 x64/
 x86/
 bld/
-# [Bb]in/
+[Bb]in/
 [Oo]bj/
 [Ll]og/
 
