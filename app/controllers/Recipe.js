@@ -153,7 +153,6 @@ exports.getCuisines = (id, callback) => {
 
 
 exports.getByFilter = (category, cuisine, diet, callback) => {
-  console.log("get by filter");
   db.get().query(`
   SELECT
     recipe_id, 
@@ -171,10 +170,18 @@ exports.getByFilter = (category, cuisine, diet, callback) => {
       WHERE r.recipe_category_id = ? OR ? IS NULL
     ) 
 
+  AND 
+    recipe_id IN (
+    SELECT rc.recipe_id
+    FROM recipe_cuisine AS rc
+      INNER JOIN recipe AS r ON rc.recipe_id = r.recipe_id
+    WHERE rc.cuisine_id = ? OR ? IS NULL
+  ) 
+
   GROUP BY recipe_id
   ORDER BY RAND()
   LIMIT 1;
-  `, [category, category], (err, rows) => {
+  `, [category, category, cuisine, cuisine], (err, rows) => {
     if (err) return callback(err, null);
     else {
       callback(null, rows);

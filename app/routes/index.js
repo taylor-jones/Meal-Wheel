@@ -26,7 +26,6 @@ router.get('/', (req, res, next) => {
 });
 
 
-
 /* GET home page after wheel spin (with recipe) */
 
 /**
@@ -44,9 +43,15 @@ router.post('/', (req, res, next) => {
   const diet = req.body.diet;
 
   Recipes.getByFilter(category, cuisine, diet, (err, recipe) => {
-    res.send({
-      recipe: recipe[0],
-    });
+    if (!recipe){
+      res.send(null);
+    }
+    else{
+      res.send({
+        recipe: recipe[0],
+      });
+    }
+    
   });
 });
 
