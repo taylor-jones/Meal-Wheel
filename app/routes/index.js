@@ -39,17 +39,15 @@ router.get('/', (req, res, next) => {
  */
 
 router.post('/', (req, res, next) => {
-  Recipes.getCount((err, rows) => {
-    const total = rows[0].total_recipes;
-    const randomRecipe = Math.floor(Math.random() * (total) + 1);
+  const category = req.body.category;
+  const cuisine = req.body.cuisine;
+  const diet = req.body.diet;
 
-    Recipes.getById(randomRecipe, (err, recipe) => {
-      res.send({
-        recipe: recipe[0],
-      });
+  Recipes.getByFilter(category, cuisine, diet, (err, recipe) => {
+    res.send({
+      recipe: recipe[0],
     });
   });
 });
-
 
 module.exports = router;

@@ -1,5 +1,5 @@
-/**
- * rotating wheel
+ /**
+ * rotating wheel, click it to spin it
  */
 
 var looper;
@@ -28,16 +28,15 @@ function rotateAnimation(el, speed, count) {
     looper = setTimeout('rotateAnimation(\'' + el + '\',' + speed + ', ' + count + ')', speed);
   }
   degrees++;
-
 }
 
 
 
-/**
- * spin button
- */
-
 $(function() {
+  /**
+   * Cache DOM
+   */
+
   const spinButton = document.querySelector('#spinWheel');
   const display = document.querySelector('#recipeDisplay');
 
@@ -46,12 +45,13 @@ $(function() {
   const diet = document.querySelector('#diet');
 
 
+
   /**
-   * Event Handlers
+   * Random recipe button click event handler
    */
 
   spinButton.addEventListener('click', function(e) {
-  	degrees = 0;
+    degrees = 0;
     rotateAnimation('wheelImg', 8, 0);
 
     const req = new XMLHttpRequest();
@@ -75,8 +75,6 @@ $(function() {
     e.preventDefault();
   });
 
-
-
   /**
    * Functions
    */
@@ -84,7 +82,6 @@ $(function() {
   function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
   }
-
 
   /**
    * Converts a value to its appropriate value type.
@@ -98,45 +95,48 @@ $(function() {
     return value;
   }
 
-
   /**
    * Renders the recipe in the html
    */
   function displayRecipe(recipe) {
     if (recipe === undefined) {
       display.innerHTML = `
-			<div class="row align-items-center justify-content-center text-center">
-				<div class="col-sm-8 col-md-6 col-lg-4">
-					<div class="card mb-5">
-						<div class="card-body">
-							<h5 class="card-title">No Matching Recipe</h5>
-							<p class="card-text">Try chaging some parameters and spin aagin!</p>
-						</div>
-					</div>
-				</div>
-			</div>`;
+      <div class="row align-items-center justify-content-center text-center">
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <div class="card mb-5">
+            <div class="card-body">
+              <h5 class="card-title">No Matching Recipe</h5>
+              <p class="card-text">Try chaging some parameters and spin again!</p>
+            </div>
+          </div>
+        </div>
+      </div>`;
     } else {
       const placeholder = '/images/recipe-placeholder.png';
       const image = (recipe.recipe_image_url == null) ? placeholder : recipe.recipe_image_url;
 
       display.innerHTML =
         `<div class="row align-items-center justify-content-center text-center">
-				<div class="col-sm-8 col-md-6 col-lg-4">
-					<div class="card mb-5">
-						<a href="/recipes/${recipe.recipe_id}">
-							<img class="card-img-top" src="${image}">
-						</a>
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <div class="card mb-5">
+            <a href="/recipes/${recipe.recipe_id}">
+              <img class="card-img-top" src="${image}">
+            </a>
             <div class="card-body">
-							<h5 class="card-title">${recipe.recipe_name}</h5>
+              <h5 class="card-title">${recipe.recipe_name}</h5>
               <p class="card-text">${recipe.recipe_description}</p>
               <span class="card-thumbs text-right">
                 <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
                 <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
               </span>
-						</div>
-					</div>
-				</div>
-			</div>`;
+            </div>
+          </div>
+        </div>
+      </div>`;
     }
   }
+
 });
+
+
+

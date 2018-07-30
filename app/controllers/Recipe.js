@@ -150,3 +150,34 @@ exports.getCuisines = (id, callback) => {
     }
   });
 };
+
+
+exports.getByFilter = (category, cuisine, diet, callback) => {
+  console.log("get by filter");
+  db.get().query(`
+  SELECT
+    recipe_id, 
+    recipe_name, 
+    recipe_image_url, 
+    recipe_instructions, 
+    recipe_description, 
+    user_id, 
+    recipe_category_id
+  FROM recipe
+  WHERE
+    recipe_id IN (
+      SELECT r.recipe_id
+      FROM recipe AS r
+      WHERE r.recipe_category_id = ? OR ? IS NULL
+    ) 
+
+  GROUP BY recipe_id
+  ORDER BY RAND()
+  LIMIT 1;
+  `, [category, category], (err, rows) => {
+    if (err) return callback(err, null);
+    else {
+      callback(null, rows);
+    }
+  });
+};
