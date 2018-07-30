@@ -178,10 +178,28 @@ exports.getByFilter = (category, cuisine, diet, callback) => {
     WHERE rc.cuisine_id = ? OR ? IS NULL
   ) 
 
+  AND 
+    recipe_id IN (
+      SELECT recipe_id
+      FROM recipe
+      WHERE recipe_id NOT IN (
+        SELECT ri.recipe_id
+          FROM recipe_ingredient AS ri
+            INNER JOIN recipe AS r ON ri.recipe_id = r.recipe_id
+            INNER JOIN (
+              SELECT i.ingredient_id
+              FROM ingredient AS i
+                INNER JOIN food_group_dietary_restriction AS fd ON i.food_group_id = fd.food_group_id
+                INNER JOIN dietary_restriction AS dr ON fd.dietary_restriction_id = dr.dietary_restriction_id
+              WHERE dr.dietary_restriction_id = ?
+            ) AS i ON ri.ingredient_id = i.ingredient_id
+      ) OR ? IS NULL
+    ) 
+
   GROUP BY recipe_id
   ORDER BY RAND()
   LIMIT 1;
-  `, [category, category, cuisine, cuisine], (err, rows) => {
+  `, [category, category, cuisine, cuisine, diet, diet], (err, rows) => {
     if (err) return callback(err, null);
     else {
       callback(null, rows);

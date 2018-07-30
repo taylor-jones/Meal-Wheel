@@ -60,7 +60,6 @@ $(function() {
     req.setRequestHeader('Content-Type', 'application/json');
     req.addEventListener('load', function() {
       if (req.status >= 200 && req.status < 400) {
-        console.log("response: ", req.responseText);
         if(!req.responseText == ""){
           const res = JSON.parse(req.responseText);
           displayRecipe(res.recipe);

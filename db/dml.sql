@@ -376,7 +376,7 @@ WHERE i.ingredient_id IN (
 GROUP BY d.dietary_restriction_id;
 
 
--- get all dietary restrictions that excluse a specified ingredient id
+-- get all dietary restrictions that exclude a specified ingredient id
 SELECT
   d.dietary_restriction_id,
   d.dietary_restriction_name
