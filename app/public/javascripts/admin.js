@@ -69,7 +69,12 @@ $(function() {
       setViewMode($(this), false);
     });
 
-    $element.parents('tr').children('td:nth-of-type(2)').children('input').focus();
+    if ($(element).is('input, select')) {
+      $element.focus();
+    } else {
+      $element.parents('tr').children('td:nth-of-type(2)').children('input').focus();
+    }
+
     setViewMode($row, true);
   }
 

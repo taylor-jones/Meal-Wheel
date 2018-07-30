@@ -17,4 +17,29 @@ router.get('/', (req, res, next) => {
 });
 
 
+router.post('/', (req, res, next) => {
+  UnitsOfMeasure.addNew(req.body, (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
+router.delete('/:id', (req, res, next) => {
+  UnitsOfMeasure.deleteById(req.params.id, (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
+router.put('/:id', (req, res, next) => {
+  UnitsOfMeasure.updateById(
+    req.params.id, 
+    req.body.unit_of_measure_name,
+    req.body.unit_of_measure_abbrev,
+     (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
 module.exports = router;
