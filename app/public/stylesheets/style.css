@@ -178,11 +178,16 @@ body.admin {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-.table input.form-control {
-  width: auto;
+tr .form-control {
+  /* width: auto; */
+  width: 100%;
 }
 
-.table input.form-control:not(:active) {
+tr .form-control:last-of-type {
+  width: calc(100% - 6rem);
+}
+
+tr .form-control:not(:active) {
   border:none;
   padding-top: 0.45rem;
   padding-bottom: 0.45rem;
@@ -193,8 +198,10 @@ body.admin {
 }
 
 td.record-actions {
+  border: none;
   position: absolute;
-  right: 1.5rem;
+  right: 2rem;
+  margin-top: 0.25rem;
 }
 
 

@@ -10,33 +10,39 @@ $(function() {
     deleteRecord(this, window.requestRoute);
   });
 
+
   $(document).on('click', '.btn-add', function() {
     addTableRow();
   });
 
-  $(document).on('click', '.btn-edit', function() {
-    editRecord(this, window.requestRoute);
+
+  $(document).on('click', 'td input, td select', function() {
+    editRecord(this);
   });
+
+
+  $(document).on('click', '.btn-edit', function() {
+    editRecord(this);
+  });
+
 
   $(document).on('click', '.btn-save', function() {
     saveRecord(this, window.requestRoute);
   });
 
-  // $(document).on('focusout', 'tr', function() {
-  //   setViewMode($(this), false);
-  // });
 
-  $(document).on('focusin', 'tr', function() {
-    setViewMode($(this), true);
-  });
+
 
 
   /**
    * FUNCTIONS
    */
 
+
   /**
-   * adds a new row to the current admin table.
+   * @description adds a new row to the current admin table by copying
+   *  the structure of the last existing row, removing all existing
+   *  values from the new row, and then appending it to the end of the table.
    */
   function addTableRow() {
     const $lastRow = $('tr:last');
@@ -51,38 +57,51 @@ $(function() {
 
 
   /**
-   * places the table row in a state of 'edit'
+   * @description places the table row in a state of 'edit' and focuses the first
+   *  non-hidden input field.
+   * @param {element} DOM element: the element that was clicked.
    */
-  function editRecord(btn, route) {
-    const $btn = $(btn);
-    const $row = $btn.parents('tr');
+  function editRecord(element) {
+    const $element = $(element);
+    const $row = $element.parents('tr');
 
-    $btn.parents('tr').children('td:nth-of-type(2)').children('input').focus();
+    $('tr').each(function(i) {
+      setViewMode($(this), false);
+    });
+
+    $element.parents('tr').children('td:nth-of-type(2)').children('input').focus();
     setViewMode($row, true);
   }
 
 
+
   /**
-   * takes the id of a 'remove' button and deletes the parent row from the DOM
+   * @description takes the id of a 'remove' button and deletes
+   *    the parent row from the DOM
+   * @param {int} id: the [id] of a record to remove from the DOM.
    */
   function removeTableRow(removeButtonId) {
     $(`#${removeButtonId}`).parents('tr').remove();
   }
 
-  /**
-   * Uses the id associated with a button's id to
-   * make a DELETE request on a specified route, attempting to delete
-   *  a given record from the db and then remove it from it's admin table.
-   */
+
+
+/**
+ * @description determines the [id] of the row based on the 'delete' button that
+ *  was clicked, and triggers a DELETE for that record. If successful, it also
+ *  triggers removing the deleted record from the DOM.
+ * @param {button} btn: the save button that was clicked.
+ * @param {string} route: route where the http actions are called (e.g. /cuisines).
+ */
   function deleteRecord(btn, route) {
-    const $id = $(btn).attr('id');
-    const recordId = $id.replace('delete_', '').replace('-', '');
+    const $btnId = $(btn).attr('id');
+    const recordId = $btnId.replace('delete_', '').replace('-', '');
     const req = new XMLHttpRequest();
 
     req.open('DELETE', `/${route}/${recordId}`, true);
     req.addEventListener('load', () => {
       if (req.status >= 200 && req.status < 400) {
-        removeTableRow($id);
+        removeTableRow($btnId);
       } else {
         console.log(JSON.parse(req.responseText));
       }
@@ -92,22 +111,43 @@ $(function() {
   }
 
 
-
+/**
+ * @description gathers the input values associated with the record and then calls
+ *  either a POST (if it's a new record) or a PUT (if it's an existing record).
+ * @param {button} btn: the save button that was clicked.
+ * @param {string} route: route where the http actions are called (e.g. /cuisines).
+ */
   function saveRecord(btn, route) {
-    const $id = $(btn).attr('id');
-    const $row = $(btn).parents('tr');
-    const recordId = $id.replace('save_', '').replace('-', '');
+    // cache dom elements
+    const $btn = $(btn);
+    const $btnId = $btn.attr('id');
+    const recordId = $btnId.replace('save_', '').replace('-', '');
+    const $row = $btn.parents('tr');
 
+    // if it's a new record, the $btnId will be an empty string after removing 'save_'
+    const action = $btnId ? 'PUT' : 'POST';
     const req = new XMLHttpRequest();
-    const action = $id ? 'PUT' : 'POST';
+
+    /* setup the body params. loop through each [input] and [select]
+        control in the row and get the associated values.
+      * NOTE: for this to work properly, each row element that corresponds to
+        a DB column should have a [name] attribute that matches the DB column name.
+        For instance, <input name="cuisine_name">  etc... */
     const params = {};
 
-    $row.find('input', 'select').each(function() {
-        const $el = $(this);
-        params[$el.attr('name')] = $el.val() || $el.attr('value');
+    // get all the inouts from the row.
+    $row.find('input').each(function() {
+      const $el = $(this);
+      params[$el.attr('name')] = $el.val() || $el.attr('value');
     });
 
+    // get all the select values from the row.
+    $row.find('select').each(function() {
+      const $el = $(this);
+      params[$el.attr('name')] = $el.attr('value');
+    });
 
+    // pass the determined action to the specified route.
     req.open(action, `/${route}/${recordId}`, true);
     req.setRequestHeader('Content-Type', 'application/json');
     req.addEventListener('load', () => {
@@ -123,22 +163,40 @@ $(function() {
   }
 
 
-
+  /**
+   * @description updates the id of a newly created or updated record by finding
+   *  the row of the 'save' button that was clicked.
+   * @param {button} btn - a button element that belongs to one of the table rows.
+   * @param {int} id - the id of a newly created or updated record.
+   */
   function updateIdsForRow(btn, id) {
     const $btn = $(btn);
     const $row = $btn.parents('tr');
 
+    // NOTE: this function assumes that the row has the respective
+    //  [id] field in the first <td> of the row.
     $row.children('td:nth-of-type(1)').attr('value', id);
+
+    // identify the 'edit', 'delete', and 'save' buttons for the row,
+    //  and update their [id] attributes to represent the argued [id].
     $row.find('.btn-edit').attr('id', `edit_${id}`);
     $row.find('.btn-delete').attr('id', `delete_${id}`);
     $row.find('.btn-save').attr('id', `save_${id}`);
 
+    // update the row to be in a non-edit state.
     setViewMode($row, false);
   }
 
 
-
+  /**
+   * @description modifies the appearence of a row depending on if that row is being edited.
+   * @param {jquery tr selector} $row - the row for which to set the view mode.
+   * @param {boolean} isEdit - true if the row should be set to appear in an 'edit' state,
+   *    false if not.
+   */
   function setViewMode($row, isEdit) {
+    // if it's being edited, hide the 'edit' button, and show the 'save' button.
+    // if not, hide the 'save' button, and show the 'edit' button.
     if (isEdit) {
       $row.find('.btn-save').removeClass('d-none');
       $row.find('.btn-edit').addClass('d-none');
