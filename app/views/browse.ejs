@@ -82,11 +82,13 @@
                       <p class="card-text"><%= recipes[i].recipe_description %></p>
                     </div>
 
-                    <!-- TODO: Only show this when user is logged in -->
-                    <div class="card-thumbs text-right">
-                      <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
-                      <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
-                    </div>
+                    <% if (locals.session && locals.session.user) { %>
+                      <div class="card-thumbs text-right">
+                        <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
+                        <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
+                      </div>
+                    <% } %>
+
                   </div>
                 </div>
               <% } %>

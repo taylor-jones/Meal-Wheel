@@ -24,7 +24,7 @@ exports.getById = (id, callback) => {
       user_password 
     FROM app_user 
     WHERE user_id = ?`, id, (err, rows) => {
-    if (err) return callback(err);
+    if (err) return callback(err, null);
     callback(null, rows);
   });
 };
@@ -59,6 +59,28 @@ exports.addNew = (context, callback) => {
     user_name: context.user_name,
     user_email: context.user_email,
   }, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
+
+exports.getByCredentials = (context, callback) => {
+  console.log('checking credientials');
+  console.log(context);
+
+  db.get().query(`
+  SELECT 
+    user_id,
+    user_name,
+    user_email
+  FROM app_user
+  WHERE user_password = ?
+  AND (user_name = ? OR user_email = ?);`, [
+      context.user_password,
+      context.user_name,
+      context.user_email,
+    ], (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
   });

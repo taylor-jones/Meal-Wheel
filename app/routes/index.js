@@ -26,6 +26,7 @@ router.get('/', (req, res, next) => {
 });
 
 
+
 /*
 Spin wheel to get a single recipe based on filters.
 See spinButton event listener function in public/javascripts/home.js
@@ -49,5 +50,14 @@ router.post('/', (req, res, next) => {
     res.send({ recipe: recipe[0] });
   });
 });
+
+
+
+// logs the user out and redirects to the home page.
+router.get('/logout', (req, res, next) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
 
 module.exports = router;
