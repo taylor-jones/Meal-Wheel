@@ -35,7 +35,7 @@ const server = http.createServer(app);
  *    db.DEVELOPMENT  to  db.PRODUCTION
  */
 
-db.connect(db.PRODUCTION, (err) => {
+db.connect(db.DEVELOPMENT, (err) => {
   if (err) {
     console.log('Unable to connect to the database.');
     process.exit();
