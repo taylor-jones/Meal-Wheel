@@ -17,3 +17,32 @@ exports.getById = (id, callback) => {
     }
   });
 };
+
+exports.deleteById = (id, callback) => {
+  db.get().query('DELETE FROM dietary_restriction WHERE dietary_restriction_id = ?', id, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
+
+exports.updateById = (id, name, callback) => {
+  db.get().query(
+    `UPDATE dietary_restriction SET dietary_restriction_name = ?
+    WHERE dietary_restriction_id = ?;
+    `, [name, id], (err, rows) => {
+      if (err) return callback(err, null);
+      callback(null, rows);
+    });
+};
+
+
+exports.addNew = (columns, callback) => {
+  db.get().query(`
+    INSERT INTO dietary_restriction SET ?`, {
+    dietary_restriction_name: columns.dietary_restriction_name,
+  }, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};

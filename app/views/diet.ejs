@@ -10,28 +10,44 @@
           <% include partials/sidebar %>
 
           <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
               <h1 class="display-4"><%= page %></h1>
+              <button type="button" class="btn btn-primary btn-add">
+                <span><i class="fas fa-plus"></i></span>
+                <span class="ml-1">Add New</span>
+              </button>
             </div>
 
             <div class="table-responsive">
-              <table class="table">
+              <table class="table table-bordered">
                 <thead class="thead-light">
-                  <tr>
-                    <th>#</th>
-                    <th>Dietary Restriction</th>
-                    <th></th>
-                  </tr>
+                  <tr><th>Dietary Restriction</th></tr>
                 </thead>
                 <tbody>
                 <% for (let i = 0; i < data.length; i++) { %>
                   <tr>
-                    <td><%= data[i].dietary_restriction_id %></td>
+                    <td class="d-none"><input type="text" value="<%= data[i].dietary_restriction_id %>" name="dietary_restriction_id"></td>
+                    <td><input type="text" name="dietary_restriction_name" class="form-control" value="<%= data[i].dietary_restriction_name %>"></td>
+
+                    <td class="record-actions">
+                      <button type="button" class="btn btn-success btn-sm btn-save d-none" id="<%= 'save_' + data[i].dietary_restriction_id %>">
+                        <i class="fas fa-save"></i>
+                      </button>
+                      <button type="button" class="btn btn-primary btn-sm btn-edit" id="<%= 'edit_' + data[i].dietary_restriction_id %>">
+                        <i class="fas fa-pen"></i>
+                      </button>
+                      <button type="button" class="btn btn-danger btn-sm btn-delete" id="<%= 'delete_' + data[i].dietary_restriction_id %>">
+                        <i class="far fa-trash-alt"></i>
+                      </button>
+                    </td>
+
+
+                    <!-- <td><%= data[i].dietary_restriction_id %></td>
                     <td><%= data[i].dietary_restriction_name %></td>
                     <td class="text-right">
                         <button type="button" class="btn btn-primary btn-sm">Edit</button>
                         <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
+                    </td> -->
                   </tr>
                 <% } %>
                 </tbody>
@@ -46,7 +62,10 @@
       <% include partials/script %>
 
       <script>
+        window.requestRoute = <%- JSON.stringify(requestRoute).toLowerCase().replace(' ', '-'); %>;
         $('#nav-diets').addClass('active');
       </script>
+
+      <script src="./javascripts/admin.js"></script>
     </body>
 </html>

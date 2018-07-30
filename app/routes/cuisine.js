@@ -16,15 +16,6 @@ router.get('/', (req, res, next) => {
 });
 
 
-// router.post('/', (req, res, next) => {
-//   if (req.body.taskId == 'getCount') {
-//     Cuisines.getAll((err, cuisines) => {
-//       res.send(JSON.stringify(cuisines));
-//     });
-//   }
-// });
-
-
 router.post('/', (req, res, next) => {
   Cuisines.addNew(req.body, (err, result) => {
     res.send(err || result);
