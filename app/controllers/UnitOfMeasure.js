@@ -2,7 +2,13 @@ const db = require('../bin/dbcon');
 
 
 exports.getAll = (callback) => {
-  db.get().query('SELECT unit_of_measure_id, unit_of_measure_name, unit_of_measure_abbrev FROM unit_of_measure', (err, rows) => {
+  db.get().query(`
+  SELECT 
+    unit_of_measure_id, 
+    unit_of_measure_name, 
+    unit_of_measure_abbrev 
+  FROM unit_of_measure
+  ORDER BY unit_of_measure_name`, (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
   });
@@ -10,18 +16,23 @@ exports.getAll = (callback) => {
 
 
 exports.getById = (id, callback) => {
-  db.get().query('SELECT unit_of_measure_id, unit_of_measure_name, unit_of_measure_abbrev FROM unit_of_measure WHERE unit_of_measure_id = ?', id, (err, rows) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, rows);
-    }
+  db.get().query(`
+  SELECT 
+    unit_of_measure_id, 
+    unit_of_measure_name, 
+    unit_of_measure_abbrev 
+  FROM unit_of_measure 
+  WHERE unit_of_measure_id = ?`, id, (err, rows) => {
+    if (err) return callback(err);
+    callback(null, rows);
   });
 };
 
 
 exports.deleteById = (id, callback) => {
-  db.get().query('DELETE FROM unit_of_measure WHERE unit_of_measure_id = ?', id, (err, rows) => {
+  db.get().query(`
+    DELETE FROM unit_of_measure 
+    WHERE unit_of_measure_id = ?`, id, (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
   });

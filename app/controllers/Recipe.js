@@ -103,11 +103,8 @@ exports.getIngredients = (id, callback) => {
     WHERE ri.recipe_id = ?
     ORDER BY ri.amount DESC;
   `, id, (err, rows) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, rows);
-    }
+    if (err) callback(err);
+    callback(null, rows);
   });
 };
 
@@ -124,11 +121,8 @@ exports.getDietaryRestrictions = (id, callback) => {
       SELECT ri.ingredient_id FROM recipe_ingredient AS ri WHERE ri.recipe_id = ?)
     ORDER BY d.dietary_restriction_name;
   `, id, (err, rows) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, rows);
-    }
+    if (err) callback(err);
+    callback(null, rows);
   });
 };
 
@@ -143,11 +137,8 @@ exports.getCuisines = (id, callback) => {
       INNER JOIN cuisine AS c ON rc.cuisine_id = c.cuisine_id
     WHERE r.recipe_id = ?;
   `, id, (err, rows) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, rows);
-    }
+    if (err) callback(err);
+    callback(null, rows);
   });
 };
 
@@ -215,17 +206,15 @@ exports.getByFilter = (context, callback) => {
   ORDER BY RAND()
   LIMIT 1;
   `, [
-      context.category,
-      context.category,
-      context.cuisine,
-      context.cuisine,
-      context.diet,
-      context.diet,
-      context.user,
-    ], (err, rows) => {
+    context.category,
+    context.category,
+    context.cuisine,
+    context.cuisine,
+    context.diet,
+    context.diet,
+    context.user,
+  ], (err, rows) => {
     if (err) return callback(err, null);
-    else {
-      callback(null, rows);
-    }
+    callback(null, rows);
   });
 };
