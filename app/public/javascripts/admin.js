@@ -22,6 +22,13 @@ $(function() {
     saveRecord(this, window.requestRoute);
   });
 
+  // $(document).on('focusout', 'tr', function() {
+  //   setViewMode($(this), false);
+  // });
+
+  $(document).on('focusin', 'tr', function() {
+    setViewMode($(this), true);
+  });
 
 
   /**
@@ -48,19 +55,10 @@ $(function() {
    */
   function editRecord(btn, route) {
     const $btn = $(btn);
-    const $id = $btn.attr('id');
-    const recordId = $id.replace('edit_', '').replace('-', '');
+    const $row = $btn.parents('tr');
 
-    $btn.siblings('.btn-save').toggleClass('d-none');
-    $btn.toggleClass('d-none');
     $btn.parents('tr').children('td:nth-of-type(2)').children('input').focus();
-
-    if ($id) {
-      console.log('record exists');
-    } else {
-      console.log('new record');
-    }
-
+    setViewMode($row, true);
   }
 
 
@@ -97,19 +95,57 @@ $(function() {
 
   function saveRecord(btn, route) {
     const $id = $(btn).attr('id');
-    const recordId = $id.replace('edit_', '').replace('-', '');
-    const req = new XMLHttpRequest();
+    const $row = $(btn).parents('tr');
+    const recordId = $id.replace('save_', '').replace('-', '');
 
-    req.open('DELETE', `/${route}/${recordId}`, true);
+    const req = new XMLHttpRequest();
+    const action = $id ? 'PUT' : 'POST';
+    const params = {};
+
+    $row.find('input', 'select').each(function() {
+        const $el = $(this);
+        params[$el.attr('name')] = $el.val() || $el.attr('value');
+    });
+
+
+    req.open(action, `/${route}/${recordId}`, true);
+    req.setRequestHeader('Content-Type', 'application/json');
     req.addEventListener('load', () => {
+      const res = JSON.parse(req.responseText);
       if (req.status >= 200 && req.status < 400) {
-        removeTableRow($id);
+          updateIdsForRow(btn, res.insertId);
       } else {
-        console.log(JSON.parse(req.responseText));
+        console.log('err', res);
       }
     });
 
-    req.send();
+    req.send(JSON.stringify(params));
+  }
+
+
+
+  function updateIdsForRow(btn, id) {
+    const $btn = $(btn);
+    const $row = $btn.parents('tr');
+
+    $row.children('td:nth-of-type(1)').attr('value', id);
+    $row.find('.btn-edit').attr('id', `edit_${id}`);
+    $row.find('.btn-delete').attr('id', `delete_${id}`);
+    $row.find('.btn-save').attr('id', `save_${id}`);
+
+    setViewMode($row, false);
+  }
+
+
+
+  function setViewMode($row, isEdit) {
+    if (isEdit) {
+      $row.find('.btn-save').removeClass('d-none');
+      $row.find('.btn-edit').addClass('d-none');
+    } else {
+      $row.find('.btn-save').addClass('d-none');
+      $row.find('.btn-edit').removeClass('d-none');
+    }
   }
 
 });

@@ -30,12 +30,12 @@
 
                 <tbody>
                   <% for (let i = 0; i < data.length; i++) { %>
-                  <tr>
-                    <td class="d-none"><input type="text" value="<%= data[i].cuisine_id %>"></td>
-                    <td><input type="text" class="form-control" id="<%= 'name_' + data[i].cuisine_id %>" value="<%= data[i].cuisine_name %>"></td>
+                  <tr id="row-<%= data[i].cuisine_id %>">
+                    <td class="d-none"><input type="text" value="<%= data[i].cuisine_id %>" name="cuisine_id"></td>
+                    <td><input type="text" name="cuisine_name" class="form-control" value="<%= data[i].cuisine_name %>"></td>
 
                     <td class="record-actions">
-                      <button type="button" class="btn btn-success btn-sm btn-save d-none">
+                      <button type="button" class="btn btn-success btn-sm btn-save d-none" id="<%= 'save_' + data[i].cuisine_id %>">
                         <i class="fas fa-save"></i>
                       </button>
                       <button type="button" class="btn btn-primary btn-sm btn-edit" id="<%= 'edit_' + data[i].cuisine_id %>">

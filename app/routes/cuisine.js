@@ -15,18 +15,32 @@ router.get('/', (req, res, next) => {
   });
 });
 
-router.post('/', (req, res, next) => {
-  if (req.body.taskId == 'getCount') {
-    Cuisines.getAll((err, cuisines) => {
-      res.send(JSON.stringify(cuisines));
-    });
-  }
-});
 
+// router.post('/', (req, res, next) => {
+//   if (req.body.taskId == 'getCount') {
+//     Cuisines.getAll((err, cuisines) => {
+//       res.send(JSON.stringify(cuisines));
+//     });
+//   }
+// });
+
+
+router.post('/', (req, res, next) => {
+  Cuisines.addNew(req.body, (err, result) => {
+    res.send(err || result);
+  });
+});
 
 
 router.delete('/:id', (req, res, next) => {
   Cuisines.deleteById(req.params.id, (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
+router.put('/:id', (req, res, next) => {
+  Cuisines.updateById(req.params.id, req.body.cuisine_name, (err, result) => {
     res.send(err || result);
   });
 });
