@@ -2,6 +2,7 @@ node_modules/
 app/bin/dbcon.js
 bin/dbcon.js
 app/bin/www
+**/bin/www
 
 # Created by https://www.gitignore.io/api/macos,windows,visualstudio,visualstudiocode
 
