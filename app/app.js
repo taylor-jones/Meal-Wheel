@@ -52,7 +52,7 @@ app.use('/addRecipe', addRecipeRouter);
 app.use('/admin', adminRouter);
 app.use('/browse', browseRouter);
 app.use('/cuisines', cuisineRouter);
-app.use('/diets', dietRouter);
+app.use('/dietary-restrictions', dietRouter);
 app.use('/food-groups', foodGroupRouter);
 app.use('/ingredients', ingredientRouter);
 app.use('/login', loginRouter);

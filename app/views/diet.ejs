@@ -41,13 +41,6 @@
                       </button>
                     </td>
 
-
-                    <!-- <td><%= data[i].dietary_restriction_id %></td>
-                    <td><%= data[i].dietary_restriction_name %></td>
-                    <td class="text-right">
-                        <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                    </td> -->
                   </tr>
                 <% } %>
                 </tbody>
@@ -62,7 +55,7 @@
       <% include partials/script %>
 
       <script>
-        window.requestRoute = <%- JSON.stringify(requestRoute).toLowerCase().replace(' ', '-'); %>;
+        window.requestRoute = <%- JSON.stringify(page).toLowerCase().replace(/\s/g, '-'); %>;
         $('#nav-diets').addClass('active');
       </script>
 

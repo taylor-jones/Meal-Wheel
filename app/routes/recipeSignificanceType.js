@@ -16,4 +16,25 @@ router.get('/', (req, res, next) => {
 });
 
 
+router.post('/', (req, res, next) => {
+  RecipeSignificanceTypes.addNew(req.body, (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
+router.delete('/:id', (req, res, next) => {
+  RecipeSignificanceTypes.deleteById(req.params.id, (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
+router.put('/:id', (req, res, next) => {
+  RecipeSignificanceTypes.updateById(req.params.id, req.body.recipe_significance_type_name, (err, result) => {
+    res.send(err || result);
+  });
+});
+
+
 module.exports = router;
