@@ -140,8 +140,6 @@ exports.getByCredentials = (context, callback) => {
 
 
 exports.addRecipeSignificance = (context, callback) => {
-  console.log(context);
-
   db.get().query(`
     INSERT INTO user_significant_recipe SET ?`, {
     user_id: context.user_id,

@@ -54,7 +54,7 @@ router.post('/', (req, res, next) => {
       renderHTML = `
       <div class="row align-items-center justify-content-center text-center">
         <div class="col-sm-8 col-md-6 col-lg-4">
-          <div class="card mb-5">
+          <div class="card mb-5" id="${result.recipe_id}">
             <div class="card-body">
               <h5 class="card-title">No Matching Recipe</h5>
               <p class="card-text">Try chaging some parameters and spin again!</p>
@@ -69,7 +69,7 @@ router.post('/', (req, res, next) => {
       renderHTML = `
        <div class="row align-items-center justify-content-center text-center">
         <div class="col-sm-8 col-md-6 col-lg-4">
-          <div class="card mb-5">
+          <div class="card mb-5" id="${result.recipe_id}">
             <a href="/recipes/${result.recipe_id}">
               <img class="card-img-top" src="${image}">
             </a>
