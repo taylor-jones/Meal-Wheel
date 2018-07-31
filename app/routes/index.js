@@ -45,9 +45,56 @@ router.post('/', (req, res, next) => {
     context.user = req.session.user.user_id;
   }
 
+  // moved the HTML to the server so we can check for session.
   Recipes.getByFilter(context, (err, recipe) => {
-    // home.js handles it whether null or not.
-    res.send({ recipe: recipe[0] });
+    const result = recipe[0];
+    let renderHTML;
+
+    if (!result) {
+      renderHTML = `
+      <div class="row align-items-center justify-content-center text-center">
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <div class="card mb-5">
+            <div class="card-body">
+              <h5 class="card-title">No Matching Recipe</h5>
+              <p class="card-text">Try chaging some parameters and spin again!</p>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    } else {
+      const placeholder = '/images/recipe-placeholder.png';
+      const image = (result.recipe_image_url == null) ? placeholder : result.recipe_image_url;
+
+      renderHTML = `
+       <div class="row align-items-center justify-content-center text-center">
+        <div class="col-sm-8 col-md-6 col-lg-4">
+          <div class="card mb-5">
+            <a href="/recipes/${result.recipe_id}">
+              <img class="card-img-top" src="${image}">
+            </a>
+            <div class="card-body">
+              <h5 class="card-title">${result.recipe_name}</h5>
+                <p class="card-text">${result.recipe_description}</p>`;
+
+
+      if (req.session.user) {
+        renderHTML +=
+          `<span class="card-thumbs text-right">
+            <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
+            <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
+          </span>`;
+      }
+
+      renderHTML +=
+          `</div>
+          </div>
+        </div>
+      </div>`;
+    }
+
+
+    res.send({ recipe: renderHTML });
   });
 });
 

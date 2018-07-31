@@ -57,9 +57,9 @@
      req.setRequestHeader('Content-Type', 'application/json');
      req.addEventListener('load', function() {
        if (req.status >= 200 && req.status < 400) {
-         if (!req.responseText == '') {
+         if (req.responseText) {
            const res = JSON.parse(req.responseText);
-           displayRecipe(res.recipe);
+           display.innerHTML = res.recipe;
          }
        }
      });
@@ -94,46 +94,6 @@
        return parseInt(value);
      }
      return value;
-   }
-
-
-   // Renders the recipe in the html (or indicates no recipe was matched)
-   function displayRecipe(recipe) {
-     if (!recipe) {
-       display.innerHTML = `
-      <div class="row align-items-center justify-content-center text-center">
-        <div class="col-sm-8 col-md-6 col-lg-4">
-          <div class="card mb-5">
-            <div class="card-body">
-              <h5 class="card-title">No Matching Recipe</h5>
-              <p class="card-text">Try chaging some parameters and spin again!</p>
-            </div>
-          </div>
-        </div>
-      </div>`;
-     } else {
-       const placeholder = '/images/recipe-placeholder.png';
-       const image = (recipe.recipe_image_url == null) ? placeholder : recipe.recipe_image_url;
-
-       display.innerHTML = `
-       <div class="row align-items-center justify-content-center text-center">
-        <div class="col-sm-8 col-md-6 col-lg-4">
-          <div class="card mb-5">
-            <a href="/recipes/${recipe.recipe_id}">
-              <img class="card-img-top" src="${image}">
-            </a>
-            <div class="card-body">
-              <h5 class="card-title">${recipe.recipe_name}</h5>
-              <p class="card-text">${recipe.recipe_description}</p>
-              <span class="card-thumbs text-right">
-                <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
-                <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>`;
-     }
    }
 
  });
