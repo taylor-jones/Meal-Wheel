@@ -17,11 +17,12 @@
                 </div>
 
                 <div class="card-body">
-                  <!-- TODO: Only show this when user is logged in -->
+                  <% if (locals.session && locals.session.user) { %>
                   <span class="card-thumbs text-right">
                     <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipe.recipe_id %>-like"></i>
                     <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipe.recipe_id %>-dislike"></i>
                   </span>
+                  <% } %>
 
                   <div class="card-title"><h4><%= recipe.recipe_name %></h4></div>
                   <div class="card-subtitle"><%= recipe.recipe_description %></div>
