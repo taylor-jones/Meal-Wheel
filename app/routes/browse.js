@@ -40,8 +40,8 @@ router.get('/', (req, res, next) => {
             //  liked/disliked recipe arrays with the user's
             //  own significant recupe ids.
             if (user[0]) {
-              context.likedRecipes = user[0].likedRecipes || context.likedRecipes;
-              context.dislikedRecipes = user[0].dislikedRecipes || context.dislikedRecipes;
+              context.likedRecipes = mapSignificantRecipes(user[0].likedRecipes) || context.likedRecipes;
+              context.dislikedRecipes = mapSignificantRecipes(user[0].dislikedRecipes) || context.dislikedRecipes;
             }
 
             res.render('browse', context);
@@ -51,6 +51,14 @@ router.get('/', (req, res, next) => {
     });
   });
 });
+
+
+
+function mapSignificantRecipes(jsonArr) {
+  return jsonArr.map((obj) => {
+    return obj.recipe_id;
+  });
+}
 
 
 module.exports = router;
