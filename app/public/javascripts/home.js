@@ -72,6 +72,7 @@
 
      req.send(JSON.stringify(context));
      e.preventDefault();
+     e.stopPropagation();
    });
 
 

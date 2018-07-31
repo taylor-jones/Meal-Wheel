@@ -143,6 +143,7 @@ exports.getCuisines = (id, callback) => {
 };
 
 
+
 /* Returns 1 single recipe from 4 filters:
     - category
     - cuisine
@@ -150,6 +151,8 @@ exports.getCuisines = (id, callback) => {
     - user (filters out disliked) .
 */
 exports.getByFilter = (context, callback) => {
+  console.log(context);
+
   db.get().query(`
   SELECT
     recipe_id, 
@@ -191,13 +194,12 @@ exports.getByFilter = (context, callback) => {
     )
 
     AND recipe_id NOT IN (
-      SELECT r.recipe_id
-      FROM recipe AS r
-        INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
-        INNER JOIN app_user AS u ON u.user_id = ?
-      WHERE sr.recipe_significance_type_id = (
-        SELECT recipe_significance_type_id 
-        FROM recipe_significance_type 
+      SELECT sr.recipe_id
+      FROM user_significant_recipe AS sr
+      WHERE sr.user_id = ?
+      AND sr.recipe_significance_type_id = (
+        SELECT recipe_significance_type_id
+        FROM recipe_significance_type
         WHERE recipe_significance_type_name = 'disliked'
       )
     )
@@ -214,6 +216,7 @@ exports.getByFilter = (context, callback) => {
     context.diet,
     context.user,
   ], (err, rows) => {
+    console.log(rows);
     if (err) return callback(err, null);
     callback(null, rows);
   });
