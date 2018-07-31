@@ -9,19 +9,19 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   let context;
 
-  // if (req.session.user) {
+  if (req.session.user) {
     context = {
       view: 'userProfile',
       page: 'User Profile',
       menuId: 'nav-profile',
     };
-  // } else {
-  //   context = {
-  //     view: 'login',
-  //     page: 'Login',
-  //     menuId: 'nav-login',
-  //   };
-  // }
+  } else {
+    context = {
+      view: 'login',
+      page: 'Login',
+      menuId: 'nav-login',
+    };
+  }
 
   context.session = req.session;
   res.render(context.view, context);

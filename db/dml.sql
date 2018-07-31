@@ -407,34 +407,24 @@ LIMIT 10;
 
 
 -- get all 'liked' recipes for a single user
-SELECT
-  r.recipe_id,
-  r.recipe_name
-FROM recipe AS r
-  INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
-  INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
-WHERE sr.recipe_significance_type_id = (
-    SELECT recipe_significance_type_id 
-    FROM recipe_significance_type 
-    WHERE recipe_significance_type_name="liked"
+  SELECT recipe_id
+  FROM user_significant_recipe AS sr
+  WHERE sr.user_id = [logged_in_user_id]
+  AND sr.recipe_significance_type_id = (
+    SELECT recipe_significance_type_id FROM recipe_significance_type WHERE recipe_significance_type_name = "liked"
   )
-ORDER BY r.recipe_name;
+  ORDER BY recipe_id;
 
 
 
 -- get all 'disliked' recipes for a single user
-SELECT
-  r.recipe_id,
-  r.recipe_name
-FROM recipe AS r
-  INNER JOIN user_significant_recipe AS sr ON sr.recipe_id = r.recipe_id
-  INNER JOIN app_user AS u ON u.user_id = [logged_in_user_id]
-WHERE sr.recipe_significance_type_id = (
-    SELECT recipe_significance_type_id 
-    FROM recipe_significance_type 
-    WHERE recipe_significance_type_name="disliked"
+  SELECT recipe_id
+  FROM user_significant_recipe AS sr
+  WHERE sr.user_id = [logged_in_user_id]
+  AND sr.recipe_significance_type_id = (
+    SELECT recipe_significance_type_id FROM recipe_significance_type WHERE recipe_significance_type_name = "disliked"
   )
-ORDER BY r.recipe_name;
+  ORDER BY recipe_id;
 
 
 -- get all recipes not 'disliked' by a specified user

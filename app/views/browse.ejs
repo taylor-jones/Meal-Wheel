@@ -72,8 +72,8 @@
               var placeholder = "/images/recipe-placeholder.png";
               var image = ( recipes[i].recipe_image_url == null ) ? placeholder : recipes[i].recipe_image_url;
               %>
-                <div class="col-sm-6 col-md-4 recipe-item" id="recipe-<%= recipes[i].recipe_id %>">
-                  <div class="card mb-5">
+                <div class="col-sm-6 col-md-4 recipe-item">
+                  <div class="card mb-5" id="recipe-<%= recipes[i].recipe_id %>">
                     <a href="/recipes/<%= recipes[i].recipe_id %>">
                       <img class="card-img-top" src="<%= image %>">
                     </a>
@@ -100,12 +100,15 @@
         <% include partials/footer %>
         <% include partials/script %>
         
-        <!-- <% const recipeList = recipes %> -->
 
         <script>
           $('.nav-browse').addClass('active');
           // make the recipes list available to the js file below
            const recipeList = <%- JSON.stringify(recipes) %>;
+           const significantRecipes = {
+             liked: <%- JSON.stringify(likedRecipes) %>,
+             disliked: <%- JSON.stringify(dislikedRecipes) %>,
+           };
         </script>
 
         <script src="/javascripts/browse.js"></script>

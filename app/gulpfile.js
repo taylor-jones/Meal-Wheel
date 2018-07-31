@@ -9,8 +9,21 @@ gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
     proxy: 'http://localhost:5000',
     files: ['../app/**/*.*'],
-    // browser: 'google chrome',
     port: 7000,
+    notify: {
+      styles: [
+        'display: none; ',
+        'padding: 6px 15px 3px;',
+        'position: fixed;',
+        'font-size: 0.8em;',
+        'z-index: 9999;',
+        'left: 0px;',
+        'bottom: 0px;',
+        'color: rgb(74, 74, 74);',
+        'background-color: rgb(17, 17, 17);',
+        'color: rgb(229, 229, 229);',
+      ],
+    },
   });
 });
 

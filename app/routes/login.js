@@ -24,12 +24,12 @@ router.post('/', (req, res, next) => {
         feedback: feedback,
         session: req.session,
       });
-    }
-
+    } else {
     // otherwise, the login was successful.
     // setup the session data & redirect to home page.
     req.session.user = result[0];
     res.redirect('../');
+    }
   });
 });
 

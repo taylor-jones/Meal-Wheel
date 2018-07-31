@@ -21,6 +21,7 @@ const recipeCategoryRouter = require('./routes/recipeCategory');
 const recipeSignificanceTypeRouter = require('./routes/recipeSignificanceType');
 const unitOfMeasureRouter = require('./routes/unitOfMeasure');
 const userProfileRouter = require('./routes/userProfile');
+const userRouter = require('./routes/user');
 
 
 
@@ -62,6 +63,7 @@ app.use('/recipe-categories', recipeCategoryRouter);
 app.use('/recipe-significance-types', recipeSignificanceTypeRouter);
 app.use('/units-of-measure', unitOfMeasureRouter);
 app.use('/userProfile', userProfileRouter);
+app.use('/users', userRouter);
 
 
 // catch 404 and forward to error handler
