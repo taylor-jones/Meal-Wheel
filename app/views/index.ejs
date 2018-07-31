@@ -26,7 +26,7 @@
 
               <!-- Recipe Category -->
               <div class="form-group text-left">
-                <select class="form-control" name="category" id="category">
+                <select class="form-control" name="recipe_category_id" id="category">
                   <option value="null">Category</option>
                   <% for ( let i = 0; i < categories.length; i++ ) {
                     const selected = ( categories[i].recipe_category_name == "Main Course" ) ? "selected" : ""; %>
@@ -37,7 +37,7 @@
 
               <!-- Recipe Cuisine -->
               <div class="form-group">
-                <select class="form-control" name="cuisine" id="cuisine">
+                <select class="form-control" name="cuisine_id" id="cuisine">
                   <option value="null" selected>Cuisine</option>
                   <% for (let i = 0; i < cuisines.length; i++) { %>
                     <option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
@@ -47,7 +47,7 @@
 
               <!-- Dietary Restrictions -->
               <div class="form-group">
-                <select class="form-control" name="diet" id="diet">
+                <select class="form-control" name="dietary_restriction_id" id="diet">
                   <option value="null" selected>Deitary Restriction</option>
                   <% for (let i = 0; i < diets.length; i++) { %>
                     <option value="<%= diets[i].dietary_restriction_id %>"><%= diets[i].dietary_restriction_name %></option>
