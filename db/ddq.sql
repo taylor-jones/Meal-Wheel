@@ -130,8 +130,6 @@ CREATE TABLE recipe (
   recipe_description text,
   user_id int(11),
   recipe_category_id int(11) NOT NULL,
-  preparation_time int(11),
-  cook_time int(11),
   created_date timestamp DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES app_user(user_id) ON UPDATE CASCADE ON DELETE SET NULL,
   FOREIGN KEY (recipe_category_id) REFERENCES recipe_category(recipe_category_id) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -256,7 +254,7 @@ INSERT INTO
   `app_user` (user_name, user_email, user_password)
 VALUES
   ('Andrew Soback','sobacka@oregonstate.edu','12345'),
-  ('Recipe King','recipe@king.com','12345'),
+  ('Recipe Wizard','recipe@wizard.com','12345'),
   ('Demo User', 'demo@demo.com', 'demo'),
   ('user', 'user@example.com', 'password');
   
@@ -1107,19 +1105,16 @@ INSERT INTO
     recipe_instructions,
     recipe_category_id,
     recipe_image_url,
-    user_id,
-    preparation_time,
-    cook_time,
+    user_id
   )
 VALUES
   ('BLT','Bacon, lettuce, and tomato sandwich', 
     'Cook bacon until crispy, then drain on paper towels.\n\nToast the 8 slices of bread.\n\nSpread 1 tablespoon mayo on each slice of toasted bread. (More or less, to taste).\n\nAdd 1 slice of lettuce to 4 pieces of mayo-spreaded toast.\n\nAdd 2 slices of tomato on top of lettuce.\n\nArrange 3 slices of bacon evenly on top of tomato. (Break bacon slices in half to fit, if needed.).\n\nAdd 1 slice of lettuce on top of bacon.\n\nPut the remaining 4 pieces of mayo-spreaded toast on top to finish the sandwiches.\n\nEnjoy!', 
-    1, 'http://i.imgur.com/DU2r9pP.jpg', 1, 10, 15),
+    1, 'http://i.imgur.com/DU2r9pP.jpg', 1),
   ('Beef and Broccoli','Simple delicious stirfry', 
-    'Whisk together the oyster sauce, sesame oil, sherry, soy sauce, sugar, and cornstarch in a bowl, and stir until the sugar has dissolved. Place the steak pieces into a shallow bowl, pour the oyster sauce mixture over the meat, stir to coat well, and marinate for at least 30 minutes in refrigerator.\n\nHeat vegetable oil in a wok or large skillet over medium-high heat, and stir in the ginger and garlic. Let them sizzle in the hot oil for about 1 minute to flavor the oil, then remove and discard. Stir in the broccoli, and toss and stir in the hot oil until bright green and almost tender, 5 to 7 minutes. Remove the broccoli from the wok, and set aside.\n\nPour a little more oil into the wok, if needed, and stir and toss the beef with the marinade until the sauce forms a glaze on the beef, and the meat is no longer pink, about 5 minutes. Return the cooked broccoli to the wok, and stir until the meat and broccoli are heated through, about 3 minutes.', 1, 'http://i.imgur.com/f9ENAF9.jpg', 1, 15, 30),
+    'Whisk together the oyster sauce, sesame oil, sherry, soy sauce, sugar, and cornstarch in a bowl, and stir until the sugar has dissolved. Place the steak pieces into a shallow bowl, pour the oyster sauce mixture over the meat, stir to coat well, and marinate for at least 30 minutes in refrigerator.\n\nHeat vegetable oil in a wok or large skillet over medium-high heat, and stir in the ginger and garlic. Let them sizzle in the hot oil for about 1 minute to flavor the oil, then remove and discard. Stir in the broccoli, and toss and stir in the hot oil until bright green and almost tender, 5 to 7 minutes. Remove the broccoli from the wok, and set aside.\n\nPour a little more oil into the wok, if needed, and stir and toss the beef with the marinade until the sauce forms a glaze on the beef, and the meat is no longer pink, about 5 minutes. Return the cooked broccoli to the wok, and stir until the meat and broccoli are heated through, about 3 minutes.', 1, 'http://i.imgur.com/f9ENAF9.jpg', 1),
   ('Watermelon Pitcher Margaritas','Delicious Margaritas designed to serve 5-6', 
-    'Bring 1/2 cup sugar, water, and orange zest in a small saucepan to boil, stirring constantly. Simmer until sugar is dissolved, about 3 minutes. Remove simple syrup from heat and allow to cool completely.\n\nPlace watermelon in a blender or food processor. Pulse until pureed.\n\nStir watermelon puree into a large pitcher with simple syrup, tequila, and lime juice.\n\nPlace a small amount of salt or sugar into a saucer. Rub edge of margarita glasses with a lime wedge to moisten. Lightly dip the rim of the glass into the saucer to rim the glass; tap off excess salt or sugar.\n\nFill rimmed glasses with crushed ice; pour margarita mixture into glasses and garnish with lime wedges to serve.', 3, 'http://i.imgur.com/edH3zxw.jpg', 3, 5, 0)
-    );
+    'Bring 1/2 cup sugar, water, and orange zest in a small saucepan to boil, stirring constantly. Simmer until sugar is dissolved, about 3 minutes. Remove simple syrup from heat and allow to cool completely.\n\nPlace watermelon in a blender or food processor. Pulse until pureed.\n\nStir watermelon puree into a large pitcher with simple syrup, tequila, and lime juice.\n\nPlace a small amount of salt or sugar into a saucer. Rub edge of margarita glasses with a lime wedge to moisten. Lightly dip the rim of the glass into the saucer to rim the glass; tap off excess salt or sugar.\n\nFill rimmed glasses with crushed ice; pour margarita mixture into glasses and garnish with lime wedges to serve.', 3, 'http://i.imgur.com/edH3zxw.jpg', 3);
   
 
   -- Recipe Cuisine
