@@ -72,8 +72,8 @@
               var placeholder = "/images/recipe-placeholder.png";
               var image = ( recipes[i].recipe_image_url == null ) ? placeholder : recipes[i].recipe_image_url;
               %>
-                <div class="col-sm-6 col-md-4 recipe-item">
-                  <div class="card mb-5" id="recipe-<%= recipes[i].recipe_id %>">
+                <div class="col-sm-6 col-md-4 recipe-item" id="recipe-<%= recipes[i].recipe_id %>">
+                  <div class="card mb-5">
                     <a href="/recipes/<%= recipes[i].recipe_id %>">
                       <img class="card-img-top" src="<%= image %>">
                     </a>
@@ -109,7 +109,7 @@
            const recipeList = <%- JSON.stringify(recipes) %>;
         </script>
 
-        <script src="/javascripts/browse.js"></script>
         <script src="/javascripts/recipeCards.js"></script>
+        <script src="/javascripts/browse.js"></script>
     </body>
 </html>

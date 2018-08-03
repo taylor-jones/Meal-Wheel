@@ -8,7 +8,7 @@ $(function() {
   const $category = $('#recipe-category');
   const $cuisine = $('#recipe-cuisine');
   const $diet = $('#dietary-restriction');
-  const $search = $('#search');
+  // const $search = $('#search');
 
 
   /**
@@ -42,13 +42,14 @@ $(function() {
       });
     }
 
+    // console.log(matches || recipes);
     return matches || recipes;
   }
 
 
   function getCuisineFilter() {
     const val = sanitize($cuisine.val());
-    let matches = undefined;
+    let matches;
 
     if (val) {
       matches = recipes.filter((recipe) => {
@@ -58,13 +59,14 @@ $(function() {
       });
     }
 
+    // console.log(matches || recipes);
     return matches || recipes;
   }
 
 
   function getDietFilter() {
     const val = sanitize($diet.val());
-    let matches = undefined;
+    let matches;
 
     if (val) {
       matches = recipes.filter((recipe) => {
@@ -74,6 +76,7 @@ $(function() {
       });
     }
 
+    // console.log(matches || recipes);
     return matches || recipes;
   }
 
@@ -92,6 +95,7 @@ $(function() {
       getDietFilter(),
     ];
 
+
     const matches = recipes.filter((r) => {
       return filters.every((f) => {
         return f.some((el) => el.recipe_id === r.recipe_id);
@@ -99,6 +103,7 @@ $(function() {
     });
 
     for (let i = 0; i < matches.length; i++) {
+      console.log(`#recipe-${matches[i].recipe_id}`);
       $(`#recipe-${matches[i].recipe_id}`).show();
     }
   }
