@@ -2,149 +2,138 @@
 <html lang="en">
   <% include partials/head %>
 
-  <body class="bg-cover bg-cover-faded">
+  <body class="bg-cover-faded">
 		<% include partials/navbar %>
 		
-    <div class="container-fluid text-center">
-       <h1 class="display-4"><%= page %></h1>
-    </div>
 
-    <!-- Main Container -->
-      <div class="container">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-xs-10 col-sm-10 col-md-8 col-xl-6">
-						<form action="/" method="POST">
+		<div class="container">
+			<h1 class="display-4 text-center mb-4"><%= page %></h1>
+
+			<div class="row justify-content-center align-items-center">
+				<div class="col-md-10 col-lg-8 col-xl-6">
+					<form action="/" method="POST">
+						
+						<div class="form-group">
+							<label for="recipe_name">Recipe Name</label>
+							<input type="text" name="recipe_name" id="recipe-name" class="form-control" required>
+						</div>
+
+						<div class="form-group">
+							<label for="recipe_description">Description</label>
+							<input type="text" name="recipe_description" id="recipe-description" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label for="recipe_instructions">Instructions</label>
+							<textarea name="recipe_instructions" id="recipe-instructions" cols="30" rows="4" class="form-control"></textarea>
+						</div>
+
+						<div class="form-group">
+							<label for="recipe_image_url">Image URL</label>
+							<input type="url" class="form-control" name="recipe_image_url" id="recipe-image-url" pattern="https://.*">
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-sm-6">
+								<label for="recipe_category_id">Category</label>
+								<select class="form-control selectpicker" name="recipe_category_id" id="recipe-category" title="Choose Category" data-selected-text-format="value" data-size="5 data-header="Select one Category" required>
+									<option value="" selected>Choose...</option>
+									<% for ( let i = 0; i < categories.length; i++ ) { %>
+										<option value="<%=categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name %></option>
+									<% } %>
+								</select>							
+							</div>
+
+							<div class="form-group col-sm-6">
+								<label for="cuisine_id">Cuisine</label>
+								<select class="form-control selectpicker" multiple name="cuisine_id" id="recipe-cuisine" title="Choose Cuisine" data-selected-text-format="count > 3" data-size="5" data-header="Select one or more Cuisine" data-width="100%" required>
+									<!-- <option value="" selected>Choose...</option> -->
+									<% for (let i = 0; i < cuisines.length; i++) { %>
+										<option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
+									<% } %>
+								</select>
+							</div>
+						</div>
+
+	
+
+						<div class="pb-3" id="recipe-ingredients">
+							<label for="ingredient_name">Ingredients</label>
+
+							<div class="form-row mb-1 ingredient-row">
+								<div class="input-group">
+									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
+									<input type="number" class="form-control form-control-sm" placeholder="Qty" name="amount" min="1" required>
+
+									<select class="custom-select" name="unit_of_measure_id">
+										<option value="" selected>Unit</option>
+										<option value="null">n/a</option>
+										<% for ( let i = 0; i < units.length; i++ ) { %>
+										<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
+										<% } %>
+									</select> 
+
+									<div class="input-group-append">
+										<button class="btn btn-danger remove-ingredient" type="button">
+											<i class="fas fa-times"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="form-row mb-1 ingredient-row">
+								<div class="input-group">
+									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
+									<input type="number" class="form-control form-control-sm" placeholder="Qty" name="amount" min="1" required>
+
+									<select class="custom-select" name="unit_of_measure_id">
+										<option value="" selected>Unit</option>
+										<option value="null">n/a</option>
+										<% for ( let i = 0; i < units.length; i++ ) { %>
+										<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
+										<% } %>
+									</select> 
+
+									<div class="input-group-append">
+										<button class="btn btn-danger remove-ingredient" type="button">
+											<i class="fas fa-times"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
 							
-							<div class="form-group">
-								<label for="recipe_name">Recipe Name</label>
-								<input type="text" name="recipe_name" id="recipe-name" class="form-control" required>
-							</div>
 
-							<div class="form-group">
-								<label for="recipe_description">Description</label>
-								<input type="text" name="recipe_description" id="recipe-description" class="form-control">
-							</div>
-
-							<div class="form-group">
-								<label for="recipe_instructions">Instructions</label>
-								<textarea name="recipe_instructions" id="recipe-instructions" cols="30" rows="4" class="form-control"></textarea>
-							</div>
-
-							<div class="form-group">
-								<label for="recipe_image_url">Image URL</label>
-								<input type="url" class="form-control" name="recipe_image_url" id="recipe-image-url" pattern="https://.*">
-							</div>
+						<div class="form-row justify-content-end mb-3">
+							<button type="button" class="btn btn-sm btn-secondary" id="add-ingredient-row">
+								<span><i class="fas fa-plus"></i></span>
+								<span class="ml-1">Add Ingredient</span>
+							</button>
+						</div>
 
 
-							<div class="form-row">
-								<div class="form-group col-sm-6">
-									<label for="recipe_category_id">Category</label>
-									<select required class="form-control" name="recipe_category_id" id="recipe-category">
-										<option value="" selected disabled hidden>---  Choose a Category  --</option>
-										<% for ( let i = 0; i < categories.length; i++ ) { %>
-											<option value="<%=categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name %></option>
-										<% } %>
-									</select>							
-								</div>
+						<div class="form-group mt-4 mb-5">
+							<input type="submit" value="Submit Recipe" id="submit-recipe" class="btn btn-lg btn-block btn-primary">
+						</div>
 
-								<div class="form-group col-sm-6">
-									<label for="cuisine_id">Cuisine</label>
-									<select class="form-control" name="cuisine_id" id="recipe-cuisine" required>
-										<option value="" selected disabled hidden>--  Choose a Cuisine  --</option>
-										<% for (let i = 0; i < cuisines.length; i++) { %>
-											<option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
-										<% } %>
-									</select>
-								</div>
-							</div>
-
-							<div class="form-group form-group-close" id="recipe-ingredients">
-								<div class="form-row">
-									<div class="form-group col-md-6">
-										<label for="ingredient_name">Ingredient</label>
-										<input type="text" name="ingredient_name" class="form-control" id="ingredient-name" required>
-									</div>
-
-									<div class="form-group col-sm-6 col-md-2">
-										<label for="amount">Amount</label>
-										<input type="number" name="amount" class="form-control" value="1" required min="1">
-									</div>
-									
-									<div class="form-group col-sm-6 col-md-4">
-										<label for="unit_of_measure_id">Unit</label>
-										<select class="form-control" name="unit_of_measure_id">
-											<option value="null" selected>n/a</option>
-											<% for ( let i = 0; i < units.length; i++ ) { %>
-												<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
-											<% } %>
-										</select> 
-									</div>
-								</div>
-
-
-								<div class="form-row">
-									<div class="form-group col-md-6">
-										<input type="text" name="ingredient_name" class="form-control" id="ingredient-name" required>
-									</div>
-
-									<div class="form-group col-sm-6 col-md-2">
-										<input type="number" name="amount" class="form-control" value="1" required min="1">
-									</div>
-									
-									<div class="form-group col-sm-6 col-md-4">
-										<select class="form-control" name="unit_of_measure_id">
-											<option value="null" selected>n/a</option>
-											<% for ( let i = 0; i < units.length; i++ ) { %>
-												<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
-											<% } %>
-										</select> 
-									</div>
-								</div>
-
-								<div class="form-row">
-									<div class="form-group col-md-6">
-										<input type="text" name="ingredient_name" class="form-control" id="ingredient-name" required>
-									</div>
-
-									<div class="form-group col-sm-6 col-md-2">
-										<input type="number" name="amount" class="form-control" value="1" required min="1">
-									</div>
-									
-									<div class="form-group col-sm-6 col-md-4">
-										<select class="form-control" name="unit_of_measure_id">
-											<option value="null" selected>n/a</option>
-											<% for ( let i = 0; i < units.length; i++ ) { %>
-												<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
-											<% } %>
-										</select> 
-									</div>
-								</div>
-							</div>
-
-
-							<div class="form-row justify-content-end">
-								<button type="button" class="btn btn-sm btn-secondary" id="add-ingredient-row">
-									<span><i class="fas fa-plus"></i></span>
-									<span class="ml-1">Add Ingredient</span>
-								</button>
-							</div>
-								
-							<div class="form-group mt-4">
-								<input type="submit" value="Submit Recipe" id="submit-recipe" class="btn btn-lg btn-block btn-primary">
-							</div>
-
-						</form>
-          </div>
-        </div>
-      </div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 
     <% include partials/footer %>
 		<% include partials/script %>
 		<script src="/javascripts/tools/bootstrap3-typeahead.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
 
 		<script>
 			const ingredientList = <%- JSON.stringify(ingredients) %>;
+			const unitList = <%- JSON.stringify(units) %>;
+
 			$('.nav-add-recipe').addClass('active');
 		</script>
 

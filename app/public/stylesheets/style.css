@@ -163,6 +163,26 @@ body.admin {
   margin-bottom: 0.25rem;
 }
 
+.form-control-sm {
+  max-width: 70px;
+}
+
+.custom-select {
+  font-size: 0.85rem;
+  max-width: 125px;
+}
+
+@media (min-width: 992px) {
+ .custom-select {
+   max-width: 175px;
+ }
+}
+
+.btn-select {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 
 
 /*
@@ -303,3 +323,26 @@ h1{
 p.keep-spacing {
   white-space: pre-wrap;
 }
+
+
+/*
+ * buttons
+ */
+
+ .btn-icon {
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: transparent;
+   border: none;
+   height: 100%;
+   width: 100%;
+ }
+
+ .btn-icon i {
+   background-color: red;
+   font-size: 1.5rem;
+   height: inherit;
+   width: inherit;
+ }

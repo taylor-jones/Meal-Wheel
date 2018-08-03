@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const helpers = require('../helpers');
 
 const Cuisines = require('../controllers/Cuisine');
 const Categories = require('../controllers/RecipeCategory');
@@ -40,8 +41,8 @@ router.get('/', (req, res, next) => {
             //  liked/disliked recipe arrays with the user's
             //  own significant recupe ids.
             if (user[0]) {
-              context.likedRecipes = mapSignificantRecipes(user[0].likedRecipes) || context.likedRecipes;
-              context.dislikedRecipes = mapSignificantRecipes(user[0].dislikedRecipes) || context.dislikedRecipes;
+              context.likedRecipes = helpers.mapObjectKey(user[0].likedRecipes, 'recipe_id') || context.likedRecipes;
+              context.dislikedRecipes = helpers.mapObjectKey(user[0].dislikedRecipes, 'recipe_id') || context.dislikedRecipes;
             }
 
             res.render('browse', context);
@@ -52,13 +53,6 @@ router.get('/', (req, res, next) => {
   });
 });
 
-
-
-function mapSignificantRecipes(jsonArr) {
-  return jsonArr.map((obj) => {
-    return obj.recipe_id;
-  });
-}
 
 
 module.exports = router;

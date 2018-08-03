@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
       UnitsOfMeasure.getAll((err, units) => {
         Ingredients.getAll((err, ingredients) => {
           res.render('addRecipe', {
-            page: 'Submit a new Recipe',
+            page: 'Add Recipe',
             menuId: 'add-recipe',
             cuisines: cuisines,
             categories: categories,

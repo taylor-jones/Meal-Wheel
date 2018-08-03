@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const helpers = require('../helpers');
 
 const Categories = require('../controllers/RecipeCategory');
 const Cuisines = require('../controllers/Cuisine');
@@ -83,8 +84,8 @@ router.post('/', (req, res, next) => {
 
         if (user[0]) {
           // determine the user's liked & disliked recipes
-          context.likedRecipes = mapSignificantRecipes(user[0].likedRecipes) || context.likedRecipes;
-          context.dislikedRecipes = mapSignificantRecipes(user[0].dislikedRecipes) || context.dislikedRecipes;
+          context.likedRecipes = helpers.mapObjectKey((user[0].likedRecipes), 'recipe_id') || context.likedRecipes;
+          context.dislikedRecipes = helpers.mapObjectKey((user[0].dislikedRecipes), 'recipe_id') || context.dislikedRecipes;
 
           // set the classes of the thumbs-up/down icons to reflect whether liked or disliked.
           const likedClass = (context.likedRecipes.includes(result.recipe_id) ? 'selected' : '');
@@ -104,10 +105,7 @@ router.post('/', (req, res, next) => {
         </div>`;
       }
 
-
-      res.send({
-        recipe: renderHTML
-      });
+      res.send({ recipe: renderHTML });
     });
   });
 
