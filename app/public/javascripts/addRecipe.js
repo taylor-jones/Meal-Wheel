@@ -1,9 +1,37 @@
 $(function() {
+  // cache DOM
   const $ingredientName = $('.ingredient-name');
+  const $amount = $('.ingredient-amount');
+  const $unitOfMeasure = $('.unit-of-measure');
+
+  const $recipeName = $('#recipe-name');
+  const $recipeDesc = $('#recipe-description');
+  const $recipeInstr = $('#recipe-instructions');
+  const $recipeImgUrl = $('#recipe-img-url');
+  const $recipeCategory = $('#recipe-category');
+  const $recipeCuisines = $('#recipe-cuisines');
+
+  const recipeForm = document.querySelector('#recipe-form');
+
+
+  /**
+   * Initialization
+   */
 
   // initialize typeahead for existing ingredient list items
   initTypeahead();
 
+  // selectpicker options and setup
+  $('.selectpicker').selectpicker({
+    style: 'btn-select',
+    size: 4,
+  });
+
+
+
+  /**
+   * Events
+   */
 
   // handle text changes for ingredients.
   $ingredientName.change(function() {
@@ -23,13 +51,6 @@ $(function() {
     }
   });
 
-
-
-  // selectpicker options and setup
-  $('.selectpicker').selectpicker({
-    style: 'btn-select',
-    size: 4,
-  });
 
 
   // adds a new recipe ingredient row
@@ -65,10 +86,48 @@ $(function() {
 
 
 
+  // remove an ingredient from the ingredient list
   $(document).on('click', '.remove-ingredient', function() {
     $(this).parents('.ingredient-row').remove();
   });
 
+
+  $('#submit-recipe').click(function(event) {
+    console.log($recipeCuisines.val());
+    let context = {};
+
+    if (recipeForm.checkValidity()) {
+      const req = new XMLHttpRequest();
+      req.open('POST', '/addRecipe', true);
+
+      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      req.addEventListener('load', function() {
+        if (req.status >= 200 && req.status < 400) {
+          const res = JSON.parse(req.responseText);
+          console.log(res);
+        }
+      });
+
+      context = {
+        recipe_name: $recipeName.val(),
+        recipe_description: $recipeDesc.val(),
+        recipe_instructions: $recipeInstr.val(),
+        recipe_image_url: $recipeImgUrl.val(),
+        recipe_category_id: $recipeCategory.val(),
+        cuisines: $recipeCuisines.val(),
+      };
+  
+
+      req.send(JSON.stringify(context));
+      event.preventDefault();
+    }
+  });
+
+
+
+  /**
+   * Functions
+   */
 
 
   // initialize typeahead for ingredient names
@@ -105,16 +164,5 @@ $(function() {
   }
 
 
-  /**
-   * Validates the ingredients to make sure that:
-   *  - there's at least one ingredient.
-   *  - each ingredient has an ingredient name
-   */
-
-
-
-  /**
-   * Creates a new ingredient with the name
-   */
 
 });

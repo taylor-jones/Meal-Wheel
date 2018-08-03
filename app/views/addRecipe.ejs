@@ -2,7 +2,7 @@
 <html lang="en">
   <% include partials/head %>
 
-  <body class="bg-cover-faded">
+  <body class="bg-cover bg-cover-faded">
 		<% include partials/navbar %>
 		
 
@@ -11,7 +11,7 @@
 
 			<div class="row justify-content-center align-items-center">
 				<div class="col-md-10 col-lg-8 col-xl-6">
-					<form action="/" method="POST">
+					<form id="recipe-form">
 						
 						<div class="form-group">
 							<label for="recipe_name">Recipe Name</label>
@@ -37,8 +37,7 @@
 						<div class="form-row">
 							<div class="form-group col-sm-6">
 								<label for="recipe_category_id">Category</label>
-								<select class="form-control selectpicker" name="recipe_category_id" id="recipe-category" title="Choose Category" data-selected-text-format="value" data-size="5 data-header="Select one Category" required>
-									<option value="" selected>Choose...</option>
+								<select class="form-control selectpicker" name="recipe_category_id" id="recipe-category" title="Choose Category" data-selected-text-format="value" data-size="5" data-header="Select one Category" required>
 									<% for ( let i = 0; i < categories.length; i++ ) { %>
 										<option value="<%=categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name %></option>
 									<% } %>
@@ -47,7 +46,7 @@
 
 							<div class="form-group col-sm-6">
 								<label for="cuisine_id">Cuisine</label>
-								<select class="form-control selectpicker" multiple name="cuisine_id" id="recipe-cuisine" title="Choose Cuisine" data-selected-text-format="count > 3" data-size="5" data-header="Select one or more Cuisine" data-width="100%" required>
+								<select class="form-control selectpicker" multiple name="cuisine_id" id="recipe-cuisines" title="Choose Cuisine(s)" data-selected-text-format="count > 3" data-size="5" data-header="Select one or more Cuisine" required>
 									<!-- <option value="" selected>Choose...</option> -->
 									<% for (let i = 0; i < cuisines.length; i++) { %>
 										<option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
@@ -64,11 +63,10 @@
 							<div class="form-row mb-1 ingredient-row">
 								<div class="input-group">
 									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
-									<input type="number" class="form-control form-control-sm" placeholder="Qty" name="amount" min="1" required>
+									<input type="number" class="form-control form-control-sm amount" placeholder="Qty" name="amount" min="1" required>
 
-									<select class="custom-select" name="unit_of_measure_id">
+									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
 										<option value="" selected>Unit</option>
-										<option value="null">n/a</option>
 										<% for ( let i = 0; i < units.length; i++ ) { %>
 										<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
 										<% } %>
@@ -86,11 +84,10 @@
 							<div class="form-row mb-1 ingredient-row">
 								<div class="input-group">
 									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
-									<input type="number" class="form-control form-control-sm" placeholder="Qty" name="amount" min="1" required>
+									<input type="number" class="form-control form-control-sm amount" placeholder="Qty" name="amount" min="1" required>
 
-									<select class="custom-select" name="unit_of_measure_id">
+									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
 										<option value="" selected>Unit</option>
-										<option value="null">n/a</option>
 										<% for ( let i = 0; i < units.length; i++ ) { %>
 										<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
 										<% } %>
