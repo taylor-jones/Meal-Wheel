@@ -15,7 +15,7 @@
 						
 						<div class="form-group">
 							<label for="recipe_name">Recipe Name</label>
-							<input type="text" name="recipe_name" id="recipe-name" class="form-control" required>
+							<input type="text" name="recipe_name" id="recipe-name" class="form-control">
 						</div>
 
 						<div class="form-group">
@@ -37,7 +37,7 @@
 						<div class="form-row">
 							<div class="form-group col-sm-6">
 								<label for="recipe_category_id">Category</label>
-								<select class="form-control selectpicker" name="recipe_category_id" id="recipe-category" title="Choose Category" data-selected-text-format="value" data-size="5" data-header="Select one Category" required>
+								<select class="form-control selectpicker" name="recipe_category_id" id="recipe-category" title="Choose Category" data-selected-text-format="value" data-size="5" data-header="Select one Category">
 									<% for ( let i = 0; i < categories.length; i++ ) { %>
 										<option value="<%=categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name %></option>
 									<% } %>
@@ -46,8 +46,7 @@
 
 							<div class="form-group col-sm-6">
 								<label for="cuisine_id">Cuisine</label>
-								<select class="form-control selectpicker" multiple name="cuisine_id" id="recipe-cuisines" title="Choose Cuisine(s)" data-selected-text-format="count > 3" data-size="5" data-header="Select one or more Cuisine" required>
-									<!-- <option value="" selected>Choose...</option> -->
+								<select class="form-control selectpicker" multiple name="cuisine_id" id="recipe-cuisines" title="Choose Cuisine(s)" data-selected-text-format="count > 3" data-size="5" data-header="Select one or more Cuisine">
 									<% for (let i = 0; i < cuisines.length; i++) { %>
 										<option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
 									<% } %>
@@ -62,8 +61,10 @@
 
 							<div class="form-row mb-1 ingredient-row">
 								<div class="input-group">
+									<input type="hidden" name="ingredient_id" class="ingredient-id">
+									<input type="hidden" name="food_group_id" class="food-group-id">
 									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
-									<input type="number" class="form-control form-control-sm amount" placeholder="Qty" name="amount" min="1" required>
+									<input type="number" class="form-control form-control-slim amount" placeholder="Qty" name="amount" min="1" required>
 
 									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
 										<option value="" selected>Unit</option>
@@ -83,8 +84,10 @@
 
 							<div class="form-row mb-1 ingredient-row">
 								<div class="input-group">
+									<input type="hidden" name="ingredient_id" class="ingredient-id">
+									<input type="hidden" name="food_group_id" class="food-group-id">
 									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
-									<input type="number" class="form-control form-control-sm amount" placeholder="Qty" name="amount" min="1" required>
+									<input type="number" class="form-control form-control-slim amount" placeholder="Qty" name="amount" min="1" required>
 
 									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
 										<option value="" selected>Unit</option>
@@ -116,6 +119,27 @@
 						</div>
 
 					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<div id="popover-food-group" class="popover d-none">
+			<div class="form-row mb-3">
+				<div class="form-group">
+					<select class="form-control form-control-sm" id="food-group-selector">
+						<option value="" selected disabled hidden>-- Select --</option>
+						<% for (let i = 0; i < foodGroups.length; i++ ) { %>
+							<option value="<%= foodGroups[i].food_group_id %>"><%= foodGroups[i].food_group_name %></option>
+						<% } %>
+					</select>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group">
+					<div class="btn btn-sm btn-secondary" id="food-group-cancel">Cancel</div>
+					<div class="btn btn-sm btn-primary" id="food-group-select">Select</div>
 				</div>
 			</div>
 		</div>

@@ -163,8 +163,12 @@ body.admin {
   margin-bottom: 0.25rem;
 }
 
-.form-control-sm {
+.form-control-slim {
   max-width: 70px;
+}
+
+.form-control-sm {
+  font-size: 0.9rem;
 }
 
 .custom-select {
