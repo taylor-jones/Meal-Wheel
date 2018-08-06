@@ -7,11 +7,11 @@
 		
 
 		<div class="container">
-			<h1 class="display-4 text-center mb-4"><%= page %></h1>
+			<h1 class="display-4 text-center mb-2"><%= page %></h1>
 
 			<div class="row justify-content-center align-items-center">
 				<div class="col-md-10 col-lg-8 col-xl-6">
-					<form id="recipe-form">
+					<form id="recipe-form" class="strong-labels">
 						<input type="hidden" name="recipe_id" id="recipe-id">
 						<input type="hidden" name="user_id" id="user-id">
 
@@ -27,7 +27,7 @@
 
 						<div class="form-group">
 							<label for="recipe_instructions">Instructions</label>
-							<textarea name="recipe_instructions" id="recipe-instructions" cols="30" rows="4" class="form-control"></textarea>
+							<textarea name="recipe_instructions" id="recipe-instructions" cols="30" rows="8" class="form-control"></textarea>
 						</div>
 
 						<div class="form-group">

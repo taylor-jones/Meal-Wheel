@@ -82,8 +82,14 @@
                       <p class="card-text"><%= recipes[i].recipe_description %></p>
 
 
-                      <div class="card-thumbs-wrapper">
+                      <div class="card-base">
                         <% if (locals.session && locals.session.user) { %>
+                          <% if (locals.session.user.user_id === recipes[i].user_id) { %>
+                            <a href="/recipes/<%= recipes[i].recipe_id %>/edit" class="card-edit">
+                              <i class="far fa-edit"></i>
+                            </a>
+                          <% } %>
+
                           <div class="card-thumbs">
                             <% const likedClass = (likedRecipes.includes(recipes[i].recipe_id) ? "selected" : "");
                               const dislikedClass = (dislikedRecipes.includes(recipes[i].recipe_id) ? "selected" : ""); %>

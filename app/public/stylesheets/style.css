@@ -189,6 +189,7 @@ body.admin {
 
 
 
+
 /*
  * Tables
  */
@@ -246,7 +247,7 @@ td.record-actions {
  }
 
 
- .card-thumbs-wrapper {
+ .card-base {
    align-items: flex-end;
    justify-content: flex-end;
    display: flex;
@@ -255,8 +256,8 @@ td.record-actions {
 
  .card:not(.card-normalized) .card-thumbs {
    position: absolute;
-   bottom: 0.5rem;
-   right: 0.5rem;
+   bottom: 0.75rem;
+   right: 0.75rem;
  }
 
  .card-thumbs i {
@@ -314,7 +315,7 @@ td.record-actions {
    margin-bottom: 0.5rem;
  }
 
- .card-normalized .card-thumbs-wrapper {
+ .card-base {
   align-items: flex-end;
   justify-content: flex-end;
   display: flex;
@@ -323,12 +324,23 @@ td.record-actions {
   padding-bottom: 0.75rem;
 }
 
+.card-flex .card-base {
+  margin-top: 1rem;
+}
+
+.card-edit {
+  flex: 1;
+  align-self: flex-start;
+  text-align: left;
+  padding-left: 0.75rem;
+}
+
  @media (min-width: 576px) {
-    .card-normalized {
+    .card-normalized:not(.card-flex) {
       min-height: 20rem;
     }
 
-    .card-normalized .card-img-top {
+    .card-normalized:not(.card-flex) .card-img-top {
       height: 10rem;
     }
 
@@ -355,11 +367,11 @@ td.record-actions {
  }
 
  @media (min-width: 992px) {
-    .card-normalized {
+    .card-normalized:not(.card-flex) {
       min-height: 23rem;
     }
 
-    .card-normalized .card-img-top {
+    .card-normalized:not(.card-flex) .card-img-top {
       height: 12rem;
     }
 
@@ -375,11 +387,11 @@ td.record-actions {
  }
 
  @media (min-width: 1200px) {
-   .card-normalized {
+   .card-normalized:not(.card-flex) {
      min-height: 22rem;
    }
 
-  .card-normalized .card-img-top {
+  .card-normalized:not(.card-flex) .card-img-top {
     height: 12rem;
   }
 
@@ -411,6 +423,13 @@ td.record-actions {
   border: none;
 }
 
+.strong-labels label {
+  font-weight: 500;
+  /* font-variant: small-caps; */
+  margin-bottom: 0;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
 
 
 /*

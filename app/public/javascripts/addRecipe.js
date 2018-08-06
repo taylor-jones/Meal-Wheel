@@ -176,6 +176,8 @@ $(function() {
   function loadExistingReipce() {
     const curr = currentRecipe;
 
+    $('#submit-recipe').val('Update Recipe');
+
     $recipeId.val(curr.recipe_id);
     $recipeName.val(curr.recipe_name);
     $recipeDesc.val(curr.recipe_description);
@@ -183,10 +185,15 @@ $(function() {
     $recipeImgUrl.val(curr.recipe_image_url);
     $recipeCategory.selectpicker('val', curr.recipe_category_id);
 
+    // cuisines
+    const cuisineArr = [];
     curr.cuisines.forEach((cuisine) => {
-      $recipeCuisines.selectpicker('val', cuisine.cuisine_id);
+      cuisineArr.push(cuisine.cuisine_id);
     });
 
+    $recipeCuisines.selectpicker('val', cuisineArr);
+
+    // ingredients
     for (let i = 0; i < curr.ingredients.length; i++) {
       if (i >= BASE_INGREDIENT_COUNT) {
         addIngredientRow();
