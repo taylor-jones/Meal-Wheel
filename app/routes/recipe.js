@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const helpers = require('../helpers');
+
 const Recipes = require('../controllers/Recipe');
 
 
@@ -20,6 +22,10 @@ router.get('/', (req, res, next) => {
 /* GET an individual recipe page. */
 router.get('/:id', (req, res, next) => {
   Recipes.getById(req.params.id, (err, recipe) => {
+    recipe[0].ingredients.forEach((ingredient) => {
+      ingredient.unit_of_measure_name = helpers.pluralize(ingredient.unit_of_measure_name);
+    });
+
     res.render('singleRecipe', {
       page: recipe.recipe_name,
       menuId: 'recipe',

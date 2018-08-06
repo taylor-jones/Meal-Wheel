@@ -39,8 +39,12 @@
                   <div class="tab-content pt-4">
                     <div class="tab-pane active" id="ingredients">
                       <ul class="recipe-ingredients">
-                        <% for (let i = 0; i < recipe.ingredients.length; i++) { %>
-                          <li><%= recipe.ingredients[i].amount %> <%= recipe.ingredients[i].unit_of_measure_name %> <%= recipe.ingredients[i].ingredient_name %></li>
+                        <% for (let i = 0; i < recipe.ingredients.length; i++) { 
+                            const qty = recipe.ingredients[i].amount;
+                            const uom = recipe.ingredients[i].unit_of_measure_name ? recipe.ingredients[i].unit_of_measure_name + ' of' : '';
+                            const ing = recipe.ingredients[i].ingredient_name;
+                          %>
+                          <li><%= qty %> <%= uom %> <%= ing %></li>
                         <% } %>
                       </ul>
                     </div>

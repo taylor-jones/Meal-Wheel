@@ -347,6 +347,11 @@ td.record-actions {
     .card-normalized .card-title {
       margin-bottom: 0.75rem;
     }
+
+    .card-single .card-body {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
  }
 
  @media (min-width: 992px) {
@@ -433,7 +438,7 @@ td.record-actions {
  * Typography
  */
 
-h1{
+body.bg-cover h1 {
   text-shadow: 2px 2px 2px rgba(22, 22, 22, .4);
 }
 

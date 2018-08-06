@@ -161,29 +161,6 @@ $(function() {
    */
 
 
-  // create records for each of the new ingredients in the recipe
-  //  (if applicable) before creating the recipe.
-  // function processNewIngredients(event) {
-  //   event.preventDefault();
-
-  //   console.log('processing ingredients');
-  //     $('.ingredient-row').each(function() {
-  //       const $el = $(this);
-  //       const $id = $el.find($ingredientId);
-
-  //       if (!$id.val()) {
-  //         if (!saveIngredient($id)) {
-
-  //           return false;
-  //         }
-  //       }
-  //     });
-
-  //     console.log('done processing ingredients');
-  //     return true;
-  // }
-
-
   // returns an array of ingredient ids corresponding
   //  to the ingredients in the recipe.
   function getIngredients() {
