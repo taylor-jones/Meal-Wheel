@@ -218,3 +218,47 @@ exports.getByFilter = (context, callback) => {
     callback(null, rows);
   });
 };
+
+
+
+exports.addNew = (columns, callback) => {
+  db.get().query(`
+    INSERT INTO recipe SET ?`, {
+    recipe_name: columns.recipe_name,
+    recipe_description: columns.recipe_description,
+    recipe_instructions: columns.recipe_instructions,
+    recipe_image_url: columns.recipe_image_url,
+    recipe_category_id: columns.recipe_category_id,
+    user_id: columns.user_id,
+  }, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
+
+exports.addIngredient = (columns, callback) => {
+  db.get().query(`
+    INSERT INTO recipe_ingredient SET ?`, {
+    recipe_id: columns.recipe_id,
+    ingredient_id: columns.ingredient_id,
+    amount: columns.amount,
+    unit_of_measure_id: columns.unit_of_measure_id,
+  }, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
+
+
+exports.addCuisine = (columns, callback) => {
+  db.get().query(`
+    INSERT INTO recipe_cuisine SET ?`, {
+    recipe_id: columns.recipe_id,
+    cuisine_id: columns.cuisine_id,
+  }, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};

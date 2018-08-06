@@ -35,11 +35,51 @@ exports.isNumeric = (value) => {
  * @returns primitive
  */
 exports.sanitize = (value) => {
-  if (value === 'null' || undefined) {
+  if (value == 'null' || !value || null) {
     return null;
+  } else if (typeof value === 'object') {
+    return this.sanitizeObj(value);
   } else if (this.isNumeric(value)) {
     return parseFloat(value);
   }
   return value;
 };
 
+
+/**
+ * @name sanitizeObj
+ */
+exports.sanitizeObj = (obj) => {
+  const newObj = {};
+
+  for (let prop in obj) {
+    newObj[prop] = this.sanitize(obj[prop]);
+  }
+
+  return newObj;
+};
+
+
+/**
+ * @name sanitizeJSON
+ */
+exports.sanitizeJSON = (jsonObj) => {
+  const obj = {};
+
+  for (let prop in jsonObj) {
+    if (Array.isArray(jsonObj[prop])) {
+      const arr = [];
+
+      for (let i = 0; i < jsonObj[prop].length; i++) {
+        arr.push(this.sanitize(jsonObj[prop][i]));
+      }
+
+      obj[prop] = arr;
+
+    } else {
+      obj[prop] = this.sanitize(jsonObj[prop]);
+    }
+  }
+
+  return obj;
+};

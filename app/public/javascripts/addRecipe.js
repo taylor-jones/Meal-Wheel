@@ -107,7 +107,7 @@ $(function() {
     const $lastRow = $('.ingredient-row:last');
     const $newRow = $lastRow.clone();
 
-    $newRow.find('input').attr('value', '');
+    $newRow.find('input').val('').text('');
     $lastRow.after($newRow);
 
     // re-initialize typehead and popover so that they
@@ -126,7 +126,6 @@ $(function() {
 
   // add the recipe to the db.
   $('#submit-recipe').click(function(event) {
-
     if (recipeForm.checkValidity()) {
       const req = new XMLHttpRequest();
       req.open('POST', '/addRecipe', true);
@@ -164,25 +163,25 @@ $(function() {
 
   // create records for each of the new ingredients in the recipe
   //  (if applicable) before creating the recipe.
-  function processNewIngredients(event) {
-    event.preventDefault();
+  // function processNewIngredients(event) {
+  //   event.preventDefault();
 
-    console.log('processing ingredients');
-      $('.ingredient-row').each(function() {
-        const $el = $(this);
-        const $id = $el.find($ingredientId);
+  //   console.log('processing ingredients');
+  //     $('.ingredient-row').each(function() {
+  //       const $el = $(this);
+  //       const $id = $el.find($ingredientId);
 
-        if (!$id.val()) {
-          if (!saveIngredient($id)) {
+  //       if (!$id.val()) {
+  //         if (!saveIngredient($id)) {
 
-            return false;
-          }
-        }
-      });
+  //           return false;
+  //         }
+  //       }
+  //     });
 
-      console.log('done processing ingredients');
-      return true;
-  }
+  //     console.log('done processing ingredients');
+  //     return true;
+  // }
 
 
   // returns an array of ingredient ids corresponding
@@ -190,13 +189,15 @@ $(function() {
   function getIngredients() {
     const ingredients = [];
 
-    $ingredientRow.each(function() {
+    $('.ingredient-row').each(function() {
       const $el = $(this);
 
       ingredients.push({
         ingredient_id: $el.find('.ingredient-id').val() || null,
         ingredient_name: $el.find('.ingredient-name').val(),
         food_group_id: $el.find('.food-group-id').val(),
+        amount: $el.find('.amount').val(),
+        unit_of_measure_id: $el.find('.unit-of-measure').val(),
       });
     });
 

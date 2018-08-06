@@ -245,7 +245,15 @@ td.record-actions {
    overflow: hidden;
  }
 
- .card-thumbs {
+
+ .card-thumbs-wrapper {
+   align-items: flex-end;
+   justify-content: flex-end;
+   display: flex;
+   flex: 1;
+ }
+
+ .card:not(.card-normalized) .card-thumbs {
    position: absolute;
    bottom: 0.5rem;
    right: 0.5rem;
@@ -274,7 +282,112 @@ td.record-actions {
  .bg-cover-faded .card:hover {
    box-shadow: 0 3px 4px 3px rgba(0, 0, 0, 0.1);
  }
+
+
+ .card-normalized {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+ }
+
+ .card-normalized .card-img-top {
+   flex: 1;
+ }
+
+ .card-normalized .card-body {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   flex: 1;
+   padding: 1.5rem 0 0;
+ }
+
+ .card-normalized .card-title {
+   flex: 1;
+   padding: 0 1rem;
+   margin-bottom: 1.5rem;
+ }
+
+ .card-normalized .card-text {
+   flex: 1;
+   padding: 0 1rem;
+   margin-bottom: 0.5rem;
+ }
+
+ .card-normalized .card-thumbs-wrapper {
+  align-items: flex-end;
+  justify-content: flex-end;
+  display: flex;
+  flex: 1;
+  padding-right: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+ @media (min-width: 576px) {
+    .card-normalized {
+      min-height: 20rem;
+    }
+
+    .card-normalized .card-img-top {
+      height: 10rem;
+    }
+
+    .card-normalized .card-title {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-normalized .card-text {
+      font-size: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+ }
  
+ @media (min-width: 768px) {
+    .card-normalized .card-title {
+      margin-bottom: 0.75rem;
+    }
+ }
+
+ @media (min-width: 992px) {
+    .card-normalized {
+      min-height: 23rem;
+    }
+
+    .card-normalized .card-img-top {
+      height: 12rem;
+    }
+
+    .card-normalized .card-title {
+      font-size: 1.1rem;
+      padding: 0 2rem;
+    }
+
+    .card-normalized .card-text {
+      font-size: 0.8rem;
+      padding: 0 2rem;
+    }
+ }
+
+ @media (min-width: 1200px) {
+   .card-normalized {
+     min-height: 22rem;
+   }
+
+  .card-normalized .card-img-top {
+    height: 12rem;
+  }
+
+   .card-normalized .card-title {
+     margin-bottom: 0.75rem;
+     font-size: 1rem;
+   }
+
+   .card-normalized .card-text {
+     font-size: 0.75rem;
+     margin-bottom: 0.5rem;
+   }
+ }
 
 
 /*
