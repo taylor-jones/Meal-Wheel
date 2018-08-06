@@ -208,7 +208,12 @@ router.post('/', (req, res, next) => {
       });
     });
 
-    res.send('success and refresh');
+    res.send(
+      `<strong>Success!</strong> The recipe was successfully created.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>`
+    );
   });
 });
 
@@ -223,11 +228,11 @@ router.post('/', (req, res, next) => {
 router.put('/', (req, res, next) => {
   const recipe = helpers.sanitizeJSON(req.body);
 
-  // update the new recipe
-  Recipes.updateById(recipe, (err, updated) => {
+  // update the recipe
+  Recipes.updateById(recipe.recipe_id, recipe, (err, updated) => {
     Recipes.removeIngredientsAll(recipe.recipe_id, (err, ingredientsRemoved) => {
       Recipes.removeCuisinesAll(recipe.recipe_id, (err, cuisinesRemoved) => {
-
+        
         // create any necessary ingredients
         recipe.ingredients.forEach((ingredient) => {
           if (!ingredient.ingredient_id) {
@@ -275,7 +280,12 @@ router.put('/', (req, res, next) => {
     });
 
 
-    res.send('success and refresh');
+    res.send(
+      `<strong>Success!</strong> The recipe was successfully updated.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>`
+    );
   });
 });
 

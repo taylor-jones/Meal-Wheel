@@ -94,7 +94,9 @@ exports.getIngredients = (id, callback) => {
     SELECT
     ri.ingredient_id,
       i.ingredient_name,
+      i.food_group_id,
       ri.amount,
+      u.unit_of_measure_id,
       u.unit_of_measure_name
     FROM recipe_ingredient AS ri
     INNER JOIN ingredient AS i ON ri.ingredient_id = i.ingredient_id

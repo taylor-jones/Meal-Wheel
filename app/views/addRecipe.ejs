@@ -32,7 +32,7 @@
 
 						<div class="form-group">
 							<label for="recipe_image_url">Image URL</label>
-							<input type="url" class="form-control" name="recipe_image_url" id="recipe-image-url" pattern="https://.*">
+							<input type="url" class="form-control" name="recipe_image_url" id="recipe-image-url">
 						</div>
 
 
@@ -83,7 +83,6 @@
 								</div>
 							</div>
 
-
 							<div class="form-row mb-1 ingredient-row">
 								<div class="input-group">
 									<input type="hidden" name="ingredient_id" class="ingredient-id">
@@ -98,6 +97,30 @@
 										<% } %>
 									</select> 
 
+									<div class="input-group-append">
+										<button class="btn btn-danger remove-ingredient" type="button">
+											<i class="fas fa-times"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-row mb-1 ingredient-row">
+								<div class="input-group">
+									<input type="hidden" name="ingredient_id" class="ingredient-id">
+									<input type="hidden" name="food_group_id" class="food-group-id">
+									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
+									<input type="number" class="form-control form-control-slim amount" placeholder="Qty" name="amount" min="1" required>
+							
+									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
+										<option value="" selected>Unit</option>
+										<% for ( let i = 0; i < units.length; i++ ) { %>
+											<option value="<%= units[i].unit_of_measure_id %>">
+												<%= units[i].unit_of_measure_name %>
+											</option>
+											<% } %>
+									</select>
+							
 									<div class="input-group-append">
 										<button class="btn btn-danger remove-ingredient" type="button">
 											<i class="fas fa-times"></i>
@@ -144,6 +167,14 @@
 					<div class="btn btn-sm btn-primary" id="food-group-select">Select</div>
 				</div>
 			</div>
+		</div>
+
+
+		<div class="alert alert-success alert-response alert-dismissible fade" role="alert" id="db-response">
+			<strong>Holy guacamole!</strong> You should check in on some of those fields below.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
 		</div>
 
 

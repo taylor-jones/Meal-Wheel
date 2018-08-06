@@ -1,16 +1,20 @@
 $(function() {
+  const BASE_INGREDIENT_COUNT = 3;
+
   // cache DOM
   const $ingredientName = $('.ingredient-name');
+  const $recipeId = $('#recipe-id');
   const $recipeName = $('#recipe-name');
   const $recipeDesc = $('#recipe-description');
   const $recipeInstr = $('#recipe-instructions');
-  const $recipeImgUrl = $('#recipe-img-url');
+  const $recipeImgUrl = $('#recipe-image-url');
   const $recipeCategory = $('#recipe-category');
   const $recipeCuisines = $('#recipe-cuisines');
   const $userId = $('#user-id');
   const $foodGroupSelector = $('#food-group-selector');
 
   const recipeForm = document.querySelector('#recipe-form');
+  const $dbResponse = $('#db-response');
 
 
   /**
@@ -34,7 +38,7 @@ $(function() {
   // TODO: make the changes needed to load a current recipe
   //   and set it up for editing rather than creating.
   if (currentRecipe) {
-    console.log('editing');
+    loadExistingReipce();
   } else {
     console.log('adding');
   }
@@ -108,16 +112,7 @@ $(function() {
 
   // adds a new recipe ingredient row
   $('#add-ingredient-row').click(function() {
-    const $lastRow = $('.ingredient-row:last');
-    const $newRow = $lastRow.clone();
-
-    $newRow.find('input').val('').text('');
-    $lastRow.after($newRow);
-
-    // re-initialize typehead and popover so that they
-    //  function for the newly added row.
-    initTypeahead();
-    initPopover();
+    addIngredientRow();
   });
 
 
@@ -141,11 +136,20 @@ $(function() {
       req.addEventListener('load', function() {
         if (req.status >= 200 && req.status < 400) {
           const res = req.responseText;
+
+          $dbResponse.html(req.responseText);
+          $dbResponse.addClass('show');
+
+          setTimeout(function() {
+            $dbResponse.removeClass('show');
+          }, 5000);
+
           console.log(res);
         }
       });
 
       const context = {
+        recipe_id: $recipeId.val(),
         recipe_name: $recipeName.val(),
         recipe_description: $recipeDesc.val(),
         recipe_instructions: $recipeInstr.val(),
@@ -167,6 +171,52 @@ $(function() {
   /**
    * Functions
    */
+
+   // loads an existing recipe into the form fields.
+  function loadExistingReipce() {
+    const curr = currentRecipe;
+
+    $recipeId.val(curr.recipe_id);
+    $recipeName.val(curr.recipe_name);
+    $recipeDesc.val(curr.recipe_description);
+    $recipeInstr.val(curr.recipe_instructions);
+    $recipeImgUrl.val(curr.recipe_image_url);
+    $recipeCategory.selectpicker('val', curr.recipe_category_id);
+
+    curr.cuisines.forEach((cuisine) => {
+      $recipeCuisines.selectpicker('val', cuisine.cuisine_id);
+    });
+
+    for (let i = 0; i < curr.ingredients.length; i++) {
+      if (i >= BASE_INGREDIENT_COUNT) {
+        addIngredientRow();
+      }
+
+      const $row = $('#recipe-ingredients').children(`.ingredient-row:nth-of-type(${i+1})`);
+      $row.find('.ingredient-id').val(curr.ingredients[i].ingredient_id);
+      $row.find('.food-group-id').val(curr.ingredients[i].food_group_id);
+      $row.find('.ingredient-name').val(curr.ingredients[i].ingredient_name);
+      $row.find('.amount').val(curr.ingredients[i].amount);
+      $row.find('.unit-of-measure').val(curr.ingredients[i].unit_of_measure_id);
+    }
+  }
+
+
+
+  // adds a new ingredient row to the UI
+  function addIngredientRow() {
+    const $lastRow = $('.ingredient-row:last');
+    const $newRow = $lastRow.clone();
+
+    $newRow.find('input').val('').text('');
+    $lastRow.after($newRow);
+
+    // re-initialize typehead and popover so that they
+    //  function for the newly added row.
+    initTypeahead();
+    initPopover();
+  }
+
 
   // returns an array of ingredient ids corresponding
   //  to the ingredients in the recipe.

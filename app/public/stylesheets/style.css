@@ -444,6 +444,7 @@ body.bg-cover h1 {
 
 p.keep-spacing {
   white-space: pre-wrap;
+  line-height: 125%;
 }
 
 
@@ -468,3 +469,16 @@ p.keep-spacing {
    height: inherit;
    width: inherit;
  }
+
+
+ /*
+  * alerts
+  */
+
+  .alert-response {
+    position: fixed;
+    top: 5rem;
+    right: 1rem;
+    margin-left: 2rem;
+    z-index: 100;
+  }
