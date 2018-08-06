@@ -48,6 +48,7 @@ exports.sanitize = (value) => {
 
 /**
  * @name sanitizeObj
+ * @description sanitizes an individual object.
  */
 exports.sanitizeObj = (obj) => {
   const newObj = {};
@@ -62,6 +63,7 @@ exports.sanitizeObj = (obj) => {
 
 /**
  * @name sanitizeJSON
+ * @description sanitizes a complete JSON object
  */
 exports.sanitizeJSON = (jsonObj) => {
   const obj = {};
@@ -85,8 +87,12 @@ exports.sanitizeJSON = (jsonObj) => {
 };
 
 
-
-
+/**
+ * @name pluralize
+ * @description pluralizes a term.
+ * @param {string} term 
+ * @returns the pluralized string OR null if term is not truthy.
+ */
 exports.pluralize = (term) => {
   if (term) {
     const len = term.length;

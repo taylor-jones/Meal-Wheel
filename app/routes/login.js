@@ -27,6 +27,7 @@ router.post('/', (req, res, next) => {
     } else {
     // otherwise, the login was successful.
     // setup the session data & redirect to home page.
+    req.session.cookie.maxAge = 14 * 24 * 60 * 60 * 1000;
     req.session.user = result[0];
     res.redirect('../');
     }

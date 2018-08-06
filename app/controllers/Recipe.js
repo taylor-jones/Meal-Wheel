@@ -262,3 +262,19 @@ exports.addCuisine = (columns, callback) => {
     callback(null, rows);
   });
 };
+
+
+exports.updateById = (id, columns, callback) => {
+  db.get().query(
+    `UPDATE recipe SET ? WHERE ingredient_id = ?;`, [{
+      recipe_name: columns.recipe_name,
+      recipe_description: columns.recipe_description,
+      recipe_instructions: columns.recipe_instructions,
+      recipe_image_url: columns.recipe_image_url,
+      recipe_category_id: columns.recipe_category_id,
+      user_id: columns.user_id,
+    }, id], (err, rows) => {
+      if (err) return callback(err, null);
+      callback(null, rows);
+    });
+};
