@@ -102,12 +102,11 @@
 
         </div><!-- /container -->
 
+
         <% include partials/footer %>
         <% include partials/script %>
         
-
         <script>
-          $('.nav-browse').addClass('active');
           // make the recipes list available to the js files below
            const recipeList = <%- JSON.stringify(recipes) %>;
         </script>

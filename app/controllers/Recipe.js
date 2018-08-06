@@ -161,7 +161,6 @@ exports.getByFilter = (context, callback) => {
     user_id, 
     recipe_category_id
   FROM recipe
-
   WHERE recipe_id IN (
     SELECT r.recipe_id
     FROM recipe AS r
@@ -204,8 +203,7 @@ exports.getByFilter = (context, callback) => {
 
   GROUP BY recipe_id
   ORDER BY RAND()
-  LIMIT 1;
-  `, [
+  LIMIT 1;`, [
     context.category,
     context.category,
     context.cuisine,
@@ -251,6 +249,27 @@ exports.addIngredient = (columns, callback) => {
 };
 
 
+exports.removeIngredient = (columns, callback) => {
+  db.get().query(`
+    DELETE FROM recipe_ingredient WHERE
+    recipe_id = ? AND ingredient_id = ?`, [
+      columns.recipe_id,
+      columns.ingredient_id,
+    ], (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
+
+exports.removeIngredientsAll = (id, callback) => {
+  db.get().query(`
+    DELETE FROM recipe_ingredient WHERE recipe_id = ?`, [id], (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
 
 exports.addCuisine = (columns, callback) => {
   db.get().query(`
@@ -258,6 +277,27 @@ exports.addCuisine = (columns, callback) => {
     recipe_id: columns.recipe_id,
     cuisine_id: columns.cuisine_id,
   }, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
+
+exports.removeCuisine = (columns, callback) => {
+  db.get().query(`
+    DELETE FROM recipe_cuisine WHERE 
+    recipe_id = ? AND cuisine_id = ?`, [
+    columns.recipe_id, columns.cuisine_id,
+  ], (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
+
+exports.removeCuisinesAll = (id, callback) => {
+  db.get().query(`
+    DELETE FROM recipe_cuisine WHERE recipe_id = ?`, [id], (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
   });

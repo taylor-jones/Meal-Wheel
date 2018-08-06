@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
   Diets.getAll((err, diets) => {
     res.render('diet', {
       page: 'Dietary Restrictions',
-      menuId: 'diets',
+      sidebarId: '#nav-diets',
       data: diets,
       session: req.session,
     });

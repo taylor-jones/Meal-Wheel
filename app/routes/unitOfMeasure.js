@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
   UnitsOfMeasure.getAll((err, unitsOfMeasure) => {
     res.render('unitOfMeasure', {
       page: 'Units of Measure',
-      menuId: 'unit-of-measure',
+      sidebarId: '#nav-unitsOfMeasure',
       data: unitsOfMeasure,
       session: req.session,
     });

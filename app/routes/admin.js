@@ -5,7 +5,6 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   res.render('admin', {
     page: 'Admin',
-    menuId: 'admin',
     session: req.session,
   });
 });

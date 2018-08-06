@@ -7,6 +7,7 @@ $(function() {
   const $recipeImgUrl = $('#recipe-img-url');
   const $recipeCategory = $('#recipe-category');
   const $recipeCuisines = $('#recipe-cuisines');
+  const $userId = $('#user-id');
   const $foodGroupSelector = $('#food-group-selector');
 
   const recipeForm = document.querySelector('#recipe-form');
@@ -27,6 +28,10 @@ $(function() {
   });
 
 
+  // check if a current recipe exists.
+  // if so, set the form up for editing the recipe.
+  
+
 
 
   /**
@@ -38,11 +43,8 @@ $(function() {
   });
 
 
-
   $(document).on('blur', '.ingredient-name', function() {
-    // console.log('blur');
     const $el = $(this);
-
     const ingredientId = $el.prev().prev().val();
     const foodGroupId = $el.prev().val();
 
@@ -122,9 +124,12 @@ $(function() {
   // add the recipe to the db.
   $('#submit-recipe').click(function(event) {
     if (recipeForm.checkValidity()) {
+      /* check for a recipe id. If one exists,
+        this is a PUT. Otherwise, it's a POST */
+      const method = $('#recipe-id').val() ? 'PUT' : 'POST';
       const req = new XMLHttpRequest();
-      req.open('POST', '/recipes', true);
 
+      req.open(method, '/recipes', true);
       req.setRequestHeader('Content-Type', 'application/json');
       req.addEventListener('load', function() {
         if (req.status >= 200 && req.status < 400) {
@@ -141,6 +146,7 @@ $(function() {
         recipe_category_id: $recipeCategory.val(),
         cuisines: $recipeCuisines.val(),
         ingredients: getIngredients(),
+        user_id: $userId.val(),
       };
 
       req.send(JSON.stringify(context));
@@ -154,7 +160,6 @@ $(function() {
   /**
    * Functions
    */
-
 
   // returns an array of ingredient ids corresponding
   //  to the ingredients in the recipe.
@@ -207,7 +212,6 @@ $(function() {
           } else if (a.ingredient_name > b.ingredient_name) {
             return 1;
           }
-
           return 0;
         });
       },
@@ -230,13 +234,11 @@ $(function() {
         },
       })
       .on('shown.bs.popover', function() {
-        // console.log('popover shown');
         // reset the food group selection
         $foodGroupSelector.children().removeAttr('selected');
         $foodGroupSelector.children().first().attr('selected', true);
       })
       .on('hidden.bs.popover', function() {
-        // console.log('popover hidden');
         const $el = $(this);
         const $parents = $el.parents('.ingredient-row');
         const $foodGroupId = $parents.find('.food-group-id');

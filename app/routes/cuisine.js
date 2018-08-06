@@ -8,7 +8,7 @@ router.get('/', (req, res, next) => {
   Cuisines.getAll((err, cuisines) => {
     res.render('cuisine', {
       page: 'Cuisines',
-      menuId: 'cuisine',
+      sidebarId: '#nav-cuisines',
       data: cuisines,
       session: req.session,
     });

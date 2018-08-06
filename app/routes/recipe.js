@@ -26,14 +26,14 @@ router.get('/add', (req, res, next) => {
           Ingredients.getAll((err, ingredients) => {
             res.render('addRecipe', {
               page: 'Add Recipe',
-              menuId: 'add-recipe',
+              menuClass: '.nav-add-recipe',
               cuisines: cuisines,
               categories: categories,
               ingredients: ingredients,
               units: units,
               foodGroups: foodGroups,
               session: req.session,
-              message: null,
+              recipe: null,
             });
           });
         });
@@ -41,6 +41,54 @@ router.get('/add', (req, res, next) => {
     });
   });
 });
+
+
+
+/* GET the edit recipe page */
+router.get('/:id/edit', (req, res, next) => {
+  FoodGroups.getAll((err, foodGroups) => {
+    Categories.getAll((err, categories) => {
+      Cuisines.getAll((err, cuisines) => {
+        UnitsOfMeasure.getAll((err, units) => {
+          Ingredients.getAll((err, ingredients) => {
+            Recipes.getById(req.params.id, (err, recipe) => {
+              res.render('addRecipe', {
+                page: 'Edit Recipe',
+                menuClass: '.nav-browse',
+                cuisines: cuisines,
+                categories: categories,
+                ingredients: ingredients,
+                units: units,
+                foodGroups: foodGroups,
+                session: req.session,
+                recipe: recipe[0],
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+});
+
+
+
+
+/* GET an individual recipe page. */
+router.get('/:id', (req, res, next) => {
+  Recipes.getById(req.params.id, (err, recipe) => {
+    recipe[0].ingredients.forEach((ingredient) => {
+      ingredient.unit_of_measure_name = helpers.pluralize(ingredient.unit_of_measure_name);
+    });
+
+    res.render('singleRecipe', {
+      page: recipe.recipe_name,
+      menuClass: '.nav-browse',
+      recipe: recipe[0],
+    });
+  });
+});
+
 
 
 
@@ -52,7 +100,6 @@ router.get('/', (req, res, next) => {
     Cuisines.getAll((err, cuisines) => {
       Diets.getAll((err, diets) => {
         Recipes.getAll((err, recipes) => {
-
           // replace the default user (0) with the session
           //  user, if one exists.
           if (req.session && req.session.user) {
@@ -62,7 +109,7 @@ router.get('/', (req, res, next) => {
           Users.getById(userId, (err, user) => {
             const context = {
               page: 'Browse',
-              menuId: 'browse',
+              menuClass: '.nav-browse',
               cuisines: cuisines,
               categories: categories,
               diets: diets,
@@ -89,37 +136,18 @@ router.get('/', (req, res, next) => {
 
 
 
-/* GET an individual recipe page. */
-router.get('/:id', (req, res, next) => {
-  Recipes.getById(req.params.id, (err, recipe) => {
-    recipe[0].ingredients.forEach((ingredient) => {
-      ingredient.unit_of_measure_name = helpers.pluralize(ingredient.unit_of_measure_name);
-    });
-
-    res.render('singleRecipe', {
-      page: recipe.recipe_name,
-      menuId: 'recipe',
-      recipe: recipe[0],
-    });
-  });
-});
-
-
-
 
 /* *************************************
  * POST
  * *************************************/
 
- /* POST a new recipe to the DB, */
+ /* Create a new recipe record, */
 router.post('/', (req, res, next) => {
   const recipe = helpers.sanitizeJSON(req.body);
 
-  // setup the recipe user_id
+  // give the new recipe to the signed in user, if one exists.
   if (req.session && req.session.user) {
     recipe.user_id = req.session.user.user_id;
-  } else {
-    recipe.user_id = null;
   }
 
   // create the new recipe
@@ -179,6 +207,73 @@ router.post('/', (req, res, next) => {
         }
       });
     });
+
+    res.send('success and refresh');
+  });
+});
+
+
+
+
+/* *************************************
+ * PUT
+ * *************************************/
+
+/* Update an existing recipce, */
+router.put('/', (req, res, next) => {
+  const recipe = helpers.sanitizeJSON(req.body);
+
+  // update the new recipe
+  Recipes.updateById(recipe, (err, updated) => {
+    Recipes.removeIngredientsAll(recipe.recipe_id, (err, ingredientsRemoved) => {
+      Recipes.removeCuisinesAll(recipe.recipe_id, (err, cuisinesRemoved) => {
+
+        // create any necessary ingredients
+        recipe.ingredients.forEach((ingredient) => {
+          if (!ingredient.ingredient_id) {
+            Ingredients.addNew({
+              ingredient_name: ingredient.ingredient_name,
+              food_group_id: ingredient.food_group_id,
+            }, (err, newIngredient) => {
+              if (err) next(err);
+              if (newIngredient) {
+                // create the recipe-ingredient record(s).
+                Recipes.addIngredient({
+                  recipe_id: recipe.recipe_id,
+                  ingredient_id: newIngredient.insertId,
+                  amount: ingredient.amount,
+                  unit_of_measure_id: ingredient.unit_of_measure_id,
+                }, (err, result) => {
+                  if (err) next(err);
+                });
+              }
+            });
+
+          } else {
+            // create the recipe-ingredient record(s).
+            Recipes.addIngredient({
+              recipe_id: recipe.recipe_id,
+              ingredient_id: ingredient.ingredient_id,
+              amount: ingredient.amount,
+              unit_of_measure_id: ingredient.unit_of_measure_id,
+            }, (err, result) => {
+              if (err) next(err);
+            });
+          }
+        });
+
+        // create recipe-cuisine record(s).
+        recipe.cuisines.forEach((cuisine) => {
+          Recipes.addCuisine({
+            recipe_id: recipe.recipe_id,
+            cuisine_id: cuisine,
+          }, (err, result) => {
+            if (err) next(err);
+          });
+        });
+      });
+    });
+
 
     res.send('success and refresh');
   });

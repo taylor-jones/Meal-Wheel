@@ -72,17 +72,14 @@
       <% include partials/footer %>
       <% include partials/script %>
 
-
       <script>
         window.requestRoute = <%- JSON.stringify(page).toLowerCase().replace(/\s/g, '-'); %>;
-        $('#nav-ingredients').addClass('active');
 
         $('tr').each(function() {
           const group = $(this).find('.food-group-id').text();
           $(this).find('[name="food_group_id"]').val(group);
         });
       </script>
-
 
       <script src="./javascripts/admin.js"></script>
     </body>
