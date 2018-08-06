@@ -30,7 +30,14 @@ $(function() {
 
   // check if a current recipe exists.
   // if so, set the form up for editing the recipe.
-  
+
+  // TODO: make the changes needed to load a current recipe
+  //   and set it up for editing rather than creating.
+  if (currentRecipe) {
+    console.log('editing');
+  } else {
+    console.log('adding');
+  }
 
 
 
