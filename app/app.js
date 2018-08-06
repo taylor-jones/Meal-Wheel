@@ -8,7 +8,6 @@ const session = require('express-session');
 
 const addRecipeRouter = require('./routes/addRecipe');
 const adminRouter = require('./routes/admin');
-const browseRouter = require('./routes/browse');
 const cuisineRouter = require('./routes/cuisine');
 const dietRouter = require('./routes/diet');
 const foodGroupRouter = require('./routes/foodGroup');
@@ -46,7 +45,6 @@ app.use(session({ secret: 'foo' }));
 app.use('/', indexRouter);
 app.use('/addRecipe', addRecipeRouter);
 app.use('/admin', adminRouter);
-app.use('/browse', browseRouter);
 app.use('/cuisines', cuisineRouter);
 app.use('/dietary-restrictions', dietRouter);
 app.use('/food-groups', foodGroupRouter);
