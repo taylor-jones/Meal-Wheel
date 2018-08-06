@@ -6,7 +6,6 @@ const path = require('path');
 const logger = require('morgan');
 const session = require('express-session');
 
-const addRecipeRouter = require('./routes/addRecipe');
 const adminRouter = require('./routes/admin');
 const cuisineRouter = require('./routes/cuisine');
 const dietRouter = require('./routes/diet');
@@ -43,7 +42,6 @@ app.use(session({ secret: 'foo' }));
  * Routes
  */
 app.use('/', indexRouter);
-app.use('/addRecipe', addRecipeRouter);
 app.use('/admin', adminRouter);
 app.use('/cuisines', cuisineRouter);
 app.use('/dietary-restrictions', dietRouter);

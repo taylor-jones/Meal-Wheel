@@ -1,11 +1,6 @@
 $(function() {
   // cache DOM
-  const $ingredientRow = $('.ingredient-row');
   const $ingredientName = $('.ingredient-name');
-  const $ingredientId = $('.ingredient-id');
-  const $amount = $('.ingredient-amount');
-  const $unitOfMeasure = $('.unit-of-measure');
-
   const $recipeName = $('#recipe-name');
   const $recipeDesc = $('#recipe-description');
   const $recipeInstr = $('#recipe-instructions');
@@ -128,7 +123,7 @@ $(function() {
   $('#submit-recipe').click(function(event) {
     if (recipeForm.checkValidity()) {
       const req = new XMLHttpRequest();
-      req.open('POST', '/addRecipe', true);
+      req.open('POST', '/recipes', true);
 
       req.setRequestHeader('Content-Type', 'application/json');
       req.addEventListener('load', function() {
@@ -260,38 +255,5 @@ $(function() {
         }
       });
   }
-
-
-
-
-function saveIngredient(element) {
-  console.log('saving ingredient');
-  const $row = element.parents('.ingredient-row');
-
-  const params = {
-    ingredient_name: $row.find('.ingredient-name').val(),
-    food_group_id: $row.find('.food-group-id').val(),
-  };
-
-  console.log(params);
-
-  const req = new XMLHttpRequest();
-  req.open('POST', '/ingredients', true);
-  req.setRequestHeader('Content-Type', 'application/json');
-  req.addEventListener('load', () => {
-    const res = JSON.parse(req.responseText);
-    if (req.status >= 200 && req.status < 400) {
-      element.val(res.insertId);
-      console.log('done adding ingredient');
-      return true;
-    } else {
-      console.log('err', res);
-      return false;
-    }
-  });
-
-  req.send(JSON.stringify(params));
-}
-
 
 });
