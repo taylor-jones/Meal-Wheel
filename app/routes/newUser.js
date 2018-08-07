@@ -26,12 +26,12 @@ router.post('/', (req, res, next) => {
     else{
     	User.getByCredentials(credentials, (err, result) => {
     	if (!result[0]) {
-	      	const feedback = 'The login attempt was unsuccessful.';
-	      	res.render('login', {
-		        page: 'Login',
-		        menuId: 'login',
-		        feedback: feedback,
-		        session: req.session,
+	      	const feedback = 'Something seems to have gone wrong.';
+	      	res.render('newUser', {
+		        page: 'Sign Up',
+				menuId: 'new-user',
+				session: req.session,
+			    feedback: feedback,
 		    });
     	} else {
 		    // otherwise, the login was successful.
