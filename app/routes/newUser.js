@@ -14,8 +14,15 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
     let credentials = req.body;
   	User.addNew(credentials, (err, result) => {
-    if (err)
-    	res.send(err);
+    if (err){
+    	const feedback = 'This username is already taken.';
+      	res.render('newUser', {
+	        page: 'Sign Up',
+			menuId: 'new-user',
+			session: req.session,
+	        feedback: feedback
+	    });
+    }
     else{
     	User.getByCredentials(credentials, (err, result) => {
     	if (!result[0]) {
