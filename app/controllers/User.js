@@ -75,11 +75,10 @@ exports.updateById = (context, callback) => {
 
 
 exports.addNew = (context, callback) => {
-  db.get().query(`
-    INSERT INTO app_user SET ?`, {
+  db.get().query(`INSERT INTO app_user SET ?`, {
     user_name: context.user_name,
     user_email: context.user_email,
-    user_password: context.user_password,
+    user_password: context.user_password
   }, (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
