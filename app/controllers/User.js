@@ -165,3 +165,50 @@ exports.removeRecipeSignificance = (context, callback) => {
     callback(null, result);
   });
 };
+
+
+exports.getLikedRecipes = (id, callback) => {
+  db.get().query(`
+  SELECT
+    recipe_id, 
+    recipe_name, 
+    recipe_image_url, 
+    recipe_instructions, 
+    recipe_description, 
+    user_id, 
+    recipe_category_id
+  FROM recipe
+  WHERE recipe_id IN (
+    SELECT recipe_id
+    FROM user_significant_recipe AS sr
+    WHERE sr.user_id = ?
+    AND sr.recipe_significance_type_id = 1
+  )
+  `, id, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
+exports.getDislikedRecipes = (id, callback) => {
+  db.get().query(`
+   SELECT
+    recipe_id, 
+    recipe_name, 
+    recipe_image_url, 
+    recipe_instructions, 
+    recipe_description, 
+    user_id, 
+    recipe_category_id
+  FROM recipe
+  WHERE recipe_id IN (
+    SELECT recipe_id
+    FROM user_significant_recipe AS sr
+    WHERE sr.user_id = ?
+    AND sr.recipe_significance_type_id = 2
+  )
+  `, id, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
