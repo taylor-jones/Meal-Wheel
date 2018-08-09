@@ -61,7 +61,7 @@ router.post('/', (req, res, next) => {
             <div class="card mb-5">
               <div class="card-body">
                 <h5 class="card-title">No Matching Recipe</h5>
-                <p class="card-text">Try chaging some parameters and spin again!</p>
+                <p class="card-text">Try changing some parameters and spin again!</p>
               </div>
             </div>
           </div>
