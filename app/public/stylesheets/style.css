@@ -260,10 +260,15 @@ td.record-actions {
    right: 0.75rem;
  }
 
- .card-thumbs i {
+ .card-base i {
    color: #ddd;
    margin: 0.25rem;
    cursor: pointer;
+   transition: color 150ms;
+ }
+
+ .card-base i:hover {
+   color: #bbb;
  }
 
  .card-thumbs i.selected {
@@ -278,6 +283,7 @@ td.record-actions {
 
  .bg-cover-faded .card {
    box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
+   transition: box-shadow 250ms;
  }
 
  .bg-cover-faded .card:hover {
