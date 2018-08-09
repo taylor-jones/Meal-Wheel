@@ -17,42 +17,55 @@
                 </div>
 
                 <div class="card-body">
-                  <% if (locals.session && locals.session.user) { %>
-                  <span class="card-thumbs text-right">
-                    <i class="far fa-thumbs-up recipe-like" id="recipe-<%= recipe.recipe_id %>-like"></i>
-                    <i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= recipe.recipe_id %>-dislike"></i>
-                  </span>
-                  <% } %>
+                  <div class="card-head">
+                    <% if (locals.session && locals.session.user) { %>
+                      <% if (locals.session.user.user_id === recipe.user_id) { %>
+                        <a href="/recipes/<%= recipe.recipe_id %>/edit" class="card-edit">
+                          <i class="far fa-edit"></i>
+                        </a>
+                      <% } %>
+
+                      <div class="card-thumbs">
+                        <% const likedClass = (likedRecipes.includes(recipe.recipe_id) ? "selected" : "");
+                          const dislikedClass = (dislikedRecipes.includes(recipe.recipe_id) ? "selected" : ""); %>
+                        <i class="far fa-thumbs-up recipe-like <%= likedClass %>" id="recipe-<%= recipe.recipe_id %>-like"></i>
+                        <i class="far fa-thumbs-down recipe-dislike <%= dislikedClass %>" id="recipe-<%= recipe.recipe_id %>-dislike"></i>
+                      </div>
+                    <% } %>
+                  </div>
 
                   <div class="card-title"><h4><%= recipe.recipe_name %></h4></div>
                   <div class="card-subtitle"><%= recipe.recipe_description %></div>
 
-                  <ul class="nav nav-tabs mt-4">
-                    <li class="nav-item">
-                      <a class="nav-link active" data-target="#ingredients" data-toggle="tab">Ingredients</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" data-target="#instructions" data-toggle="tab">Instructions</a>
-                    </li>
-                  </ul>
+                  <div class="card-content">
+                    <ul class="nav nav-tabs mt-4">
+                      <li class="nav-item">
+                        <a class="nav-link active" data-target="#ingredients" data-toggle="tab">Ingredients</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" data-target="#instructions" data-toggle="tab">Instructions</a>
+                      </li>
+                    </ul>
 
-                  <div class="tab-content pt-4">
-                    <div class="tab-pane active" id="ingredients">
-                      <ul class="recipe-ingredients">
-                        <% for (let i = 0; i < recipe.ingredients.length; i++) { 
-                            const qty = recipe.ingredients[i].amount;
-                            const uom = recipe.ingredients[i].unit_of_measure_name ? recipe.ingredients[i].unit_of_measure_name + ' of' : '';
-                            const ing = recipe.ingredients[i].ingredient_name;
-                          %>
-                          <li><%= qty %> <%= uom %> <%= ing %></li>
-                        <% } %>
-                      </ul>
-                    </div>
+                    <div class="tab-content pt-4">
+                      <div class="tab-pane active" id="ingredients">
+                        <ul class="recipe-ingredients">
+                          <% for (let i = 0; i < recipe.ingredients.length; i++) { 
+                              const qty = recipe.ingredients[i].amount;
+                              const uom = recipe.ingredients[i].unit_of_measure_name ? recipe.ingredients[i].unit_of_measure_name + ' of' : '';
+                              const ing = recipe.ingredients[i].ingredient_name;
+                            %>
+                            <li><%= qty %> <%= uom %> <%= ing %></li>
+                          <% } %>
+                        </ul>
+                      </div>
 
-                    <div class="tab-pane" id="instructions">
-                      <p class="keep-spacing"><%= recipe.recipe_instructions %></p>
+                      <div class="tab-pane" id="instructions">
+                        <p class="keep-spacing"><%= recipe.recipe_instructions %></p>
+                      </div>
                     </div>
                   </div>
+
                 </div><!-- card-body -->
               </div>
             </div>

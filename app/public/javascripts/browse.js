@@ -42,7 +42,6 @@ $(function() {
       });
     }
 
-    // console.log(matches || recipes);
     return matches || recipes;
   }
 
@@ -59,7 +58,6 @@ $(function() {
       });
     }
 
-    // console.log(matches || recipes);
     return matches || recipes;
   }
 
@@ -76,7 +74,6 @@ $(function() {
       });
     }
 
-    // console.log(matches || recipes);
     return matches || recipes;
   }
 

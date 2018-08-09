@@ -187,6 +187,17 @@ body.admin {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.form-row > .input-group, 
+.form-row > .input-group input[type="text"] {
+  border-radius: 4px 0 0 4px;
+}
+
+
+#recipe-ingredients {
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+
 
 
 
@@ -254,20 +265,17 @@ td.record-actions {
    flex: 1;
  }
 
- .card:not(.card-normalized) .card-thumbs {
-   position: absolute;
-   bottom: 0.75rem;
-   right: 0.75rem;
- }
 
- .card-base i {
+ .card-base i,
+ .card-head i {
    color: #ddd;
    margin: 0.25rem;
    cursor: pointer;
    transition: color 150ms;
  }
 
- .card-base i:hover {
+ .card-base i:hover,
+ .card-head i:hover {
    color: #bbb;
  }
 
@@ -275,11 +283,6 @@ td.record-actions {
    color: #007bff;
  }
 
- .card-single .card-thumbs {
-   font-size: 1.25rem;
-    bottom: auto;
-    right: 1.5rem;
- }
 
  .bg-cover-faded .card {
    box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
@@ -323,6 +326,26 @@ td.record-actions {
    flex: 1;
    padding: 0 1rem;
    margin-bottom: 0.5rem;
+ }
+
+ .card-single .card-body {
+   padding: 0 0 3rem 0;
+   position: relative;
+ }
+
+ .card-single .card-head {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   padding-right: 1.5rem;
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .card-head .card-thumbs {
+  flex: 1;
+  text-align: right;
  }
 
  .card-base {
@@ -370,7 +393,9 @@ td.record-actions {
       margin-bottom: 0.75rem;
     }
 
-    .card-single .card-body {
+    .card-single .card-title,
+    .card-single .card-subtitle,
+    .card-single .card-content {
       padding-left: 3rem;
       padding-right: 3rem;
     }
