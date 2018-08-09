@@ -2,19 +2,17 @@ $(function() {
   /**
    * Cache DOM
    */
-
   const recipes = recipeList; // recipeList is declared in browse.ejs
   const $recipeItem = $('.recipe-item');
   const $category = $('#recipe-category');
   const $cuisine = $('#recipe-cuisine');
   const $diet = $('#dietary-restriction');
-  // const $search = $('#search');
+  const $search = $('#search');
 
 
   /**
    * Event Handlers
    */
-
   $category.change(() => {
     updateRecipeDisplay();
   });
@@ -31,7 +29,6 @@ $(function() {
   /**
    * Functions -- Filters
    */
-
   function getCategoryFilter() {
     const val = sanitize($category.val());
     let matches = undefined;
@@ -85,13 +82,12 @@ $(function() {
     // hide all the recipes by default.
     $recipeItem.hide();
 
-    // then show only the recipes which match all filters.
+    // then show only the recipes which pass through all filters.
     const filters = [
       getCategoryFilter(),
       getCuisineFilter(),
       getDietFilter(),
     ];
-
 
     const matches = recipes.filter((r) => {
       return filters.every((f) => {
@@ -106,12 +102,10 @@ $(function() {
   }
 
 
-
   // checks if a value is numeric.
   function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
   }
-
 
   // Converts a value to its actual data type.
   function sanitize(value) {
