@@ -67,7 +67,7 @@ router.post('/', (req, res, next) => {
           </div>
         </div>`;
       } else {
-        const placeholder = '/images/recipe-placeholder.png';
+        const placeholder = '/images/pot.svg';
         const image = (result.recipe_image_url == null) ? placeholder : result.recipe_image_url;
 
         renderHTML = `

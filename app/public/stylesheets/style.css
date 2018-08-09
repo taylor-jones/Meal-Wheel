@@ -285,6 +285,10 @@ td.record-actions {
  }
 
 
+ .card-img-top {
+   background: #ddd;
+ }
+
  .card-normalized {
    display: flex;
    flex-direction: column;

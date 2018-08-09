@@ -68,9 +68,9 @@
           <!-- Browse Recipes -->
           <div class="browse-content">
             <div class="row">
-              <% for ( let i = 0; i < recipes.length; i++ ) {
-              var placeholder = "/images/recipe-placeholder.png";
-              var image = ( recipes[i].recipe_image_url == null ) ? placeholder : recipes[i].recipe_image_url;
+              <% for (let i = 0; i < recipes.length; i++) {
+                const placeholder = "/images/pot.svg";
+                const image = (recipes[i].recipe_image_url == null) ? placeholder : recipes[i].recipe_image_url;
               %>
                 <div class="col-sm-6 col-md-4 col-xl-3 recipe-item" id="recipe-<%= recipes[i].recipe_id %>">
                   <div class="card card-normalized mb-5">
