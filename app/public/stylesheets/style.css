@@ -524,6 +524,18 @@ p.keep-spacing {
    width: inherit;
  }
 
+ .btn-row {
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+ }
+
+ .btn-row .btn {
+   flex: 1;
+   margin-left: 1rem;
+   margin-right: 1rem;
+ }
+
 
  /*
   * alerts
