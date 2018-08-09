@@ -32,25 +32,110 @@
 								</div>
 								
                 <div class="form-group row mt-5">
-                  <div class="col-sm-2"></div>
-                  <button class="btn btn-secondary col-sm-4">Liked Recipes</button>
-                  <div class="col-sm-1"></div>
-                  <button class="col-sm-4 btn btn-danger">Disliked Recipes</button>
-                  <div class="col-sm-1"></div>
-								</div>
+	                <div class="col-sm-2"></div>
+	                <button id="likedButton" class="btn btn-secondary col-sm-4">Liked Recipes</button>
+	                <div class="col-sm-1"></div>
+	                <button id="dislikedButton" class="col-sm-4 btn btn-danger">Disliked Recipes</button>
+	                <div class="col-sm-1"></div>
+				</div>
 								
               </form>
             </div>
           </div>
         </div>
 
+        <!-- Liked Recipes -->
+          <div class="browse-content">
+            <div class="row">
+              <% 
+              var likedLength;
+              if(liked_recipes == null){likedLength = 0;} 
+              else{likedLength = liked_recipes.length;}
+              for ( let i = 0; i < likedLength; i++ ) {
+              var placeholder = "/images/recipe-placeholder.png";
+              var image = (liked_recipes[i].recipe_image_url == null ) ? placeholder : liked_recipes[i].recipe_image_url;
+              %>
+                <div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-liked" id="recipe-<%= liked_recipes[i].recipe_id %>">
+                  <div class="card card-normalized mb-5">
+                    <a href="/recipes/<%= liked_recipes[i].recipe_id %>">
+                      <img class="card-img-top card-img-normalized" src="<%= image %>">
+                    </a>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= liked_recipes[i].recipe_name %></h5>
+                      <p class="card-text"><%= liked_recipes[i].recipe_description %></p>
+
+
+                      <div class="card-base">
+                        <% if (locals.session && locals.session.user) { %>
+                          <% if (locals.session.user.user_id === liked_recipes[i].user_id) { %>
+                            <a href="/recipes/<%= liked_recipes[i].recipe_id %>/edit" class="card-edit">
+                              <i class="far fa-edit"></i>
+                            </a>
+                          <% } %>
+
+                          <div class="card-thumbs">
+                            <i class="far fa-thumbs-up recipe-like selected" id="recipe-<%= liked_recipes[i].recipe_id %>-like"></i>
+                          </div>
+                        <% } %>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+          </div>
+
+          <!-- Disliked Recipes -->
+          <div class="browse-content">
+            <div class="row">
+              <% 
+              var dislikedLength;
+              if(disliked_recipes == null){dislikedLength = 0;} 
+              else{dislikedLength = disliked_recipes.length;}
+              for ( let i = 0; i < dislikedLength; i++ ) {
+              var placeholder = "/images/recipe-placeholder.png";
+              var image = (disliked_recipes[i].recipe_image_url == null ) ? placeholder : disliked_recipes[i].recipe_image_url;
+              %>
+                <div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-disliked" id="recipe-<%= disliked_recipes[i].recipe_id %>">
+                  <div class="card card-normalized mb-5">
+                    <a href="/recipes/<%= disliked_recipes[i].recipe_id %>">
+                      <img class="card-img-top card-img-normalized" src="<%= image %>">
+                    </a>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= disliked_recipes[i].recipe_name %></h5>
+                      <p class="card-text"><%= disliked_recipes[i].recipe_description %></p>
+
+
+                      <div class="card-base">
+                        <% if (locals.session && locals.session.user) { %>
+                          <% if (locals.session.user.user_id === disliked_recipes[i].user_id) { %>
+                            <a href="/recipes/<%= disliked_recipes[i].recipe_id %>/edit" class="card-edit">
+                              <i class="far fa-edit"></i>
+                            </a>
+                          <% } %>
+
+                          <div class="card-thumbs">
+                            <i class="far fa-thumbs-up recipe-like selected" id="recipe-<%= disliked_recipes[i].recipe_id %>-like"></i>
+                          </div>
+                        <% } %>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+          </div>
+
 
         <% include partials/footer %>
-          <% include partials/script %>
+        <% include partials/script %>
 
             <script>
               $('.nav-profile').addClass('active');
             </script>
             <script src="/javascripts/recipeCards.js"></script>
+            <script src="/javascripts/userProfile.js"></script>
     </body>
 </html>
