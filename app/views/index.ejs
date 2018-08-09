@@ -6,14 +6,14 @@
       <% include partials/navbar %>
 
       <div class="container">
-        <div class="row justify-content-center align-items-center text-center">
+        <div class="row justify-content-center">
           <div class="col-xs-12">
             <!-- Main Centered Image -->
             <div class="mb-3"><img id="wheelImg" src="/images/carrotwheel.png"></div>
           </div>
         </div>
 
-        <div class="row justify-content-center align-items-center">
+        <div class="row justify-content-center">
           <div class="col-sm-8 col-md-6 col-lg-4">
 
             <!-- Recipe Wheel Form -->
@@ -25,18 +25,24 @@
               </div> -->
 
               <!-- Recipe Category -->
-              <div class="form-group text-left">
+              <div class="form-group">
+                <span class="form-control-clear">
+                  <i class="fas fa-times-circle"></i>
+                </span>
                 <select class="form-control" name="recipe_category_id" id="category">
                   <option value="null">Category</option>
                   <% for (let i = 0; i < categories.length; i++) {
                     const selected = (categories[i].recipe_category_name == 'Main Course') ? 'selected' : ''; %>
-                    <option value="<%=categories[i].recipe_category_id %>" <%=selected %>><%= categories[i].recipe_category_name %></option>
+                    <option value="<%=categories[i].recipe_category_id %>" <%= selected %>><%= categories[i].recipe_category_name %></option>
                   <% } %>
                 </select>
               </div>
 
               <!-- Recipe Cuisine -->
               <div class="form-group">
+                <span class="form-control-clear">
+                  <i class="fas fa-times-circle"></i>
+                </span>
                 <select class="form-control" name="cuisine_id" id="cuisine">
                   <option value="null" selected>Cuisine</option>
                   <% for (let i = 0; i < cuisines.length; i++) { %>
@@ -47,6 +53,9 @@
 
               <!-- Dietary Restrictions -->
               <div class="form-group">
+                <span class="form-control-clear">
+                  <i class="fas fa-times-circle"></i>
+                </span>
                 <select class="form-control" name="dietary_restriction_id" id="diet">
                   <option value="null" selected>Deitary Restriction</option>
                   <% for (let i = 0; i < diets.length; i++) { %>

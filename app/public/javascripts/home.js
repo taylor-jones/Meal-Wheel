@@ -42,6 +42,20 @@
    const cuisine = document.querySelector('#cuisine');
    const diet = document.querySelector('#diet');
 
+  const $clear = $('.form-control-clear');
+
+  // clear any of the filters
+  $clear.click(function() {
+    const $next = $(this).next();
+
+    if ($next.is('input')) {
+      $next.val('');
+    } else {
+      $next.prop('selectedIndex', 0);
+    }
+  });
+
+
    /**
     * Random recipe button click event handler
     */

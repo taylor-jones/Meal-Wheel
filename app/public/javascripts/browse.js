@@ -8,7 +8,7 @@ $(function() {
   const $cuisine = $('#recipe-cuisine');
   const $diet = $('#dietary-restriction');
   const $search = $('#search');
-
+  const $clear = $('.form-control-clear');
 
   /**
    * Event Handlers
@@ -22,6 +22,20 @@ $(function() {
   });
 
   $diet.change(() => {
+    updateRecipeDisplay();
+  });
+
+
+  // clear any of the filters
+  $clear.click(function() {
+    const $next = $(this).next();
+
+    if ($next.is('input')) {
+      $next.val('');
+    } else {
+      $next.prop('selectedIndex', 0);
+    }
+
     updateRecipeDisplay();
   });
 
@@ -96,7 +110,6 @@ $(function() {
     });
 
     for (let i = 0; i < matches.length; i++) {
-      console.log(`#recipe-${matches[i].recipe_id}`);
       $(`#recipe-${matches[i].recipe_id}`).show();
     }
   }

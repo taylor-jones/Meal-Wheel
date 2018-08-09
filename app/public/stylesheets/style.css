@@ -171,6 +171,21 @@ body.admin {
   font-size: 0.9rem;
 }
 
+.form-control-clear {
+  color: #ddd;
+  cursor: pointer;
+  font-size: inherit;
+  height: 100%;
+  padding-top: 0.35rem;
+  position: absolute;
+  right: 40px;
+  transition: 150ms color;
+}
+
+.form-control-clear:hover {
+  color: #bbb;
+}
+
 .custom-select {
   font-size: 0.85rem;
   max-width: 125px;
@@ -192,11 +207,11 @@ body.admin {
   border-radius: 4px 0 0 4px;
 }
 
-
 #recipe-ingredients {
   padding-left: 0.3rem;
   padding-right: 0.3rem;
 }
+
 
 
 
@@ -460,11 +475,11 @@ td.record-actions {
 
 .strong-labels label {
   font-weight: 500;
-  /* font-variant: small-caps; */
   margin-bottom: 0;
   margin-top: 1rem;
   font-size: 0.9rem;
 }
+
 
 
 /*

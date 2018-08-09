@@ -13,6 +13,9 @@
             <div class="row justify-content-center align-items-center">
               <div class="col-lg-8">
                 <div class="form-group">
+                <span class="form-control-clear">
+                  <i class="fas fa-times-circle"></i>
+                </span>
                   <input type="text" class="form-control" name="search" id="search" placeholder="Search...">
                 </div>
               </div>
@@ -26,6 +29,9 @@
                   <!-- Recipe Category -->
                   <div class="col-md-4">
                     <div class="form-group">
+                      <span class="form-control-clear">
+                        <i class="fas fa-times-circle"></i>
+                      </span>
                       <select class="form-control" name="recipe-category" id="recipe-category">
                         <option value="null" selected>Category</option>
                         <% for ( let i = 0; i < categories.length; i++ ) { %>
@@ -38,8 +44,11 @@
                   <!-- Recipe Cuisine -->
                   <div class="col-md-4">
                     <div class="form-group">
+                      <span class="form-control-clear">
+                        <i class="fas fa-times-circle"></i>
+                      </span>
                       <select class="form-control" name="recipe-cuisine" id="recipe-cuisine">
-                      <option value="null" selected>Cuisine</option>
+                      <option value="null" class="placeholder" selected>Cuisine</option>
                       <% for (let i = 0; i < cuisines.length; i++) { %>
                         <option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
                       <% } %>
@@ -50,6 +59,9 @@
                   <!-- Dietary Restrictions -->
                   <div class="col-md-4">
                     <div class="form-group">
+                      <span class="form-control-clear">
+                        <i class="fas fa-times-circle"></i>
+                      </span>
                       <select class="form-control" name="dietary-restriction" id="dietary-restriction">
                       <option value="null" selected>Dietary Restriction</option>
                       <% for (let i = 0; i < diets.length; i++) { %>
