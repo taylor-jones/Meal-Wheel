@@ -22,13 +22,14 @@ $(function() {
    */
 
   // initialize typeahead for existing ingredient list items
+  initValidationMessages();
   initTypeahead();
   initPopover();
 
   // selectpicker options and setup
   $('.selectpicker').selectpicker({
     style: 'btn-select',
-    size: 4,
+    size: 5,
   });
 
 
@@ -54,15 +55,13 @@ $(function() {
     const ingredientId = $el.prev().prev().val();
     const foodGroupId = $el.prev().val();
 
-    // if the ingredient doesn't exist yet,
-    //  prompt for the food group.
+    // if the ingredient doesn't exist yet, prompt for the food group.
     if (!ingredientId || !foodGroupId) {
       $el.popover('show');
     } else {
       $el.popover('hide');
     }
   });
-
 
 
   $(document).on('change', '.ingredient-name', function() {
@@ -90,7 +89,6 @@ $(function() {
   });
 
 
-
   $(document).delegate('#food-group-select', 'click', function(e) {
     e.preventDefault();
     const element = $(this).parents('.popover');
@@ -104,12 +102,10 @@ $(function() {
   });
 
 
-
   // adds a new recipe ingredient row
   $('#add-ingredient-row').click(function() {
     addIngredientRow();
   });
-
 
 
   // remove an ingredient from the ingredient list
@@ -198,7 +194,6 @@ $(function() {
       $row.find('.unit-of-measure').val(curr.ingredients[i].unit_of_measure_id);
     }
   }
-
 
 
   // adds a new ingredient row to the UI
@@ -311,6 +306,12 @@ $(function() {
           $parents.find('.amount').focus();
         }
       });
+  }
+
+
+  // sets up an custom validation messages on the form.
+  function initValidationMessages() {
+    document.querySelector('#recipe-image-url').setCustomValidity('Please enter a valid URL');
   }
 
 });

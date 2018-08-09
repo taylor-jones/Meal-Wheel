@@ -32,7 +32,7 @@
 
 						<div class="form-group">
 							<label for="recipe_image_url">Image URL</label>
-							<input type="url" class="form-control" name="recipe_image_url" id="recipe-image-url">
+							<input type="url" class="form-control" name="recipe_image_url" id="recipe-image-url" placeholder="http(s):\\www.url.com">
 						</div>
 
 
@@ -48,7 +48,7 @@
 
 							<div class="form-group col-sm-6">
 								<label for="cuisine_id">Cuisine</label>
-								<select class="form-control selectpicker" multiple name="cuisine_id" id="recipe-cuisines" title="Choose Cuisine(s)" data-selected-text-format="count > 3" data-size="5" data-header="Select one or more Cuisine">
+								<select class="form-control selectpicker" multiple name="cuisine_id" id="recipe-cuisines" title="Choose Cuisine(s)" data-selected-text-format="count > 2" data-size="5" data-header="Select one or more Cuisine">
 									<% for (let i = 0; i < cuisines.length; i++) { %>
 										<option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
 									<% } %>
