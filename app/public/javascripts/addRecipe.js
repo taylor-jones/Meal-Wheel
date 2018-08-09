@@ -34,13 +34,8 @@ $(function() {
 
   // check if a current recipe exists.
   // if so, set the form up for editing the recipe.
-
-  // TODO: make the changes needed to load a current recipe
-  //   and set it up for editing rather than creating.
   if (currentRecipe) {
     loadExistingReipce();
-  } else {
-    console.log('adding');
   }
 
 
@@ -135,16 +130,12 @@ $(function() {
       req.setRequestHeader('Content-Type', 'application/json');
       req.addEventListener('load', function() {
         if (req.status >= 200 && req.status < 400) {
-          const res = req.responseText;
-
           $dbResponse.html(req.responseText);
           $dbResponse.addClass('show');
 
           setTimeout(function() {
             $dbResponse.removeClass('show');
-          }, 5000);
-
-          console.log(res);
+          }, 3000);
         }
       });
 
