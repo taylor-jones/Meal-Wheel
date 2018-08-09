@@ -55,7 +55,7 @@
               var placeholder = "/images/recipe-placeholder.png";
               var image = (liked_recipes[i].recipe_image_url == null ) ? placeholder : liked_recipes[i].recipe_image_url;
               %>
-                <div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-liked" id="recipe-<%= liked_recipes[i].recipe_id %>">
+                <div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-liked" id="recipe-<%= liked_recipes[i].recipe_id %>" style="display: none;">
                   <div class="card card-normalized mb-5">
                     <a href="/recipes/<%= liked_recipes[i].recipe_id %>">
                       <img class="card-img-top card-img-normalized" src="<%= image %>">
@@ -97,7 +97,7 @@
               var placeholder = "/images/recipe-placeholder.png";
               var image = (disliked_recipes[i].recipe_image_url == null ) ? placeholder : disliked_recipes[i].recipe_image_url;
               %>
-                <div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-disliked" id="recipe-<%= disliked_recipes[i].recipe_id %>">
+                <div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-disliked" id="recipe-<%= disliked_recipes[i].recipe_id %>" style="display: none;">
                   <div class="card card-normalized mb-5">
                     <a href="/recipes/<%= disliked_recipes[i].recipe_id %>">
                       <img class="card-img-top card-img-normalized" src="<%= image %>">

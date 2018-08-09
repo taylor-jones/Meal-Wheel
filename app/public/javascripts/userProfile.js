@@ -7,21 +7,33 @@ const $recipeItem = $('.recipe-item');
 const $recipeItemLiked = $('.recipe-item-liked');
 const $recipeItemDisliked = $('.recipe-item-disliked');
 
-// hide all the recipes by default.
-$recipeItem.hide();
-
+var likedVisible = false;
+var dislikedVisible = false;
 	/**
 	* Event Handlers
 	*/
 
 $likedBtn.click(function(event){
-    showLiked();
+	if(likedVisible == true){
+		$recipeItem.hide();
+		likedVisible = false;
+	}
+	else{
+		showLiked();
+		likedVisible = true;
+	}
     event.preventDefault();
 });
 
 $dislikedBtn.click(function(event){
-    showDisliked();
-    event.stopImmediatePropagation();
+	if(dislikedVisible == true){
+		$recipeItem.hide();
+		dislikedVisible = false;
+	}
+	else{
+		showDisliked();
+		dislikedVisible = true;
+	}
     event.preventDefault();
 });
 
