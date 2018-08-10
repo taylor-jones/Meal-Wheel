@@ -90,7 +90,7 @@ router.get('/:id', (req, res, next) => {
 
       Users.getById(userId, (err, user) => {
         const context = {
-          page: recipe.recipe_name,
+          page: recipe[0].recipe_name,
           menuClass: '.nav-browse',
           session: req.session,
           recipe: recipe[0],
@@ -121,33 +121,36 @@ router.get('/', (req, res, next) => {
     Cuisines.getAll((err, cuisines) => {
       Diets.getAll((err, diets) => {
         Recipes.getAll((err, recipes) => {
-          // replace the default user (0) with the session
-          //  user, if one exists.
-          if (req.session && req.session.user) {
-            userId = req.session.user.user_id;
-          }
-
-          Users.getById(userId, (err, user) => {
-            const context = {
-              page: 'Browse',
-              menuClass: '.nav-browse',
-              cuisines: cuisines,
-              categories: categories,
-              diets: diets,
-              recipes: recipes,
-              session: req.session,
-              likedRecipes: [],
-              dislikedRecipes: [],
-            };
-
-            // if a session user was found, replace the empty liked/disliked
-            //  recipe arrays with the user's own significant recupe ids.
-            if (user[0]) {
-              context.likedRecipes = helpers.mapObjectKey(user[0].likedRecipes, 'recipe_id') || context.likedRecipes;
-              context.dislikedRecipes = helpers.mapObjectKey(user[0].dislikedRecipes, 'recipe_id') || context.dislikedRecipes;
+          Ingredients.getAll((err, ingredients) => {
+            // replace the default user (0) with the session
+            //  user, if one exists.
+            if (req.session && req.session.user) {
+              userId = req.session.user.user_id;
             }
-
-            res.render('browse', context);
+  
+            Users.getById(userId, (err, user) => {
+              const context = {
+                page: 'Browse',
+                menuClass: '.nav-browse',
+                cuisines: cuisines,
+                categories: categories,
+                diets: diets,
+                recipes: recipes,
+                ingredients: ingredients,
+                session: req.session,
+                likedRecipes: [],
+                dislikedRecipes: [],
+              };
+  
+              // if a session user was found, replace the empty liked/disliked
+              //  recipe arrays with the user's own significant recupe ids.
+              if (user[0]) {
+                context.likedRecipes = helpers.mapObjectKey(user[0].likedRecipes, 'recipe_id') || context.likedRecipes;
+                context.dislikedRecipes = helpers.mapObjectKey(user[0].dislikedRecipes, 'recipe_id') || context.dislikedRecipes;
+              }
+  
+              res.render('browse', context);
+            });
           });
         });
       });

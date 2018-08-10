@@ -123,12 +123,17 @@
 
         <% include partials/footer %>
         <% include partials/script %>
-        <script src="/javascripts/tools/bootstrap3-typeahead.min.js"></script>
-        <script src="/javascripts/tools/bloodhound.js"></script>
-        
+        <!-- <script src="/javascripts/tools/bootstrap3-typeahead.min.js"></script> -->
+        <!-- <script src="/javascripts/tools/bloodhound.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.bundle.min.js"></script>
+
         <script>
           // make the recipes list available to the js files below
            const recipeList = <%- JSON.stringify(recipes) %>;
+           const ingredientList = <%- JSON.stringify(ingredients) %>;
+           const categoryList = <%- JSON.stringify(categories) %>;
+           const cuisineList = <%- JSON.stringify(cuisines) %>;
+           const dietList = <%- JSON.stringify(diets) %>;
         </script>
 
         <script src="/javascripts/recipeCards.js"></script>

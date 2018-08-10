@@ -111,7 +111,6 @@ body.admin {
   position: -webkit-sticky;
   position: sticky;
   top: 48px;
-  /* Height of navbar */
   height: calc(100vh - 48px);
   padding-top: .5rem;
   overflow-x: hidden;
@@ -180,6 +179,7 @@ body.admin {
   position: absolute;
   right: 40px;
   transition: 150ms color;
+  z-index: 10;
 }
 
 .form-control-clear:hover {
@@ -213,6 +213,77 @@ body.admin {
 }
 
 
+
+
+/*
+ * search
+ */
+
+.twitter-typeahead {
+  width: 100%;
+}
+
+.tt-menu {
+  width: 100%;
+  background-color: #fff;
+  z-index: 20;
+  border-radius: 0 0 3px 3px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 0.25rem;
+}
+
+.tt-suggestion {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tt-highlight,
+.tt-cursor {
+  background: rgb(240, 248, 255);
+  z-index: 30;
+}
+
+.search-item {
+  padding: 0.25rem 1rem;
+  border-radius: inherit;
+}
+
+.search-item-name {
+  font-size: 0.9rem;
+}
+
+.search-item-type {
+  background-color: pink;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 400;
+  padding: 0.25rem;
+  text-align: center;
+  width: 5rem;
+}
+
+.search-item-recipe {
+  background-color: #90CAF9;
+}
+
+.search-item-ingredient {
+  background-color: #80CBC4;
+}
+
+.search-item-category {
+  background-color: #9FA8DA;
+}
+
+.search-item-cuisine {
+  background-color: #FFCC80;
+}
+
+.search-item-diet {
+  background-color: #ef9a9a;
+}
 
 
 
