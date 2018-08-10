@@ -13,127 +13,66 @@ $(function() {
   const $cuisine = $('#recipe-cuisine');
   const $diet = $('#dietary-restriction');
   const $search = $('#search');
+  const $typeahead = $('.twitter-typeahead');
   const $clear = $('.form-control-clear');
 
-
-
+  // array of all the recipe components
   let searchList = buildSearchList();
+  let $contingentFilter;
 
 
-function buildSearchList() {
-  const searchList = [];
 
-    recipes.forEach((recipe) => {
-      searchList.push({
-        id: recipe.recipe_id,
-        name: recipe.recipe_name,
-        is_recipe: true,
-        typeName: 'Recipe',
-        recipe_category_id: recipe.recipe_category_id,
-        cuisines: recipe.cuisines,
-        restrictedDiets: recipe.restrictedDiets,
-      });
-    });
+  // setup the recipe item seach.
+  const recipeSearch = new Bloodhound({
+      datumTokenizer: (data) => Bloodhound.tokenizers.whitespace(data.name),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      local: searchList,
+      sorter: (a, b) => {
+        const curr = $search.val();
 
-    ingredients.forEach((ingredient) => {
-      searchList.push({
-        id: ingredient.ingredient_id,
-        name: ingredient.ingredient_name,
-        typeName: 'Ingredient',
-        is_recipe: false,
-      });
-    });
-
-    categories.forEach((category) => {
-      searchList.push({
-        id: category.recipe_category_id,
-        name: category.recipe_category_name,
-        typeName: 'Category',
-        is_recipe: false,
-      });
-    });
-
-    cuisines.forEach((cuisine) => {
-      searchList.push({
-        id: cuisine.cuisine_id,
-        name: cuisine.cuisine_name,
-        typeName: 'Cuisine',
-        is_recipe: false,
-      });
-    });
-
-    diets.forEach((diet) => {
-      searchList.push({
-        id: diet.dietary_restriction_id,
-        name: diet.dietary_restriction_name,
-        typeName: 'Diet',
-        is_recipe: false,
-      });
-    });
-
-  return searchList;
-}
-
-
-// setup the recipe item seach.
-const recipeSearch = new Bloodhound({
-    datumTokenizer: (data) => Bloodhound.tokenizers.whitespace(data.name),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: searchList,
-    sorter: (a, b) => {
-      const curr = $search.val();
-
-      if (curr == a.name) {
-        return -1;
-      } else if (curr == b.name) {
-        return 1;
-      } else if (curr.toLowerCase() == a.name.toLowerCase()) {
-        return -1;
-      } else if (curr.toLowerCase() == b.name.toLowerCase()) {
-        return 1;
-      } else if (a.name < b.name) {
-        return -1;
-      } else if (a.name > b.name) {
-        return 1;
-      }
-      return 0;
-  },
-});
-
-// initialize the bloodhound suggestion engine
-recipeSearch.initialize();
-
-
-// instantiate the typeahead UI
-$search.typeahead(null, {
-  displayKey: 'name',
-  name: 'search-items',
-  source: recipeSearch.ttAdapter(),
-  templates: {
-    suggestion: (data) => {
-      return `
-        <div class="search-item">
-          <div class="search-item-name">${data.name}</div>
-          <div class="search-item-type search-item-${data.typeName.toLowerCase()}">${data.typeName}</div>
-        </div>`;
+        if (curr == a.name) {
+          return -1;
+        } else if (curr == b.name) {
+          return 1;
+        } else if (curr.toLowerCase() == a.name.toLowerCase()) {
+          return -1;
+        } else if (curr.toLowerCase() == b.name.toLowerCase()) {
+          return 1;
+        } else if (a.name < b.name) {
+          return -1;
+        } else if (a.name > b.name) {
+          return 1;
+        }
+        return 0;
     },
-    empty: [`<div class="search-empty">Hmm..No matches could be found.</div>`].join('\n'),
-  },
-});
+  });
+
+  // initialize the bloodhound suggestion engine
+  recipeSearch.initialize();
 
 
-// handle a search selection
-$search.bind('typeahead:select', function(ev, item) {
-  getSearchResults(item);
-});
+  // instantiate the typeahead UI
+  $search.typeahead(null, {
+    displayKey: 'name',
+    name: 'search-items',
+    source: recipeSearch.ttAdapter(),
+    templates: {
+      suggestion: (data) => {
+        return `
+          <div class="search-item">
+            <div class="search-item-name">${data.name}</div>
+            <div class="search-item-type search-item-${data.typeName.toLowerCase()}">${data.typeName}</div>
+          </div>`;
+      },
+      empty: [`<div class="search-empty">Hmm..No matches could be found.</div>`].join('\n'),
+    },
+  });
 
-// if the user presses enter, treat it as a selection of the first suggestion
-// $search.on('keyup', function(event) {
-//   if (event.which == 13) {
-//     event.preventDefault();
-//     $('.tt-selectable').first().click();
-//   }
-// });
+
+  // handle a search selection
+  $search.bind('typeahead:select', function(ev, item) {
+    getSearchResults(item);
+  });
 
 
   /**
@@ -154,18 +93,9 @@ $search.bind('typeahead:select', function(ev, item) {
 
   // clear any of the filters
   $clear.click(function() {
-    const $next = $(this).next();
-
-    if ($next.is('.twitter-typeahead')) {
-      // $next.children('input').val('').text('');
-      $search.typeahead('val','');
-    } else {
-      $next.prop('selectedIndex', 0);
-    }
-
+    clearFilter($(this).next());
     updateRecipeDisplay();
   });
-
 
 
 
@@ -241,8 +171,8 @@ $search.bind('typeahead:select', function(ev, item) {
 
   // returns the recipe(s) that have a qualifying match with the search query.
   function getSearchResults(item) {
-    if (item.is_recipe) {
-      // if it's a recipe, go directly to the recipe page.
+    if (item.typeName == 'Recipe') {
+      // go directly to the recipe page.
       window.location.href = `/recipes/${item.id}`;
     } else if (item.typeName == 'Ingredient') {
       // show only the recipes that have this ingredient.
@@ -250,19 +180,89 @@ $search.bind('typeahead:select', function(ev, item) {
       updateRecipeDisplay(matches);
     } else if (item.typeName == 'Cuisine') {
       // show only the recipes that have this cuisine.
+      $contingentFilter = $cuisine;
       $cuisine.val(item.id);
       $cuisine.change();
     } else if (item.typeName == 'Category') {
       // show only the recipes that have this category.
+      $contingentFilter = $category;
       $category.val(item.id);
       $category.change();
     } else if (item.typeName == 'Diet') {
       // show only the recipes that aren't restricted by this diet.
+      $contingentFilter = $diet;
       $diet.val(item.id);
       $diet.change();
     }
   }
 
+
+  // uses all of the recipe data to build the searchable array.
+  function buildSearchList() {
+    const searchList = [];
+
+    recipes.forEach((recipe) => {
+      searchList.push({
+        id: recipe.recipe_id,
+        name: recipe.recipe_name,
+        typeName: 'Recipe',
+        recipe_category_id: recipe.recipe_category_id,
+        cuisines: recipe.cuisines,
+        restrictedDiets: recipe.restrictedDiets,
+      });
+    });
+
+    ingredients.forEach((ingredient) => {
+      searchList.push({
+        id: ingredient.ingredient_id,
+        name: ingredient.ingredient_name,
+        typeName: 'Ingredient',
+      });
+    });
+
+    categories.forEach((category) => {
+      searchList.push({
+        id: category.recipe_category_id,
+        name: category.recipe_category_name,
+        typeName: 'Category',
+      });
+    });
+
+    cuisines.forEach((cuisine) => {
+      searchList.push({
+        id: cuisine.cuisine_id,
+        name: cuisine.cuisine_name,
+        typeName: 'Cuisine',
+      });
+    });
+
+    diets.forEach((diet) => {
+      searchList.push({
+        id: diet.dietary_restriction_id,
+        name: diet.dietary_restriction_name,
+        typeName: 'Diet',
+      });
+    });
+
+    return searchList;
+  }
+
+
+
+  // clears one or more of the browse filters
+  function clearFilter($element) {
+    if ($element.is('.twitter-typeahead')) {
+      $search.typeahead('val', '');
+    } else {
+      $element.prop('selectedIndex', 0);
+    }
+
+    if ($contingentFilter) {
+      const $temp = $contingentFilter;
+      $contingentFilter = null;
+      clearFilter($temp);
+    }
+  }
 
 
   // looks at each of the recipe filters and shows only the
