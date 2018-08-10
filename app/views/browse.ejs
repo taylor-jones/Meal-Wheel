@@ -85,7 +85,7 @@
                 const image = (recipes[i].recipe_image_url == null) ? placeholder : recipes[i].recipe_image_url;
               %>
                 <div class="col-sm-6 col-md-4 col-xl-3 recipe-item" id="recipe-<%= recipes[i].recipe_id %>">
-                  <div class="card card-normalized mb-5">
+                  <div class="card card-normalized card-flex mb-5" id="<%= recipes[i].recipe_id %>">
                     <a href="/recipes/<%= recipes[i].recipe_id %>">
                       <img class="card-img-top card-img-normalized" src="<%= image %>">
                     </a>
@@ -102,12 +102,12 @@
                             </a>
                           <% } %>
 
-                          <div class="card-thumbs">
+                          <span class="card-thumbs">
                             <% const likedClass = (likedRecipes.includes(recipes[i].recipe_id) ? "selected" : "");
-                              const dislikedClass = (dislikedRecipes.includes(recipes[i].recipe_id) ? "selected" : ""); %>
-                            <i class="far fa-thumbs-up recipe-like <%= likedClass %>" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
-                            <i class="far fa-thumbs-down recipe-dislike <%= dislikedClass %>" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
-                          </div>
+                              const dislikedClass = (dislikedRecipes.includes(recipes[i].recipe_id) ? "selected" : ""); %>  
+                              <i class="far fa-thumbs-up recipe-like <%= likedClass %>" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
+                              <i class="far fa-thumbs-down recipe-dislike <%= dislikedClass %>" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
+                          </span>
                         <% } %>
                       </div>
 

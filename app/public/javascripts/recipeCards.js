@@ -38,6 +38,8 @@ $(function() {
   // gets the recipe_id of a recipe displayed on a card.
   function getElementRecipeId(element) {
     const cardId = $(element).parents('.card').attr('id');
+    console.log($(element).parents('.card'));
+    console.log("card ID in recipeCards.js: ", cardId);
     return parseInt(cardId.replace(/\D/g, ''));
   }
 
