@@ -12,26 +12,21 @@ body {
   background: URL("../images/cuttingboard.min.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-}
-
-.bg-cover-shaded {
-  background: URL("../images/cuttingboard-shaded.min.jpg") no-repeat;
-  background-size: cover;
-  background-position: fixed;
+  background-attachment: fixed;
 }
 
 .bg-cover-faded:before {
   content: '';
   background: inherit;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  -webkit-filter: saturate(.55) brightness(115%) blur(3px);
-  -webkit-filter: saturate(.55) brightness(115%) blur(3px);
-  -moz-filter: saturate(.55) brightness(115%) blur(3px);
-  filter: saturate(.55) brightness(115%) blur(3px);
+  /* -webkit-filter: saturate(.55) brightness(115%) blur(3px); */
+  /* -webkit-filter: saturate(.55) brightness(115%) blur(3px); */
+  /* -moz-filter: saturate(.55) brightness(115%) blur(3px); */
+  /* filter: saturate(.55) brightness(115%) blur(3px); */
   z-index: -100;
 }
 
@@ -64,6 +59,7 @@ footer > .container {
   padding-right: 15px;
   padding-left: 15px;;
 }
+
 
 
 
@@ -635,6 +631,11 @@ p.keep-spacing {
    flex: 1;
    margin-left: 1rem;
    margin-right: 1rem;
+ }
+
+ .btn-inline {
+   width: 100%;
+   min-width: 170px;
  }
 
 
