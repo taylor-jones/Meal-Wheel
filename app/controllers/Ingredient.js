@@ -1,6 +1,14 @@
 const db = require('../bin/dbcon');
 
 
+exports.getCount = (callback) => {
+  db.get().query('SELECT COUNT(*) AS total FROM ingredient', (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows[0]);
+  });
+};
+
+
 exports.getAll = (callback) => {
   db.get().query(`
   SELECT 
@@ -16,6 +24,26 @@ exports.getAll = (callback) => {
     callback(null, rows);
   });
 };
+
+
+
+exports.getByRange = (context, callback) => {
+  db.get().query(`
+  SELECT 
+    i.ingredient_id, 
+    i.ingredient_name, 
+    fg.food_group_id,
+    fg.food_group_name
+  FROM ingredient As i
+    INNER JOIN food_group AS fg
+    ON i.food_group_id = fg.food_group_id
+  ORDER BY i.ingredient_name
+  LIMIT ? OFFSET ?`, [context.limit, context.offset], (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
 
 
 exports.getById = (id, callback) => {

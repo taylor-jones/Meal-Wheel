@@ -19,50 +19,102 @@
             </div>
 
             <form>
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead class="thead-light">
-                  <tr>
-                    <th>Ingredient</th>
-                    <th>Food Group</th>
-                  </tr>
-                </thead>
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead class="thead-light">
+                    <tr>
+                      <th>Ingredient</th>
+                      <th>Food Group</th>
+                    </tr>
+                  </thead>
 
-                <tbody>
-                <% for (let i = 0; i < data.length; i++) { %>
-                  <tr>
-                    <td class="d-none"><input type="text" value="<%= data[i].ingredient_id %>" name="ingredient_id"></td>
-                    <td class="d-none food-group-id"><%= data[i].food_group_id %></td>
-                    
-                    <td><input type="text" name="ingredient_name" class="form-control" value="<%= data[i].ingredient_name %>" required></td>
+                  <tbody>
+                  <% for (let i = 0; i < data.length; i++) { %>
+                    <tr>
+                      <td class="d-none"><input type="text" value="<%= data[i].ingredient_id %>" name="ingredient_id"></td>
+                      <td class="d-none food-group-id"><%= data[i].food_group_id %></td>
+                      
+                      <td><input type="text" name="ingredient_name" class="form-control" value="<%= data[i].ingredient_name %>" required></td>
 
-                    <td>
-                      <select name="food_group_id" class="form-control" required>
-                        <option value="" selected disabled hidden>-- Select --</option>
-                        <% for (let i = 0; i < foodGroups.length; i++ ) { %>
-                        <option value="<%=foodGroups[i].food_group_id %>"><%= foodGroups[i].food_group_name %></option>
-                        <% } %>
-                      </select>
-                    </td>
+                      <td>
+                        <select name="food_group_id" class="form-control" required>
+                          <option value="" selected disabled hidden>-- Select --</option>
+                          <% for (let i = 0; i < foodGroups.length; i++ ) { %>
+                          <option value="<%=foodGroups[i].food_group_id %>"><%= foodGroups[i].food_group_name %></option>
+                          <% } %>
+                        </select>
+                      </td>
 
-                    <td class="record-actions">
-                      <button type="button" class="btn btn-success btn-sm btn-save d-none" id="<%= 'save_' + data[i].ingredient_id %>">
-                        <i class="fas fa-save"></i>
-                      </button>
-                      <button type="button" class="btn btn-primary btn-sm btn-edit" id="<%= 'edit_' + data[i].ingredient_id %>">
-                        <i class="fas fa-pen"></i>
-                      </button>
-                      <button type="button" class="btn btn-danger btn-sm btn-delete" id="<%= 'delete_' + data[i].ingredient_id %>">
-                        <i class="far fa-trash-alt"></i>
-                      </button>
-                    </td>
+                      <td class="record-actions">
+                        <button type="button" class="btn btn-success btn-sm btn-save d-none" id="<%= 'save_' + data[i].ingredient_id %>">
+                          <i class="fas fa-save"></i>
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm btn-edit" id="<%= 'edit_' + data[i].ingredient_id %>">
+                          <i class="fas fa-pen"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm btn-delete" id="<%= 'delete_' + data[i].ingredient_id %>">
+                          <i class="far fa-trash-alt"></i>
+                        </button>
+                      </td>
 
-                  </tr>
-                <% } %>
-                </tbody>
-              </table>
-            </div>
+                    </tr>
+                  <% } %>
+                  </tbody>
+                </table>
+              </div>
             </form>
+
+
+            <% if (locals.context) {
+              let limit = context.limit; 
+              let first = context.offset;
+
+              if (first === 0) {
+                first = 1;
+              }
+
+              let last = first + limit - 1;
+              let prevOffset = first - limit;
+              let nextOffset = first + limit;
+
+              if (last > context.total) {
+                last = context.total;
+              }
+
+              if (prevOffset < 0) {
+                prefOffset = 0;
+              }
+
+              if (nextOffset + limit > context.total) {
+                limit = context.total - nextOffset + 1;
+              }
+
+              if (limit === 0) {
+                limit = 100;
+              }
+            %>
+
+            <div class="row justify-content-end pr-1 mt-3">
+              <div class="col" id="pagination-message">
+                  Showing records <%= first %> - <%= last %> of <%= context.total %>
+                </div>
+                
+                <div class="col">
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                      <li class="page-item <%= first === 1 ? 'disabled' : '' %>">
+                        <a class="page-link" href="/ingredients?limit=<%= limit %>&offset=<%= prevOffset %>" tabindex="-1">Previous</a>
+                      </li>
+
+                      <li class="page-item <%= last === context.total ? 'disabled' : '' %>">
+                        <a class="page-link" href="/ingredients?limit=<%= limit %>&offset=<%= nextOffset %>">Next</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <% } %>
+
             
           </main>
         </div>
@@ -74,6 +126,7 @@
 
       <script>
         window.requestRoute = <%- JSON.stringify(page).toLowerCase().replace(/\s/g, '-'); %>;
+        ingredientContext = <%- JSON.stringify(context) %>;
 
         $('tr').each(function() {
           const group = $(this).find('.food-group-id').text();
@@ -82,5 +135,6 @@
       </script>
 
       <script src="./javascripts/admin.js"></script>
+      <script src="./javascripts/ingredient.js"></script>
     </body>
 </html>

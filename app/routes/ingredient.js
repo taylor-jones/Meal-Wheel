@@ -1,19 +1,34 @@
 const express = require('express');
 const router = express.Router();
+const Helpers = require('../helpers');
 
 const Ingredients = require('../controllers/Ingredient');
 const FoodGroups = require('../controllers/FoodGroup');
 
 /* GET ingredient admin page. */
 router.get('/', (req, res, next) => {
-  Ingredients.getAll((err, ingredients) => {
-    FoodGroups.getAll((err, foodGroups) => {
-      res.render('ingredient', {
-        page: 'Ingredients',
-        sidebarId: '#nav-ingredients',
-        data: ingredients,
-        foodGroups: foodGroups,
-        session: req.session,
+  let context;
+
+  if (req.query.limit && req.query.offset) {
+    context = Helpers.sanitize(req.query);
+  } else {
+    context = { limit: 100, offset: 0 };
+  }
+
+  Ingredients.getCount((err, ingredients) => {
+    context.total = ingredients.total;
+
+    Ingredients.getByRange(context, (err, ingredients) => {
+      FoodGroups.getAll((err, foodGroups) => {
+
+        res.render('ingredient', {
+          page: 'Ingredients',
+          sidebarId: '#nav-ingredients',
+          data: ingredients,
+          foodGroups: foodGroups,
+          session: req.session,
+          context: context,
+        });
       });
     });
   });
