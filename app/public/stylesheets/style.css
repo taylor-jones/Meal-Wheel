@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+  margin-bottom: 75px;
 }
 
 
@@ -12,7 +12,7 @@ body {
   background: URL("../images/cuttingboard.min.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+background-attachment: fixed;
 }
 
 .bg-cover-faded:before {
