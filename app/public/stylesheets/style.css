@@ -212,6 +212,11 @@ body.admin {
   padding-right: 0.3rem;
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+  .browse-options .form-group select.form-control {
+    font-size: 0.9rem;
+  }
+}
 
 
 
@@ -263,6 +268,10 @@ body.admin {
   padding: 0.25rem;
   text-align: center;
   width: 5rem;
+}
+
+.search-empty {
+  font-size: 0.9rem;
 }
 
 .search-item-recipe {

@@ -117,6 +117,7 @@ $search.typeahead(null, {
           <div class="search-item-type search-item-${data.typeName.toLowerCase()}">${data.typeName}</div>
         </div>`;
     },
+    empty: [`<div class="search-empty">Hmm..No matches could be found.</div>`].join('\n'),
   },
 });
 
@@ -156,7 +157,8 @@ $search.bind('typeahead:select', function(ev, item) {
     const $next = $(this).next();
 
     if ($next.is('.twitter-typeahead')) {
-      $next.children('input').val('');
+      // $next.children('input').val('').text('');
+      $search.typeahead('val','');
     } else {
       $next.prop('selectedIndex', 0);
     }
@@ -221,26 +223,51 @@ $search.bind('typeahead:select', function(ev, item) {
   }
 
 
-  // returns the recipe(s) that have a qualifying match with the search query.
-  function getSearchResults(item) {
-    // console.log(item);
+  // returns the recipes that pass through the ingredient filter.
+  function getIngredientFilter(selection) {
+    let matches;
 
-    if (item.is_recipe) {
-      // if it's a recipe, go directly to the recipe page.
-      console.log('its a recipe');
-      window.location.href = `/recipes/${item.id}`;
-    } else {
-      // otherwise, use the search content to filter the browsable results.
-      console.log('not a recipe');
+    if (selection) {
+      matches = recipes.filter((recipe) => {
+        return recipe.ingredients.some((ingredient) => {
+          return ingredient.ingredient_id == selection.id;
+        });
+      });
     }
 
+    return matches || recipes;
+  }
+
+
+  // returns the recipe(s) that have a qualifying match with the search query.
+  function getSearchResults(item) {
+    if (item.is_recipe) {
+      // if it's a recipe, go directly to the recipe page.
+      window.location.href = `/recipes/${item.id}`;
+    } else if (item.typeName == 'Ingredient') {
+      // show only the recipes that have this ingredient.
+      const matches = getIngredientFilter(item);
+      updateRecipeDisplay(matches);
+    } else if (item.typeName == 'Cuisine') {
+      // show only the recipes that have this cuisine.
+      $cuisine.val(item.id);
+      $cuisine.change();
+    } else if (item.typeName == 'Category') {
+      // show only the recipes that have this category.
+      $category.val(item.id);
+      $category.change();
+    } else if (item.typeName == 'Diet') {
+      // show only the recipes that aren't restricted by this diet.
+      $diet.val(item.id);
+      $diet.change();
+    }
   }
 
 
 
   // looks at each of the recipe filters and shows only the
   //   recipes which meet the criteria of all the filters.
-  function updateRecipeDisplay() {
+  function updateRecipeDisplay(optional) {
     // hide all the recipes by default.
     $recipeItem.hide();
 
@@ -249,6 +276,7 @@ $search.bind('typeahead:select', function(ev, item) {
       getCategoryFilter(),
       getCuisineFilter(),
       getDietFilter(),
+      optional || recipes,
     ];
 
     const matches = recipes.filter((r) => {
