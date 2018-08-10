@@ -56,7 +56,7 @@
 	              var image = (liked_recipes[i].recipe_image_url == null ) ? placeholder : liked_recipes[i].recipe_image_url;
 	              %>
 	                <div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-liked" id="recipe-<%= liked_recipes[i].recipe_id %>" style="display: none;">
-	                  <div class="card card-normalized mb-5">
+	                  <div class="card card-normalized card-flex mb-5" id="<%= liked_recipes[i].recipe_id %>">
 	                    <a href="/recipes/<%= liked_recipes[i].recipe_id %>">
 	                      <img class="card-img-top card-img-normalized" src="<%= image %>">
 	                    </a>
@@ -73,9 +73,10 @@
 	                            </a>
 	                          <% } %>
 
-	                          <div class="card-thumbs">
-	                            <i class="far fa-thumbs-up recipe-like selected" id="recipe-<%= liked_recipes[i].recipe_id %>-like"></i>
-	                          </div>
+		                        <span class="card-thumbs">
+	                              	<i class="far fa-thumbs-up recipe-like selected" id="recipe-<%= liked_recipes[i].recipe_id %>-like"></i>
+	                              	<i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= liked_recipes[i].recipe_id %>-dislike"></i>
+	                         	</span>
 	                        <% } %>
 	                      </div>
 
@@ -113,7 +114,7 @@
 	              var image = (disliked_recipes[i].recipe_image_url == null ) ? placeholder : disliked_recipes[i].recipe_image_url;
 	              %>
 	                <div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-disliked" id="recipe-<%= disliked_recipes[i].recipe_id %>" style="display: none;">
-	                  <div class="card card-normalized mb-5">
+	                  <div class="card card-normalized card-flex mb-5" id="<%= disliked_recipes[i].recipe_id %>">
 	                    <a href="/recipes/<%= disliked_recipes[i].recipe_id %>">
 	                      <img class="card-img-top card-img-normalized" src="<%= image %>">
 	                    </a>
@@ -130,9 +131,10 @@
 	                            </a>
 	                          <% } %>
 
-	                          <div class="card-thumbs">
-	                            <i class="far fa-thumbs-up recipe-like selected" id="recipe-<%= disliked_recipes[i].recipe_id %>-like"></i>
-	                          </div>
+	                         	<span class="card-thumbs">
+	                              	<i class="far fa-thumbs-up recipe-like" id="recipe-<%= disliked_recipes[i].recipe_id %>-like"></i>
+	                              	<i class="far fa-thumbs-down recipe-dislike selected" id="recipe-<%= disliked_recipes[i].recipe_id %>-dislike"></i>
+	                         	</span>
 	                        <% } %>
 	                      </div>
 
