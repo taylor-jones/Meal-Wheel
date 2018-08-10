@@ -79,7 +79,7 @@ router.post('/', (req, res, next) => {
               </a>
               <div class="card-body">
                 <h5 class="card-title">${result.recipe_name}</h5>
-                  <p class="card-text">${result.recipe_description}</p>
+                  <p class="card-text">${result.recipe_description || ''}</p>
                   <div class="card-base">`;
 
 

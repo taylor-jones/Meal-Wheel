@@ -16,7 +16,7 @@
                 <span class="form-control-clear">
                   <i class="fas fa-times-circle"></i>
                 </span>
-                  <input type="text" class="form-control" name="search" id="search" placeholder="Search for anything...">
+                  <input type="text" class="form-control" name="search" id="search" placeholder="Search for recipes with...">
                 </div>
               </div>
             </div>
@@ -123,12 +123,10 @@
 
         <% include partials/footer %>
         <% include partials/script %>
-        <!-- <script src="/javascripts/tools/bootstrap3-typeahead.min.js"></script> -->
-        <!-- <script src="/javascripts/tools/bloodhound.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.bundle.min.js"></script>
 
         <script>
-          // make the recipes list available to the js files below
+          // make the recipes data available to the js files below
            const recipeList = <%- JSON.stringify(recipes) %>;
            const ingredientList = <%- JSON.stringify(ingredients) %>;
            const categoryList = <%- JSON.stringify(categories) %>;
