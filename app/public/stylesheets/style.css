@@ -11,6 +11,12 @@ body {
 .bg-cover {
   background: URL("../images/cuttingboard.min.jpg") no-repeat;
   background-size: cover;
+  background-position: center;
+}
+
+.bg-cover-shaded {
+  background: URL("../images/cuttingboard-shaded.min.jpg") no-repeat;
+  background-size: cover;
   background-position: fixed;
 }
 
