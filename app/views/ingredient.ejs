@@ -76,22 +76,6 @@
               let last = first + limit - 1;
               let prevOffset = first - limit;
               let nextOffset = first + limit;
-
-              if (last > context.total) {
-                last = context.total;
-              }
-
-              if (prevOffset < 0) {
-                prefOffset = 0;
-              }
-
-              if (nextOffset + limit > context.total) {
-                limit = context.total - nextOffset + 1;
-              }
-
-              if (limit === 0) {
-                limit = 100;
-              }
             %>
 
             <div class="row justify-content-end pr-1 mt-3">

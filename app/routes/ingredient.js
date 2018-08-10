@@ -7,16 +7,28 @@ const FoodGroups = require('../controllers/FoodGroup');
 
 /* GET ingredient admin page. */
 router.get('/', (req, res, next) => {
-  let context;
+  let context = {
+    limit: 100,
+    offset: 0,
+  };
 
   if (req.query.limit && req.query.offset) {
     context = Helpers.sanitize(req.query);
-  } else {
-    context = { limit: 100, offset: 0 };
   }
 
   Ingredients.getCount((err, ingredients) => {
     context.total = ingredients.total;
+
+    if (context.offset < 0) {
+      context.offset = 0;
+    } else if (context.offset > context.total) {
+      context.offset = context.total - context.limit + 1;
+    } else if (context.offset + context.limit > context.total) {
+      context.limit = context.total - context.offset + 1;
+    } else {
+      context.limit = 100;
+    }
+
 
     Ingredients.getByRange(context, (err, ingredients) => {
       FoodGroups.getAll((err, foodGroups) => {
