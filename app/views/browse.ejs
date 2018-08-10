@@ -85,7 +85,7 @@
                 const image = (recipes[i].recipe_image_url == null) ? placeholder : recipes[i].recipe_image_url;
               %>
                 <div class="col-sm-6 col-md-4 col-xl-3 recipe-item" id="recipe-<%= recipes[i].recipe_id %>">
-                  <div class="card card-normalized card-flex mb-5" id="<%= recipes[i].recipe_id %>">
+                  <div class="card card-normalized mb-5" id="<%= recipes[i].recipe_id %>">
                     <a href="/recipes/<%= recipes[i].recipe_id %>">
                       <img class="card-img-top card-img-normalized" src="<%= image %>">
                     </a>
