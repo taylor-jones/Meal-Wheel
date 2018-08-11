@@ -1,55 +1,66 @@
-/**
-* Cache DOM
-*/
-const $likedBtn = $('#likedButton');
-const $dislikedBtn = $('#dislikedButton');
-const $recipeItem = $('.recipe-item');
-const $recipeItemLiked = $('.recipe-item-liked');
-const $recipeItemDisliked = $('.recipe-item-disliked');
+$(function() {
 
-var likedVisible = false;
-var dislikedVisible = false;
-	/**
-	* Event Handlers
-	*/
+  /**
+   * Cache DOM
+   */
+  const $likedBtn = $('#likedButton');
+  const $dislikedBtn = $('#dislikedButton');
+  const $submittedBtn = $('#submittedButton');
+  const $recipeItem = $('.recipe-item');
+  const $recipeItemLiked = $('.recipe-item-liked');
+  const $recipeItemDisliked = $('.recipe-item-disliked');
+  const $recipeItemSubmitted = $('.recipe-item-submitted');
+  const $navLink = $('.btn-nav-link');
 
-$likedBtn.click(function(event){
-	if(likedVisible == true){
-		$recipeItem.hide();
-		likedVisible = false;
-	}
-	else{
-		showLiked();
-		likedVisible = true;
-	}
-    event.preventDefault();
-});
 
-$dislikedBtn.click(function(event){
-	if(dislikedVisible == true){
-		$recipeItem.hide();
-		dislikedVisible = false;
-	}
-	else{
-		showDisliked();
-		dislikedVisible = true;
-	}
-    event.preventDefault();
-});
+  let visibleRecipes = '';
 
-// Displays the favorited recipes
-function showLiked() {
+  /**
+   * Event Handlers
+   */
+
+  $likedBtn.click(function(event) {
+    visibleRecipes == 'liked' ? showNone() : showLiked();
+  });
+
+  $dislikedBtn.click(function(event) {
+    visibleRecipes == 'disliked' ? showNone() : showDisliked();
+  });
+
+  $submittedBtn.click(() => {
+    visibleRecipes == 'submitted' ? showNone() : showSubmitted();
+  });
+
+  // Displays the favorited recipes
+  function showLiked() {
     // hide all the recipes
-    $recipeItem.hide();
+    showNone();
+    $likedBtn.addClass('active');
     $recipeItemLiked.show();
-}
+    visibleRecipes = 'liked';
+  }
 
-// Displays the disliked recipes
-function showDisliked() {
+  // Displays the disliked recipes
+  function showDisliked() {
     // hide all the recipes
-    $recipeItem.hide();
+    showNone();
+    $dislikedBtn.addClass('active');
     $recipeItemDisliked.show();
-}
+    visibleRecipes = 'disliked';
+  }
 
+  // displays the submitted recipes
+  function showSubmitted() {
+    showNone();
+    $submittedBtn.addClass('active');
+    $recipeItemSubmitted.show();
+    visibleRecipes = 'submitted';
+  }
 
+  function showNone() {
+    $recipeItem.hide();
+    $navLink.removeClass('active');
+    visibleRecipes = '';
+  }
 
+});

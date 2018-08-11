@@ -35,9 +35,9 @@ body:not(.admin) > [class^="container"] {
 }
 
 
-a {
+/* a {
   color: #00B7FF;
-}
+} */
 
 
 .navbar {
@@ -637,6 +637,18 @@ p.keep-spacing {
    width: 100%;
    min-width: 170px;
  }
+
+ .btn-nav-link {
+   min-width: 6rem;
+ }
+
+ @media (min-width: 768px) {
+  .btn-nav-link {
+    min-width: 8rem;
+  }
+ }
+
+
 
 
  /*

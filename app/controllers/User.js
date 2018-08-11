@@ -78,7 +78,7 @@ exports.addNew = (context, callback) => {
   db.get().query(`INSERT INTO app_user SET ?`, {
     user_name: context.user_name,
     user_email: context.user_email,
-    user_password: context.user_password
+    user_password: context.user_password,
   }, (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
@@ -93,10 +93,10 @@ exports.getLikedRecipeIds = (id, callback) => {
   FROM user_significant_recipe AS sr
   WHERE sr.user_id = ?
   AND sr.recipe_significance_type_id = (
-    SELECT recipe_significance_type_id FROM recipe_significance_type WHERE recipe_significance_type_name = "liked"
-  )
-  ORDER BY recipe_id;
-  `, id, (err, rows) => {
+    SELECT recipe_significance_type_id 
+    FROM recipe_significance_type 
+    WHERE recipe_significance_type_name = "liked")
+  ORDER BY recipe_id;`, id, (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
   });
@@ -109,10 +109,10 @@ exports.getDislikedRecipeIds = (id, callback) => {
   FROM user_significant_recipe AS sr
   WHERE sr.user_id = ?
     AND sr.recipe_significance_type_id = (
-      SELECT recipe_significance_type_id FROM recipe_significance_type WHERE recipe_significance_type_name = "disliked"
-    )
-  ORDER BY recipe_id;
-  `, id, (err, rows) => {
+      SELECT recipe_significance_type_id 
+      FROM recipe_significance_type 
+      WHERE recipe_significance_type_name = "disliked")
+  ORDER BY recipe_id;`, id, (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
   });
@@ -121,10 +121,7 @@ exports.getDislikedRecipeIds = (id, callback) => {
 
 exports.getByCredentials = (context, callback) => {
   db.get().query(`
-  SELECT 
-    user_id,
-    user_name,
-    user_email
+  SELECT user_id, user_name, user_email
   FROM app_user
   WHERE user_password = ?
   AND (user_name = ? OR user_email = ?);`, [
@@ -208,6 +205,24 @@ exports.getDislikedRecipes = (id, callback) => {
     AND sr.recipe_significance_type_id = 2
   )
   `, id, (err, rows) => {
+    if (err) return callback(err, null);
+    callback(null, rows);
+  });
+};
+
+
+exports.getSubmittedRecipes = (id, callback) => {
+  db.get().query(`
+   SELECT
+    recipe_id, 
+    recipe_name, 
+    recipe_image_url, 
+    recipe_instructions, 
+    recipe_description, 
+    user_id,
+    recipe_category_id
+  FROM recipe
+  WHERE user_id = ?`, id, (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
   });
