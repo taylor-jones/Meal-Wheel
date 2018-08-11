@@ -388,11 +388,13 @@ td.record-actions {
  }
 
 
+ .bg-shade .card,
  .bg-cover-faded .card {
    box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.1);
    transition: box-shadow 250ms;
  }
 
+ .bg-shade .card:hover,
  .bg-cover-faded .card:hover {
    box-shadow: 0 3px 4px 3px rgba(0, 0, 0, 0.1);
  }
