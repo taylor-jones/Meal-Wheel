@@ -11,6 +11,7 @@ $(function() {
   const $recipeItemDisliked = $('.recipe-item-disliked');
   const $recipeItemSubmitted = $('.recipe-item-submitted');
   const $navLink = $('.btn-nav-link');
+  const $shownRecipes = $('[name="shownRecipes"]');
 
 
   let visibleRecipes = '';
