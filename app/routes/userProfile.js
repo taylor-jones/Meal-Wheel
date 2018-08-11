@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const helpers = require('../helpers');
+
 const User = require('../controllers/User');
 
 /* Check if the user is logged in.
@@ -20,12 +22,15 @@ router.get('/', (req, res, next) => {
             user_id: req.session.user.user_id,
             user_name: req.session.user.user_name,
             user_email: req.session.user.user_email,
-            menuId: 'nav-profile',
+            menuClass: '.nav-profile',
             liked_recipes: likedRecipes,
             disliked_recipes: dislikedRecipes,
             submitted_recipes: submittedRecipes,
             session: req.session,
           };
+
+          context.liked_recipe_ids = helpers.mapObjectKey(context.liked_recipes, 'recipe_id'),
+          context.disliked_recipe_ids = helpers.mapObjectKey(context.disliked_recipes, 'recipe_id'),
 
           res.render(context.view, context);
 
@@ -36,16 +41,82 @@ router.get('/', (req, res, next) => {
     context = {
       view: 'login',
       page: 'Login',
-      menuId: 'nav-login',
+      menuClass: '.nav-login',
+      user_id: 0,
       user_name: '',
       user_email: '',
-      liked_recipes: {},
-      disliked_recipes: {},
+      liked_recipes: [],
+      disliked_recipes: [],
       session: null,
     };
     res.render(context.view, context);
   }
+});
 
+
+
+router.get('/significant', (req, res, next) => {
+  if (req.session.user) {
+    let id = req.session.user.user_id;
+    User.getLikedRecipes(id, (err, likedRecipes) => {
+      User.getDislikedRecipes(id, (err, dislikedRecipes) => {
+        User.getSubmittedRecipes(id, (err, submittedRecipes) => {
+
+          res.send({
+            user_id: req.session.user.user_id,
+            liked: likedRecipes,
+            disliked: dislikedRecipes,
+            submitted: submittedRecipes,
+            liked_empty: 'You don\'t liked anything you see, huh?',
+            disliked_empty: 'You must have liked everything you\'ve seen so far!',
+            submitted_empty: 'You haven\'t submitted any recipes, yet. Now would be a great time!',
+          });
+        });
+      });
+    });
+  }
+});
+
+
+router.get('/liked', (req, res, next) => {
+  if (req.session.user) {
+    let id = req.session.user.user_id;
+
+    User.getLikedRecipes(id, (err, recipes) => {
+      console.log(recipes);
+      res.send(recipes);
+    });
+  } else {
+    res.send(null);
+  }
+});
+
+
+router.get('/disliked', (req, res, next) => {
+  if (req.session.user) {
+    let id = req.session.user.user_id;
+
+    User.getDislikedRecipes(id, (err, recipes) => {
+      console.log(recipes);
+      res.send(recipes);
+    });
+  } else {
+    res.send(null);
+  }
+});
+
+
+router.get('/submitted', (req, res, next) => {
+  if (req.session.user) {
+    let id = req.session.user.user_id;
+
+    User.getSubmittedRecipes(id, (err, recipes) => {
+      console.log(recipes);
+      res.send(recipes);
+    });
+  } else {
+    res.send(null);
+  }
 });
 
 

@@ -636,11 +636,18 @@ p.keep-spacing {
 
  .btn-nav-link {
    min-width: 6rem;
+   font-weight: 300;
  }
+
+@media (min-width: 576px) {
+  .btn-nav-link {
+    min-width: 8rem;
+  }
+}
 
  @media (min-width: 768px) {
   .btn-nav-link {
-    min-width: 8rem;
+    min-width: 9rem;
   }
  }
 

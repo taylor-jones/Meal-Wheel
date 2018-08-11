@@ -81,9 +81,12 @@
 														<% } %>
 	
 														<span class="card-thumbs">
-																	<i class="far fa-thumbs-up recipe-like selected" id="recipe-<%= liked_recipes[i].recipe_id %>-like"></i>
-																	<i class="far fa-thumbs-down recipe-dislike" id="recipe-<%= liked_recipes[i].recipe_id %>-dislike"></i>
-															</span>
+															<% const likedClass = (liked_recipe_ids.includes(liked_recipes[i].recipe_id) ? "selected" : "");
+																	const dislikedClass = (disliked_recipe_ids.includes(liked_recipes[i].recipe_id) ? "selected" : ""); 
+															%>
+															<i class="far fa-thumbs-up recipe-like <%= likedClass %>" id="recipe-<%= liked_recipes[i].recipe_id %>-like"></i>
+															<i class="far fa-thumbs-down recipe-dislike <%= dislikedClass %>" id="recipe-<%= liked_recipes[i].recipe_id %>-dislike"></i>
+														</span>
 													<% } %>
 												</div>
 	
@@ -138,10 +141,13 @@
 															</a>
 														<% } %>
 	
-															<span class="card-thumbs">
-																	<i class="far fa-thumbs-up recipe-like" id="recipe-<%= disliked_recipes[i].recipe_id %>-like"></i>
-																	<i class="far fa-thumbs-down recipe-dislike selected" id="recipe-<%= disliked_recipes[i].recipe_id %>-dislike"></i>
-															</span>
+														<span class="card-thumbs">
+															<% const likedClass = (liked_recipe_ids.includes(disliked_recipes[i].recipe_id) ? "selected" : "");
+																	const dislikedClass = (disliked_recipe_ids.includes(disliked_recipes[i].recipe_id) ? "selected" : ""); 
+															%>
+															<i class="far fa-thumbs-up recipe-like <%= likedClass %>" id="recipe-<%= disliked_recipes[i].recipe_id %>-like"></i>
+															<i class="far fa-thumbs-down recipe-dislike <%= dislikedClass %>" id="recipe-<%= disliked_recipes[i].recipe_id %>-dislike"></i>
+														</span>
 													<% } %>
 												</div>
 	
@@ -170,11 +176,10 @@
 						<!-- Submitted Recipes -->
 						<div class="browse-content">
 							<div class="row justify-content-center">
-								<% if (locals.submitted_recipes && locals.submitted_recipes.length > 0) {
-									submitted_recipes.forEach((submitted) => {
-										const placeholder = "/images/pot.svg";
-										const image = (submitted.recipe_image_url == null) ? placeholder : submitted.recipe_image_url; 
-								%>
+								<% if (locals.submitted_recipes && submitted_recipes.length > 0) {
+										submitted_recipes.forEach((submitted) => {
+											const placeholder = "/images/pot.svg";
+											const image = (submitted.recipe_image_url == null) ? placeholder : submitted.recipe_image_url; %>
 										<div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-submitted" id="recipe-<%= submitted.recipe_id %>" style="display: none;">
 											<div class="card card-normalized mb-5" id="<%= submitted.recipe_id %>">
 												<a href="/recipes/<%= submitted.recipe_id %>">
@@ -192,11 +197,16 @@
 																	<i class="far fa-edit"></i>
 																</a>
 															<% } %>
-		
-																<span class="card-thumbs">
-																		<i class="far fa-thumbs-up recipe-like" id="recipe-<%= submitted.recipe_id %>-like"></i>
-																		<i class="far fa-thumbs-down recipe-dislike selected" id="recipe-<%= submitted.recipe_id %>-dislike"></i>
-																</span>
+																
+
+															<span class="card-thumbs">
+																<% const likedClass = (liked_recipe_ids.includes(submitted.recipe_id) ? "selected" : "");
+																	 const dislikedClass = (disliked_recipe_ids.includes(submitted.recipe_id) ? "selected" : ""); 
+																%>
+																<i class="far fa-thumbs-up recipe-like <%= likedClass %>" id="recipe-<%= submitted.recipe_id %>-like"></i>
+																<i class="far fa-thumbs-down recipe-dislike <%= dislikedClass %>" id="recipe-<%= submitted.recipe_id %>-dislike"></i>
+															</span>
+
 														<% } %>
 													</div>
 		
@@ -229,9 +239,6 @@
         <% include partials/footer %>
         <% include partials/script %>
 
-        <script>
-          $('.nav-profile').addClass('active');
-        </script>
         <script src="/javascripts/recipeCards.js"></script>
         <script src="/javascripts/userProfile.js"></script>
     </body>
