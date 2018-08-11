@@ -17,6 +17,7 @@ router.get('/', (req, res, next) => {
           context = {
             view: 'userProfile',
             page: 'User Profile',
+            user_id: req.session.user.user_id,
             user_name: req.session.user.user_name,
             user_email: req.session.user.user_email,
             menuId: 'nav-profile',

@@ -62,12 +62,11 @@ exports.deleteById = (id, callback) => {
 
 
 exports.updateById = (context, callback) => {
-  db.get().query(`
-    UPDATE app_user SET ?`, {
+  db.get().query('UPDATE app_user SET ? WHERE user_id = ?', [{
     user_name: context.user_name,
     user_email: context.user_email,
     user_password: context.user_password,
-  }, (err, rows) => {
+  }, context.user_id], (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
   });

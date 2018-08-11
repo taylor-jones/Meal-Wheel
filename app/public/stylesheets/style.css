@@ -655,7 +655,8 @@ p.keep-spacing {
   * alerts
   */
 
-  .alert-response {
+  .alert-response,
+  #alert-container {
     position: fixed;
     top: 5rem;
     right: 1rem;

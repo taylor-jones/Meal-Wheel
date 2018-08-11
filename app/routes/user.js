@@ -6,11 +6,6 @@ const RecipeSignificanceTypes = require('../controllers/RecipeSignificanceType')
 
 
 
-// router.get('/', (req, res, next) => {
-//   res.redirect('../');
-// });
-
-
 
 router.post('/liked-recipe', (req, res, next) => {
   RecipeSignificanceTypes.getByName('liked', (err, type) => {
@@ -63,6 +58,28 @@ router.delete('/disliked-recipe', (req, res, next) => {
   });
 });
 
+
+router.put('/update', (req, res, next) => {
+  const body = req.body;
+  Users.getById(body.user_id, (err, user) => {
+    if (err) return next(err);
+    if (user.length === 1) {
+      const record = user[0];
+
+      const context = {
+        user_id: body.user_id,
+        user_name: body.user_name === undefined ? record.user_name : body.user_name,
+        user_email: body.user_email === undefined ? record.user_email : body.user_email,
+        user_password: body.user_password === undefined ? record.user_password : body.user_password,
+      };
+
+      Users.updateById(context, (err, result) => {
+        if (err) return next(err);
+        res.send(JSON.stringify(result));
+      });
+    }
+  });
+});
 
 
 module.exports = router;
