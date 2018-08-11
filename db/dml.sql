@@ -407,24 +407,45 @@ LIMIT 10;
 
 
 -- get all 'liked' recipes for a single user
-  SELECT recipe_id
-  FROM user_significant_recipe AS sr
-  WHERE sr.user_id = [logged_in_user_id]
-  AND sr.recipe_significance_type_id = (
-    SELECT recipe_significance_type_id FROM recipe_significance_type WHERE recipe_significance_type_name = "liked"
-  )
-  ORDER BY recipe_id;
-
-
+  SELECT
+    recipe_id, 
+    recipe_name, 
+    recipe_image_url, 
+    recipe_instructions, 
+    recipe_description, 
+    user_id, 
+    recipe_category_id
+  FROM recipe
+  WHERE recipe_id IN (
+    SELECT recipe_id
+    FROM user_significant_recipe AS sr
+    WHERE sr.user_id = [user_id]
+    AND sr.recipe_significance_type_id = (
+      SELECT 
+      recipe_significance_type_id 
+      FROM recipe_significance_type 
+      WHERE recipe_significance_type_name = "liked"
+    )
+  );
 
 -- get all 'disliked' recipes for a single user
-  SELECT recipe_id
-  FROM user_significant_recipe AS sr
-  WHERE sr.user_id = [logged_in_user_id]
-  AND sr.recipe_significance_type_id = (
-    SELECT recipe_significance_type_id FROM recipe_significance_type WHERE recipe_significance_type_name = "disliked"
-  )
-  ORDER BY recipe_id;
+ SELECT
+    recipe_id, 
+    recipe_name, 
+    recipe_image_url, 
+    recipe_instructions, 
+    recipe_description, 
+    user_id, 
+    recipe_category_id
+  FROM recipe
+  WHERE recipe_id IN (
+    SELECT recipe_id
+    FROM user_significant_recipe AS sr
+    WHERE sr.user_id = [user_id]
+    AND sr.recipe_significance_type_id =(
+      SELECT recipe_significance_type_id FROM recipe_significance_type WHERE recipe_significance_type_name = "disliked"
+    )
+  );
 
 
 -- get all recipes not 'disliked' by a specified user
@@ -488,6 +509,17 @@ WHERE r.user_id IS NULL
 ORDER BY r.recipe_name;
 
 
+-- get all recipes submitted by a specific user
+ SELECT
+    recipe_id, 
+    recipe_name, 
+    recipe_image_url, 
+    recipe_instructions, 
+    recipe_description, 
+    user_id,
+    recipe_category_id
+  FROM recipe
+  WHERE user_id =[user_id];
 
 
 
