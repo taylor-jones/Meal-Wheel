@@ -9,7 +9,7 @@
 
           <div class="row align-items-center justify-content-center">
             <div class="col-lg-10 col-xl-8">
-              <div class="card no-border card-rounded-top card-single mb-5">
+              <div class="card no-border card-rounded-top card-single mb-5" id="<%= recipe.recipe_id %>">
                 <div class="jumbotron rounded img-slate">
                   <% const placeholder = "/images/pot.svg";
                      const image = (recipe.recipe_image_url == null) ? placeholder : recipe.recipe_image_url; %>

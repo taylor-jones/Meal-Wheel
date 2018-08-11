@@ -8,6 +8,7 @@ const RecipeSignificanceTypes = require('../controllers/RecipeSignificanceType')
 
 
 router.post('/liked-recipe', (req, res, next) => {
+  console.log('post liked-recipe', req.body);
   RecipeSignificanceTypes.getByName('liked', (err, type) => {
     Users.addRecipeSignificance({
       user_id: req.session.user.user_id,
@@ -21,6 +22,8 @@ router.post('/liked-recipe', (req, res, next) => {
 
 
 router.post('/disliked-recipe', (req, res, next) => {
+  console.log('post disliked-recipe', req.body);
+
   RecipeSignificanceTypes.getByName('disliked', (err, type) => {
     Users.addRecipeSignificance({
       user_id: req.session.user.user_id,
@@ -34,6 +37,7 @@ router.post('/disliked-recipe', (req, res, next) => {
 
 
 router.delete('/liked-recipe', (req, res, next) => {
+  console.log('delete liked-recipe', req.body);
   RecipeSignificanceTypes.getByName('liked', (err, type) => {
     Users.removeRecipeSignificance({
       user_id: req.session.user.user_id,
@@ -47,6 +51,7 @@ router.delete('/liked-recipe', (req, res, next) => {
 
 
 router.delete('/disliked-recipe', (req, res, next) => {
+  console.log('delete disliked-recipe', req.body);
   RecipeSignificanceTypes.getByName('disliked', (err, type) => {
     Users.removeRecipeSignificance({
       user_id: req.session.user.user_id,
