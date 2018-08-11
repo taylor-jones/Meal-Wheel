@@ -15,6 +15,13 @@ body {
 background-attachment: fixed;
 }
 
+.bg-shade {
+  background: URL("../images/cuttingboard-shade.min.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .bg-cover-faded:before {
   content: '';
   background: inherit;
@@ -23,10 +30,10 @@ background-attachment: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  /* -webkit-filter: saturate(.55) brightness(115%) blur(3px); */
-  /* -webkit-filter: saturate(.55) brightness(115%) blur(3px); */
-  /* -moz-filter: saturate(.55) brightness(115%) blur(3px); */
-  /* filter: saturate(.55) brightness(115%) blur(3px); */
+  -webkit-filter: saturate(.55) brightness(115%) blur(3px);
+  -webkit-filter: saturate(.55) brightness(115%) blur(3px);
+  -moz-filter: saturate(.55) brightness(115%) blur(3px);
+  filter: saturate(.55) brightness(115%) blur(3px);
   z-index: -100;
 }
 
@@ -589,7 +596,7 @@ td.record-actions {
  * Typography
  */
 
-body.bg-cover h1 {
+body.bg-cover:not(.bg-shade) h1 {
   text-shadow: 2px 2px 2px rgba(22, 22, 22, .4);
 }
 
