@@ -12,33 +12,19 @@ body {
   background: URL("../images/cuttingboard.min.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-background-attachment: fixed;
+  background-attachment: fixed;
 }
 
-.bg-shade {
-  background: URL("../images/cuttingboard-shade.min.jpg") no-repeat;
+.bg-cover-faded {
+  background: URL("../images/cuttingboard.faded.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
-.bg-cover-faded:before {
-  content: '';
-  background: inherit;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  -webkit-filter: saturate(.55) brightness(115%) blur(3px);
-  -webkit-filter: saturate(.55) brightness(115%) blur(3px);
-  -moz-filter: saturate(.55) brightness(115%) blur(3px);
-  filter: saturate(.55) brightness(115%) blur(3px);
-  z-index: -100;
-}
 
 body:not(.admin) > [class^="container"] {
-  padding: 60px 15px 0;
+  padding: 150px 15px 0;
 }
 
 
@@ -599,7 +585,8 @@ td.record-actions {
  */
 
 body.bg-cover:not(.bg-shade) h1 {
-  text-shadow: 2px 2px 2px rgba(22, 22, 22, .4);
+  /* text-shadow: 2px 2px 2px rgba(22, 22, 22, .4); */
+  /* text-shadow: 3px 2px 2px rgba(255, 255, 255, .2); */
 }
 
 p.keep-spacing {
