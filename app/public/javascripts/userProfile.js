@@ -18,6 +18,7 @@ $(function() {
   const $userPassword = $('#user-password');
   const $alertContainer = $('#alert-container');
 
+  const $profileDelete = $('#profile-delete');
 
   let visibleRecipes = '';
 
@@ -77,6 +78,18 @@ $(function() {
     visibleRecipes == 'submitted' ? showNone() : showSubmitted();
   });
 
+
+  /**
+  * Delete Profile
+  */
+  $profileDelete.click( () => {
+    var result = confirm('Are you sure you want to delete your profile? This will also delete all of your recipes you have submitted and favorited.');
+    if(result){
+      const req = new XMLHttpRequest();
+      req.open('DELETE', '/users/deleteUser', true);
+      req.send();
+    }
+  });
 
 
   /**

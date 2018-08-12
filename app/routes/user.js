@@ -80,5 +80,20 @@ router.put('/update', (req, res, next) => {
   });
 });
 
+router.delete('/deleteUser', (req, res, next) => {
+  let id = req.session.user.user_id;
+  Users.deleteById(id, (err, response) => {
+    if(err){
+      console.log(err);
+      res.send(err);
+    }
+    else{
+      req.session.destroy();
+      console.log('delete user: successful');
+      res.redirect('/');
+    }
+  });
+});
+
 
 module.exports = router;

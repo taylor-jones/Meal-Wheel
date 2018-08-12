@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const helpers = require('../helpers');
 
+const Categories = require('../controllers/RecipeCategory');
+const Cuisines = require('../controllers/Cuisine');
+const Diets = require('../controllers/DietaryRestriction');
 const User = require('../controllers/User');
 
 /* Check if the user is logged in.
@@ -111,7 +114,6 @@ router.get('/submitted', (req, res, next) => {
     let id = req.session.user.user_id;
 
     User.getSubmittedRecipes(id, (err, recipes) => {
-      console.log(recipes);
       res.send(recipes);
     });
   } else {
