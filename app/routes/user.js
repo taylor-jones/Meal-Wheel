@@ -87,7 +87,6 @@ router.delete('/', (req, res, next) => {
   Users.deleteById(id, (err, response) => {
     if (!err) {
       req.session.destroy();
-      console.log('delete user: successful');
       res.send(200);
     }
   });
