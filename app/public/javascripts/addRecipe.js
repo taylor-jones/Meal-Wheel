@@ -16,11 +16,13 @@ $(function() {
   const recipeForm = document.querySelector('#recipe-form');
   const $recipeForm = $('#recipe-form');
   const $dbResponse = $('#db-response');
-
+  const $checkDelete = $('#check-delete');
 
   /**
    * Initialization
    */
+
+  $checkDelete.hide();
 
   // initialize typeahead for existing ingredient list items
   initTypeahead();
@@ -187,6 +189,7 @@ $(function() {
     const curr = currentRecipe;
 
     $('#submit-recipe').val('Update Recipe');
+    $checkDelete.show();
 
     $recipeId.val(curr.recipe_id);
     $recipeName.val(curr.recipe_name);
