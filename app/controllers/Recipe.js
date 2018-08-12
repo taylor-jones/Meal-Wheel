@@ -153,7 +153,6 @@ exports.getCuisines = (id, callback) => {
     - user (filters out disliked) .
 */
 exports.getByFilter = (context, callback) => {
-  console.log(context);
   db.get().query(`
   SELECT
     recipe_id, 

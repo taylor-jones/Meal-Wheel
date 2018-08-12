@@ -38,7 +38,7 @@ router.post('/', (req, res, next) => {
     category: req.body.category,
     cuisine: req.body.cuisine,
     diet: req.body.diet,
-    user: 0,
+    user: null,
   };
 
   // if user exists, it will be passed to the filter
