@@ -88,7 +88,7 @@
 						if(liked_recipes == null){likedLength = 0;} 
 						else{likedLength = liked_recipes.length;}
 						for ( let i = 0; i < likedLength; i++ ) {
-						var placeholder = "/images/recipe-placeholder.png";
+						var placeholder = "/images/pot.svg";
 						var image = (liked_recipes[i].recipe_image_url == null ) ? placeholder : liked_recipes[i].recipe_image_url;
 						%>
 							<div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-liked" id="recipe-<%= liked_recipes[i].recipe_id %>" style="display: none;">
@@ -103,10 +103,14 @@
 
 										<div class="card-base">
 											<% if (locals.session && locals.session.user) { %>
-												<% if (locals.session.user.user_id === liked_recipes[i].user_id) { %>
+												<% if (liked_recipes[i].user_id == null || liked_recipes[i].user_id == user_id) { %>
 													<a href="/recipes/<%= liked_recipes[i].recipe_id %>/edit" class="card-edit">
 														<i class="far fa-edit"></i>
 													</a>
+												<% } else { %>
+													<div class="card-edit card-edit-locked">
+														<i class="fas fa-lock"></i>
+													</div>
 												<% } %>
 
 												<span class="card-thumbs">
@@ -149,7 +153,7 @@
 						if(disliked_recipes == null){dislikedLength = 0;} 
 						else{dislikedLength = disliked_recipes.length;}
 						for ( let i = 0; i < dislikedLength; i++ ) {
-						var placeholder = "/images/recipe-placeholder.png";
+						var placeholder = "/images/pot.svg";
 						var image = (disliked_recipes[i].recipe_image_url == null ) ? placeholder : disliked_recipes[i].recipe_image_url;
 						%>
 							<div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-disliked" id="recipe-<%= disliked_recipes[i].recipe_id %>" style="display: none;">
@@ -164,10 +168,14 @@
 
 										<div class="card-base">
 											<% if (locals.session && locals.session.user) { %>
-												<% if (locals.session.user.user_id === disliked_recipes[i].user_id) { %>
+												<% if (disliked_recipes[i].user_id == null || disliked_recipes[i].user_id == user_id) { %>
 													<a href="/recipes/<%= disliked_recipes[i].recipe_id %>/edit" class="card-edit">
 														<i class="far fa-edit"></i>
 													</a>
+												<% } else { %>
+													<div class="card-edit card-edit-locked">
+														<i class="fas fa-lock"></i>
+													</div>
 												<% } %>
 
 												<span class="card-thumbs">
@@ -220,13 +228,17 @@
 
 
 											<div class="card-base">
-												<% if (locals.session && locals.session.user) { %>
-													<% if (locals.session.user.user_id === submitted.user_id) { %>
+												<% if (locals.session && locals.session.user) { %>												
+													<% if (submitted.user_id == null || submitted.user_id == user_id) { %>
 														<a href="/recipes/<%= submitted.recipe_id %>/edit" class="card-edit">
 															<i class="far fa-edit"></i>
 														</a>
+													<% } else { %>
+														<div class="card-edit card-edit-locked">
+															<i class="fas fa-lock"></i>
+														</div>
 													<% } %>
-														
+
 
 													<span class="card-thumbs">
 														<% const likedClass = (liked_recipe_ids.includes(submitted.recipe_id) ? "selected" : "");

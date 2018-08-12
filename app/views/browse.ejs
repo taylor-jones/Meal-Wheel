@@ -95,20 +95,28 @@
 
 
                       <div class="card-base">
-                        <% if (locals.session && locals.session.user) { %>
-                          <% if (locals.session.user.user_id === recipes[i].user_id) { %>
+                          <% if (recipes[i].user_id == null || recipes[i].user_id == recipes.user_id) { %>
                             <a href="/recipes/<%= recipes[i].recipe_id %>/edit" class="card-edit">
                               <i class="far fa-edit"></i>
                             </a>
+                          <% } else { %>
+                            <div class="card-edit card-edit-locked">
+                              <i class="fas fa-lock"></i>
+                            </div>
                           <% } %>
 
                           <span class="card-thumbs">
-                            <% const likedClass = (likedRecipes.includes(recipes[i].recipe_id) ? "selected" : "");
-                              const dislikedClass = (dislikedRecipes.includes(recipes[i].recipe_id) ? "selected" : ""); %>  
+                            <% if (user_id) {
+                              const likedClass = (likedRecipes.includes(recipes[i].recipe_id) ? "selected" : "");
+                              const dislikedClass = (dislikedRecipes.includes(recipes[i].recipe_id) ? "selected" : ""); 
+                            %>  
                               <i class="far fa-thumbs-up recipe-like <%= likedClass %>" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
                               <i class="far fa-thumbs-down recipe-dislike <%= dislikedClass %>" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
+                            <% } else { %>
+                              <a href="/login"><i class="far fa-thumbs-up"></i></a>
+                              <a href="/login"><i class="far fa-thumbs-down"></i></a>
+                            <% } %>
                           </span>
-                        <% } %>
                       </div>
 
                     </div>

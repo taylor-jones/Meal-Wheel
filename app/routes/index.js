@@ -38,7 +38,7 @@ router.post('/', (req, res, next) => {
     category: req.body.category,
     cuisine: req.body.cuisine,
     diet: req.body.diet,
-    user: 0,
+    user: null,
   };
 
   // if user exists, it will be passed to the filter
@@ -83,28 +83,40 @@ router.post('/', (req, res, next) => {
                   <div class="card-base">`;
 
 
-        if (user[0]) {
-          // determine the user's liked & disliked recipes
-          context.likedRecipes = helpers.mapObjectKey((user[0].likedRecipes), 'recipe_id') || context.likedRecipes;
-          context.dislikedRecipes = helpers.mapObjectKey((user[0].dislikedRecipes), 'recipe_id') || context.dislikedRecipes;
-
-          // set the classes of the thumbs-up/down icons to reflect whether liked or disliked.
-          const likedClass = (context.likedRecipes.includes(result.recipe_id) ? 'selected' : '');
-          const dislikedClass = (context.dislikedRecipes.includes(result.recipe_id) ? 'selected' : '');
-
-          if (user[0].user_id === result.user_id) {
-            renderHTML += `          
-            <a href="/recipes/${result.recipe_id}/edit" class="card-edit">
-              <i class="far fa-edit"></i>
-            </a>`;
+          if (result.user_id == null || result.user_id == context.user) {
+            renderHTML += `
+              <a href="/recipes/${result.recipe_id}/edit" class="card-edit">
+                <i class="far fa-edit"></i>
+              </a>`;
+          } else {
+            renderHTML += `
+              <div class="card-edit card-edit-locked">
+                <i class="fas fa-lock"></i>
+              </div>`;
           }
 
-          renderHTML +=
-            `<span class="card-thumbs text-right">
-              <i class="far fa-thumbs-up recipe-like ${likedClass}" id="recipe-<%= recipes[i].recipe_id %>-like"></i>
-              <i class="far fa-thumbs-down recipe-dislike ${dislikedClass}" id="recipe-<%= recipes[i].recipe_id %>-dislike"></i>
-            </span>`;
-        }
+            
+          if (context.user) {
+            // determine the user's liked & disliked recipes
+            context.likedRecipes = helpers.mapObjectKey((user[0].likedRecipes), 'recipe_id') || context.likedRecipes;
+            context.dislikedRecipes = helpers.mapObjectKey((user[0].dislikedRecipes), 'recipe_id') || context.dislikedRecipes;
+
+            // set the classes of the thumbs-up/down icons to reflect whether liked or disliked.
+            const likedClass = (context.likedRecipes.includes(result.recipe_id) ? 'selected' : '');
+            const dislikedClass = (context.dislikedRecipes.includes(result.recipe_id) ? 'selected' : '');
+
+            renderHTML += `
+              <span class="card-thumbs">
+                <i class="far fa-thumbs-up recipe-like ${likedClass}" id="recipe-${result.recipe_id}-like"></i>
+                <i class="far fa-thumbs-down recipe-dislike ${dislikedClass}" id="recipe-${result.recipe_id}-dislike"></i>
+              </span>`;
+          } else {
+            renderHTML += `
+              <span class="card-thumbs">
+                <a href="/login"><i class="far fa-thumbs-up"></i></a>
+                <a href="/login"><i class="far fa-thumbs-down"></i></a>
+              </span>`;
+          }
 
         renderHTML +=
               `</div>
