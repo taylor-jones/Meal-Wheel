@@ -22,7 +22,6 @@ $(function() {
    */
 
   // initialize typeahead for existing ingredient list items
-  initValidationMessages();
   initTypeahead();
   initPopover();
 
@@ -150,6 +149,7 @@ $(function() {
       req.send(JSON.stringify(context));
       event.preventDefault();
     }
+
   });
 
 
@@ -306,12 +306,6 @@ $(function() {
           $parents.find('.amount').focus();
         }
       });
-  }
-
-
-  // sets up an custom validation messages on the form.
-  function initValidationMessages() {
-    document.querySelector('#recipe-image-url').setCustomValidity('Please enter a valid URL');
   }
 
 });

@@ -17,7 +17,7 @@
 
 						<div class="form-group">
 							<label for="recipe_name">Recipe Name</label>
-							<input type="text" name="recipe_name" id="recipe-name" class="form-control">
+							<input type="text" name="recipe_name" id="recipe-name" class="form-control" required>
 						</div>
 
 						<div class="form-group">
@@ -39,8 +39,8 @@
 						<div class="form-row">
 							<div class="form-group col-sm-6">
 								<label for="recipe_category_id">Category</label>
-								<select class="form-control selectpicker" name="recipe_category_id" id="recipe-category" title="Choose Category" data-selected-text-format="value" data-size="5" data-header="Select one Category">
-									<% for ( let i = 0; i < categories.length; i++ ) { %>
+								<select class="form-control selectpicker" name="recipe_category_id" id="recipe-category" title="Choose Category" data-selected-text-format="value" data-size="5" data-header="Select one Category" required>
+									<% for (let i = 0; i < categories.length; i++) { %>
 										<option value="<%=categories[i].recipe_category_id %>"><%= categories[i].recipe_category_name %></option>
 									<% } %>
 								</select>							
@@ -70,7 +70,7 @@
 
 									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
 										<option value="" selected>Unit</option>
-										<% for ( let i = 0; i < units.length; i++ ) { %>
+										<% for (let i = 0; i < units.length; i++) { %>
 										<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
 										<% } %>
 									</select> 
@@ -92,7 +92,7 @@
 
 									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
 										<option value="" selected>Unit</option>
-										<% for ( let i = 0; i < units.length; i++ ) { %>
+										<% for (let i = 0; i < units.length; i++) { %>
 										<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
 										<% } %>
 									</select> 
@@ -114,7 +114,7 @@
 							
 									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
 										<option value="" selected>Unit</option>
-										<% for ( let i = 0; i < units.length; i++ ) { %>
+										<% for (let i = 0; i < units.length; i++) { %>
 											<option value="<%= units[i].unit_of_measure_id %>">
 												<%= units[i].unit_of_measure_name %>
 											</option>
@@ -154,7 +154,7 @@
 				<div class="form-group">
 					<select class="form-control form-control-sm" id="food-group-selector">
 						<option value="" selected disabled hidden>-- Select --</option>
-						<% for (let i = 0; i < foodGroups.length; i++ ) { %>
+						<% for (let i = 0; i < foodGroups.length; i++) { %>
 							<option value="<%= foodGroups[i].food_group_id %>"><%= foodGroups[i].food_group_name %></option>
 						<% } %>
 					</select>
@@ -170,12 +170,7 @@
 		</div>
 
 
-		<div class="alert alert-success alert-response alert-dismissible fade" role="alert" id="db-response">
-			<strong>Holy guacamole!</strong> You should check in on some of those fields below.
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>
-		</div>
+		<div class="alert alert-success alert-response alert-dismissible fade" role="alert" id="db-response"></div>
 
 
     <% include partials/footer %>
