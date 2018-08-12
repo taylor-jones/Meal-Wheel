@@ -85,7 +85,7 @@ router.post('/', (req, res, next) => {
 
           if (result.user_id == null || result.user_id == context.user) {
             renderHTML += `
-              <a href="/recipes/<%= result.recipe_id %>/edit" class="card-edit">
+              <a href="/recipes/${result.recipe_id}/edit" class="card-edit">
                 <i class="far fa-edit"></i>
               </a>`;
           } else {
