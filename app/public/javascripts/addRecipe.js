@@ -168,6 +168,7 @@ $(function() {
       };
 
       req.send(JSON.stringify(context));
+      clearTable();
       event.preventDefault();
     }
 
@@ -330,3 +331,17 @@ $(function() {
   }
 
 });
+
+function clearTable(){
+  ingredientName.textContent = '';
+  recipeId.textContent = '';
+  recipeName.textContent = '';
+  recipeDesc.textContent = '';
+  recipeInstr.textContent = ''; 
+  recipeImgUrl.textContent = ''; 
+  recipeCategory.textContent = '';
+  recipeCuisines.textContent = '';
+  userId.textContent = '';
+  foodGroupSelector.textContent = '';
+
+}
