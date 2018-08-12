@@ -46,6 +46,12 @@ router.get('/add', (req, res, next) => {
 
 /* GET the edit recipe page */
 router.get('/:id/edit', (req, res, next) => {
+  let userId;
+
+  if (req.session && req.session.user) {
+    userId = req.session.user.user_id;
+  }
+
   FoodGroups.getAll((err, foodGroups) => {
     Categories.getAll((err, categories) => {
       Cuisines.getAll((err, cuisines) => {
@@ -60,7 +66,7 @@ router.get('/:id/edit', (req, res, next) => {
                 ingredients: ingredients,
                 units: units,
                 foodGroups: foodGroups,
-                session: req.session,
+                user_id: userId,
                 recipe: recipe[0],
               });
             });
@@ -76,6 +82,7 @@ router.get('/:id/edit', (req, res, next) => {
 /* GET an individual recipe page. */
 router.get('/:id', (req, res, next) => {
   let userId = 0;
+
   Recipes.getById(req.params.id, (err, recipe) => {
     recipe[0].ingredients.forEach((ingredient) => {
       ingredient.unit_of_measure_name = helpers.pluralize(ingredient.unit_of_measure_name);
@@ -91,7 +98,7 @@ router.get('/:id', (req, res, next) => {
       const context = {
         page: recipe[0].recipe_name,
         menuClass: '.nav-browse',
-        session: req.session,
+        user_id: userId,
         recipe: recipe[0],
         likedRecipes: [],
         dislikedRecipes: [],
@@ -138,6 +145,7 @@ router.get('/', (req, res, next) => {
                 session: req.session,
                 likedRecipes: [],
                 dislikedRecipes: [],
+                user_id: userId,
               };
 
               // if a session user was found, replace the empty liked/disliked

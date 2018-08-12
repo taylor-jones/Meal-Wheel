@@ -103,10 +103,14 @@
 
 										<div class="card-base">
 											<% if (locals.session && locals.session.user) { %>
-												<% if (locals.session.user.user_id === liked_recipes[i].user_id) { %>
+												<% if (liked_recipes[i].user_id == null || liked_recipes[i].user_id == user_id) { %>
 													<a href="/recipes/<%= liked_recipes[i].recipe_id %>/edit" class="card-edit">
 														<i class="far fa-edit"></i>
 													</a>
+												<% } else { %>
+													<div class="card-edit card-edit-locked">
+														<i class="fas fa-lock"></i>
+													</div>
 												<% } %>
 
 												<span class="card-thumbs">
@@ -164,10 +168,14 @@
 
 										<div class="card-base">
 											<% if (locals.session && locals.session.user) { %>
-												<% if (locals.session.user.user_id === disliked_recipes[i].user_id) { %>
+												<% if (disliked_recipes[i].user_id == null || disliked_recipes[i].user_id == user_id) { %>
 													<a href="/recipes/<%= disliked_recipes[i].recipe_id %>/edit" class="card-edit">
 														<i class="far fa-edit"></i>
 													</a>
+												<% } else { %>
+													<div class="card-edit card-edit-locked">
+														<i class="fas fa-lock"></i>
+													</div>
 												<% } %>
 
 												<span class="card-thumbs">
@@ -220,13 +228,17 @@
 
 
 											<div class="card-base">
-												<% if (locals.session && locals.session.user) { %>
-													<% if (locals.session.user.user_id === submitted.user_id) { %>
+												<% if (locals.session && locals.session.user) { %>												
+													<% if (submitted.user_id == null || submitted.user_id == user_id) { %>
 														<a href="/recipes/<%= submitted.recipe_id %>/edit" class="card-edit">
 															<i class="far fa-edit"></i>
 														</a>
+													<% } else { %>
+														<div class="card-edit card-edit-locked">
+															<i class="fas fa-lock"></i>
+														</div>
 													<% } %>
-														
+
 
 													<span class="card-thumbs">
 														<% const likedClass = (liked_recipe_ids.includes(submitted.recipe_id) ? "selected" : "");

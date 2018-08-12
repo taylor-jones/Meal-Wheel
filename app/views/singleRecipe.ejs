@@ -18,20 +18,27 @@
 
                 <div class="card-body">
                   <div class="card-head">
-                    <% if (locals.session && locals.session.user) { %>
-                      <% if (locals.session.user.user_id === recipe.user_id) { %>
+                      <% if (recipe.user_id == null || recipe.user_id == user_id) { %>
                         <a href="/recipes/<%= recipe.recipe_id %>/edit" class="card-edit">
                           <i class="far fa-edit"></i>
                         </a>
+                      <% } else { %>
+                        <div class="card-edit card-edit-locked">
+                          <i class="fas fa-lock"></i>
+                        </div>
                       <% } %>
 
-                      <div class="card-thumbs">
-                        <% const likedClass = (likedRecipes.includes(recipe.recipe_id) ? "selected" : "");
-                          const dislikedClass = (dislikedRecipes.includes(recipe.recipe_id) ? "selected" : ""); %>
-                        <i class="far fa-thumbs-up recipe-like <%= likedClass %>" id="recipe-<%= recipe.recipe_id %>-like"></i>
-                        <i class="far fa-thumbs-down recipe-dislike <%= dislikedClass %>" id="recipe-<%= recipe.recipe_id %>-dislike"></i>
-                      </div>
-                    <% } %>
+                      <span class="card-thumbs">
+                        <% if (user_id) {
+                          const likedClass = (likedRecipes.includes(recipe.recipe_id) ? "selected" : "");
+                          const dislikedClass = (dislikedRecipes.includes(recipe.recipe_id) ? "selected" : ""); %>  
+                          <i class="far fa-thumbs-up recipe-like <%= likedClass %>" id="recipe-<%= recipe.recipe_id %>-like"></i>
+                          <i class="far fa-thumbs-down recipe-dislike <%= dislikedClass %>" id="recipe-<%= recipe.recipe_id %>-dislike"></i>
+                        <% } else { %>
+                          <a href="/login"><i class="far fa-thumbs-up"></i></a>
+                          <a href="/login"><i class="far fa-thumbs-down"></i></a>
+                        <% } %>
+                      </span>
                   </div>
 
                   <div class="card-title"><h4><%= recipe.recipe_name %></h4></div>
