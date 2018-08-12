@@ -88,7 +88,7 @@
 						if(liked_recipes == null){likedLength = 0;} 
 						else{likedLength = liked_recipes.length;}
 						for ( let i = 0; i < likedLength; i++ ) {
-						var placeholder = "/images/recipe-placeholder.png";
+						var placeholder = "/images/pot.svg";
 						var image = (liked_recipes[i].recipe_image_url == null ) ? placeholder : liked_recipes[i].recipe_image_url;
 						%>
 							<div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-liked" id="recipe-<%= liked_recipes[i].recipe_id %>" style="display: none;">
@@ -149,7 +149,7 @@
 						if(disliked_recipes == null){dislikedLength = 0;} 
 						else{dislikedLength = disliked_recipes.length;}
 						for ( let i = 0; i < dislikedLength; i++ ) {
-						var placeholder = "/images/recipe-placeholder.png";
+						var placeholder = "/images/pot.svg";
 						var image = (disliked_recipes[i].recipe_image_url == null ) ? placeholder : disliked_recipes[i].recipe_image_url;
 						%>
 							<div class="col-sm-6 col-md-4 col-xl-3 recipe-item recipe-item-disliked" id="recipe-<%= disliked_recipes[i].recipe_id %>" style="display: none;">
