@@ -12,8 +12,9 @@ $(function() {
   const $recipeCuisines = $('#recipe-cuisines');
   const $userId = $('#user-id');
   const $foodGroupSelector = $('#food-group-selector');
-
+  
   const recipeForm = document.querySelector('#recipe-form');
+  const $recipeForm = $('#recipe-form');
   const $dbResponse = $('#db-response');
 
 
@@ -121,6 +122,7 @@ $(function() {
       req.setRequestHeader('Content-Type', 'application/json');
       req.addEventListener('load', function() {
         if (req.status >= 200 && req.status < 400) {
+          window.location.href = '/recipes/add';
           $dbResponse.html(req.responseText);
           $dbResponse.addClass('show');
 
@@ -230,6 +232,8 @@ $(function() {
     initTypeahead();
     initPopover();
   }
+
+
 
 
   // returns an array of ingredient ids corresponding
