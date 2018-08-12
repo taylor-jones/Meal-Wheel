@@ -22,8 +22,6 @@ $(function() {
    * Initialization
    */
 
-  $checkDelete.hide();
-
   // initialize typeahead for existing ingredient list items
   initTypeahead();
   initPopover();
@@ -39,6 +37,8 @@ $(function() {
   // if so, set the form up for editing the recipe.
   if (currentRecipe) {
     loadExistingReipce();
+  } else {
+    $checkDelete.parent('.col-sm').remove();
   }
 
 
@@ -189,7 +189,6 @@ $(function() {
     const curr = currentRecipe;
 
     $('#submit-recipe').val('Update Recipe');
-    $checkDelete.show();
 
     $recipeId.val(curr.recipe_id);
     $recipeName.val(curr.recipe_name);
