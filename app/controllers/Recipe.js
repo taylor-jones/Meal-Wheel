@@ -255,9 +255,9 @@ exports.removeIngredient = (columns, callback) => {
   db.get().query(`
     DELETE FROM recipe_ingredient WHERE
     recipe_id = ? AND ingredient_id = ?`, [
-      columns.recipe_id,
-      columns.ingredient_id,
-    ], (err, rows) => {
+    columns.recipe_id,
+    columns.ingredient_id,
+  ], (err, rows) => {
     if (err) return callback(err, null);
     callback(null, rows);
   });
@@ -319,4 +319,12 @@ exports.updateById = (id, columns, callback) => {
       if (err) return callback(err, null);
       callback(null, rows);
     });
+};
+
+
+exports.deleteById = (id, callback) => {
+  db.get().query('DELETE FROM recipe WHERE recipe_id = ?', id, (err, result) => {
+    if (err) return callback(err, null);
+    callback(null, result);
+  });
 };

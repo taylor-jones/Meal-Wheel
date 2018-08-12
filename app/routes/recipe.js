@@ -73,7 +73,6 @@ router.get('/:id/edit', (req, res, next) => {
 
 
 
-
 /* GET an individual recipe page. */
 router.get('/:id', (req, res, next) => {
   let userId = 0;
@@ -82,34 +81,33 @@ router.get('/:id', (req, res, next) => {
       ingredient.unit_of_measure_name = helpers.pluralize(ingredient.unit_of_measure_name);
     });
 
-      // replace the default user (0) with the session
-      //  user, if one exists.
-      if (req.session && req.session.user) {
-        userId = req.session.user.user_id;
+    // replace the default user (0) with the session
+    //  user, if one exists.
+    if (req.session && req.session.user) {
+      userId = req.session.user.user_id;
+    }
+
+    Users.getById(userId, (err, user) => {
+      const context = {
+        page: recipe[0].recipe_name,
+        menuClass: '.nav-browse',
+        session: req.session,
+        recipe: recipe[0],
+        likedRecipes: [],
+        dislikedRecipes: [],
+      };
+
+      // if a session user was found, replace the empty liked/disliked
+      //  recipe arrays with the user's own significant recupe ids.
+      if (user[0]) {
+        context.likedRecipes = helpers.mapObjectKey(user[0].likedRecipes, 'recipe_id') || context.likedRecipes;
+        context.dislikedRecipes = helpers.mapObjectKey(user[0].dislikedRecipes, 'recipe_id') || context.dislikedRecipes;
       }
 
-      Users.getById(userId, (err, user) => {
-        const context = {
-          page: recipe[0].recipe_name,
-          menuClass: '.nav-browse',
-          session: req.session,
-          recipe: recipe[0],
-          likedRecipes: [],
-          dislikedRecipes: [],
-        };
-
-        // if a session user was found, replace the empty liked/disliked
-        //  recipe arrays with the user's own significant recupe ids.
-        if (user[0]) {
-          context.likedRecipes = helpers.mapObjectKey(user[0].likedRecipes, 'recipe_id') || context.likedRecipes;
-          context.dislikedRecipes = helpers.mapObjectKey(user[0].dislikedRecipes, 'recipe_id') || context.dislikedRecipes;
-        }
-
-        res.render('singleRecipe', context);
-      });
+      res.render('singleRecipe', context);
+    });
   });
 });
-
 
 
 
@@ -127,7 +125,7 @@ router.get('/', (req, res, next) => {
             if (req.session && req.session.user) {
               userId = req.session.user.user_id;
             }
-  
+
             Users.getById(userId, (err, user) => {
               const context = {
                 page: 'Browse',
@@ -141,14 +139,14 @@ router.get('/', (req, res, next) => {
                 likedRecipes: [],
                 dislikedRecipes: [],
               };
-  
+
               // if a session user was found, replace the empty liked/disliked
               //  recipe arrays with the user's own significant recupe ids.
               if (user[0]) {
                 context.likedRecipes = helpers.mapObjectKey(user[0].likedRecipes, 'recipe_id') || context.likedRecipes;
                 context.dislikedRecipes = helpers.mapObjectKey(user[0].dislikedRecipes, 'recipe_id') || context.dislikedRecipes;
               }
-  
+
               res.render('browse', context);
             });
           });
@@ -160,12 +158,11 @@ router.get('/', (req, res, next) => {
 
 
 
-
 /* *************************************
  * POST
  * *************************************/
 
- /* Create a new recipe record, */
+/* Create a new recipe record, */
 router.post('/', (req, res, next) => {
   const recipe = helpers.sanitizeJSON(req.body);
 
@@ -243,7 +240,6 @@ router.post('/', (req, res, next) => {
 
 
 
-
 /* *************************************
  * PUT
  * *************************************/
@@ -306,6 +302,23 @@ router.put('/', (req, res, next) => {
 
     res.send(
       `<strong>Success!</strong> The recipe was successfully updated.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+       </button>`
+    );
+  });
+});
+
+
+
+/* *************************************
+ * DELETE
+ * *************************************/
+router.delete('/', (req, res, next) => {
+  Recipes.deleteById(req.body.recipe_id, (err, result) => {
+    if (err) next(err);
+    res.send(
+      `<strong>Success!</strong> The recipe was successfully deleted.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
        </button>`

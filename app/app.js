@@ -59,7 +59,9 @@ app.use('/recipe-significance-types', recipeSignificanceTypeRouter);
 app.use('/units-of-measure', unitOfMeasureRouter);
 app.use('/userProfile', userProfileRouter);
 app.use('/users', userRouter);
-
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

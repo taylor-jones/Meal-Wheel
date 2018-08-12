@@ -80,14 +80,20 @@ $(function() {
 
 
   /**
-  * Delete Profile
-  */
-  $profileDelete.click( () => {
+   * Delete Profile
+   */
+  $profileDelete.click(() => {
     var result = confirm('Are you sure you want to delete your profile? This will also delete all of your recipes you have submitted and favorited.');
-    if(result){
+    if (result) {
       const req = new XMLHttpRequest();
-      req.open('DELETE', '/users/deleteUser', true);
-      req.send();
+      req.open('DELETE', '/users/', true);
+      req.addEventListener('load', () => {
+        if (req.status >= 200 && req.status < 400) {
+          window.location.href = '/';
+        }
+      });
+
+      req.send(null);
     }
   });
 

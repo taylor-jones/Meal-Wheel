@@ -113,6 +113,27 @@ $(function() {
   });
 
 
+  // delete the recipe
+  $('#delete-recipe').click(function(event) {
+      const req = new XMLHttpRequest();
+
+      req.open('DELETE', '/recipes', true);
+      req.setRequestHeader('Content-Type', 'application/json');
+      req.addEventListener('load', function() {
+        if (req.status >= 200 && req.status < 400) {
+          $dbResponse.html(req.responseText);
+          $dbResponse.addClass('show');
+
+          setTimeout(function() {
+            $dbResponse.removeClass('show');
+          }, 3000);
+        }
+      });
+
+      req.send(JSON.stringify({ recipe_id: $recipeId.val() }));
+  });
+
+
   // add the recipe to the db.
   $('#submit-recipe').click(function(event) {
     if (recipeForm.checkValidity()) {
