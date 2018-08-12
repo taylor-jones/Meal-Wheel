@@ -48,7 +48,7 @@
 
 							<div class="form-group col-sm-6">
 								<label for="cuisine_id">Cuisine</label>
-								<select class="form-control selectpicker" multiple name="cuisine_id" id="recipe-cuisines" title="Choose Cuisine(s)" data-selected-text-format="count > 2" data-size="5" data-header="Select one or more Cuisine">
+								<select class="form-control selectpicker" multiple name="cuisine_id" id="recipe-cuisines" title="Choose Cuisine(s)" data-selected-text-format="count > 2" data-size="5" data-header="Select one or more Cuisine" required>
 									<% for (let i = 0; i < cuisines.length; i++) { %>
 										<option value="<%= cuisines[i].cuisine_id %>"><%= cuisines[i].cuisine_name %></option>
 									<% } %>
