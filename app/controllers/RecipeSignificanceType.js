@@ -7,8 +7,12 @@ exports.getAll = (callback) => {
       recipe_significance_type_id, 
       recipe_significance_type_name 
     FROM recipe_significance_type`, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -20,8 +24,12 @@ exports.getById = (id, callback) => {
       recipe_significance_type_name 
     FROM recipe_significance_type 
     WHERE recipe_significance_type_id = ?`, id, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -33,8 +41,12 @@ exports.getByName = (name, callback) => {
       recipe_significance_type_name 
     FROM recipe_significance_type 
     WHERE recipe_significance_type_name = ?`, name, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -43,8 +55,12 @@ exports.deleteById = (id, callback) => {
   db.get().query(`
   DELETE FROM recipe_significance_type
   WHERE recipe_significance_type_id = ?`, id, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -54,8 +70,12 @@ exports.updateById = (id, name, callback) => {
     UPDATE recipe_significance_type 
     SET recipe_significance_type_name = ?
     WHERE recipe_significance_type_id = ?;`, [name, id], (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -65,7 +85,11 @@ exports.addNew = (columns, callback) => {
     INSERT INTO recipe_significance_type SET ?`, {
     recipe_significance_type_name: columns.recipe_significance_type_name,
   }, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };

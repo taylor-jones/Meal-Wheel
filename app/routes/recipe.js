@@ -276,6 +276,8 @@ router.put('/', (req, res, next) => {
   const context = {};
   const recipe = helpers.sanitizeJSON(req.body);
 
+  console.log(recipe);
+
   // update the recipe
   Recipes.updateById(recipe.recipe_id, recipe, (err, updated) => {
     Recipes.removeIngredientsAll(recipe.recipe_id, (err, ingredientsRemoved) => {
@@ -290,6 +292,7 @@ router.put('/', (req, res, next) => {
             }, (err, newIngredient) => {
 
               if (err) {
+                console.log(`err with ignredient:${ingredient.ingredient_name} | food_group_id:${ingredient.food_group_id}`);
                 context.feedback = err.sqlMessage;
                 context.alertType = 'danger';
                 res.send(context);
@@ -305,6 +308,7 @@ router.put('/', (req, res, next) => {
                   unit_of_measure_id: ingredient.unit_of_measure_id,
                 }, (err, result) => {
                   if (err) {
+                    console.log(`err with recipe:${recipe.recipe_id} | ingredient:${ingredient.ingredient_id} (new ingredient)`);
                     context.feedback = err.sqlMessage;
                     context.alertType = 'danger';
                     res.send(context);
@@ -323,6 +327,7 @@ router.put('/', (req, res, next) => {
               unit_of_measure_id: ingredient.unit_of_measure_id,
             }, (err, result) => {
               if (err) {
+                console.log(`err with recipe:${recipe.recipe_id} | ingredient:${ingredient.ingredient_id}`);
                 context.feedback = err.sqlMessage;
                 context.alertType = 'danger';
                 res.send(context);
@@ -339,6 +344,7 @@ router.put('/', (req, res, next) => {
             cuisine_id: cuisine,
           }, (err, result) => {
             if (err) {
+              console.log(`err with recipe:${recipe.recipe_id} | cuisine:${cuisine}`);
               context.feedback = err.sqlMessage;
               context.alertType = 'danger';
               res.send(context);

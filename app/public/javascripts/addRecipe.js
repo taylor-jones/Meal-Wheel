@@ -351,13 +351,13 @@ $(function() {
       const currUser = $userId.val();
 
       // clear all the inputs
-      $('input, select').each(function() {
+      $('input, select, textarea').each(function() {
         $(this).val('');
       });
 
       // clear the special select pickers
-      $recipeCuisines.selectpicker('deselectAll');
       $recipeCategory.selectpicker('val', '');
+      $recipeCuisines.selectpicker('val', '');
 
       // restore the user id
       $userId.val(currUser);

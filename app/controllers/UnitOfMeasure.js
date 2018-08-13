@@ -9,8 +9,12 @@ exports.getAll = (callback) => {
     unit_of_measure_abbrev 
   FROM unit_of_measure
   ORDER BY unit_of_measure_name`, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -23,8 +27,12 @@ exports.getById = (id, callback) => {
     unit_of_measure_abbrev 
   FROM unit_of_measure 
   WHERE unit_of_measure_id = ?`, id, (err, rows) => {
-    if (err) return callback(err);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -33,8 +41,12 @@ exports.deleteById = (id, callback) => {
   db.get().query(`
     DELETE FROM unit_of_measure 
     WHERE unit_of_measure_id = ?`, id, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -44,7 +56,11 @@ exports.updateById = (id, name, abbrev, callback) => {
     `UPDATE unit_of_measure SET unit_of_measure_name = ?,
     unit_of_measure_abbrev = ? WHERE unit_of_measure_id = ?;
     `, [name, abbrev, id], (err, rows) => {
-      if (err) return callback(err, null);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
       callback(null, rows);
     });
 };
@@ -56,7 +72,11 @@ exports.addNew = (columns, callback) => {
     unit_of_measure_name: columns.unit_of_measure_name,
     unit_of_measure_abbrev: columns.unit_of_measure_abbrev,
   }, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };

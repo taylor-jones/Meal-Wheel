@@ -3,8 +3,12 @@ const db = require('../bin/dbcon');
 
 exports.getCount = (callback) => {
   db.get().query('SELECT COUNT(*) AS total_recipes FROM recipe;', (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -22,7 +26,10 @@ exports.getAll = (callback) => {
     (SELECT COUNT(ri.recipe_id) FROM recipe_ingredient AS ri WHERE ri.recipe_id = r.recipe_id) AS total_ingredients,
     r.created_date
   FROM recipe AS r;`, (err, rows) => {
-    if (err) return callback(err, null);
+    if (err) {
+      callback(err, null);
+      return;
+    }
 
     let pending = rows.length;
 
@@ -63,7 +70,10 @@ exports.getById = (id, callback) => {
   FROM recipe AS r
   WHERE r.recipe_id = ?;
   `, id, (err, rows) => {
-    if (err) return callback(err);
+    if (err) {
+      callback(err, null);
+      return;
+    }
 
     let pending = rows.length;
 
@@ -105,8 +115,12 @@ exports.getIngredients = (id, callback) => {
     WHERE ri.recipe_id = ?
     ORDER BY ri.amount DESC
   `, id, (err, rows) => {
-    if (err) callback(err);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -123,8 +137,12 @@ exports.getDietaryRestrictions = (id, callback) => {
       SELECT ri.ingredient_id FROM recipe_ingredient AS ri WHERE ri.recipe_id = ?)
     ORDER BY d.dietary_restriction_name;
   `, id, (err, rows) => {
-    if (err) callback(err);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -139,8 +157,12 @@ exports.getCuisines = (id, callback) => {
       INNER JOIN cuisine AS c ON rc.cuisine_id = c.cuisine_id
     WHERE r.recipe_id = ?;
   `, id, (err, rows) => {
-    if (err) callback(err);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -214,8 +236,12 @@ exports.getByFilter = (context, callback) => {
     context.diet,
     context.user,
   ], (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -231,8 +257,12 @@ exports.addNew = (columns, callback) => {
     recipe_category_id: columns.recipe_category_id,
     user_id: columns.user_id,
   }, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -245,8 +275,12 @@ exports.addIngredient = (columns, callback) => {
     amount: columns.amount,
     unit_of_measure_id: columns.unit_of_measure_id,
   }, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -258,8 +292,12 @@ exports.removeIngredient = (columns, callback) => {
     columns.recipe_id,
     columns.ingredient_id,
   ], (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -267,8 +305,12 @@ exports.removeIngredient = (columns, callback) => {
 exports.removeIngredientsAll = (id, callback) => {
   db.get().query(`
     DELETE FROM recipe_ingredient WHERE recipe_id = ?`, [id], (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -279,8 +321,12 @@ exports.addCuisine = (columns, callback) => {
     recipe_id: columns.recipe_id,
     cuisine_id: columns.cuisine_id,
   }, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -291,8 +337,12 @@ exports.removeCuisine = (columns, callback) => {
     recipe_id = ? AND cuisine_id = ?`, [
     columns.recipe_id, columns.cuisine_id,
   ], (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -300,31 +350,45 @@ exports.removeCuisine = (columns, callback) => {
 exports.removeCuisinesAll = (id, callback) => {
   db.get().query(`
     DELETE FROM recipe_cuisine WHERE recipe_id = ?`, [id], (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
 
 exports.updateById = (id, columns, callback) => {
+  // console.log(columns);
+
   db.get().query(
-    `UPDATE recipe SET ? WHERE ingredient_id = ?;`, [{
+    `UPDATE recipe SET ? WHERE recipe_id = ?;`, [{
       recipe_name: columns.recipe_name,
       recipe_description: columns.recipe_description,
       recipe_instructions: columns.recipe_instructions,
       recipe_image_url: columns.recipe_image_url,
       recipe_category_id: columns.recipe_category_id,
       user_id: columns.user_id,
-    }, id], (err, rows) => {
-      if (err) return callback(err, null);
-      callback(null, rows);
+    }, id], (err, result) => {
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, result);
     });
 };
 
 
 exports.deleteById = (id, callback) => {
   db.get().query('DELETE FROM recipe WHERE recipe_id = ?', id, (err, result) => {
-    if (err) return callback(err, null);
-    callback(null, result);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, result);
   });
 };

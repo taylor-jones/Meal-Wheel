@@ -3,8 +3,12 @@ const db = require('../bin/dbcon');
 
 exports.getCount = (callback) => {
   db.get().query('SELECT COUNT(*) AS total FROM ingredient', (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows[0]);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows[0]);
   });
 };
 
@@ -20,8 +24,12 @@ exports.getAll = (callback) => {
     INNER JOIN food_group AS fg
     ON i.food_group_id = fg.food_group_id
   ORDER BY i.ingredient_name;`, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -39,8 +47,12 @@ exports.getByRange = (context, callback) => {
     ON i.food_group_id = fg.food_group_id
   ORDER BY i.ingredient_name
   LIMIT ? OFFSET ?`, [context.limit, context.offset], (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -58,19 +70,24 @@ exports.getById = (id, callback) => {
       ON i.food_group_id = fg.food_group_id
     WHERE i.ingredient_id = ?
   `, id, (err, rows) => {
-    if (err) {
-      callback(err);
-    } else {
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
       callback(null, rows);
-    }
   });
 };
 
 
 exports.deleteById = (id, callback) => {
   db.get().query('DELETE FROM ingredient WHERE ingredient_id = ?', id, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
 
@@ -93,7 +110,11 @@ exports.addNew = (columns, callback) => {
     ingredient_name: columns.ingredient_name,
     food_group_id: columns.food_group_id,
   }, (err, rows) => {
-    if (err) return callback(err, null);
-    callback(null, rows);
+      if (err) {
+        callback(err, null);
+        return;
+      }
+
+      callback(null, rows);
   });
 };
