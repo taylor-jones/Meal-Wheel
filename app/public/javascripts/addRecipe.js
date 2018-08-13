@@ -3,6 +3,8 @@ $(function() {
 
   // cache DOM
   const $ingredientName = $('.ingredient-name');
+  const $unitOfMeasure = $('.unit-of-measure');
+  const $amount = $('.amount');
   const $recipeId = $('#recipe-id');
   const $recipeName = $('#recipe-name');
   const $recipeDesc = $('#recipe-description');
@@ -12,11 +14,13 @@ $(function() {
   const $recipeCuisines = $('#recipe-cuisines');
   const $userId = $('#user-id');
   const $foodGroupSelector = $('#food-group-selector');
-
+  
   const recipeForm = document.querySelector('#recipe-form');
   const $recipeForm = $('#recipe-form');
   const $dbResponse = $('#db-response');
   const $checkDelete = $('#check-delete');
+  const $alertContainer = $('#alert-container');
+
 
   /**
    * Initialization
@@ -50,9 +54,7 @@ $(function() {
    */
 
   $(document).on('change', '#food-group-selector', function() {
-    $(`#food-group-selector [value="${$(this).val()}"`).prop({
-      selected: true
-    });
+    $(`#food-group-selector [value="${$(this).val()}"`).prop({ selected: true });
   });
 
 
@@ -122,25 +124,23 @@ $(function() {
 
   // delete the recipe
   $('#delete-recipe').click(function(event) {
-    const req = new XMLHttpRequest();
+      const req = new XMLHttpRequest();
 
-    req.open('DELETE', '/recipes', true);
-    req.setRequestHeader('Content-Type', 'application/json');
-    req.addEventListener('load', function() {
-      if (req.status >= 200 && req.status < 400) {
-        window.location.href = '/recipes/add';
-        $dbResponse.html(req.responseText);
-        $dbResponse.addClass('show');
+      req.open('DELETE', '/recipes', true);
+      req.setRequestHeader('Content-Type', 'application/json');
+      req.addEventListener('load', function() {
+        if (req.status >= 200 && req.status < 400) {
+          window.location.href = '/recipes/add';
+          $dbResponse.html(req.responseText);
+          $dbResponse.addClass('show');
 
-        setTimeout(function() {
-          $dbResponse.removeClass('show');
-        }, 3000);
-      }
-    });
+          setTimeout(function() {
+            $dbResponse.removeClass('show');
+          }, 3000);
+        }
+      });
 
-    req.send(JSON.stringify({
-      recipe_id: $recipeId.val()
-    }));
+      req.send(JSON.stringify({ recipe_id: $recipeId.val() }));
   });
 
 
@@ -156,12 +156,13 @@ $(function() {
       req.setRequestHeader('Content-Type', 'application/json');
       req.addEventListener('load', function() {
         if (req.status >= 200 && req.status < 400) {
-          $dbResponse.html(req.responseText);
-          $dbResponse.addClass('show');
+          // check if response was error
+          const res = JSON.parse(req.responseText);
+          showAlert(res.alertType, res.feedback);
 
-          setTimeout(function() {
-            $dbResponse.removeClass('show');
-          }, 3000);
+          if (res.alertType == 'success') {
+            clearForm();
+          }
         }
       });
 
@@ -178,11 +179,10 @@ $(function() {
       };
 
       req.send(JSON.stringify(context));
-      clearTable();
       event.preventDefault();
     }
-
   });
+
 
 
 
@@ -190,7 +190,7 @@ $(function() {
    * Functions
    */
 
-  // loads an existing recipe into the form fields.
+   // loads an existing recipe into the form fields.
   function loadExistingReipce() {
     const curr = currentRecipe;
 
@@ -240,6 +240,7 @@ $(function() {
     initTypeahead();
     initPopover();
   }
+
 
 
 
@@ -338,19 +339,44 @@ $(function() {
           $parents.find('.amount').focus();
         }
       });
-  }
+    }
+
+
+
+
+    // clears the input form
+    function clearForm() {
+      const currUser = $userId.val();
+
+      // clear all the inputs
+      $('input, select').each(function() {
+        $(this).val('');
+      });
+
+      // clear the special select pickers
+      $recipeCuisines.selectpicker('deselectAll');
+      $recipeCategory.selectpicker('val', '');
+
+      // restore the user id
+      $userId.val(currUser);
+    }
+
+
+    /*
+     * shows an alert to the user indicating the
+     * result of an attempt to change any data.
+     */
+    function showAlert(type, content) {
+      // remove the alert in case there's already one showing
+      $alertContainer.removeClass('show');
+      const renderHTML = `<div class="alert alert-${type}" role="alert">${content}</div>`;
+
+      $alertContainer.html(renderHTML);
+      $alertContainer.addClass('show');
+
+      setTimeout(function() {
+        $alertContainer.removeClass('show');
+      }, 2000);
+    }
 
 });
-
-function clearTable() {
-  ingredientName.textContent = '';
-  recipeId.textContent = '';
-  recipeName.textContent = '';
-  recipeDesc.textContent = '';
-  recipeInstr.textContent = '';
-  recipeImgUrl.textContent = '';
-  recipeCategory.textContent = '';
-  recipeCuisines.textContent = '';
-  userId.textContent = '';
-  foodGroupSelector.textContent = '';
-}

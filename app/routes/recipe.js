@@ -175,6 +175,7 @@ router.get('/', (req, res, next) => {
 /* Create a new recipe record, */
 router.post('/', (req, res, next) => {
   const recipe = helpers.sanitizeJSON(req.body);
+  const context = {};
 
   // give the new recipe to the signed in user, if one exists.
   if (req.session && req.session.user) {
@@ -183,68 +184,84 @@ router.post('/', (req, res, next) => {
 
   // create the new recipe
   Recipes.addNew(recipe, (err, newRecipe) => {
-    recipe.recipe_id = newRecipe.insertId;
+    if (err) {
+      context.feedback = err.sqlMessage;
+      context.alertType = 'danger';
+      res.send(context);
+      return;
+    } else {
+      recipe.recipe_id = newRecipe.insertId;
 
-    // create any necessary ingredients
-    recipe.ingredients.forEach((ingredient) => {
-      if (!ingredient.ingredient_id) {
-        Ingredients.addNew({
-          ingredient_name: ingredient.ingredient_name,
-          food_group_id: ingredient.food_group_id,
-        }, (err, newIngredient) => {
-          if (err) {
-            next(err);
-          }
+      // create any necessary ingredients
+      recipe.ingredients.forEach((ingredient) => {
+        if (!ingredient.ingredient_id) {
+          Ingredients.addNew({
+            ingredient_name: ingredient.ingredient_name,
+            food_group_id: ingredient.food_group_id,
+          }, (err, newIngredient) => {
+            if (err) {
+              context.feedback = err.sqlMessage;
+              context.alertType = 'danger';
+              res.send(context);
+              return;
+            }
 
-          if (newIngredient) {
-            // create the recipe-ingredient record(s).
-            Recipes.addIngredient({
-              recipe_id: recipe.recipe_id,
-              ingredient_id: newIngredient.insertId,
-              amount: ingredient.amount,
-              unit_of_measure_id: ingredient.unit_of_measure_id,
-            }, (err, result) => {
-              if (err) {
-                next(err);
-              }
+            if (newIngredient) {
+              // create the recipe-ingredient record(s).
+              Recipes.addIngredient({
+                recipe_id: recipe.recipe_id,
+                ingredient_id: newIngredient.insertId,
+                amount: ingredient.amount,
+                unit_of_measure_id: ingredient.unit_of_measure_id,
+              }, (err, result) => {
+                if (err) {
+                  context.feedback = err.sqlMessage;
+                  context.alertType = 'danger';
+                  res.send(context);
+                  return;
+                }
+              });
+            }
+          });
 
-            });
-          }
-        });
-
-      } else {
-        // create the recipe-ingredient record(s).
-        Recipes.addIngredient({
-          recipe_id: recipe.recipe_id,
-          ingredient_id: ingredient.ingredient_id,
-          amount: ingredient.amount,
-          unit_of_measure_id: ingredient.unit_of_measure_id,
-        }, (err, result) => {
-          if (err) {
-            next(err);
-          }
-        });
-      }
-    });
-
-    // create recipe-cuisine record(s).
-    recipe.cuisines.forEach((cuisine) => {
-      Recipes.addCuisine({
-        recipe_id: recipe.recipe_id,
-        cuisine_id: cuisine,
-      }, (err, result) => {
-        if (err) {
-          next(err);
+        } else {
+          // create the recipe-ingredient record(s).
+          Recipes.addIngredient({
+            recipe_id: recipe.recipe_id,
+            ingredient_id: ingredient.ingredient_id,
+            amount: ingredient.amount,
+            unit_of_measure_id: ingredient.unit_of_measure_id,
+          }, (err, result) => {
+            if (err) {
+              context.feedback = err.sqlMessage;
+              context.alertType = 'danger';
+              res.send(context);
+              return;
+            }
+          });
         }
       });
-    });
 
-    res.send(
-      `<strong>Success!</strong> The recipe was successfully created.
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-			</button>`
-    );
+      // create recipe-cuisine record(s).
+      recipe.cuisines.forEach((cuisine) => {
+        Recipes.addCuisine({
+          recipe_id: recipe.recipe_id,
+          cuisine_id: cuisine,
+        }, (err, result) => {
+          if (err) {
+            context.feedback = err.sqlMessage;
+            context.alertType = 'danger';
+            res.send(context);
+            return;
+          }
+        });
+      });
+
+
+      context.alertType = 'success';
+      context.feedback = 'The recipe was successfully created.';
+      res.send(context);
+    }
   });
 });
 
