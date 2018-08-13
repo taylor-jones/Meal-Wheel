@@ -95,7 +95,7 @@
 
 
                       <div class="card-base">
-                          <% if (recipes[i].user_id == null || recipes[i].user_id == recipes.user_id) { %>
+                          <% if (recipes[i].user_id == null || recipes[i].user_id == user_id) { %>
                             <a href="/recipes/<%= recipes[i].recipe_id %>/edit" class="card-edit">
                               <i class="far fa-edit"></i>
                             </a>
