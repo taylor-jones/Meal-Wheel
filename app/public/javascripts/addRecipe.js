@@ -161,7 +161,9 @@ $(function() {
           showAlert(res.alertType, res.feedback);
 
           if (res.alertType == 'success') {
-            clearForm();
+            if (method == 'POST') {
+              clearForm();
+            }
           }
         }
       });

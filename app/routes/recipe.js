@@ -273,6 +273,7 @@ router.post('/', (req, res, next) => {
 
 /* Update an existing recipce, */
 router.put('/', (req, res, next) => {
+  const context = {};
   const recipe = helpers.sanitizeJSON(req.body);
 
   // update the recipe
@@ -287,7 +288,14 @@ router.put('/', (req, res, next) => {
               ingredient_name: ingredient.ingredient_name,
               food_group_id: ingredient.food_group_id,
             }, (err, newIngredient) => {
-              if (err) next(err);
+
+              if (err) {
+                context.feedback = err.sqlMessage;
+                context.alertType = 'danger';
+                res.send(context);
+                return;
+              }
+
               if (newIngredient) {
                 // create the recipe-ingredient record(s).
                 Recipes.addIngredient({
@@ -296,7 +304,12 @@ router.put('/', (req, res, next) => {
                   amount: ingredient.amount,
                   unit_of_measure_id: ingredient.unit_of_measure_id,
                 }, (err, result) => {
-                  if (err) next(err);
+                  if (err) {
+                    context.feedback = err.sqlMessage;
+                    context.alertType = 'danger';
+                    res.send(context);
+                    return;
+                  }
                 });
               }
             });
@@ -309,7 +322,12 @@ router.put('/', (req, res, next) => {
               amount: ingredient.amount,
               unit_of_measure_id: ingredient.unit_of_measure_id,
             }, (err, result) => {
-              if (err) next(err);
+              if (err) {
+                context.feedback = err.sqlMessage;
+                context.alertType = 'danger';
+                res.send(context);
+                return;
+              }
             });
           }
         });
@@ -320,19 +338,23 @@ router.put('/', (req, res, next) => {
             recipe_id: recipe.recipe_id,
             cuisine_id: cuisine,
           }, (err, result) => {
-            if (err) next(err);
+            if (err) {
+              context.feedback = err.sqlMessage;
+              context.alertType = 'danger';
+              res.send(context);
+              return;
+            }
+
           });
         });
       });
     });
 
 
-    res.send(
-      `<strong>Success!</strong> The recipe was successfully updated.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-       </button>`
-    );
+    // if the method hasn't returned yet, no errors were found.
+    context.alertType = 'success';
+    context.feedback = 'The recipe was successfully updated.';
+    res.send(context);
   });
 });
 
