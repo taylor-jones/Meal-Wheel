@@ -341,9 +341,10 @@ $(function() {
         //  to the ingredient name. otherwise, move to the amount.
         if (!$foodGroupId.val() && $ing.val()) {
           $el.focus();
-        } else {
-          $parents.find('.amount').focus();
         }
+        // else {
+        //   $parents.find('.amount').focus();
+        // }
       });
     }
 
