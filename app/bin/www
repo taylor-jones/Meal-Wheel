@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 
 /**
+ * NOTE: Some of the structure of the db connection and how to configure it
+ *  was inspired by following along the blog post at the following url:
+ *  https://www.terlici.com/2015/08/13/mysql-node-express.html
+ */
+
+/**
  * Module dependencies.
  */
 
