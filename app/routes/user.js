@@ -61,7 +61,11 @@ router.delete('/disliked-recipe', (req, res, next) => {
 router.put('/update', (req, res, next) => {
   const body = req.body;
   Users.getById(body.user_id, (err, user) => {
-    if (err) return next(err);
+    if (err) {
+      next(err);
+      return;
+    }
+
     if (user.length === 1) {
       const record = user[0];
 

@@ -30,6 +30,8 @@ $(function() {
   initTypeahead();
   initPopover();
 
+  // turn off autocomplete for the form
+
   // selectpicker options and setup
   $('.selectpicker').selectpicker({
     style: 'btn-select',
@@ -64,7 +66,7 @@ $(function() {
     const foodGroupId = $el.prev().val();
 
     // if the ingredient doesn't exist yet, prompt for the food group.
-    if (!ingredientId || !foodGroupId) {
+    if ($(this).val() && (!ingredientId || !foodGroupId)) {
       $el.popover('show');
     } else {
       $el.popover('hide');
@@ -270,6 +272,8 @@ $(function() {
   // initialize typeahead for ingredient names
   // NOTE: This needs to be called each time a new ingredient row is added.
   function initTypeahead() {
+    $ingredientName.attr('autocomplete', 'off');
+
     $('.ingredient-name').typeahead({
       source: ingredientList,
       items: 5,
@@ -327,6 +331,7 @@ $(function() {
         const $el = $(this);
         const $parents = $el.parents('.ingredient-row');
         const $foodGroupId = $parents.find('.food-group-id');
+        const $ing = $parents.find('.ingredient-name');
 
         // set the food group id for the current ingredient
         if (!$foodGroupId.val()) {
@@ -335,7 +340,7 @@ $(function() {
 
         // if a food group wasn't selected, move focus back
         //  to the ingredient name. otherwise, move to the amount.
-        if (!$foodGroupId.val()) {
+        if (!$foodGroupId.val() && $ing.val()) {
           $el.focus();
         } else {
           $parents.find('.amount').focus();
