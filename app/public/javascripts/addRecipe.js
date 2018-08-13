@@ -1,5 +1,5 @@
 $(function() {
-  const BASE_INGREDIENT_COUNT = 3;
+  const BASE_INGREDIENT_COUNT = 1;
 
   // cache DOM
   const $ingredientName = $('.ingredient-name');
@@ -12,7 +12,7 @@ $(function() {
   const $recipeCuisines = $('#recipe-cuisines');
   const $userId = $('#user-id');
   const $foodGroupSelector = $('#food-group-selector');
-  
+
   const recipeForm = document.querySelector('#recipe-form');
   const $recipeForm = $('#recipe-form');
   const $dbResponse = $('#db-response');
@@ -39,6 +39,8 @@ $(function() {
     loadExistingReipce();
   } else {
     $checkDelete.parent('.col-sm').remove();
+    addIngredientRow();
+    addIngredientRow();
   }
 
 
@@ -48,7 +50,9 @@ $(function() {
    */
 
   $(document).on('change', '#food-group-selector', function() {
-    $(`#food-group-selector [value="${$(this).val()}"`).prop({ selected: true });
+    $(`#food-group-selector [value="${$(this).val()}"`).prop({
+      selected: true
+    });
   });
 
 
@@ -118,23 +122,25 @@ $(function() {
 
   // delete the recipe
   $('#delete-recipe').click(function(event) {
-      const req = new XMLHttpRequest();
+    const req = new XMLHttpRequest();
 
-      req.open('DELETE', '/recipes', true);
-      req.setRequestHeader('Content-Type', 'application/json');
-      req.addEventListener('load', function() {
-        if (req.status >= 200 && req.status < 400) {
-          window.location.href = '/recipes/add';
-          $dbResponse.html(req.responseText);
-          $dbResponse.addClass('show');
+    req.open('DELETE', '/recipes', true);
+    req.setRequestHeader('Content-Type', 'application/json');
+    req.addEventListener('load', function() {
+      if (req.status >= 200 && req.status < 400) {
+        window.location.href = '/recipes/add';
+        $dbResponse.html(req.responseText);
+        $dbResponse.addClass('show');
 
-          setTimeout(function() {
-            $dbResponse.removeClass('show');
-          }, 3000);
-        }
-      });
+        setTimeout(function() {
+          $dbResponse.removeClass('show');
+        }, 3000);
+      }
+    });
 
-      req.send(JSON.stringify({ recipe_id: $recipeId.val() }));
+    req.send(JSON.stringify({
+      recipe_id: $recipeId.val()
+    }));
   });
 
 
@@ -180,12 +186,11 @@ $(function() {
 
 
 
-
   /**
    * Functions
    */
 
-   // loads an existing recipe into the form fields.
+  // loads an existing recipe into the form fields.
   function loadExistingReipce() {
     const curr = currentRecipe;
 
@@ -235,7 +240,6 @@ $(function() {
     initTypeahead();
     initPopover();
   }
-
 
 
 
@@ -338,16 +342,15 @@ $(function() {
 
 });
 
-function clearTable(){
+function clearTable() {
   ingredientName.textContent = '';
   recipeId.textContent = '';
   recipeName.textContent = '';
   recipeDesc.textContent = '';
-  recipeInstr.textContent = ''; 
-  recipeImgUrl.textContent = ''; 
+  recipeInstr.textContent = '';
+  recipeImgUrl.textContent = '';
   recipeCategory.textContent = '';
   recipeCuisines.textContent = '';
   userId.textContent = '';
   foodGroupSelector.textContent = '';
-
 }

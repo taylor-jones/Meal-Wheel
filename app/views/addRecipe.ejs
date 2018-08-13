@@ -82,52 +82,6 @@
 									</div>
 								</div>
 							</div>
-
-							<div class="form-row mb-1 ingredient-row">
-								<div class="input-group">
-									<input type="hidden" name="ingredient_id" class="ingredient-id">
-									<input type="hidden" name="food_group_id" class="food-group-id">
-									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
-									<input type="number" step="0.1" class="form-control form-control-slim amount" placeholder="Qty" name="amount" min="0.1" required>
-
-									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
-										<option value="" selected>Unit</option>
-										<% for (let i = 0; i < units.length; i++) { %>
-										<option value="<%= units[i].unit_of_measure_id %>"><%= units[i].unit_of_measure_name %></option>
-										<% } %>
-									</select> 
-
-									<div class="input-group-append">
-										<button class="btn btn-danger remove-ingredient" type="button">
-											<i class="fas fa-times"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-
-							<div class="form-row mb-1 ingredient-row">
-								<div class="input-group">
-									<input type="hidden" name="ingredient_id" class="ingredient-id">
-									<input type="hidden" name="food_group_id" class="food-group-id">
-									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
-									<input type="number" step="0.1" class="form-control form-control-slim amount" placeholder="Qty" name="amount" min="0.1" required>
-							
-									<select class="custom-select unit-of-measure" name="unit_of_measure_id">
-										<option value="" selected>Unit</option>
-										<% for (let i = 0; i < units.length; i++) { %>
-											<option value="<%= units[i].unit_of_measure_id %>">
-												<%= units[i].unit_of_measure_name %>
-											</option>
-											<% } %>
-									</select>
-							
-									<div class="input-group-append">
-										<button class="btn btn-danger remove-ingredient" type="button">
-											<i class="fas fa-times"></i>
-										</button>
-									</div>
-								</div>
-							</div>
 						</div>
 							
 
