@@ -181,6 +181,10 @@ body.admin {
   color: #bbb;
 }
 
+.form-control-clear.non-empty {
+  color: #e57373;
+}
+
 .custom-select {
   font-size: 0.85rem;
   max-width: 125px;
@@ -358,7 +362,7 @@ td.record-actions {
 
  .card-base i,
  .card-head i {
-   color: #ddd;
+   color: #ccc;
    margin: 0.25rem;
    cursor: pointer;
    transition: color 150ms;

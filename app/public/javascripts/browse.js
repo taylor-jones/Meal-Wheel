@@ -1,25 +1,27 @@
 $(function() {
-  /**
-   * Cache DOM
-   */
-  const recipes = recipeList; // recipeList is declared in browse.ejs
-  const ingredients = ingredientList // declared in browse.ejs
+  const NON_EMPTY_CLASS = 'non-empty';
+
+  // each of these is passed to browse.js via browse.ejs
+  const recipes = recipeList;
+  const ingredients = ingredientList;
   const cuisines = cuisineList;
   const categories = categoryList;
   const diets = dietList;
 
+  /**
+   * Cache DOM
+   */
   const $recipeItem = $('.recipe-item');
   const $category = $('#recipe-category');
   const $cuisine = $('#recipe-cuisine');
   const $diet = $('#dietary-restriction');
   const $search = $('#search');
-  const $typeahead = $('.twitter-typeahead');
   const $clear = $('.form-control-clear');
 
-  // array of all the recipe components
+
+  // build the array of all the recipe components
   let searchList = buildSearchList();
   let $contingentFilter;
-
 
 
   // setup the recipe item seach.
@@ -47,9 +49,9 @@ $(function() {
     },
   });
 
+
   // initialize the bloodhound suggestion engine
   recipeSearch.initialize();
-
 
   // instantiate the typeahead UI
   $search.typeahead(null, {
@@ -71,6 +73,7 @@ $(function() {
 
   // handle a search selection
   $search.bind('typeahead:select', function(ev, item) {
+    $search.parent().prev().addClass(NON_EMPTY_CLASS);
     getSearchResults(item);
   });
 
@@ -80,23 +83,27 @@ $(function() {
    */
   $category.change(() => {
     updateRecipeDisplay();
+    $category.prev().addClass(NON_EMPTY_CLASS);
   });
 
   $cuisine.change(() => {
     updateRecipeDisplay();
+    $cuisine.prev().addClass(NON_EMPTY_CLASS);
   });
 
   $diet.change(() => {
     updateRecipeDisplay();
+    $diet.prev().addClass(NON_EMPTY_CLASS);
   });
 
 
   // clear any of the filters
   $clear.click(function() {
-    clearFilter($(this).next());
+    const $el = $(this);
+    clearFilter($el.next());
     updateRecipeDisplay();
+    $el.removeClass(NON_EMPTY_CLASS);
   });
-
 
 
 
@@ -263,6 +270,7 @@ $(function() {
       clearFilter($temp);
     }
   }
+
 
 
   // looks at each of the recipe filters and shows only the
