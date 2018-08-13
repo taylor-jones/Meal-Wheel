@@ -42,7 +42,7 @@ $(function() {
   // check if a current recipe exists.
   // if so, set the form up for editing the recipe.
   if (currentRecipe) {
-    loadExistingReipce();
+    loadExistingRecipe();
   } else {
     $checkDelete.parent('.col-sm').remove();
     addIngredientRow();
@@ -195,7 +195,7 @@ $(function() {
    */
 
    // loads an existing recipe into the form fields.
-  function loadExistingReipce() {
+  function loadExistingRecipe() {
     const curr = currentRecipe;
 
     $('#submit-recipe').val('Update Recipe');
@@ -244,7 +244,6 @@ $(function() {
     initTypeahead();
     initPopover();
   }
-
 
 
 
