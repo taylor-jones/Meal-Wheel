@@ -31,6 +31,8 @@
  }
 
  $(function() {
+    const NON_EMPTY_CLASS = 'non-empty';
+
    /**
     * Cache DOM
     */
@@ -43,16 +45,37 @@
    const diet = document.querySelector('#diet');
 
   const $clear = $('.form-control-clear');
+  const $select = $('select');
+
+  /**
+   * Event Handlers
+   */
+
+  $(category).change(() => {
+    $(category).prev().addClass(NON_EMPTY_CLASS);
+  });
+
+  $(cuisine).change(() => {
+    $(cuisine).prev().addClass(NON_EMPTY_CLASS);
+  });
+
+  $(diet).change(() => {
+    $(diet).prev().addClass(NON_EMPTY_CLASS);
+  });
+
 
   // clear any of the filters
   $clear.click(function() {
-    const $next = $(this).next();
+    const $el = $(this);
+    const $next = $el.next();
 
     if ($next.is('input')) {
       $next.val('');
     } else {
       $next.prop('selectedIndex', 0);
     }
+
+    $el.removeClass(NON_EMPTY_CLASS);
   });
 
 
