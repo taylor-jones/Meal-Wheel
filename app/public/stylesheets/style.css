@@ -40,6 +40,10 @@ body:not(.admin) > [class^="container"] {
   margin-bottom: 0;
 }
 
+.navbar-toggler {
+  border: none;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
