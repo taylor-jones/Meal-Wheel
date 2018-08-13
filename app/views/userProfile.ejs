@@ -71,9 +71,30 @@
 			<div class="row justify-content-center">
 				<div class="col-sm-10 col-md-8 col-lg-6">
 					<div class="btn-group mt-3 mb-5">
-						<button class="btn btn-secondary btn-nav-link" id="likedButton">Liked</button>
-						<button class="btn btn-secondary btn-nav-link" id="dislikedButton">Disliked</button>
-						<button class="btn btn-secondary btn-nav-link" id="submittedButton">Submitted</button>
+						<button class="btn btn-secondary btn-nav-link" id="likedButton">
+							Liked
+							<% if (locals.liked_recipes) { %>
+								<span class="user-recipe-count"><%= liked_recipes.length %></span>
+							<% } else { %>
+								<span class="user-recipe-count">0</span>
+							<% } %>
+						</button>
+						<button class="btn btn-secondary btn-nav-link" id="dislikedButton">
+							Disliked
+							<% if (locals.disliked_recipes) { %>
+								<span class="user-recipe-count"><%= disliked_recipes.length %></span>
+							<% } else { %>
+								<span class="user-recipe-count">0</span>
+							<% } %>
+						</button>
+						<button class="btn btn-secondary btn-nav-link" id="submittedButton">
+ 							Submitted
+							<% if (locals.submitted_recipes) { %>
+								<span class="user-recipe-count"><%= submitted_recipes.length %></span>
+							<% } else { %>
+								<span class="user-recipe-count">0</span>
+							<% } %>
+						</button>
 					</div>
 				</div>
 			</div>

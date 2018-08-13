@@ -587,11 +587,6 @@ td.record-actions {
  * Typography
  */
 
-body.bg-cover:not(.bg-shade) h1 {
-  /* text-shadow: 2px 2px 2px rgba(22, 22, 22, .4); */
-  /* text-shadow: 3px 2px 2px rgba(255, 255, 255, .2); */
-}
-
 p.keep-spacing {
   white-space: pre-wrap;
   line-height: 125%;
@@ -638,13 +633,32 @@ p.keep-spacing {
  }
 
  .btn-nav-link {
+   display: flex;
+   justify-content: center;
+   align-items: center;
    min-width: 6rem;
    font-weight: 300;
+   padding-left: 1rem;
+   font-size: .9rem;
  }
+
+.user-recipe-count {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.25rem;
+  font-size: 0.7rem;
+  border-radius: 50%;
+  margin-left: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media (min-width: 576px) {
   .btn-nav-link {
     min-width: 8rem;
+    font-size: 1rem;
   }
 }
 
