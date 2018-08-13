@@ -102,6 +102,7 @@ router.get('/:id', (req, res, next) => {
         recipe: recipe[0],
         likedRecipes: [],
         dislikedRecipes: [],
+        session: req.session,
       };
 
       // if a session user was found, replace the empty liked/disliked
