@@ -58,29 +58,6 @@ router.get('/', (req, res, next) => {
 
 
 
-router.get('/significant', (req, res, next) => {
-  if (req.session.user) {
-    let id = req.session.user.user_id;
-    User.getLikedRecipes(id, (err, likedRecipes) => {
-      User.getDislikedRecipes(id, (err, dislikedRecipes) => {
-        User.getSubmittedRecipes(id, (err, submittedRecipes) => {
-
-          res.send({
-            user_id: req.session.user.user_id,
-            liked: likedRecipes,
-            disliked: dislikedRecipes,
-            submitted: submittedRecipes,
-            liked_empty: 'You don\'t liked anything you see, huh?',
-            disliked_empty: 'You must have liked everything you\'ve seen so far!',
-            submitted_empty: 'You haven\'t submitted any recipes, yet. Now would be a great time!',
-          });
-        });
-      });
-    });
-  }
-});
-
-
 router.get('/liked', (req, res, next) => {
   if (req.session.user) {
     let id = req.session.user.user_id;

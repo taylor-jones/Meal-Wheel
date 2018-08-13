@@ -67,6 +67,7 @@ router.get('/:id/edit', (req, res, next) => {
                 units: units,
                 foodGroups: foodGroups,
                 user_id: userId,
+                session: req.session,
                 recipe: recipe[0],
               });
             });
