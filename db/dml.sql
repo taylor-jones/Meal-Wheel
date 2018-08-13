@@ -393,19 +393,6 @@ GROUP BY d.dietary_restriction_id;
 ----- SELECT queries to retrieve user-related recipes
 --
 
--- get the 10 most-liked recipes
-SELECT
-  r.recipe_id,
-  r.recipe_name,
-  COUNT(sr.recipe_id) AS likes
-FROM user_significant_recipe AS sr
-  INNER JOIN recipe AS r ON sr.recipe_id = r.recipe_id
-WHERE sr.recipe_significance_type_id = 1
-GROUP BY sr.recipe_id
-ORDER BY likes
-LIMIT 10;
-
-
 -- get all 'liked' recipes for a single user
   SELECT
     recipe_id, 
@@ -757,27 +744,51 @@ WHERE recipe_id = [selected_recipe_id];
 -- *  DELETES
 -- ********************************
 
+-- delete a user
+DELETE FROM app_iser
+WHERE user_id = [selected_user_id];
+
+-- delete a cuisine
+DELETE FROM cuisine 
+WHERE cuisine_id = [selected_cuisine_id];
+
+-- delete a dietary_restriction
+DELETE FROM dietary_restriction 
+WHERE dietary_restriction_id = [selected_dietary_restriction_id];
+
+-- delete a food_group
+DELETE FROM food_group 
+WHERE food_group_id = [selected_food_group_id];
+
+-- delete an ingredient
+DELETE FROM ingredient 
+WHERE ingredient_id = [selected_ingredient_id];
+
+-- delete a recipe_category
+DELETE FROM recipe_category 
+WHERE recipe_category_id = [selected_recipe_category_id];
+
+-- delete a unit_of_measure
+DELETE FROM unit_of_measure 
+WHERE unit_of_measure_id = [selected_unit_of_measure_id];
+
 -- delete a recipe
 DELETE FROM recipe 
 WHERE recipe_id = [selected_recipe_id];
-
 
 -- delete a recipe-ingredient
 DELETE FROM recipe_ingredient 
 WHERE recipe_id = [selected_recipe_id]
 AND ingredient_id = [selected_ingredient_id];
 
-
 -- delete a recipe cuisine
 DELETE FROM recipe_cuisine 
 WHERE recipe_id = [selected_recipe_id]
 AND cuisine_id = [selected_cuisine_id];
 
-
 -- delete a user 
 DELETE FROM app_user
 WHERE user_id = [logged_in_user_id];
-
 
 -- delete a user's significant recipe
 DELETE FROM user_significant_recipe
