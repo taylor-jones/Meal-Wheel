@@ -47,6 +47,8 @@
   const $clear = $('.form-control-clear');
   const $select = $('select');
 
+  $(category).prev().addClass(NON_EMPTY_CLASS);
+
   /**
    * Event Handlers
    */
