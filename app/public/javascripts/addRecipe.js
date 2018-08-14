@@ -86,12 +86,10 @@ $(function() {
         // existing ingredient
         $el.prev().val(curr.food_group_id);
         $el.prev().prev().val(curr.ingredient_id);
-        console.log('exists');
       } else {
         // new ingredient.
         $el.prev().val(null);
         $el.prev().prev().val(null);
-        console.log('new');
       }
     } else {
       // not active
