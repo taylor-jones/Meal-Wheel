@@ -60,7 +60,7 @@ $(function() {
   });
 
 
-  $(document).on('blur', '.ingredient-name', function() {
+  $(document).on('focusout', '.ingredient-name', function() {
     const $el = $(this);
     const ingredientId = $el.prev().prev().val();
     const foodGroupId = $el.prev().val();
@@ -86,10 +86,12 @@ $(function() {
         // existing ingredient
         $el.prev().val(curr.food_group_id);
         $el.prev().prev().val(curr.ingredient_id);
+        console.log('exists');
       } else {
         // new ingredient.
         $el.prev().val(null);
         $el.prev().prev().val(null);
+        console.log('new');
       }
     } else {
       // not active
@@ -148,6 +150,8 @@ $(function() {
 
   // add the recipe to the db.
   $('#submit-recipe').click(function(event) {
+    // check for food groups.
+
     if (recipeForm.checkValidity()) {
       /* check for a recipe id. If one exists,
         this is a PUT. Otherwise, it's a POST */
@@ -325,12 +329,14 @@ $(function() {
         // reset the food group selection
         $foodGroupSelector.children().removeAttr('selected');
         $foodGroupSelector.children().first().attr('selected', true);
+        $('#submit-recipe').prop('disabled', true);
       })
       .on('hidden.bs.popover', function() {
         const $el = $(this);
         const $parents = $el.parents('.ingredient-row');
         const $foodGroupId = $parents.find('.food-group-id');
         const $ing = $parents.find('.ingredient-name');
+        $('#submit-recipe').prop('disabled', false);
 
         // set the food group id for the current ingredient
         if (!$foodGroupId.val()) {
@@ -342,9 +348,6 @@ $(function() {
         if (!$foodGroupId.val() && $ing.val()) {
           $el.focus();
         }
-        // else {
-        //   $parents.find('.amount').focus();
-        // }
       });
     }
 

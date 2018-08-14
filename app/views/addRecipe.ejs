@@ -64,7 +64,7 @@
 							<div class="form-row mb-1 ingredient-row">
 								<div class="input-group">
 									<input type="hidden" name="ingredient_id" class="ingredient-id">
-									<input type="hidden" name="food_group_id" class="food-group-id">
+									<input type="hidden" name="food_group_id" class="food-group-id" required>
 									<input type="text" class="form-control ingredient-name" name="ingredient_name" required placeholder="Ingredient">
 									<input type="number" step="0.1" class="form-control form-control-slim amount" placeholder="Qty" name="amount" min="0.1" required>
 
@@ -104,32 +104,34 @@
 							</div>
 						</div>
 
+
+							<!-- food group popover -->
+							<div id="popover-food-group" class="popover d-none">
+								<div class="form-row">
+									<div class="form-group">
+										<select class="form-control form-control-sm" id="food-group-selector">
+											<option value="" selected disabled hidden>-- Select --</option>
+											<% for (let i = 0; i < foodGroups.length; i++) { %>
+												<option value="<%= foodGroups[i].food_group_id %>"><%= foodGroups[i].food_group_name %></option>
+											<% } %>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-row">
+									<div class="form-group btn-row">
+										<div class="btn btn-sm btn-secondary" id="food-group-cancel">Cancel</div>
+										<div class="btn btn-sm btn-primary" id="food-group-select">Select</div>
+									</div>
+								</div>
+							</div>
+
+
 					</form>
 				</div>
 			</div>
 		</div>
 
-
-		<!-- food group popover -->
-		<div id="popover-food-group" class="popover d-none">
-			<div class="form-row">
-				<div class="form-group">
-					<select class="form-control form-control-sm" id="food-group-selector">
-						<option value="" selected disabled hidden>-- Select --</option>
-						<% for (let i = 0; i < foodGroups.length; i++) { %>
-							<option value="<%= foodGroups[i].food_group_id %>"><%= foodGroups[i].food_group_name %></option>
-						<% } %>
-					</select>
-				</div>
-			</div>
-
-			<div class="form-row">
-				<div class="form-group btn-row">
-					<div class="btn btn-sm btn-secondary" id="food-group-cancel">Cancel</div>
-					<div class="btn btn-sm btn-primary" id="food-group-select">Select</div>
-				</div>
-			</div>
-		</div>
 
 
 		<!-- recipe delete confirmation modal -->
