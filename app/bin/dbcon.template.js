@@ -5,10 +5,10 @@ const mysql = require('mysql');
 const dbs = {
   // for use with OSU mySQL db
   production: {
-    host: 'classmysql.engr.oregonstate.edu',
-    user: 'cs340_onid',
+    host: 'host',
+    user: 'username',
     password: 'password',
-    database: 'cs340_onid',
+    database: 'database',
   },
   // for use with local mySQL db
   development: {
