@@ -3,14 +3,14 @@ const mysql = require('mysql');
 // This variable needs to be set in ./bin/www.
 // The deafult is DEVELOPMENT.
 const dbs = {
-  // for use with OSU mySQL db
+  // for use with production db.
   production: {
     host: 'host',
     user: 'username',
     password: 'password',
     database: 'database',
   },
-  // for use with local mySQL db
+  // for use with local mySQL db.
   development: {
     host: 'localhost',
     user: 'user',
