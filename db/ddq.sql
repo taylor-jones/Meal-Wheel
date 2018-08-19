@@ -30,7 +30,6 @@ DROP TABLE IF EXISTS ingredient;
 DROP TABLE IF EXISTS food_group;
 DROP TABLE IF EXISTS app_user;
 
-
 --
 -- Table structure for app_user
 --
@@ -1096,7 +1095,6 @@ VALUES
   (1000, 2),
   (1200, 3);
 
-
   -- Recipe
 INSERT INTO
   recipe (
@@ -1116,8 +1114,72 @@ VALUES
   ('Watermelon Pitcher Margaritas','Delicious Margaritas designed to serve 5-6', 
     'Bring 1/2 cup sugar, water, and orange zest in a small saucepan to boil, stirring constantly. Simmer until sugar is dissolved, about 3 minutes. Remove simple syrup from heat and allow to cool completely.\n\nPlace watermelon in a blender or food processor. Pulse until pureed.\n\nStir watermelon puree into a large pitcher with simple syrup, tequila, and lime juice.\n\nPlace a small amount of salt or sugar into a saucer. Rub edge of margarita glasses with a lime wedge to moisten. Lightly dip the rim of the glass into the saucer to rim the glass; tap off excess salt or sugar.\n\nFill rimmed glasses with crushed ice; pour margarita mixture into glasses and garnish with lime wedges to serve.', 3, 'http://i.imgur.com/edH3zxw.jpg', 3);
   
+   -- Recipe
+INSERT INTO
+  recipe (
+    recipe_name,
+    recipe_description,
+    recipe_instructions,
+    recipe_category_id,
+    recipe_image_url,
+    user_id
+  )
+VALUES
+    ('Milk and Cereal',
+    'How else could you start your day?', 
+    'Pour the cereal into the bowl first. And then add the milk. \n\n For those who can\'t drink milk, try almond instead, or soy. Coconut milk is too thick.',
+    1,
+    'https://i.imgur.com/HUVtaUj.jpg',
+    3),
+  ('Peanut Butter Toast',
+    'Toast, with peanut butter!', 
+    'Toast your bread slices to your desired amount of toasted...\n\nThen spread the peanut butter, but only on the top side!',
+    2,
+    'https://i.imgur.com/gUaY6jf.jpg',
+    3),
+  ('Corn on the Cob',
+    'Not just for thanksgiving', 
+    'Put water into a pot. Fill to about 2 inches. Place on the stove, and bring to a boil.
+      Add the corn to your steamer insert, place in the pot to steam, and cover with a lid. Steam for about 15 minutes. 
+      Remove from the heat, and serve.
+      Salt and butter to taste.\n\n
+      Don\'t forget to floss!',
+    5,
+    'https://i.imgur.com/xGIjQCK.jpg',
+    NULL),
+  ('Watermelon Gazpacho',
+    'A cold soup for a hot day', 
+    'Take half your watermelon and blend it. Spoon out the other half, and put the chunks in a bowl with the blended watermelon.
+      Finely dice your onion, cilantro, and peppers. Dice your cucumbers into medium sized pieces.  Add these to the bowl. 
+      Add a pinch of salt, and refrigerate. Serve cold.',
+    3,
+    NULL,
+    3),
+  ('Hot Ham and Cheese',
+    'Perfect pair with a sick day and reruns of "The Price is Right"', 
+    'Heat up a pan on the stove, and melt some butter on it.
+      Place the first piece of bread on the pan. Quickly toss on some cheese, some ham, and then more cheese. 
+      Cover with the second slice of bread. Butter the top, flip when the first slice starts to brown.',
+    1,
+    'https://i.imgur.com/slFIReI.jpg',
+    3),
+  ('Trail Mix',
+    'Always Be Prepared', 
+    'Just mix whatever nuts, dried fruits, and chocolate chip pieces you want into a bag. It doesn\'t really matter.',
+    2,
+    'https://i.imgur.com/m4C6txx.jpg',
+    3),
+  ('Egg Bake',
+    'Breakfast Pie!', 
+    'Preheat the oven to 350. 
+      Mix up some eggs, spinach, cheese, and salt in a bowl.
+      Pour into the pie crust. Place in oven.
+      Bake for about 45 minutes, or until eggs are cooked.',
+    1,
+    NULL,
+    NULL);
 
-  -- Recipe Cuisine
+    -- Recipe Cuisine
 INSERT INTO
   recipe_cuisine (recipe_id, cuisine_id)
 VALUES
@@ -1125,8 +1187,27 @@ VALUES
   (2, 15),
   (3, 8),
   (3, 9),
-  (3, 10);
-  
+  (3, 10),
+  (4, 4),
+  (5, 4),
+  (6, 4),
+  (7, 4),
+  (8, 4),
+  (9, 4),
+  (10, 4);
+
+    -- User Significant Recipe
+INSERT INTO
+  user_significant_recipe(user_id, recipe_id, recipe_significance_type_id)
+VALUES
+  (1, 1, 1),
+  (2, 1, 2),
+  (3, 2, 1),
+  (3, 3, 1),
+  (3, 8, 1),
+  (3, 9, 1),
+  (3, 6, 2),
+  (3, 7, 2);
 
   -- Recipe Ingredient
 INSERT INTO
@@ -1147,12 +1228,26 @@ VALUES
   (3, 750, 4, 1),
   (3, 778, 1, 2),
   (3, 595, 1, 3),
-  (3, 366, 1, NULL);
-  
-
-  -- User Significant Recipe
-INSERT INTO
-  user_significant_recipe(user_id, recipe_id, recipe_significance_type_id)
-VALUES
-  (1, 1, 1),
-  (2, 1, 2);
+  (3, 366, 1, NULL),
+  (4, 109, 1, 1),
+  (4, 398, 1, 1),
+  (5, 64, 2, 5),
+  (5, 478, 4, 2),
+  (6, 82, 1, 2),
+  (6, 172, 12, NULL),
+  (6, 595, 1, 12),
+  (6, 747, 2, 1),
+  (7, 595, 1, 12),
+  (7, 750, 1, NULL),
+  (7, 171, 1, NULL),
+  (7, 206, 4, NULL),
+  (7, 493, 2, NULL),
+  (8, 64, 2, 5),
+  (8, 80, 4, 2),
+  (8, 112, 2, 5),
+  (8, 303, 10, 5),
+  (9, 189, 1, NULL),
+  (9, 432, 1, NULL),
+  (10, 226, 10, NULL),
+  (10, 502, 1, NULL),
+  (10, 112, 4, 5);
