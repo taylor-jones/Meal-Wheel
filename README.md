@@ -1,6 +1,6 @@
 # Meal Wheel
 
-Meal Wheel is web application completed by Andrew Soback and Taylor Jones for coursework at Oregon State University.
+Meal Wheel is a web application completed by Andrew Soback and Taylor Jones for coursework at Oregon State University.
 
 
 
