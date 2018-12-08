@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ 
-  secret: '$@s1dWp[]VQa9rs',
+  secret: 'password',
   resave: false,
   saveUninitialized: false,
 }));
