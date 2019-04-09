@@ -14,7 +14,7 @@ Finally, a user has the ability to login, logout, register, and visit their prof
 <br>
 
 ## Database
-For details about the database structure and relationship see [here](db/DB_README.md).
+For details about the database structure and relationships see [here](db/DB_README.md).
 
 ## Application
 For details about the application server and front-end, see [here](app/APP_README.md).
