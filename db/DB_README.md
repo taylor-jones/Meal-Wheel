@@ -1,12 +1,15 @@
 # Database Outline, In Words
 
 ## Entities
-Ingredient - ingredients are integral to the database, and they are used to make up the recipes. Ingredients have the following attributes:
+### Ingredient
+__Ingredients are integral to the database, and they are used to make up the recipes. Ingredients have the following attributes:__
+
 - ingredient_id: This number is automatically assigned to each ingredient when it is created in our database. It is an auto-incrementing number which is the primary key.
 ingredient_name: This value represents the name of the ingredient. This is represented by a string which is a maximum of 255 characters. It cannot be blank and there is no default value.
 - food_group_id: Foreign key describing which food group the ingredient belongs to.
 
-Recipe - recipes are essentially the purpose of the entire database, and a recipe participates in relations with several other entities. Recipes have the following attributes:
+### Recipe
+__Recipes are essentially the purpose of the entire database, and a recipe participates in relations with several other entities. Recipes have the following attributes:__
 
 - recipe_id: This number is automatically assigned to each recipe when it is created in our database. It is an auto-incrementing number which is the primary key.
 - recipe_name: This value represents the name of the recipe. This is represented by a string which is a maximum of 255 characters. It cannot be blank and there is no default value.
@@ -16,34 +19,47 @@ Recipe - recipes are essentially the purpose of the entire database, and a recip
 - created_date: A timestamp that maintains the date of the recipe’s creation. The default value is the current date and time.
 - recipe_description: A text block that allows the user to briefly describe the recipe in a sentence or two.
 
-Recipe Category - A recipe category is used to describe which category a recipe fits into. Tentative categories include “Main Course”, “Side dish”, “Dessert”, or “Beverage”.
+### Recipe Category
+__A recipe category is used to describe which category a recipe fits into. Tentative categories include “Main Course”, “Side dish”, “Dessert”, or “Beverage”.__
+
 - recipe_category_id: Auto-incrementing primary key number automatically assigned to each recipe category record when it is created in our database. 
 - recipe_category_name: Text value for the name of the recipe category item with a max length of 35 characters. This cannot be blank and there is no default value.
 
-Recipe Significance Type - A recipe significance type describes a type of significance that a recipe may have (which will be used in relation to a user_recipe_significance record. The user_recipe_significance table is not represented as an entity in our outline, but it will be represented as a table in our database, as it represents the ternary relationship between a user, a recipe, and a recipe significance type). This will include “liked” or “disliked”.
+### Recipe Significance Type
+A recipe significance type describes a type of significance that a recipe may have (which will be used in relation to a user_recipe_significance record. The user_recipe_significance table is not represented as an entity in our outline, but it will be represented as a table in our database, as it represents the ternary relationship between a user, a recipe, and a recipe significance type). This will include “liked” or “disliked”.
+
 - recipe_significance_type_id: Auto-incrementing primary key number automatically assigned to each recipe significance type record when it is created in our database. 
 - recipe_significance_type_name: Text value for the name of the recipe significance type item with a max length of 15 characters. This cannot be blank and there is no default value.
 
-Dietary Restriction - A dietary restriction describes the name of a specified diet that may have unique ingredient restrictions. A dietary restriction record may then be related to ingredients via a record in the ingredient_dietary_restriction table (which is not on our list of entities, but will become a table to represent the many-to-many relationship between ingredients and dietary restrictions), which will indicate which ingredients belong to a given dietary restriction.
+### Dietary Restriction
+__A dietary restriction describes the name of a specified diet that may have unique ingredient restrictions. A dietary restriction record may then be related to ingredients via a record in the ingredient_dietary_restriction table (which is not on our list of entities, but will become a table to represent the many-to-many relationship between ingredients and dietary restrictions), which will indicate which ingredients belong to a given dietary restriction.__
+
 - dietary_restriction_id: Auto-incrementing primary key number automatically assigned to each dietary requirement record when it is created in our database. 
 - dietary_restriction_name: Text value for the name of the dietary requirement, with a max length of 35 characters. This cannot be blank and there is no default value.
 
-Cuisine - A cuisine describes a style, method, country, or region of a recipe.
+### Cuisine
+__A cuisine describes a style, method, country, or region of a recipe.__
+
 - cuisine_id: Auto-incrementing primary key number automatically assigned to each cuisine record when it is created in our database. 
 - cuisine_name: Text value for the name of the cuisine, with a max length of 35 characters. This cannot be blank and there is no default value.
 
-Unit of Measure - A unit of measure describes a standard measurement from which to quantify an ingredient that is used within a recipe. 
+### Unit of Measure
+__A unit of measure describes a standard measurement from which to quantify an ingredient that is used within a recipe.__
+
 - unit_of_measure_id: Auto-incrementing primary key number automatically assigned to each unit when it is created in our database. 
 - unit_of_measure_name: Text value for the unit of measure type, with a max length of 25 characters. This cannot be blank and there is no default value.
 - unit_of_measure_abbrev: Text value abbreviating the name. Max length of 5 characters. This can be blank and the default value is NULL.
 
-App User - A user is a person that creates an account presumably for the purposes of creating, reading, updating, or deleting recipes.
+### App User
+__A user is a person that creates an account presumably for the purposes of creating, reading, updating, or deleting recipes.__
 - user_id: Auto-incrementing primary key number automatically assigned to each user when their profile is created in our database.
 - user_name: Text value that represents a pseudo-name for a user which has a max length of 50 characters. This cannot be blank and there is no default value. 
 - user_email: Text value for the user’s email address with a max length of 150 characters. This cannot be blank and there is no default value.
 - user_password: Text value for the user’s password with a max length of 20. This cannot be blank and there is no default value.
 
-Food Group - categories for organizing what each ingredient is. This adds another layer of abstraction that helps us generate better recipes for users. Examples include “Poultry” and “Fruit.”
+### Food Group
+__Categories for organizing what each ingredient is. This adds another layer of abstraction that helps us generate better recipes for users. Examples include “Poultry” and “Fruit.”__
+
 - food_group_id: Primary key number, has already been designated by the USDA document listing ingredients that we are using. Auto-increments for any other food groups created by users.
 - food_group_name: Text value up to 50 characters that names the food group. Cannot be null.
 
